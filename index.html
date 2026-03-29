@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>G4V Clarksville Dashboard</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <h1>Guitars For Vets: Clarksville Chapter</h1>
+    </header>
+
+    <div id="impact-summary" class="impact-banner">
+        <div class="stat-card">
+            <span class="stat-label">Total Veterans Reached</span>
+            <span id="total-vets" class="stat-value">0</span>
+        </div>
+        <div class="stat-card">
+            <span class="stat-label">Graduated Alumni</span>
+            <span id="grad-count" class="stat-value">0</span>
+        </div>
+        <div class="stat-card">
+            <span class="stat-label">Active Leads</span>
+            <span id="active-leads" class="stat-value" style="font-size: 1.2rem;">TBD</span>
+        </div>
+    </div>
+
+    <div class="search-container">
+        <input type="text" id="vet-search" placeholder="Search Veteran Name..." onkeyup="searchVets()">
+    </div>
+
+    <div id="waitlist-section" class="cycle-card" style="border-left-color: #CC5500; display: none; margin-bottom: 20px; padding: 15px;">
+        <div onclick="toggleWaitlist()" style="cursor: pointer; display: flex; justify-content: space-between; align-items: center;">
+            <h2 style="color: #FFD700; margin: 0; font-size: 1.4rem;">Chapter Waitlist (<span id="waitlist-count">0</span>)</h2>
+            <span id="waitlist-arrow" style="color: #FFD700; font-size: 1.1rem; font-weight: bold;">▼ VIEW LIST</span>
+        </div>
+        
+        <div id="waitlist-content" style="display: none; margin-top: 20px; border-top: 1px solid #444; padding-top: 10px;">
+            <table style="font-size: 0.9rem;">
+                <thead>
+                    <tr>
+                        <th>Veteran</th>
+                        <th>Status / Notes</th>
+                        <th>Availability</th>
+                    </tr>
+                </thead>
+                <tbody id="waitlist-body"></tbody>
+            </table>
+        </div>
+    </div>
+
+    <main id="dashboard-root"></main>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.3.2/papaparse.min.js"></script>
+
+    <script>
+        const mainContainer = document.getElementById('dashboard-root');
+        
+        function toggleWaitlist() {
+            const content = document.getElementById('waitlist-content');
+            const arrow = document.getElementById('waitlist-arrow');
+            if (content.style.display === "none") {
+                content.style.display = "block";
+                arrow.innerText = "▲ CLOSE LIST";
+            } else {
+                content.style.display = "none";
+                arrow.innerText = "▼ VIEW LIST";
+            }
+        }
+
+        function calculateProgress(cycle) {
+            const today = new Date();
+            if (!cycle.startDate || !cycle.endDate) return 0;
+            const start = new Date(cycle.startDate);
+            const end = new Date(cycle.endDate);
+            if (cycle.status === "Completed" || today > end) return 100;
+            if (cycle.status === "Active") {
+                const current = parseInt(cycle.currentSession) || 0;
+                return Math.round((current / 10) * 100);
+            }
+            if (today < start) return 0;
+            const totalDuration = end - start;
+            const elapsed = today - start;
+            return totalDuration > 0 ? Math.round((elapsed / totalDuration) * 100) : 0;
+        }
+
+        function buildDashboard(cycleData) {
+            let totalReached = 0;
+            let totalGrads = 0;
+            let activeInstructors = new Set();
+            mainContainer.innerHTML = ''; 
+
+            cycleData.forEach(cycle => {
+                totalReached += cycle.vets.length;
+                totalGrads += cycle.vets.filter(v => v.availability && v.availability.trim().toLowerCase() === "graduated").length;
+
+                if (cycle.status === "Active") {
+                    cycle.instructors.forEach(name => activeInstructors.add(name));
+                }
+
+                const progressValue = calculateProgress(cycle);
+                const cycleSection = document.createElement('section');
+                cycleSection.className = 'cycle-card';
+                
+                let rows = '';
+                cycle.vets.forEach(vet => {
+                    let displayStatus = (cycle.status === "Active") ? "In Lessons" : 
+                                       (cycle.status === "Upcoming") ? "Confirmed" : 
+                                       (cycle.status === "Completed") ? "Graduated" : "Waiting";
+                    
+                    rows += `
+                        <tr class="${vet.availability === 'Graduated' ? 'grad-row' : ''}">
+                            <td>${vet.seq || '-'}</td>
+                            <td class="vet-name-cell" style="font-weight:bold;">${vet.name}</td>
+                            <td>${displayStatus}</td>
+                            <td class="status-${vet.availability.toLowerCase()}">${vet.availability}</td>
+                        </tr>`;
+                });
+
+                // Formatting Timeline Strings
+                const startDisp = cycle.startDate || "TBD";
+                const endDisp = cycle.endDate || "TBD";
+
+                cycleSection.innerHTML = `
+                    <div class="card-header">
+                        <div style="display: flex; justify-content: space-between; align-items: baseline; flex-wrap: wrap; margin-bottom: 10px;">
+                            <h2 style="margin: 0; color: #FFD700;">Cycle ${cycle.cycleId} (${cycle.status})</h2>
+                            <span style="color: #a1a1a1; font-size: 0.9rem; font-weight: 800; text-transform: uppercase;">
+                                Timeline: ${startDisp} — ${endDisp}
+                            </span>
+                        </div>
+                        <div class="progress-container">
+                            <div class="progress-bar" style="width: ${progressValue}%"></div>
+                            <span class="progress-text">${progressValue}% Complete (${cycle.currentSession || 0} / 10 Sessions)</span>
+                        </div>
+                    </div>
+                    <div class="instructor-box">Assigned: ${cycle.instructors.join(' & ')}</div>
+                    <table>
+                        <thead>
+                            <tr><th>Seq#</th><th>Veteran</th><th>Status</th><th>Availability</th></tr>
+                        </thead>
+                        <tbody>${rows}</tbody>
+                    </table>
+                `;
+                mainContainer.appendChild(cycleSection);
+            });
+
+            document.getElementById('total-vets').innerText = totalReached;
+            document.getElementById('grad-count').innerText = totalGrads;
+            document.getElementById('active-leads').innerText = Array.from(activeInstructors).join(' & ') || "None Active";
+        }
+
+        function processExcelData(rawRows) {
+            const groupedData = {};
+            const waitlist = [];
+
+            rawRows.forEach(row => {
+                const id = row.cycleId;
+                if (!id || id.trim() === "") {
+                    if (row.vetName) waitlist.push({ name: row.vetName, availability: row.availability || "Waiting", notes: row.status || "Unassigned" });
+                    return;
+                }
+
+                if (!groupedData[id]) {
+                    groupedData[id] = {
+                        cycleId: id,
+                        status: row.status,
+                        startDate: row.startDate,
+                        endDate: row.endDate,
+                        currentSession: row.currentSession,
+                        instructorSet: new Set(),
+                        vets: []
+                    };
+                }
+
+                if (row.instructors) row.instructors.split(',').forEach(n => groupedData[id].instructorSet.add(n.trim()));
+                groupedData[id].vets.push({ seq: row.vetSeq, name: row.vetName, availability: row.availability });
+            });
+
+            renderWaitlist(waitlist);
+            buildDashboard(Object.values(groupedData).map(c => { c.instructors = Array.from(c.instructorSet); return c; }));
+        }
+
+        function renderWaitlist(waitlist) {
+            const waitSection = document.getElementById('waitlist-section');
+            const waitBody = document.getElementById('waitlist-body');
+            document.getElementById('waitlist-count').innerText = waitlist.length;
+            waitBody.innerHTML = '';
+
+            if (waitlist.length > 0) {
+                waitSection.style.display = 'block';
+                waitlist.forEach(vet => {
+                    waitBody.innerHTML += `<tr><td class="vet-name-cell" style="font-weight:bold;">${vet.name}</td><td>${vet.notes}</td><td class="status-invited">${vet.availability}</td></tr>`;
+                });
+            } else {
+                waitSection.style.display = 'none';
+            }
+        }
+
+        function searchVets() {
+            const input = document.getElementById('vet-search').value.toLowerCase();
+            const cards = document.querySelectorAll('.cycle-card');
+
+            cards.forEach(card => {
+                const rows = card.querySelectorAll('tbody tr');
+                let cardHasMatch = false;
+                rows.forEach(row => {
+                    const name = row.querySelector('.vet-name-cell')?.textContent.toLowerCase() || "";
+                    if (name.includes(input)) { row.style.display = ""; cardHasMatch = true; }
+                    else { row.style.display = "none"; }
+                });
+                card.style.display = cardHasMatch ? "" : "none";
+            });
+        }
+
+        function loadDataFromGoogle() {
+            const csvUrl = "https://docs.google.com/spreadsheets/d/e/2PACX-1vRZrgM6dmSRKecR8YR63T4Hvhq9vShmdLKvyqkx-HbO7DbXVNpBdhBl5SfOJFzvtFWBBwYnVYpNo_5z/pub?output=csv";
+            Papa.parse(csvUrl, { download: true, header: true, complete: (r) => processExcelData(r.data) });
+        }
+
+        loadDataFromGoogle();
+    </script>
+</body>
+</html>
