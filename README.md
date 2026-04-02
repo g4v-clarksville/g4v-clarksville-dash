@@ -3,8 +3,8 @@
 Welcome to Guitars for Vets - Clarksville chapter.
 Reaching Veterans in our community through music and conversation.
 
-## Scan to Connect
+## Scan to Donate
 <p align="center">
   <img src="clarksvilleQR.png" alt="Scan to connect with us" width="160">
 </p>
-<p align="center">Scan to learn more about us</p>
+<p align="center">Scan to Donate</p>
