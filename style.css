@@ -1,164 +1,175 @@
-/* 1. GLOBAL RESET & READABILITY */
+:root {
+    --bg-void: #0A0E14;        /* Deepest Black-Blue */
+    --bg-dark: #00103e;       /* Dark Navy Background */
+    --card-surface: #0D2048;   /* Dark Navy Surface */
+    --card-bg: #04476a;        /* Slightly Lighter Navy */
+    --neon-cyan: #09C3F2;      /* Primary Action Cyan */
+    --neon-mint: #06D3D9;      /* Secondary Success Mint */
+    --text-bright: #FFFFFF;
+    --text-dim: #bcc6ff;
+    --text-muted: #A2ADBE;     /* Cool Grey for labels */
+    --border-glow: #2C71E7;    /* Electric Blue Borders */
+    --border-color: #2c67be;
+    --accent-orange: #FF6F61;  /* Vibrant Orange Accent */
+    --accent-cyan: #09C3F2;    /* Cyan Accent for Instructors */
+}
+
 body {
-    /* Priority System Fonts for maximum sharpness */
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-    background-color: #1a1a1a; 
-    color: #ffffff;
+    background-color: var(--bg-void);
+    color: var(--text-dim);
+    font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+    margin: 0;
     padding: 20px;
-    line-height: 1.5;
 }
 
-h1 {
-    color: #FFD700; /* Gold */
-    border-bottom: 3px solid #CC5500; /* Thicker Burnt Orange accent */
+header h1 {
+    color: var(--accent-orange);
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    border-bottom: 2px solid var(--neon-cyan);
     padding-bottom: 10px;
-    font-weight: 800;
 }
 
-/* 2. DASHBOARD CARDS */
-.cycle-card {
-    background-color: #2d2d2d;
-    border-left: 10px solid #6A0DAD; /* Purple theme */
-    padding: 25px;
-    margin-top: 25px;
+/* Impact Banner Stats */
+.impact-banner {
+    display: flex;
+    gap: 15px;
+    margin-bottom: 25px;
+}
+
+.stat-card {
+    background: var(--card-surface);
+    border: 1px solid var(--border-color);
+    padding: 20px;
     border-radius: 8px;
-    box-shadow: 0 4px 6px rgba(0,0,0,0.3);
+    flex: 1;
+    text-align: center;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+}
+
+.stat-label {
+    color: var(--text-dim);
+    display: block;
+    font-size: 0.8rem;
+    text-transform: uppercase;
+}
+
+.stat-value {
+    color: var(--neon-mint);
+    font-size: 2.2rem;
+    font-weight: bold;
+    display: block;
+    text-shadow: 0 0 15px rgba(6, 211, 217, 0.4);
+    letter-spacing: -1px;
+}
+#active-leads {
+    font-size: 1.4rem;  /* Keeps names legible */
+    font-weight: 700;  /* Slightly less heavy than the numbers */
+}
+
+/* Cycle Cards */
+.cycle-card {
+    background: linear-gradient(145deg, #0D2048, #0A0E14);
+    border-left: 5px solid
+     var(--border-glow);
+    border-radius: 4px;
+    padding: 20px;
+    margin-bottom: 30px;
+    box-shadow: 0 6px 15px rgba(0,0,0,0.4);
+}
+/* Replace your .cycle-timeline styles with this */
+.cycle-timeline {
+    background: rgba(0, 0, 0, 0.3); /* Darker contrast pocket */
+    padding: 4px 12px;
+    border-radius: 20px;
+    border: 1px solid var(--border-glow);
+    display: inline-flex;
+    align-items: center;
+}
+
+.timeline-label {
+    color: var(--accent-orange);
+    font-size: 0.7rem;
+    margin-right: 10px;
+}
+
+.timeline-dates {
+    color: var(--text-bright);
+    font-size: 0.9rem;
+    font-family: 'Courier New', Courier, monospace; /* Digital look */
 }
 
 .instructor-box {
-    background-color: #CC5500; /* Burnt Orange */
-    padding: 12px;
+    background: rgba(44, 103, 190, 0.2);
+    border: 1px solid var(--border-color);
+    color: var(--accent-cyan);
+    padding: 8px 12px;
     margin: 15px 0;
-    border-radius: 4px;
-    font-weight: 700; /* Bold names */
-    color: #ffffff;
-    text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
+    font-weight: bold;
 }
 
-/* 3. TABLES & DATA */
-table {
-    width: 100%;
-    border-collapse: collapse;
-    margin-top: 20px;
-}
-
-th {
-    text-align: left;
-    color: #FFD700;
-    font-weight: 700;
-    text-transform: uppercase;
-    font-size: 0.85rem;
-    padding-bottom: 10px;
-    border-bottom: 1px solid #444;
-}
-
-td {
-    padding: 10px 0;
-    border-bottom: 1px solid #3d3d3d;
-}
-
-/* 4. PROGRESS TRACKING (The "Sharp" Version) */
+/* Progress Bar - Using the Orange to Cyan Gradient */
 .progress-container {
-    background-color: #444;
+    background: #132D64;
+    height: 24px;
     border-radius: 12px;
-    height: 26px; /* Slightly taller for better text fit */
-    width: 100%;
-    margin: 15px 0;
-    position: relative;
     overflow: hidden;
-    border: 1px solid #555;
+    position: relative;
 }
 
 .progress-bar {
-    background: linear-gradient(90deg, #6A0DAD, #CC5500); 
+    background: linear-gradient(90deg, var(--border-glow), var(--neon-cyan));
     height: 100%;
     transition: width 0.5s ease-in-out;
 }
 
+/* Table Styling */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 15px;
+}
+
+th {
+    text-align: left;
+    color: var(--accent-orange);
+    text-transform: uppercase;
+    font-size: 0.85rem;
+    border-bottom: 1px solid var(--border-color);
+    padding: 10px;
+}
+
+td {
+    padding: 12px 10px;
+    border-bottom: 1px solid rgba(44, 103, 190, 0.3);
+}
+
+/* Status Colors */
+.status-confirmed { color: #66EBBA !important; font-weight: 400; }
+.status-waiting { color: #CAC7DF !important; }
+.status-graduated { color: var(--accent-cyan) !important; font-weight: 400; }
+
+/* Search Input */
+#vet-search {
+    width: 100%;
+    padding: 12px;
+    background: #132D64;
+    border: 1px solid var(--border-color);
+    color: white;
+    border-radius: 4px;
+    margin-bottom: 20px;
+}
+/* Progress Bar Text Alignment */
 .progress-text {
     position: absolute;
     width: 100%;
-    top: 0;
-    left: 0;
     text-align: center;
-    line-height: 26px; /* Centered vertically */
-    font-size: 0.9rem;
-    font-weight: 800; /* Extra bold for sharpness */
-    color: #ffffff;
-    /* This shadow creates the "sharp" edge against the gradient */
-    text-shadow: 1px 1px 1px #000, -1px -1px 1px #000, 1px -1px 1px #000, -1px 1px 1px #000;
-    letter-spacing: 0.5px;
-}
-
-/* 5. IMPACT BANNER STATS */
-.impact-banner {
-    display: flex;
-    gap: 20px;
-    margin-bottom: 30px;
-    padding: 25px;
-    background-color: #262626;
-    border: 2px solid #FFD700;
-    border-radius: 12px;
-}
-
-.stat-card {
-    flex: 1;
-    text-align: center;
-}
-
-.stat-label {
-    display: block;
-    color: #bcbcbc;
+    line-height: 24px; /* Matches the 24px height of your container */
     font-size: 0.85rem;
-    font-weight: 700;
-    text-transform: uppercase;
-    margin-bottom: 5px;
-}
-
-.stat-value {
-    font-size: 2.8rem;
-    font-weight: 900; /* Maximum weight */
-    color: #CC5500;
-    line-height: 1;
-}
-
-/* 6. STATUS INDICATORS */
-.status-confirmed, .confirmed-ok {
-    color: #00FF00;
-    font-weight: 700;
-}
-
-.status-graduated {
-    color: #FFD700;
-    font-weight: 800;
-    text-transform: uppercase;
-}
-
-.status-invited {
-    color: #CC5500;
-    font-weight: 700;
-}
-.search-container {
-    margin-bottom: 20px;
-    width: 100%;
-}
-
-#vet-search {
-    width: 100%;
-    padding: 12px 20px;
-    font-size: 1rem;
-    border-radius: 8px;
-    border: 2px solid #CC5500;
-    background-color: #2d2d2d;
-    color: white;
-    font-weight: 600;
-    box-sizing: border-box;
-}
-
-#vet-search:focus {
-    outline: none;
-    border-color: #FFD700;
-    box-shadow: 0 0 8px rgba(255, 215, 0, 0.4);
+    font-weight: bold;
+    color: var(--text-bright); /* Ensures it stays white/bright */
+    left: 0;
+    top: 0;
+    pointer-events: none; /* Allows clicks to pass through if needed */
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.8); /* Makes it readable over the gradient */
 }
