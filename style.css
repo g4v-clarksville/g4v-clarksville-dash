@@ -46,9 +46,11 @@ body {
     height: 75px;
 }
 .header-qr p {
-    font-size: 0.5rem;
+    font-size: 0.65rem;
     color: #FFD700;
-    margin: 3px 0 0;
+    margin-top: 5px;
+    width: 100px; /* Slightly wider to keep text clean */
+    line0height: 1.2;
 } 
 
 /* Hide QR on mobile */
