@@ -1,6 +1,6 @@
 # g4v-clarksville-dash
 
-Welcome to Guitars for Vets - Clarksville chapter.
+Reaching Veterans in our community through music and conversation.
 
 ## Scan to Connect
 <p align="center">
