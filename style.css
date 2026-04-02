@@ -22,41 +22,48 @@ body {
     padding: 20px;
 }
 
-/* Header layout */
 .header-inner {
     display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 10px 20px;
+    align-items: center;    /* Vertically centers everything */
+    justify-content: space-between; 
+    padding: 20px 40px;     /* More breathing room */
 }
 
 .header-logo {
-    width: 60px;
+    width: 80px;            /* Increased from 30px */
     height: auto;
-    object-fit: contain;
+    flex-shrink: 0;         /* Prevents the logo from getting squashed */
 }
 
 .header-inner h1 {
     flex: 1;
     text-align: center;
-    margin: 0;
+    font-size: 1.8rem;      /* Adjusting for that multi-line look */
+    line-height: 1.2;
+    margin: 0 20px;         /* Adds space between text and images */
+    color: #b0c4de;         /* Matches your light blue text color */
 }
 
 .header-qr {
-    text-align: center;
-    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;    /* Centers the QR and text together */
+    width: 120px;           /* Gives the scan text room to stay on one line */
+    flex-shrink: 0;
 }
 
 .header-qr img {
-    width: 60px;
+    width: 60px;            /* Large enough to actually scan */
     height: 60px;
-    margin: 0 auto;
+    background: white;      /* Optional: adding a white background helps QR scanability */
+    padding: 2px;
 }
 
 .header-qr p {
     font-size: 0.7rem;
     color: #FFD700;
-    margin: 5px 0 0;
+    margin-top: 8px;
+    white-space: nowrap;    /* Keeps the "Scan to donate..." on one line */
 }
 
 /* Hide QR on mobile */
