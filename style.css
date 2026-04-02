@@ -29,8 +29,8 @@ body {
 }
 .header-logo {
     width: 120px;
-    height: 120px;
-    object-fit: contain;
+    height: auto;
+    flex-shrink: 0;
 }
 .header-inner h1 {
     flex: 1;
