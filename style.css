@@ -31,8 +31,8 @@ body {
 }
 
 .header-logo {
-    width: 30px;
-    height: 30px;
+    width: 60px;
+    height: 60px;
     object-fit: contain;
 }
 
@@ -48,8 +48,8 @@ body {
 }
 
 .header-qr img {
-    width: 15px;
-    height: 15px;
+    width: 65px;
+    height: 65px;
 }
 
 .header-qr p {
