@@ -40,7 +40,9 @@
             <table style="font-size: 0.9rem;">
                 <thead>
                     <tr>
+                        <th>Seq#</th>
                         <th>Veteran</th>
+                        <th>Session</th>
                         <th>Status / Notes</th>
                         <th>Availability</th>
                     </tr>
@@ -77,7 +79,7 @@
             if (cycle.status === "Completed" || today > end) return 100;
             if (cycle.status === "Active") {
                 const current = parseInt(cycle.currentSession) || 0;
-                return Math.round((current / 10) * 100);
+                return Math.min(100, Math.round((current / 10) * 100));
             }
             if (today < start) return 0;
             const totalDuration = end - start;
@@ -109,16 +111,19 @@
                                        (cycle.status === "Upcoming") ? "Confirmed" : 
                                        (cycle.status === "Completed") ? "Graduated" : "Waiting";
                     
+                    // Use individual session count if available, otherwise fallback to cycle count
+                    const sessionCount = vet.session || 0;
+
                     rows += `
                         <tr class="${vet.availability === 'Graduated' ? 'grad-row' : ''}">
                             <td>${vet.seq || '-'}</td>
                             <td class="vet-name-cell" style="font-weight:bold;">${vet.name}</td>
+                            <td style="color: #FFD700; font-weight: bold;">${sessionCount} / 10</td>
                             <td>${displayStatus}</td>
-                            <td class="status-${vet.availability.toLowerCase()}">${vet.availability}</td>
+                            <td class="status-${vet.availability.toLowerCase().replace(/\s/g, '')}">${vet.availability}</td>
                         </tr>`;
                 });
 
-                // Formatting Timeline Strings
                 const startDisp = cycle.startDate || "TBD";
                 const endDisp = cycle.endDate || "TBD";
 
@@ -126,19 +131,26 @@
                     <div class="card-header">
                         <div style="display: flex; justify-content: space-between; align-items: baseline; flex-wrap: wrap; margin-bottom: 10px;">
                             <h2 style="margin: 0; color: #FFD700;">Cycle ${cycle.cycleId} (${cycle.status})</h2>
-                            <span style="color: #a1a1a1; font-size: 0.9rem; font-weight: 800; text-transform: uppercase;">
-                                Timeline: ${startDisp} — ${endDisp}
-                            </span>
+                            <div class="cycle-timeline">
+                            <span class="timeline-label">TIMELINE:</span>
+                            <span class="timeline-dates">${startDisp} — ${endDisp}</span>
+                        </div>
                         </div>
                         <div class="progress-container">
                             <div class="progress-bar" style="width: ${progressValue}%"></div>
-                            <span class="progress-text">${progressValue}% Complete (${cycle.currentSession || 0} / 10 Sessions)</span>
+                            <span class="progress-text">${progressValue}% Cycle Progress</span>
                         </div>
                     </div>
                     <div class="instructor-box">Assigned: ${cycle.instructors.join(' & ')}</div>
                     <table>
                         <thead>
-                            <tr><th>Seq#</th><th>Veteran</th><th>Status</th><th>Availability</th></tr>
+                            <tr>
+                                <th>Seq#</th>
+                                <th>Veteran</th>
+                                <th>Session</th>
+                                <th>Status</th>
+                                <th>Availability</th>
+                            </tr>
                         </thead>
                         <tbody>${rows}</tbody>
                     </table>
@@ -157,8 +169,16 @@
 
             rawRows.forEach(row => {
                 const id = row.cycleId;
+                // If no Cycle ID, it belongs to the Waitlist
                 if (!id || id.trim() === "") {
-                    if (row.vetName) waitlist.push({ name: row.vetName, availability: row.availability || "Waiting", notes: row.status || "Unassigned" });
+                    if (row.vetName) {
+                        waitlist.push({ 
+                            name: row.vetName, 
+                            availability: row.availability || "Waiting", 
+                            notes: row.status || "Unassigned",
+                            session: row.currentSession || 0 
+                        });
+                    }
                     return;
                 }
 
@@ -175,11 +195,20 @@
                 }
 
                 if (row.instructors) row.instructors.split(',').forEach(n => groupedData[id].instructorSet.add(n.trim()));
-                groupedData[id].vets.push({ seq: row.vetSeq, name: row.vetName, availability: row.availability });
+                
+                groupedData[id].vets.push({ 
+                    seq: row.vetSeq, 
+                    name: row.vetName, 
+                    availability: row.availability,
+                    session: row.currentSession // Captures individual session progress
+                });
             });
 
             renderWaitlist(waitlist);
-            buildDashboard(Object.values(groupedData).map(c => { c.instructors = Array.from(c.instructorSet); return c; }));
+            buildDashboard(Object.values(groupedData).map(c => { 
+                c.instructors = Array.from(c.instructorSet); 
+                return c; 
+            }));
         }
 
         function renderWaitlist(waitlist) {
@@ -191,7 +220,14 @@
             if (waitlist.length > 0) {
                 waitSection.style.display = 'block';
                 waitlist.forEach(vet => {
-                    waitBody.innerHTML += `<tr><td class="vet-name-cell" style="font-weight:bold;">${vet.name}</td><td>${vet.notes}</td><td class="status-invited">${vet.availability}</td></tr>`;
+                    waitBody.innerHTML += `
+                        <tr>
+                            <td>-</td>
+                            <td class="vet-name-cell" style="font-weight:bold;">${vet.name}</td>
+                            <td>${vet.session} / 10</td>
+                            <td>${vet.notes}</td>
+                            <td class="status-invited">${vet.availability}</td>
+                        </tr>`;
                 });
             } else {
                 waitSection.style.display = 'none';
@@ -207,8 +243,12 @@
                 let cardHasMatch = false;
                 rows.forEach(row => {
                     const name = row.querySelector('.vet-name-cell')?.textContent.toLowerCase() || "";
-                    if (name.includes(input)) { row.style.display = ""; cardHasMatch = true; }
-                    else { row.style.display = "none"; }
+                    if (name.includes(input)) { 
+                        row.style.display = ""; 
+                        cardHasMatch = true; 
+                    } else { 
+                        row.style.display = "none"; 
+                    }
                 });
                 card.style.display = cardHasMatch ? "" : "none";
             });
@@ -216,7 +256,11 @@
 
         function loadDataFromGoogle() {
             const csvUrl = "https://docs.google.com/spreadsheets/d/e/2PACX-1vRZrgM6dmSRKecR8YR63T4Hvhq9vShmdLKvyqkx-HbO7DbXVNpBdhBl5SfOJFzvtFWBBwYnVYpNo_5z/pub?output=csv";
-            Papa.parse(csvUrl, { download: true, header: true, complete: (r) => processExcelData(r.data) });
+            Papa.parse(csvUrl, { 
+                download: true, 
+                header: true, 
+                complete: (r) => processExcelData(r.data) 
+            });
         }
 
         loadDataFromGoogle();
