@@ -32,7 +32,7 @@ body {
 
 .header-logo {
     width: 60px;
-    height: 60px;
+    height: auto;
     object-fit: contain;
 }
 
@@ -44,18 +44,19 @@ body {
 
 .header-qr {
     text-align: center;
-    width: 70px;
+    width: 100%;
 }
 
 .header-qr img {
-    width: 65px;
-    height: 65px;
+    width: 60px;
+    height: 60px;
+    margin: 0 auto;
 }
 
 .header-qr p {
-    font-size: 0.5rem;
+    font-size: 0.7rem;
     color: #FFD700;
-    margin: 3px 0 0;
+    margin: 5px 0 0;
 }
 
 /* Hide QR on mobile */
