@@ -5,6 +5,39 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>G4V Clarksville Dashboard</title>
     <link rel="stylesheet" href="style.css">
+    <style>
+        /* Embedded CSS Fixes for the Header QR Section */
+        .header-qr {
+            display: flex;
+            flex-direction: column;
+            align-items: center; 
+            text-align: center;
+            width: 110px; 
+        }
+        .header-qr img {
+            width: 75px;
+            height: 75px;
+            display: block;
+        }
+        .header-qr p {
+            font-size: 0.65rem;
+            color: #FFD700;
+            margin-top: 5px;
+            width: 100%; 
+            line-height: 1.2;
+            font-weight: bold;
+        }
+        .header-qr p a {
+            color: #FFD700;
+            text-decoration: underline;
+            display: block;
+            margin-top: 2px;
+            filter: brightness(1.2);
+        }
+        .header-qr p a:hover {
+            color: #FFFFFF;
+        }
+    </style>
 </head>
 <body>
     <header>
@@ -13,7 +46,7 @@
             <h1>Guitars For Vets: Clarksville Chapter</h1>
             <div class="header-qr">
                 <img src="clarksvilleQR.png" alt="Scan to donate & learn more">
-               <p>Scan to donate &amp; <a href="https://guitars4vets.org">learn more</a></p>
+                <p>Scan to donate &amp; <a href="https://guitars4vets.org" target="_blank">learn more</a></p>
             </div>
         </div>
     </header>
@@ -118,7 +151,6 @@
                                        (cycle.status === "Upcoming") ? "Confirmed" : 
                                        (cycle.status === "Completed") ? "Graduated" : "Waiting";
                     
-                    // Use individual session count if available, otherwise fallback to cycle count
                     const sessionCount = vet.session || 0;
 
                     rows += `
@@ -174,46 +206,47 @@
             const groupedData = {};
             const waitlist = [];
 
-         rawRows.forEach(row => {
-    const id = row.cycleId ? row.cycleId.trim() : "";
-    const status = row.status ? row.status.trim() : "";
+            rawRows.forEach(row => {
+                const id = row.cycleId ? row.cycleId.trim() : "";
+                const status = row.status ? row.status.trim() : "";
 
-    // NEW LOGIC: If status is "Waiting", "Deferred", or there is no Cycle ID
-    if (!id || status === "Waiting" || status === "Deferred" || status === "TBD") {
-        if (row.vetName) {
-            waitlist.push({ 
-                name: row.vetName, 
-                availability: row.availability || "Waiting", 
-                notes: status || "Unassigned",
-                session: row.currentSession || 0 
-            });
-        }
-        // If they are ONLY in the waitlist and not part of a dashboard card, return here
-        if (!id) return; 
-    }
+                // Logic to catch all 65+ veterans who aren't currently in active lessons
+                if (!id || status === "Waiting" || status === "Deferred" || status === "TBD") {
+                    if (row.vetName) {
+                        waitlist.push({ 
+                            name: row.vetName, 
+                            availability: row.availability || "Waiting", 
+                            notes: status || "Unassigned",
+                            session: row.currentSession || 0 
+                        });
+                    }
+                    if (!id) return; 
+                }
 
-    // Existing Dashboard Logic for assigned cycles
-    if (id) {
-        if (!groupedData[id]) {
-            groupedData[id] = {
-                cycleId: id,
-                status: row.status,
-                startDate: row.startDate,
-                endDate: row.endDate,
-                currentSession: row.currentSession,
-                instructorSet: new Set(),
-                vets: []
-            };
-        }
+                if (id) {
+                    if (!groupedData[id]) {
+                        groupedData[id] = {
+                            cycleId: id,
+                            status: row.status,
+                            startDate: row.startDate,
+                            endDate: row.endDate,
+                            currentSession: row.currentSession,
+                            instructorSet: new Set(),
+                            vets: []
+                        };
+                    }
 
-                if (row.instructors) row.instructors.split(',').forEach(n => groupedData[id].instructorSet.add(n.trim()));
-                
-                groupedData[id].vets.push({ 
-                    seq: row.vetSeq, 
-                    name: row.vetName, 
-                    availability: row.availability,
-                    session: row.currentSession // Captures individual session progress
-                });
+                    if (row.instructors) {
+                        row.instructors.split(',').forEach(n => groupedData[id].instructorSet.add(n.trim()));
+                    }
+                    
+                    groupedData[id].vets.push({ 
+                        seq: row.vetSeq, 
+                        name: row.vetName, 
+                        availability: row.availability,
+                        session: row.currentSession
+                    });
+                }
             });
 
             renderWaitlist(waitlist);
