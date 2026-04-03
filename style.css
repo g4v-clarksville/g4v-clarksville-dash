@@ -56,7 +56,18 @@ body {
     width: 100px; /* Slightly wider to keep text clean */
     line-height: 1.2;
     font-weight: bold;
-} 
+}
+.header-qr p a {
+    color: #FFD700; /* Matching Gold for consistency */
+    text-decoration: underline;
+    display: block; /* Puts "learn more" on its own line for better centering */
+    margin-top: 2px;
+    filter: brightness(1.2); /* Makes the link slightly "pop" more than the text */
+}
+
+.header-qr p a:hover {
+    color: #FFFFFF; /* Turns white on hover for clear interaction */
+}
 
 /* Hide QR on mobile */
 @media (max-width: 768px) {
