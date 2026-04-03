@@ -44,13 +44,15 @@ body {
 .header-qr img {
     width: 75px;
     height: 75px;
+    display: block; /* Removes botom white space */
 }
 .header-qr p {
     font-size: 0.65rem;
     color: #FFD700;
     margin-top: 5px;
     width: 100px; /* Slightly wider to keep text clean */
-    line0height: 1.2;
+    line-height: 1.2;
+    font-weight: bold;
 } 
 
 /* Hide QR on mobile */
