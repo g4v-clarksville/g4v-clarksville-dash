@@ -38,8 +38,11 @@ body {
     margin: 0;
 }
 .header-qr {
+    display: flex;
+    flex-direction: center;
+    align-items: center;
     text-align: center;
-    width: 70px;
+    width: 100px;
 }
 .header-qr img {
     width: 75px;
