@@ -118,20 +118,31 @@
         }
 
         function calculateProgress(cycle) {
-            const today = new Date();
-            if (!cycle.startDate || !cycle.endDate) return 0;
-            const start = new Date(cycle.startDate);
-            const end = new Date(cycle.endDate);
-            if (cycle.status === "Completed" || today > end) return 100;
-            if (cycle.status === "Active") {
-                const current = parseInt(cycle.currentSession) || 0;
-                return Math.min(100, Math.round((current / 10) * 100));
-            }
-            if (today < start) return 0;
-            const totalDuration = end - start;
-            const elapsed = today - start;
-            return totalDuration > 0 ? Math.round((elapsed / totalDuration) * 100) : 0;
+        const today = new Date();
+        if (!cycle.startDate || !cycle.endDate) return 0;
+        
+        // 1. If it's explicitly marked "Completed", it's 100%
+        if (cycle.status === "Completed") return 100;
+    
+        // 2. For Active cycles, calculate based on the average of all veterans in that cycle
+        if (cycle.status === "Active" && cycle.vets.length > 0) {
+            const totalPossibleSessions = cycle.vets.length * 10;
+            const actualSessionsCompleted = cycle.vets.reduce((sum, vet) => {
+                return sum + (parseInt(vet.session) || 0);
+            }, 0);
+            
+            return Math.round((actualSessionsCompleted / totalPossibleSessions) * 100);
         }
+    
+        // 3. Fallback for Upcoming or other statuses
+        const start = new Date(cycle.startDate);
+        const end = new Date(cycle.endDate);
+        if (today < start) return 0;
+        
+        const totalDuration = end - start;
+        const elapsed = today - start;
+        return totalDuration > 0 ? Math.min(99, Math.round((elapsed / totalDuration) * 100)) : 0;
+}
 
         function buildDashboard(cycleData) {
             let totalReached = 0;
