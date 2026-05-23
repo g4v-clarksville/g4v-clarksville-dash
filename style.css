@@ -267,11 +267,14 @@ td {
     width: 140px;
     height: 95px;
 }
+.g4v-collage-photo:nth-child(4) {
+    width: 140px;
+    height: 95px;
+}
 
 /* 2nd, 3rd, 4th, and 5th Photos: Portrait shots requiring 90deg rotation */
 .g4v-collage-photo:nth-child(2),
 .g4v-collage-photo:nth-child(3),
-.g4v-collage-photo:nth-child(4),
 .g4v-collage-photo:nth-child(5) {
     width: 95px;                /* Layout wide box first */
     height: 70px;               
@@ -288,5 +291,5 @@ td {
 .g4v-collage-photo:nth-child(3):hover,
 .g4v-collage-photo:nth-child(4):hover,
 .g4v-collage-photo:nth-child(5):hover {
-    transform: rotate(90deg) scale(1.05);
+    transform: rotate(90deg) scale(2.05);
 }
