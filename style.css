@@ -272,7 +272,13 @@ td {
     transform: rotate(90deg);   /* Spins right-side up to act as a 70x95 portrait */
 }
 
-/* Subtle pop-out effect when hovering over a photo */
-.g4v-collage-photo:hover {
-    transform: scale(2.05);     /* Changed from 2.05 to keep it from taking over the screen */
+/* Hover effect for the 1st photo (the normal group shot) */
+.g4v-collage-photo:nth-child(1):hover {
+    transform: scale(2.05); /* Just scales up normally */
+}
+
+/* Hover effect for the 2nd and 3rd photos (keeps them rotated upright while scaling) */
+.g4v-collage-photo:nth-child(2):hover,
+.g4v-collage-photo:nth-child(3):hover {
+    transform: rotate(90deg) scale(2.05); /* Combines both rules so it stays upright! */
 }
