@@ -240,17 +240,7 @@ td {
     justify-content: center;
     align-items: center;        /* Vertically centers all items along the row axis */
     gap: 25px;                  /* Accounts for rotation boundaries */
-    max-width: 500px;
-    margin: 15px auto 0 auto;
-}
-
-/* Container for the 5-photo collage layout */
-.g4v-collage-row {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 25px;                  /* Keep spacing tight for rotation boundaries */
-    max-width: 650px;           /* Expanded from 500px to cleanly fit 5 items */
+    max-width: 650px;
     margin: 15px auto 0 auto;
 }
 
