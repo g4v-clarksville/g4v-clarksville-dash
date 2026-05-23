@@ -273,7 +273,7 @@ td {
 .g4v-collage-photo:nth-child(7) {
     width: 95px;                /* Layout wide box first */
     height: 70px;               
-    transform: rotate(270deg);  /* Spins them the opposite direction to stand them upright! */
+    transform: rotate(-90deg);  /* Spins them the opposite direction to stand them upright! */
 }
 
 /* --- HOVER EFFECTS --- */
@@ -294,5 +294,5 @@ td {
 /* 6th and 7th Photos Hover (Maintains the 270deg rotation while scaling) */
 .g4v-collage-photo:nth-child(6):hover,
 .g4v-collage-photo:nth-child(7):hover {
-    transform: rotate(270deg) scale(1.95);
+    transform: rotate(-90deg) scale(1.95);
 }
