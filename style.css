@@ -235,34 +235,28 @@ td {
     justify-content: center;    /* Ensures contents stay perfectly centered */
 }
 
-/* Container for the 3-image row */
-.g4v-collage-row {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 10px;                  /* Clean gap between images */
-    max-width: 450px;           /* Keeps the total package compact */
-    margin: 15px auto 0 auto;   /* Centers the row under the text */
+/* Container for the collage layout */
+.g4v-collage-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+    gap: 12px;                  /* Spacing between the pictures */
+    max-width: 250px;           /* Controls the overall width of the entire collage */
+    margin: 15px auto 0 auto;   /* Centers the collage on the page */
 }
 
-/* Base style for all 3 photos */
+/* Individual photo formatting inside the collage */
 .g4v-collage-photo {
-    border-radius: 6px;
-    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.35);
-    object-fit: cover;
+    width: 100%;
+    height: 110px;              /* Forces all photos to match height evenly */
+    object-fit: cover;          /* Crops photos perfectly so they don't squash or stretch */
+    border-radius: 4px;
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.3);
+    transition: transform 0.2s ease;
 }
 
-/* Size for the main group shot */
-.g4v-group-shot {
-    width: 160px;
-    height: 120px;
-}
-
-/* Size and mandatory orientation fix for the two problem photos */
-.g4v-rotated-portrait {
-    width: 120px;
-    height: 120px;               /* Force a perfect square so the rotation doesn't warp the layout */
-    transform: rotate(90deg);    /* Snaps them right-side up */
+/* Optional: Slight pop-out effect when hovering over a photo */
+.g4v-collage-photo:hover {
+    transform: scale(1.05);
 }
 
 /* Optional: Slight pop-out effect when hovering over a photo */
