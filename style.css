@@ -240,7 +240,7 @@ td {
     justify-content: center;
     align-items: center;        /* Vertically centers all items along the row axis */
     gap: 25px;                  /* Accounts for rotation boundaries */
-    max-width: 650px;
+    max-width: 850px;
     margin: 15px auto 0 auto;
 }
 
@@ -253,10 +253,7 @@ td {
 }
 
 /* 1st Photo: Main Group Shot (Landscape) */
-.g4v-collage-photo:nth-child(1) {
-    width: 140px;
-    height: 95px;
-}
+.g4v-collage-photo:nth-child(1), 
 .g4v-collage-photo:nth-child(4) {
     width: 140px;
     height: 95px;
@@ -274,12 +271,9 @@ td {
 }
 
 /* Normal hover for the landscape group shot */
-.g4v-collage-photo:nth-child(1):hover {
-    transform: scale(2.05);
-}
-/* Normal hover for the landscape group shot */
+.g4v-collage-photo:nth-child(1):hover,
 .g4v-collage-photo:nth-child(4):hover {
-    transform: scale(2.05);
+    transform: scale(1.95);
 }
 
 /* Combined hover rules to keep portraits upright while scaling */
@@ -288,5 +282,5 @@ td {
 .g4v-collage-photo:nth-child(5):hover,
 .g4v-collage-photo:nth-child(6):hover,
 .g4v-collage-photo:nth-child(7):hover {
-    transform: rotate(90deg) scale(2.05);
+    transform: rotate(90deg) scale(1.95);
 }
