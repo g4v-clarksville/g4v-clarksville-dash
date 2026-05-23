@@ -258,29 +258,41 @@ td {
     height: 95px;
 }
 
-/* Portrait Shots: 2nd, 3rd, 4th, 5th, 6th, and 7th Photos */
+/* Portrait Shots Group A: 2nd, 3rd, and 5th Photos */
 .g4v-collage-photo:nth-child(2),
 .g4v-collage-photo:nth-child(3),
-.g4v-collage-photo:nth-child(4), /* Moved photo 4 here so it rotates upright */
-.g4v-collage-photo:nth-child(5),
-.g4v-collage-photo:nth-child(6),
-.g4v-collage-photo:nth-child(7) {
-    width: 95px;                /* Layout wide box first */
+.g4v-collage-photo:nth-child(5) {
+    width: 95px;                
     height: 70px;               
-    transform: rotate(90deg);   /* Spins them right-side up to act as a 70x95 portrait */
+    transform: rotate(90deg);   /* Spins clockwise to stand upright */
 }
 
-/* Normal hover for the single landscape group shot */
+/* Portrait Shots Group B: 4th, 6th, and 7th Photos (Flipped internally) */
+.g4v-collage-photo:nth-child(4),
+.g4v-collage-photo:nth-child(6),
+.g4v-collage-photo:nth-child(7) {
+    width: 95px;                
+    height: 70px;               
+    transform: rotate(-90deg);  /* Corrects the counter-clockwise rotation to stand upright */
+}
+
+/* --- HOVER EFFECTS --- */
+
+/* 1st Photo Hover */
 .g4v-collage-photo:nth-child(1):hover {
     transform: scale(1.95);
 }
 
-/* Combined hover rules to keep all 6 portraits upright while scaling */
+/* 2nd, 3rd, and 5th Photos Hover */
 .g4v-collage-photo:nth-child(2):hover,
 .g4v-collage-photo:nth-child(3):hover,
+.g4v-collage-photo:nth-child(5):hover {
+    transform: rotate(90deg) scale(1.95);
+}
+
+/* 4th, 6th, and 7th Photos Hover */
 .g4v-collage-photo:nth-child(4):hover,
-.g4v-collage-photo:nth-child(5):hover,
 .g4v-collage-photo:nth-child(6):hover,
 .g4v-collage-photo:nth-child(7):hover {
-    transform: rotate(90deg) scale(1.95);
+    transform: rotate(-90deg) scale(1.95); /* Maintains the correct upright view on hover */
 }
