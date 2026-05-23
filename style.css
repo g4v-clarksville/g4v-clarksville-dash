@@ -244,41 +244,49 @@ td {
     margin: 15px auto 0 auto;
 }
 
-/* Base style for all 3 photos */
+/* Container for the 5-photo collage layout */
+.g4v-collage-row {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 25px;                  /* Keep spacing tight for rotation boundaries */
+    max-width: 650px;           /* Expanded from 500px to cleanly fit 5 items */
+    margin: 15px auto 0 auto;
+}
+
+/* Base style for all 5 photos */
 .g4v-collage-photo {
     border-radius: 6px;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.35);
     object-fit: cover;
-    transition: transform 0.2s ease; /* Smooth transition for hover effect */
+    transition: transform 0.2s ease;
 }
 
-/* 1st Photo: Main Group Shot (Stays normal) */
+/* 1st Photo: Main Group Shot (Landscape) */
 .g4v-collage-photo:nth-child(1) {
     width: 140px;
     height: 95px;
 }
 
-/* 2nd Photo: First Portrait (Corrects sideways image data) */
-.g4v-collage-photo:nth-child(2) {
+/* 2nd, 3rd, 4th, and 5th Photos: Portrait shots requiring 90deg rotation */
+.g4v-collage-photo:nth-child(2),
+.g4v-collage-photo:nth-child(3),
+.g4v-collage-photo:nth-child(4),
+.g4v-collage-photo:nth-child(5) {
     width: 95px;                /* Layout wide box first */
     height: 70px;               
-    transform: rotate(90deg);   /* Spins right-side up to act as a 70x95 portrait */
+    transform: rotate(90deg);   /* Spins them right-side up to act as a 70x95 portrait */
 }
 
-/* 3rd Photo: Second Portrait (Corrects sideways image data) */
-.g4v-collage-photo:nth-child(3) {
-    width: 95px;                /* Layout wide box first */
-    height: 70px;               
-    transform: rotate(90deg);   /* Spins right-side up to act as a 70x95 portrait */
-}
-
-/* Hover effect for the 1st photo (the normal group shot) */
+/* Normal hover for the landscape group shot */
 .g4v-collage-photo:nth-child(1):hover {
-    transform: scale(2.05); /* Just scales up normally */
+    transform: scale(2.05);
 }
 
-/* Hover effect for the 2nd and 3rd photos (keeps them rotated upright while scaling) */
+/* Combined hover rules to keep portraits upright while scaling */
 .g4v-collage-photo:nth-child(2):hover,
-.g4v-collage-photo:nth-child(3):hover {
-    transform: rotate(90deg) scale(2.05); /* Combines both rules so it stays upright! */
+.g4v-collage-photo:nth-child(3):hover,
+.g4v-collage-photo:nth-child(4):hover,
+.g4v-collage-photo:nth-child(5):hover {
+    transform: rotate(90deg) scale(1.05);
 }
