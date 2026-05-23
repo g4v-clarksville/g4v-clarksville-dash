@@ -235,8 +235,7 @@ td {
     justify-content: center;    /* Ensures contents stay perfectly centered */
 }
 
-/* Individual photo formatting inside the collage */
-/* Container for the collage layout */
+/* Container for the 3-image row */
 .g4v-collage-row {
     display: flex;
     justify-content: center;
@@ -246,30 +245,24 @@ td {
     margin: 15px auto 0 auto;   /* Centers the row under the text */
 }
 
-/* Individual photo formatting - REMOVED the rotation from here */
+/* Base style for all 3 photos */
 .g4v-collage-photo {
     border-radius: 6px;
     box-shadow: 0 3px 8px rgba(0, 0, 0, 0.35);
     object-fit: cover;
 }
 
-/* Base large group photo - kept at 0 degrees */
-.g4v-photo-group {
-    width: 320px;
-    height: 240px;
-    position: absolute;
-    left: 0;
-    top: 0;
-    z-index: 1;
+/* Size for the main group shot */
+.g4v-group-shot {
+    width: 160px;
+    height: 120px;
 }
 
-/* Superimposed small portraits - applied rotation HERE */
-.g4v-photo-portrait {
+/* Size and mandatory orientation fix for the two problem photos */
+.g4v-rotated-portrait {
     width: 120px;
-    height: 120px;
-
-    /* This rule applies to both smaller images */
-    transform: rotate(90deg); /* Force them clockwise 90 degrees */
+    height: 120px;               /* Force a perfect square so the rotation doesn't warp the layout */
+    transform: rotate(90deg);    /* Snaps them right-side up */
 }
 
 /* Optional: Slight pop-out effect when hovering over a photo */
