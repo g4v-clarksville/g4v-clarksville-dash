@@ -37,15 +37,45 @@
         .header-qr p a:hover {
             color: #FFFFFF;
         }
+
+        /* Updated Commemorative Graduation Banner Styles */
+        .g4v-grad-banner {
+            background-color: #002d72; 
+            color: white; 
+            text-align: center; 
+            padding: 20px 15px; 
+            border-bottom: 3px solid #ffc72c;
+            font-family: inherit;
+        }
+        .g4v-grad-title {
+            margin: 0; 
+            font-size: 1.6rem; 
+            font-weight: bold;
+            letter-spacing: 0.5px;
+        }
+        .g4v-grad-date {
+            margin: 5px 0 0 0; 
+            font-size: 1.15rem;
+            color: #ffc72c;
+            font-weight: bold;
+        }
+        .g4v-grad-media {
+            max-width: 600px;
+            margin: 15px auto 0 auto;
+            display: block;
+            border-radius: 6px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.35);
+        }
     </style>
 </head>
 <body>
-    <div style="background-color: #002d72; color: white; text-align: center; padding: 15px; font-weight: bold; border-bottom: 3px solid #ffc72c;">
-    <h2 style="margin: 0; font-size: 1.5rem;">Next G4V Graduation</h2>
-    <p style="margin: 5px 0 0 0; font-size: 1.1rem;">
-        Location: Operation Stand Down | When: May 22 | Time: 12:00
-    </p>
-</div>
+    
+    <div class="g4v-grad-banner">
+        <h2 class="g4v-grad-title">G4V Graduation Class</h2>
+        <p class="g4v-grad-date">May 22, 2026</p>
+        <img src="graduation_photo.png" alt="G4V Graduation Class May 22 2026" class="g4v-grad-media">
+    </div>
+
     <header>
         <div class="header-inner">
             <img src="Picture1.png" alt="G4V Logo" class="header-logo">
@@ -118,31 +148,28 @@
         }
 
         function calculateProgress(cycle) {
-        const today = new Date();
-        if (!cycle.startDate || !cycle.endDate) return 0;
-        
-        // 1. If it's explicitly marked "Completed", it's 100%
-        if (cycle.status === "Completed") return 100;
-    
-        // 2. For Active cycles, calculate based on the average of all veterans in that cycle
-        if (cycle.status === "Active" && cycle.vets.length > 0) {
-            const totalPossibleSessions = cycle.vets.length * 10;
-            const actualSessionsCompleted = cycle.vets.reduce((sum, vet) => {
-                return sum + (parseInt(vet.session) || 0);
-            }, 0);
+            const today = new Date();
+            if (!cycle.startDate || !cycle.endDate) return 0;
             
-            return Math.round((actualSessionsCompleted / totalPossibleSessions) * 100);
-        }
-    
-        // 3. Fallback for Upcoming or other statuses
-        const start = new Date(cycle.startDate);
-        const end = new Date(cycle.endDate);
-        if (today < start) return 0;
+            if (cycle.status === "Completed") return 100;
         
-        const totalDuration = end - start;
-        const elapsed = today - start;
-        return totalDuration > 0 ? Math.min(99, Math.round((elapsed / totalDuration) * 100)) : 0;
-}
+            if (cycle.status === "Active" && cycle.vets.length > 0) {
+                const totalPossibleSessions = cycle.vets.length * 10;
+                const actualSessionsCompleted = cycle.vets.reduce((sum, vet) => {
+                    return sum + (parseInt(vet.session) || 0);
+                }, 0);
+                
+                return Math.round((actualSessionsCompleted / totalPossibleSessions) * 100);
+            }
+        
+            const start = new Date(cycle.startDate);
+            const end = new Date(cycle.endDate);
+            if (today < start) return 0;
+            
+            const totalDuration = end - start;
+            const elapsed = today - start;
+            return totalDuration > 0 ? Math.min(99, Math.round((elapsed / totalDuration) * 100)) : 0;
+        }
 
         function buildDashboard(cycleData) {
             let totalReached = 0;
@@ -227,7 +254,6 @@
                 const id = row.cycleId ? row.cycleId.trim() : "";
                 const status = row.status ? row.status.trim() : "";
 
-                // Logic to catch all 65+ veterans who aren't currently in active lessons
                 if (!id || status === "Waiting" || status === "Deferred" || status === "TBD") {
                     if (row.vetName) {
                         waitlist.push({ 
