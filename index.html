@@ -142,6 +142,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.3.2/papaparse.min.js"></script>
 
     <script>
+        <script>
         const mainContainer = document.getElementById('dashboard-root');
         
         function toggleWaitlist() {
@@ -181,7 +182,8 @@
             const totalDuration = end - start;
             const elapsed = today - start;
             return totalDuration > 0 ? Math.min(99, Math.round((elapsed / totalDuration) * 100)) : 0;
-}
+        }
+
         function buildDashboard(cycleData) {
             let totalReached = 0;
             let totalGrads = 0;
@@ -189,7 +191,6 @@
             mainContainer.innerHTML = ''; 
 
             cycleData.forEach(cycle => {
-                totalReached += cycle.vets.length;
                 totalGrads += cycle.vets.filter(v => v.availability && v.availability.trim().toLowerCase() === "graduated").length;
 
                 if (cycle.status === "Active") {
@@ -205,6 +206,11 @@
                     let displayStatus = (cycle.status === "Active") ? "In Lessons" : 
                                        (cycle.status === "Upcoming") ? "Confirmed" : 
                                        (cycle.status === "Completed") ? "Graduated" : "Waiting";
+                    
+                    // --- TARGETED UPDATE 1: Only count active or graduated students toward Total Reached ---
+                    if (cycle.status === "Active" || cycle.status === "Completed") {
+                        totalReached++;
+                    }
                     
                     const sessionCount = vet.session || 0;
 
@@ -265,7 +271,8 @@
                 const id = row.cycleId ? row.cycleId.trim() : "";
                 const status = row.status ? row.status.trim() : "";
 
-                if (!id || status === "Waiting" || status === "Deferred" || status === "TBD") {
+                // --- TARGETED UPDATE 2: Force waitlist check to ensure there is NO Cycle ID assigned ---
+                if (!id && (status === "Waiting" || status === "Deferred" || status === "TBD" || !status)) {
                     if (row.vetName) {
                         waitlist.push({ 
                             name: row.vetName, 
@@ -274,7 +281,7 @@
                             session: row.currentSession || 0 
                         });
                     }
-                    if (!id) return; 
+                    return; 
                 }
 
                 if (id) {
