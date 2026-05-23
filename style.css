@@ -236,8 +236,8 @@ td {
 }
 
 /* Container for the collage layout */
-.g4v-collage-grid {
-    display: grid;
+.g4v-collage-row {
+    display: row;
     grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
     gap: 12px;                  /* Spacing between the pictures */
     max-width: 250px;           /* Controls the overall width of the entire collage */
