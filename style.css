@@ -275,7 +275,9 @@ td {
 /* 2nd, 3rd, 4th, and 5th Photos: Portrait shots requiring 90deg rotation */
 .g4v-collage-photo:nth-child(2),
 .g4v-collage-photo:nth-child(3),
-.g4v-collage-photo:nth-child(5) {
+.g4v-collage-photo:nth-child(5),
+.g4v-collage-photo:nth-child(6),
+.g4v-collage-photo:nth-child(7) {
     width: 95px;                /* Layout wide box first */
     height: 70px;               
     transform: rotate(90deg);   /* Spins them right-side up to act as a 70x95 portrait */
@@ -293,6 +295,8 @@ td {
 /* Combined hover rules to keep portraits upright while scaling */
 .g4v-collage-photo:nth-child(2):hover,
 .g4v-collage-photo:nth-child(3):hover,
-.g4v-collage-photo:nth-child(5):hover {
+.g4v-collage-photo:nth-child(5):hover,
+.g4v-collage-photo:nth-child(6):hover,
+.g4v-collage-photo:nth-child(7):hover {
     transform: rotate(90deg) scale(2.05);
 }
