@@ -236,12 +236,51 @@ td {
 }
 
 /* Individual photo formatting inside the collage */
+/* Container for the collage layout */
+.g4v-collage-container {
+    position: relative;
+    max-width: 450px;
+    margin: 20px auto 0 auto;
+    height: 300px;
+}
+
+/* Individual photo formatting - REMOVED the rotation from here */
 .g4v-collage-photo {
-    width: 100%;                /* Fills out its 75px assigned slot */
-    height: 60px;               /* Keeps it a clean, low-profile landscape thumbnail */
-    object-fit: cover;          /* Clean cropping, no squishing */
-    border-radius: 4px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    object-fit: cover;
+}
+
+/* Base large group photo - kept at 0 degrees */
+.g4v-photo-group {
+    width: 320px;
+    height: 240px;
+    position: absolute;
+    left: 0;
+    top: 0;
+    z-index: 1;
+}
+
+/* Superimposed small portraits - applied rotation HERE */
+.g4v-photo-portrait {
+    width: 140px;
+    height: 190px;
+    position: absolute;
+    z-index: 2;
+    /* This rule applies to both smaller images */
+    transform: rotate(90deg); /* Force them clockwise 90 degrees */
+}
+
+/* Position for photo 2 (the left stacked one) */
+.g4v-photo2-pos {
+    left: 200px;
+    top: 50px;
+}
+
+/* Position for photo 3 (the right stacked one) */
+.g4v-photo3-pos {
+    left: 280px;
+    top: 80px;
 }
 
 /* Optional: Slight pop-out effect when hovering over a photo */
