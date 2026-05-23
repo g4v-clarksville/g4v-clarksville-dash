@@ -285,11 +285,14 @@ td {
 .g4v-collage-photo:nth-child(1):hover {
     transform: scale(2.05);
 }
+/* Normal hover for the landscape group shot */
+.g4v-collage-photo:nth-child(4):hover {
+    transform: scale(2.05);
+}
 
 /* Combined hover rules to keep portraits upright while scaling */
 .g4v-collage-photo:nth-child(2):hover,
 .g4v-collage-photo:nth-child(3):hover,
-.g4v-collage-photo:nth-child(4):hover,
 .g4v-collage-photo:nth-child(5):hover {
     transform: rotate(90deg) scale(2.05);
 }
