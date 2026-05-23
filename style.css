@@ -224,23 +224,21 @@ td {
     text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.8); /* Makes it readable over the gradient */
 }
 /* Container for the collage layout */
-/* Container for the collage layout - Locked Down tight */
 .g4v-collage-grid {
     display: grid;
     /* Strict columns: 3 equal spaces, maxing out at 75px each */
     grid-template-columns: repeat(3, minmax(50px, 75px));
-    gap: 8px;                   /* Tight spacing between mini-pics */
+    gap: 15px;                   /* Tight spacing between mini-pics */
     max-width: 250px;           /* Keeps the ENTIRE collage near your 200px sweet spot */
     margin: 15px auto 0 auto;   /* Centers the grid on the banner */
     justify-content: center;    /* Ensures contents stay perfectly centered */
 }
 
 /* Container for the collage layout */
-/* Container for the collage layout */
 .g4v-collage-row {
     display: flex;              /* Changes grid to flex to guarantee a horizontal row */
     justify-content: center;    /* Keeps the row perfectly centered */
-    gap: 8px;                   /* Clean, tight spacing between the pictures */
+    gap: 15px;                   /* Clean, tight spacing between the pictures */
     max-width: 450px;           /* Expanded slightly so 3 pictures can fit side-by-side */
     margin: 15px auto 0 auto;   /* Centers the collage on the page */
 }
