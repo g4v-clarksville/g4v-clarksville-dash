@@ -259,17 +259,17 @@ td {
 }
 
 /* Second photo stands tall (Portrait) */
-.g4v-collage-photo2:nth-child(2) {
+.g4v-collage-photo:nth-child(2) {
     width: 70px;
     height: 95px;               /* Matches the height of the group shot, but narrower */
 }
 
 /* Third photo stands tall (Portrait) */
-.g4v-collage-photo3:nth-child(3) {
+.g4v-collage-photo:nth-child(3) {
     width: 70px;
     height: 95px;               /* Matches the height of the group shot, but narrower */
 }
 /* Optional: Slight pop-out effect when hovering over a photo */
 .g4v-collage-photo:hover {
-    transform: scale(2.05);
+    transform: scale(5.05);
 }
