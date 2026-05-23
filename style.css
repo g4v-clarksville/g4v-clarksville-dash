@@ -241,7 +241,7 @@ td {
     justify-content: center;
     align-items: center;        /* Aligns all images perfectly along their center lines */
     gap: 12px;                  /* Clean spacing between the pictures */
-    max-width: 500px;
+    max-width: 300px;
     margin: 15px auto 0 auto;
 }
 
