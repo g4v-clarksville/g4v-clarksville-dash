@@ -164,8 +164,11 @@
         
             if (cycle.status === "Active" && cycle.vets.length > 0) {
                 const totalPossibleSessions = cycle.vets.length * 10;
+                
                 const actualSessionsCompleted = cycle.vets.reduce((sum, vet) => {
-                    return sum + (parseInt(vet.session) || 0);
+                    // Force checking both naming variants just to be completely safe
+                    const sessions = vet.session !== undefined ? vet.session : (vet.currentSession || 0);
+                    return sum + (parseInt(sessions) || 0);
                 }, 0);
                 
                 return Math.round((actualSessionsCompleted / totalPossibleSessions) * 100);
@@ -178,8 +181,7 @@
             const totalDuration = end - start;
             const elapsed = today - start;
             return totalDuration > 0 ? Math.min(99, Math.round((elapsed / totalDuration) * 100)) : 0;
-        }
-
+}
         function buildDashboard(cycleData) {
             let totalReached = 0;
             let totalGrads = 0;
