@@ -236,21 +236,39 @@ td {
 
 /* Container for the collage layout */
 .g4v-collage-row {
-    display: flex;              /* Changes grid to flex to guarantee a horizontal row */
-    justify-content: center;    /* Keeps the row perfectly centered */
-    gap: 15px;                   /* Clean, tight spacing between the pictures */
-    max-width: 450px;           /* Expanded slightly so 3 pictures can fit side-by-side */
-    margin: 15px auto 0 auto;   /* Centers the collage on the page */
+    display: flex;
+    justify-content: center;
+    align-items: center;        /* Vertically centers all items along the row axis */
+    gap: 25px;                  /* Increased gap slightly to account for the rotation boundaries */
+    max-width: 500px;
+    margin: 15px auto 0 auto;
 }
 
-/* Individual photo formatting inside the collage */
+/* Base style for all 3 photos */
 .g4v-collage-photo {
-    width: 100px;               /* Strict width to ensure they don't grow too large */
-    height: 75px;               /* Strict height to keep them low-profile landscape thumbnails */
-    object-fit: cover;          /* Crops photos cleanly without squishing */
-    border-radius: 4px;
-    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.3);
-    transition: transform 0.2s ease;
+    border-radius: 6px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.35);
+    object-fit: cover;
+}
+
+/* 1st Photo: Main Group Shot (Stays normal) */
+.g4v-collage-photo:nth-child(1) {
+    width: 140px;
+    height: 95px;
+}
+
+/* 2nd Photo: First Portrait (Corrects sideways image data) */
+.g4v-collage-photo:nth-child(2) {
+    width: 95px;                /* We layout a wide box first... */
+    height: 70px;               
+    transform: rotate(90deg);   /* ...then spin it to stand up as a 70x95 portrait! */
+}
+
+/* 3rd Photo: Second Portrait (Corrects sideways image data) */
+.g4v-collage-photo:nth-child(3) {
+    width: 95px;                /* We layout a wide box first... */
+    height: 70px;               
+    transform: rotate(90deg);   /* ...then spin it to stand up as a 70x95 portrait! */
 }
 /* Optional: Slight pop-out effect when hovering over a photo */
 .g4v-collage-photo:hover {
