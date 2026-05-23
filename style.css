@@ -224,22 +224,24 @@ td {
     text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.8); /* Makes it readable over the gradient */
 }
 /* Container for the collage layout */
+/* Container for the collage layout - Locked Down tight */
 .g4v-collage-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
-    gap: 12px;                  /* Spacing between the pictures */
-    max-width: 500px;           /* Controls the overall width of the entire collage */
-    margin: 15px auto 0 auto;   /* Centers the collage on the page */
+    /* Strict columns: 3 equal spaces, maxing out at 75px each */
+    grid-template-columns: repeat(3, minmax(50px, 75px));
+    gap: 8px;                   /* Tight spacing between mini-pics */
+    max-width: 250px;           /* Keeps the ENTIRE collage near your 200px sweet spot */
+    margin: 15px auto 0 auto;   /* Centers the grid on the banner */
+    justify-content: center;    /* Ensures contents stay perfectly centered */
 }
 
 /* Individual photo formatting inside the collage */
 .g4v-collage-photo {
-    width: 100%;
-    height: 110px;              /* Forces all photos to match height evenly */
-    object-fit: cover;          /* Crops photos perfectly so they don't squash or stretch */
+    width: 100%;                /* Fills out its 75px assigned slot */
+    height: 60px;               /* Keeps it a clean, low-profile landscape thumbnail */
+    object-fit: cover;          /* Clean cropping, no squishing */
     border-radius: 4px;
-    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.3);
-    transition: transform 0.2s ease;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
 }
 
 /* Optional: Slight pop-out effect when hovering over a photo */
