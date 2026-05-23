@@ -271,5 +271,5 @@ td {
 }
 /* Optional: Slight pop-out effect when hovering over a photo */
 .g4v-collage-photo:hover {
-    transform: scale(5.05);
+    transform: scale(3.05);
 }
