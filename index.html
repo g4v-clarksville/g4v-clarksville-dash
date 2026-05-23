@@ -206,7 +206,6 @@
                                        (cycle.status === "Upcoming") ? "Confirmed" : 
                                        (cycle.status === "Completed") ? "Graduated" : "Waiting";
                     
-                    // --- TARGETED UPDATE 1: Only count active or graduated students toward Total Reached ---
                     if (cycle.status === "Active" || cycle.status === "Completed") {
                         totalReached++;
                     }
@@ -270,17 +269,18 @@
                 const id = row.cycleId ? row.cycleId.trim() : "";
                 const status = row.status ? row.status.trim() : "";
 
-                // --- TARGETED UPDATE 2: Force waitlist check to ensure there is NO Cycle ID assigned ---
-                if (!id && (status === "Waiting" || status === "Deferred" || status === "TBD" || !status)) {
+                // --- UPDATED LOGIC: Finds all veterans with a status of Waiting or Deferred, regardless of Cycle ID ---
+                if (status === "Waiting" || status === "Deferred") {
                     if (row.vetName) {
                         waitlist.push({ 
                             name: row.vetName, 
                             availability: row.availability || "Waiting", 
-                            notes: status || "Unassigned",
+                            notes: status,
                             session: row.currentSession || 0 
                         });
                     }
-                    return; 
+                    // If it doesn't have a cycle ID, stop here. If it does have a cycle ID, let it fall through to be drawn in its card too.
+                    if (!id) return; 
                 }
 
                 if (id) {
