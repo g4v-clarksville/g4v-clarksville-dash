@@ -237,26 +237,21 @@ td {
 
 /* Container for the collage layout */
 .g4v-collage-row {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
-    gap: 12px;                  /* Spacing between the pictures */
-    max-width: 250px;           /* Controls the overall width of the entire collage */
+    display: flex;              /* Changes grid to flex to guarantee a horizontal row */
+    justify-content: center;    /* Keeps the row perfectly centered */
+    gap: 8px;                   /* Clean, tight spacing between the pictures */
+    max-width: 450px;           /* Expanded slightly so 3 pictures can fit side-by-side */
     margin: 15px auto 0 auto;   /* Centers the collage on the page */
 }
 
 /* Individual photo formatting inside the collage */
 .g4v-collage-photo {
-    width: 100%;
-    height: 110px;              /* Forces all photos to match height evenly */
-    object-fit: cover;          /* Crops photos perfectly so they don't squash or stretch */
+    width: 100px;               /* Strict width to ensure they don't grow too large */
+    height: 75px;               /* Strict height to keep them low-profile landscape thumbnails */
+    object-fit: cover;          /* Crops photos cleanly without squishing */
     border-radius: 4px;
     box-shadow: 0 3px 6px rgba(0, 0, 0, 0.3);
     transition: transform 0.2s ease;
-}
-
-/* Optional: Slight pop-out effect when hovering over a photo */
-.g4v-collage-photo:hover {
-    transform: scale(1.05);
 }
 
 /* Optional: Slight pop-out effect when hovering over a photo */
