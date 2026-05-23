@@ -236,38 +236,23 @@ td {
 }
 
 /* Container for the collage layout */
+/* Container for the collage layout */
 .g4v-collage-row {
-    display: flex;
-    justify-content: center;
-    align-items: center;        /* Aligns all images perfectly along their center lines */
-    gap: 12px;                  /* Clean spacing between the pictures */
-    max-width: 300px;
-    margin: 15px auto 0 auto;
+    display: flex;              /* Changes grid to flex to guarantee a horizontal row */
+    justify-content: center;    /* Keeps the row perfectly centered */
+    gap: 8px;                   /* Clean, tight spacing between the pictures */
+    max-width: 450px;           /* Expanded slightly so 3 pictures can fit side-by-side */
+    margin: 15px auto 0 auto;   /* Centers the collage on the page */
 }
 
-/* Base style for all 3 photos */
+/* Individual photo formatting inside the collage */
 .g4v-collage-photo {
-    border-radius: 6px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.35);
-    object-fit: cover;          /* Clean scaling without distortion */
-}
-
-/* Main group shot stays wide (Landscape) */
-.g4v-collage-photo:nth-child(1) {
-    width: 140px;
-    height: 95px;
-}
-
-/* Second photo stands tall (Portrait) */
-.g4v-collage-photo2:nth-child(2) {
-    width: 70px;
-    height: 95px;               /* Matches the height of the group shot, but narrower */
-}
-
-/* Third photo stands tall (Portrait) */
-.g4v-collage-photo3:nth-child(3) {
-    width: 70px;
-    height: 95px;               /* Matches the height of the group shot, but narrower */
+    width: 100px;               /* Strict width to ensure they don't grow too large */
+    height: 75px;               /* Strict height to keep them low-profile landscape thumbnails */
+    object-fit: cover;          /* Crops photos cleanly without squishing */
+    border-radius: 4px;
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.3);
+    transition: transform 0.2s ease;
 }
 /* Optional: Slight pop-out effect when hovering over a photo */
 .g4v-collage-photo:hover {
