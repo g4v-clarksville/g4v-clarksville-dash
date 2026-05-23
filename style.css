@@ -240,11 +240,11 @@ td {
     justify-content: center;
     align-items: center;        /* Vertically centers all items along the row axis */
     gap: 25px;                  /* Accounts for rotation boundaries */
-    max-width: 850px;           /* Gives comfortable room for all 7 images */
+    max-width: 850px;           
     margin: 15px auto 0 auto;
 }
 
-/* Base style for all photos */
+/* Base style for all 7 photos */
 .g4v-collage-photo {
     border-radius: 6px;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.35);
@@ -258,41 +258,29 @@ td {
     height: 95px;
 }
 
-/* Portrait Shots Group A: 2nd, 3rd, 4th, and 5th Photos */
+/* Portrait Shots: 2nd, 3rd, 4th, 5th, 6th, and 7th Photos */
 .g4v-collage-photo:nth-child(2),
 .g4v-collage-photo:nth-child(3),
-.g4v-collage-photo:nth-child(4),
-.g4v-collage-photo:nth-child(5) {
-    width: 95px;                /* Layout wide box first */
-    height: 70px;               
-    transform: rotate(90deg);   /* Spins them right-side up */
-}
-
-/* Portrait Shots Group B: 6th and 7th Photos (Flipped the other way) */
+.g4v-collage-photo:nth-child(4), /* Moved photo 4 here so it rotates upright */
+.g4v-collage-photo:nth-child(5),
 .g4v-collage-photo:nth-child(6),
 .g4v-collage-photo:nth-child(7) {
     width: 95px;                /* Layout wide box first */
     height: 70px;               
-    transform: rotate(-90deg);  /* Spins them the opposite direction to stand them upright! */
+    transform: rotate(90deg);   /* Spins them right-side up to act as a 70x95 portrait */
 }
 
-/* --- HOVER EFFECTS --- */
-
-/* 1st Photo (Landscape) Hover */
+/* Normal hover for the single landscape group shot */
 .g4v-collage-photo:nth-child(1):hover {
-    transform: scale(1.05);
+    transform: scale(1.95);
 }
 
-/* 2nd through 5th Photos Hover */
+/* Combined hover rules to keep all 6 portraits upright while scaling */
 .g4v-collage-photo:nth-child(2):hover,
 .g4v-collage-photo:nth-child(3):hover,
 .g4v-collage-photo:nth-child(4):hover,
-.g4v-collage-photo:nth-child(5):hover {
-    transform: rotate(90deg) scale(1.95);
-}
-
-/* 6th and 7th Photos Hover (Maintains the 270deg rotation while scaling) */
+.g4v-collage-photo:nth-child(5):hover,
 .g4v-collage-photo:nth-child(6):hover,
 .g4v-collage-photo:nth-child(7):hover {
-    transform: rotate(-90deg) scale(1.95);
+    transform: rotate(90deg) scale(1.95);
 }
