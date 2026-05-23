@@ -276,7 +276,7 @@ td {
 .g4v-collage-photo:nth-child(7) {
     width: 95px;                
     height: 70px;               
-    transform: rotate(180deg);  
+    transform: rotate(-90deg);  
 }
 
 /* --- HOVER EFFECTS --- */
@@ -297,5 +297,5 @@ td {
 .g4v-collage-photo:nth-child(4):hover,
 .g4v-collage-photo:nth-child(6):hover,
 .g4v-collage-photo:nth-child(7):hover {
-    transform: rotate(180deg) scale(1.95);
+    transform: rotate(-90deg) scale(1.95);
 }
