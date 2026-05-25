@@ -207,7 +207,7 @@
                                        (cycle.status === "Upcoming") ? "Confirmed" : 
                                        (cycle.status === "Completed") ? "Graduated" : "Waiting";
                     
-                    if (row.status === "Active" || row.status === "Completed") {
+                    if (cycle.status === "Active" || cycle.status === "Completed") {
                         totalReached++;
                     }
                     
