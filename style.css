@@ -263,8 +263,7 @@ td {
 /* These spin clockwise to stand upright */
 .g4v-collage-photo:nth-child(2),
 .g4v-collage-photo:nth-child(3),
-.g4v-collage-photo:nth-child(5),
-.g4v-collage-photo:nth-child(8) {
+.g4v-collage-photo:nth-child(5) {
     width: 95px;                
     height: 70px;               
     transform: rotate(90deg);   
@@ -274,7 +273,8 @@ td {
 /* These need a 180-degree flip from where they were to stand upright */
 .g4v-collage-photo:nth-child(4),
 .g4v-collage-photo:nth-child(6),
-.g4v-collage-photo:nth-child(7) {
+.g4v-collage-photo:nth-child(7),
+.g4v-collage-photo:nth-child(8) {
     width: 95px;                
     height: 70px;               
     transform: rotate(0deg);  
@@ -290,14 +290,14 @@ td {
 /* 2nd, 3rd, and 5th Photos Hover */
 .g4v-collage-photo:nth-child(2):hover,
 .g4v-collage-photo:nth-child(3):hover,
-.g4v-collage-photo:nth-child(5):hover,
-.g4v-collage-photo:nth-child(8):hover {
+.g4v-collage-photo:nth-child(5):hover {
     transform: rotate(90deg) scale(1.95);
 }
 
 /* 4th, 6th, and 7th Photos Hover */
 .g4v-collage-photo:nth-child(4):hover,
 .g4v-collage-photo:nth-child(6):hover,
-.g4v-collage-photo:nth-child(7):hover {
+.g4v-collage-photo:nth-child(7):hover,
+.g4v-collage-photo:nth-child(8):hover {
     transform: rotate(0deg) scale(1.95);
 }
