@@ -197,6 +197,17 @@
                     cycle.instructors.forEach(name => activeInstructors.add(name));
                 }
 
+                // --- PATCH START: Count veterans reached in this cycle ---
+                cycle.vets.forEach(vet => {
+                    const sessionCount = parseInt(vet.session) || 0;
+                    const availText = vet.availability ? vet.availability.trim().toLowerCase() : "";
+                    
+                    if (cycle.status === "Active" || cycle.status === "Completed" || sessionCount > 0 || availText === "graduated" || availText === "completed") {
+                        totalReached++;
+                    }
+                });
+                // --- PATCH END ---
+
                 const progressValue = calculateProgress(cycle);
                 const cycleSection = document.createElement('section');
                 cycleSection.className = 'cycle-card';
