@@ -203,13 +203,20 @@
                 
                 let rows = '';
                 cycle.vets.forEach(vet => {
-                    let displayStatus = (cycle.status === "Active") ? "In Lessons" : 
-                                       (cycle.status === "Upcoming") ? "Confirmed" : 
-                                       (cycle.status === "Completed") ? "Graduated" : "Waiting";
-                    
-                    if (cycle.status === "Active" || cycle.status === "Completed") {
-                        totalReached++;
-                    }
+                    let displayStatus = "";
+
+                if (vet.availability === "Dropped") {
+                    displayStatus = "Dropped";
+                } else if (vet.availability === "Deferred" || vet.availability === "Waiting") {
+                    displayStatus = "Waiting";
+                } else if (parseInt(vet.session) >= 10 || vet.availability === "Graduated") {
+                    displayStatus = "Graduated";
+                } else if (parseInt(vet.session) > 0 && parseInt(vet.session) < 10) {
+                    displayStatus = "In Lessons";
+                } else {
+                    // Fallback to the cycle state if session data is missing
+                    displayStatus = (cycle.status === "Active") ? "In Lessons" : "Confirmed";
+                }
                     
                     const sessionCount = vet.session || 0;
 
