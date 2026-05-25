@@ -69,14 +69,43 @@ body {
     color: #FFFFFF; /* Turns white on hover for clear interaction */
 }
 
-/* Hide QR on mobile */
+/* Hide QR on mobile and stack header content cleanly */
 @media (max-width: 768px) {
-    .header-qr {
-        display: none;
+    .header-inner {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        gap: 12px;
+        padding: 15px 20px;
     }
+
     .header-logo {
-        width: 50px;
-        height: 50px;
+        width: 100px; /* Adjusted slightly up from 50px so the G4V emblem stays sharp and readable */
+        height: auto;
+    }
+
+    .header-inner h1 {
+        font-size: 1.4rem; /* Scales down the title so it fits on a phone screen without giant text wraps */
+        width: 100%;
+    }
+
+    .header-titles {
+        width: 100%;
+    }
+
+    .header-qr {
+        display: none; /* Keeps your clean choice to drop the QR code on mobile */
+    }
+}
+
+/* Extra fine-tuning for small mobile devices */
+@media (max-width: 480px) {
+    .header-inner h1 {
+        font-size: 1.2rem;
+    }
+    
+    .chapter-metadata {
+        font-size: 0.85rem !important;
     }
 }
 
