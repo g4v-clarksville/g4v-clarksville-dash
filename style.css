@@ -241,7 +241,7 @@ td {
     justify-content: center;
     align-items: center;        /* Vertically centers all items along the row axis */
     gap: 25px;                  /* Accounts for rotation boundaries */
-    max-width: 850px;           
+    max-width: 950px;           
     margin: 15px auto 0 auto;
 }
 
