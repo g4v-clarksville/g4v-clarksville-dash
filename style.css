@@ -150,8 +150,9 @@ body {
 .dashboard-top-row {
     display: grid;
     grid-template-columns: 3fr 1fr; /* Stats take 2/3, Tracker takes 1/3 */
-    gap: 20px;
+    gap: 15px;
     margin-bottom: 25px;
+    width: 100%;
 }
 
 /* Impact Banner now functions as the container for the mini cards */
@@ -161,41 +162,29 @@ body {
     flex-wrap: wrap;
 }
 
-.stat-card {
+/* Base card styling for ALL three boxes */
+.stat-card, .year-tracker-container {
     background: var(--card-surface);
     border: 1px solid var(--border-color);
-    padding: 10px 12px;
-    border-radius: 6px;
-    width: 200px;
-    min-height: 70px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.3);
-}
-
-/* Style for the Yearly Tracker Card */
-.year-tracker-container {
-    background: var(--card-surface);
-    border: 1px solid var(--border-color);
-    padding: 10px 15px;
+    padding: 15px;
     border-radius: 6px;
     display: flex;
     flex-direction: column;
     justify-content: center;
+    align-items: center; /* Centers the content */
+    min-height: 90px;
 }
 
 /* Label matches portfolio-label */
 .stat-label {
-    font-size: 0.8rem;
-    font-weight: 700;
+    font-size: 0.75rem;
+    font-weight: 800;
     color: var(--text-muted);
-    text-transform: none; /* Removes uppercase */
 }
 
 /* Value matches portfolio-value */
 .stat-value {
-    font-size: 1.8rem;
+    font-size: 1.5rem;
     font-weight: 800;
     font-family: 'Inter', sans-serif;
     color: var(--neon-cyan);
