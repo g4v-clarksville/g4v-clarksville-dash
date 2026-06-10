@@ -162,7 +162,7 @@ body {
 .stat-card, .year-tracker-container {
     background: var(--card-surface);
     border: 1px solid var(--border-color);
-    padding: 15px;
+    padding: 10px 12px;
     border-radius: 6px;
     display: flex;
     flex-direction: column;
