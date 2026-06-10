@@ -147,41 +147,42 @@ body {
     margin-bottom: 25px;
 }
 
-/* Mini-card conversion for G4V impact stats */
+/* Impact Banner Stats */
+.impact-banner {
+    display: flex;
+    gap: 15px;
+    margin-bottom: 25px;
+}
+
 .stat-card {
-    background: #11161d;
-    border: 1px solid #1a222d;
-    border-radius: 6px;
-    padding: 10px 12px;
+    background: var(--card-surface);
+    border: 1px solid var(--border-color);
+    padding: 20px;
+    border-radius: 8px;
     flex: 1;
-    text-align: left; /* Matches portfolio-card style */
-    box-shadow: none; /* Removes the glow for a cleaner mini-card look */
+    text-align: center;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.3);
 }
 
-/* Label matches portfolio-label */
 .stat-label {
-    font-size: 0.7rem;
-    font-weight: 700;
-    color: #8899a6;
-    text-transform: none; /* Removes uppercase */
-    margin-bottom: 2px;
+    color: var(--text-dim);
+    display: block;
+    font-size: 0.8rem;
+    text-transform: uppercase;
 }
 
-/* Value matches portfolio-value */
 .stat-value {
-    font-size: 1.15rem;
-    font-weight: 800;
-    font-family: 'Inter', sans-serif;
-    color: #ffffff;
-    text-shadow: none; /* Removes neon glow */
-    letter-spacing: normal;
+    color: var(--neon-mint);
+    font-size: 2.2rem;
+    font-weight: bold;
+    display: block;
+    text-shadow: 0 0 15px rgba(6, 211, 217, 0.4);
+    letter-spacing: -1px;
 }
-
 #active-leads {
     font-size: 1.4rem;  /* Keeps names legible */
     font-weight: 700;  /* Slightly less heavy than the numbers */
 }
-
 .year-options {
     display: flex;
     gap: 6px;
