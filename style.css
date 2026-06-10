@@ -44,6 +44,11 @@ body {
     height: 80px;
     object-fit: contain;
 }
+
+.osd-logo {
+    height: 70px; /* or 65px for tighter look */
+}
+
 /* Title Block */
 .header-titles {
     text-align: center;
