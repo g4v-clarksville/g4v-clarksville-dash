@@ -21,24 +21,26 @@ body {
     margin: 0;
     padding: 20px;
 }
- .header-inner {
+
+.header-inner {
     display: flex;
     align-items: center;
     justify-content: space-between;
     padding: 20px 40px;
     width: 100%;
     box-sizing: border-box;
-    
 }
+
 /* Center Branding Block (logos + title) */
 .header-main-content {
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 40px; /* Equal spacing between logo – text – logo */
+    gap: 40px;
     flex-grow: 1;
-    margin-right: 20px; /* Prevents crowding the QR */
+    margin-right: 20px;
 }
+
 .header-logo {
     width: auto;
     height: 80px;
@@ -46,7 +48,7 @@ body {
 }
 
 .osd-logo {
-    height: 70px; /* or 65px for tighter look */
+    height: 70px;
 }
 
 /* Title Block */
@@ -59,11 +61,8 @@ body {
     margin: 0;
     font-size: 1.6rem;
 }
-.header-inner h1 {
-    flex: 1;
-    text-align: center;
-    margin: 0;
-}
+
+/* QR Block */
 .header-qr {
     display: flex;
     flex-direction: column;
@@ -71,32 +70,35 @@ body {
     text-align: center;
     width: 100px;
 }
+
 .header-qr img {
     width: 75px;
     height: 75px;
-    display: block; /* Removes botom white space */
+    display: block;
 }
+
 .header-qr p {
     font-size: 0.65rem;
     color: #FFD700;
     margin-top: 5px;
-    width: 100px; /* Slightly wider to keep text clean */
+    width: 100px;
     line-height: 1.2;
     font-weight: bold;
 }
+
 .header-qr p a {
-    color: #FFD700; /* Matching Gold for consistency */
+    color: #FFD700;
     text-decoration: underline;
-    display: block; /* Puts "learn more" on its own line for better centering */
+    display: block;
     margin-top: 2px;
-    filter: brightness(1.2); /* Makes the link slightly "pop" more than the text */
+    filter: brightness(1.2);
 }
 
 .header-qr p a:hover {
-    color: #FFFFFF; /* Turns white on hover for clear interaction */
+    color: #FFFFFF;
 }
 
-/* Hide QR on mobile and stack header content cleanly */
+/* Mobile */
 @media (max-width: 768px) {
     .header-inner {
         flex-direction: column;
@@ -107,12 +109,12 @@ body {
     }
 
     .header-logo {
-        width: 100px; /* Adjusted slightly up from 50px so the G4V emblem stays sharp and readable */
+        width: 100px;
         height: auto;
     }
 
-    .header-inner h1 {
-        font-size: 1.4rem; /* Scales down the title so it fits on a phone screen without giant text wraps */
+    .header-titles h1 {
+        font-size: 1.4rem;
         width: 100%;
     }
 
@@ -121,9 +123,8 @@ body {
     }
 
     .header-qr {
-        display: none; /* Keeps your clean choice to drop the QR code on mobile */
+        display: none;
     }
-}
 
 /* Extra fine-tuning for small mobile devices */
 @media (max-width: 480px) {
