@@ -49,6 +49,10 @@ body {
     height: 70px; /* or 65px for tighter look */
 }
 
+.g4v-logo {
+    height: 90px;
+}
+
 /* Title Block */
 .header-titles {
     text-align: center;
