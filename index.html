@@ -21,22 +21,20 @@
             <img src="graduation_photo7.png" alt="F4" class="g4v-collage-photo">
             <img src="graduation_photo8.png" alt="F5" class="g4v-collage-photo">
         </div>
-    </div> 
+    </div>
 
-    <header>
-        <div class="header-inner">
-            <div class="header-main-content">
-                <img src="Picture1.png" alt="G4V Logo" class="header-logo g4v-logo">
-                <div class="header-titles">
-                    <h1>Guitars For Vets: Clarksville Chapter</h1>
-                    <p class="chapter-metadata">Chapter #287 &bull; Est. February 18, 2026</p>
-                </div>
-                <img src="OSD logo.jpg" alt="OSD Logo" class="header-logo osd-logo">
+    <header class="header-inner">
+        <div class="header-main-content">
+            <img src="Picture1.png" alt="G4V Logo" class="header-logo g4v-logo">
+            <div class="header-titles">
+                <h1>Guitars For Vets: Clarksville Chapter</h1>
+                <p class="chapter-metadata">Chapter #287 &bull; Est. February 18, 2026</p>
             </div>
-            <div class="header-qr">
-                <img src="clarksvilleQR.png" alt="Scan to donate">
-                <p>Scan to donate &amp; <a href="https://guitars4vets.org" target="_blank">learn more</a></p>
-            </div>
+            <img src="OSD logo.jpg" alt="OSD Logo" class="header-logo osd-logo">
+        </div>
+        <div class="header-qr">
+            <img src="clarksvilleQR.png" alt="Scan to donate">
+            <p>Scan to donate &amp; <a href="https://guitars4vets.org" target="_blank">learn more</a></p>
         </div>
     </header>
 
@@ -54,23 +52,15 @@
             <div class="year-options"><span class="year-pill active">2026</span><span class="year-pill">2027</span></div>
         </div>
     </div>
-    
+
     <div id="active-leads" style="display:none;"></div>
-
+    
     <div class="search-container">
-        <input type="text" id="vet-search" placeholder="Search Veteran Name..." onkeyup="searchVets()">
-    </div>
-
-    <div id="waitlist-section" class="cycle-card" style="display: none;">
-        <h2 onclick="toggleWaitlist()" style="cursor: pointer; color: #FFD700;">Chapter Waitlist (<span id="waitlist-count">0</span>)</h2>
-        <div id="waitlist-content" style="display: none;"><table id="waitlist-body"></table></div>
+        <input type="text" id="vet-search" placeholder="Search Veteran Name...">
     </div>
 
     <main id="dashboard-root"></main>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.3.2/papaparse.min.js"></script>
-    <script>
-        // Ensure all your logic stays here, but verify that the buildDashboard function is closed by a '}'
-    </script>
 </body>
 </html>
