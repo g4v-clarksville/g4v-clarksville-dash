@@ -1,66 +1,408 @@
-<!DOCTYPE html>
+html: <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>G4V Clarksville Dashboard</title>
-    <link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>G4V Clarksville Dashboard</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* Embedded CSS Fixes for the Header QR Section */
+        .header-qr {
+            display: flex;
+            flex-direction: column;
+            align-items: center; 
+            text-align: center;
+            width: 110px; 
+        }
+        .header-qr img {
+            width: 75px;
+            height: 75px;
+            display: block;
+        }
+        .header-qr p {
+            font-size: 0.65rem;
+            color: #FFD700;
+            margin-top: 5px;
+            width: 100%; 
+            line-height: 1.2;
+            font-weight: bold;
+        }
+        .header-qr p a {
+            color: #FFD700;
+            text-decoration: underline;
+            display: block;
+            margin-top: 2px;
+            filter: brightness(1.2);
+        }
+        .header-qr p a:hover {
+            color: #FFFFFF;
+        }
+
+        /* Updated Commemorative Graduation Banner Styles */
+        .g4v-grad-banner {
+            background-color: #002d72; 
+            color: white; 
+            text-align: center; 
+            padding: 20px 15px; 
+            border-bottom: 3px solid #ffc72c;
+            font-family: inherit;
+        }
+        .g4v-grad-title {
+            margin: 0; 
+            font-size: 1.6rem; 
+            font-weight: bold;
+            letter-spacing: 0.5px;
+        }
+        .g4v-grad-date {
+            margin: 5px 0 0 0; 
+            font-size: 1.15rem;
+            color: #ffc72c;
+            font-weight: bold;
+        }
+        .g4v-grad-media {
+            max-width: 600px;
+            margin: 15px auto 0 auto;
+            display: block;
+            border-radius: 6px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.35);
+        }
+    </style>
 </head>
 <body>
+    
+    <div class="g4v-grad-banner">
+        <h2 class="g4v-grad-title">G4V Graduation</h2>
+        <p class="g4v-grad-date">May 22, 2026</p>
+    
+    <div class="g4v-collage-row">
+        <img src="G4V_Class_22May.png" alt="G4V Graduation Class Group" class="g4v-collage-photo">
+        <img src="graduation_photo2.png" alt="G4V Graduation Performance" class="g4v-collage-photo">
+        <img src="graduation_photo3.png" alt="G4V Graduation Certificate" class="g4v-collage-photo">
+        <img src="graduation_photo4.png" alt="G4V Graduation Feature 1" class="g4v-collage-photo">
+        <img src="graduation_photo5.png" alt="G4V Graduation Feature 2" class="g4v-collage-photo">
+        <img src="graduation_photo6.png" alt="G4V Graduation Feature 3" class="g4v-collage-photo">
+        <img src="graduation_photo7.png" alt="G4V Graduation Feature 4" class="g4v-collage-photo">
+        <img src="graduation_photo8.png" alt="G4V Graduation Feature 5" class="g4v-collage-photo">
+    </div>
+    </div> 
 
-    <div class="g4v-grad-banner">
-        <h2 class="g4v-grad-title">G4V Graduation</h2>
-        <p class="g4v-grad-date">May 22, 2026</p>
-        <div class="g4v-collage-row">
-            <img src="G4V_Class_22May.png" alt="Group" class="g4v-collage-photo">
-            <img src="graduation_photo2.png" alt="Perf" class="g4v-collage-photo">
-            <img src="graduation_photo3.png" alt="Cert" class="g4v-collage-photo">
-            <img src="graduation_photo4.png" alt="F1" class="g4v-collage-photo">
-            <img src="graduation_photo5.png" alt="F2" class="g4v-collage-photo">
-            <img src="graduation_photo6.png" alt="F3" class="g4v-collage-photo">
-            <img src="graduation_photo7.png" alt="F4" class="g4v-collage-photo">
-            <img src="graduation_photo8.png" alt="F5" class="g4v-collage-photo">
-        </div>
-    </div>
+    <header>
+        <div class="header-inner">
+            <div class="header-main-content">
+            <img src="Picture1.png" alt="G4V Logo" class="header-logo g4v-logo">
+            <div class="header-titles" style="display: flex; flex-direction: column; align-items: center; text-align: center; gap: 4px; flex-grow: 1;">
+                <h1 style="margin: 0;">Guitars For Vets: Clarksville Chapter</h1>
+                <p class="chapter-metadata" style="margin: 0; color: #FFD700; font-size: 0.95rem; font-weight: bold; letter-spacing: 0.5px;">
+                    Chapter #287 &bull; Est. February 18, 2026
+                </p>
+            </div>
 
-    <header class="header-inner">
-        <div class="header-main-content">
-            <img src="Picture1.png" alt="G4V Logo" class="header-logo g4v-logo">
-            <div class="header-titles">
-                <h1>Guitars For Vets: Clarksville Chapter</h1>
-                <p class="chapter-metadata">Chapter #287 &bull; Est. February 18, 2026</p>
-            </div>
-            <img src="OSD logo.jpg" alt="OSD Logo" class="header-logo osd-logo">
-        </div>
-        <div class="header-qr">
-            <img src="clarksvilleQR.png" alt="Scan to donate">
-            <p>Scan to donate &amp; <a href="https://guitars4vets.org" target="_blank">learn more</a></p>
-        </div>
-    </header>
+            <img src="OSD logo.jpg" alt="Operation Stand Down Logo" class="header-logo osd-logo">
+            </div>
+            <div class="header-qr">
+                <img src="clarksvilleQR.png" alt="Scan to donate & learn more">
+                <p>Scan to donate &amp; <a href="https://guitars4vets.org" target="_blank">learn more</a></p>
+            </div>
+        </div>
+    </header>
 
-    <div class="dashboard-top-row">
-        <div class="stat-card">
-            <span class="stat-label">Total Veterans Reached</span>
-            <span id="total-vets" class="stat-value">0</span>
-        </div>
-        <div class="stat-card">
-            <span class="stat-label">Graduated Alumni</span>
-            <span id="grad-count" class="stat-value">0</span>
-        </div>
-        <div class="stat-card">
-            <span class="stat-label">Select Year</span>
-            <div class="year-options"><span class="year-pill active">2026</span><span class="year-pill">2027</span></div>
-        </div>
-    </div>
 
-    <div id="active-leads" style="display:none;"></div>
-    
-    <div class="search-container">
-        <input type="text" id="vet-search" placeholder="Search Veteran Name...">
-    </div>
+    <div id="impact-summary" class="impact-banner">
+    <div class="stat-card">
+        <span class="stat-label">Total Veterans Reached</span>
+        <span id="total-vets" class="stat-value">0</span>
+    </div>
+    <div class="stat-card">
+        <span class="stat-label">Graduated Alumni</span>
+        <span id="grad-count" class="stat-value">0</span>
+    </div>
+    <div class="stat-card year-selector-card">
+    <span class="stat-label">Select Year</span>
+    <div class="year-options">
+        <span class="year-pill">2026</span>
+        <span class="year-pill">2027</span>
+        <span class="year-pill">2028</span>
+        <span class="year-pill">2029</span>
+        <span class="year-pill">2030</span>
+    </div>
+</div>
 
-    <main id="dashboard-root"></main>
+    <div class="search-container">
+        <input type="text" id="vet-search" placeholder="Search Veteran Name..." onkeyup="searchVets()">
+    </div>
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.3.2/papaparse.min.js"></script>
+    <div id="waitlist-section" class="cycle-card" style="border-left-color: #CC5500; display: none; margin-bottom: 20px; padding: 15px;">
+        <div onclick="toggleWaitlist()" style="cursor: pointer; display: flex; justify-content: space-between; align-items: center;">
+            <h2 style="color: #FFD700; margin: 0; font-size: 1.4rem;">Chapter Waitlist (<span id="waitlist-count">0</span>)</h2>
+            <span id="waitlist-arrow" style="color: #FFD700; font-size: 1.1rem; font-weight: bold;">▼ VIEW LIST</span>
+        </div>
+        
+        <div id="waitlist-content" style="display: none; margin-top: 20px; border-top: 1px solid #444; padding-top: 10px;">
+            <table style="font-size: 0.9rem;">
+                <thead>
+                    <tr>
+                        <th>Seq#</th>
+                        <th>Veteran</th>
+                        <th>Session</th>
+                        <th>Status / Notes</th>
+                        <th>Availability</th>
+                    </tr>
+                </thead>
+                <tbody id="waitlist-body"></tbody>
+            </table>
+        </div>
+    </div>
+
+    <main id="dashboard-root"></main>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.3.2/papaparse.min.js"></script>
+
+    <script>
+        const mainContainer = document.getElementById('dashboard-root');
+        
+        function toggleWaitlist() {
+            const content = document.getElementById('waitlist-content');
+            const arrow = document.getElementById('waitlist-arrow');
+            if (content.style.display === "none") {
+                content.style.display = "block";
+                arrow.innerText = "▲ CLOSE LIST";
+            } else {
+                content.style.display = "none";
+                arrow.innerText = "▼ VIEW LIST";
+            }
+        }
+
+        function calculateProgress(cycle) {
+            const today = new Date();
+            if (!cycle.startDate || !cycle.endDate) return 0;
+            
+            if (cycle.status === "Completed") return 100;
+        
+            if (cycle.status === "Active" && cycle.vets.length > 0) {
+                const totalPossibleSessions = cycle.vets.length * 10;
+                
+                const actualSessionsCompleted = cycle.vets.reduce((sum, vet) => {
+                    // Force checking both naming variants just to be completely safe
+                    const sessions = vet.session !== undefined ? vet.session : (vet.currentSession || 0);
+                    return sum + (parseInt(sessions) || 0);
+                }, 0);
+                
+                return Math.round((actualSessionsCompleted / totalPossibleSessions) * 100);
+            }
+        
+            const start = new Date(cycle.startDate);
+            const end = new Date(cycle.endDate);
+            if (today < start) return 0;
+            
+            const totalDuration = end - start;
+            const elapsed = today - start;
+            return totalDuration > 0 ? Math.min(99, Math.round((elapsed / totalDuration) * 100)) : 0;
+        }
+
+        function buildDashboard(cycleData) {
+            let totalReached = 0;
+            let totalGrads = 0;
+            let activeInstructors = new Set();
+            mainContainer.innerHTML = ''; 
+
+            cycleData.forEach(cycle => {
+                totalGrads += cycle.vets.filter(v => v.availability && v.availability.trim().toLowerCase() === "graduated").length;
+
+                if (cycle.status === "Active") {
+                    cycle.instructors.forEach(name => activeInstructors.add(name));
+                }
+
+                // --- PATCH START: Count veterans reached in this cycle ---
+                cycle.vets.forEach(vet => {
+                    const sessionCount = parseInt(vet.session) || 0;
+                    const availText = vet.availability ? vet.availability.trim().toLowerCase() : "";
+                    
+                    if (cycle.status === "Active" || cycle.status === "Completed" || sessionCount > 0 || availText === "graduated" || availText === "completed") {
+                        totalReached++;
+                    }
+                });
+                // --- PATCH END ---
+
+                const progressValue = calculateProgress(cycle);
+                const cycleSection = document.createElement('section');
+                cycleSection.className = 'cycle-card';
+                
+                let rows = '';
+                cycle.vets.forEach(vet => {
+                    let displayStatus = "";
+
+                if (vet.availability === "Dropped") {
+                    displayStatus = "Dropped";
+                } else if (vet.availability === "Deferred" || vet.availability === "Waiting") {
+                    displayStatus = "Waiting";
+                } else if (parseInt(vet.session) >= 10 || vet.availability === "Graduated") {
+                    displayStatus = "Graduated";
+                } else if (parseInt(vet.session) > 0 && parseInt(vet.session) < 10) {
+                    displayStatus = "In Lessons";
+                } else {
+                    // Fallback to the cycle state if session data is missing
+                    displayStatus = (cycle.status === "Active") ? "In Lessons" : "Confirmed";
+                }
+                    
+                    const sessionCount = vet.session || 0;
+
+                    rows += `
+                        <tr class="${vet.availability === 'Graduated' ? 'grad-row' : ''}">
+                            <td>${vet.seq || '-'}</td>
+                            <td class="vet-name-cell" style="font-weight:bold;">${vet.name}</td>
+                            <td style="color: #FFD700; font-weight: bold;">${sessionCount} / 10</td>
+                            <td>${displayStatus}</td>
+                            <td class="status-${vet.availability.toLowerCase().replace(/\s/g, '')}">${vet.availability}</td>
+                        </tr>`;
+                });
+
+                const startDisp = cycle.startDate || "TBD";
+                const endDisp = cycle.endDate || "TBD";
+
+                cycleSection.innerHTML = `
+                    <div class="card-header">
+                        <div style="display: flex; justify-content: space-between; align-items: baseline; flex-wrap: wrap; margin-bottom: 10px;">
+                            <h2 style="margin: 0; color: #FFD700;">Cycle ${cycle.cycleId} (${cycle.status})</h2>
+                            <div class="cycle-timeline">
+                            <span class="timeline-label">TIMELINE:</span>
+                            <span class="timeline-dates">${startDisp} — ${endDisp}</span>
+                        </div>
+                        </div>
+                        <div class="progress-container">
+                            <div class="progress-bar" style="width: ${progressValue}%"></div>
+                            <span class="progress-text">${progressValue}% Cycle Progress</span>
+                        </div>
+                    </div>
+                    <div class="instructor-box">Assigned: ${cycle.instructors.join(' & ')}</div>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Seq#</th>
+                                <th>Veteran</th>
+                                <th>Session</th>
+                                <th>Status</th>
+                                <th>Availability</th>
+                            </tr>
+                        </thead>
+                        <tbody>${rows}</tbody>
+                    </table>
+                `;
+                mainContainer.appendChild(cycleSection);
+            });
+
+            document.getElementById('total-vets').innerText = totalReached;
+            document.getElementById('grad-count').innerText = totalGrads;
+            document.getElementById('active-leads').innerText = Array.from(activeInstructors).join(' & ') || "None Active";
+        }
+
+        function processExcelData(rawRows) {
+            const groupedData = {};
+            const waitlist = [];
+
+            rawRows.forEach(row => {
+                const id = row.cycleId ? row.cycleId.trim() : "";
+                const status = row.status ? row.status.trim() : "";
+
+                // --- UPDATED LOGIC: Finds all veterans with a status of Waiting or Deferred, regardless of Cycle ID ---
+                if (status === "Waiting" || status === "Deferred") {
+                    if (row.vetName) {
+                        waitlist.push({ 
+                            name: row.vetName, 
+                            availability: row.availability || "Waiting", 
+                            notes: status,
+                            session: row.currentSession || 0 
+                        });
+                    }
+                    // If it doesn't have a cycle ID, stop here. If it does have a cycle ID, let it fall through to be drawn in its card too.
+                    if (!id) return; 
+                }
+
+                if (id) {
+                    if (!groupedData[id]) {
+                        groupedData[id] = {
+                            cycleId: id,
+                            status: row.status,
+                            startDate: row.startDate,
+                            endDate: row.endDate,
+                            currentSession: row.currentSession,
+                            instructorSet: new Set(),
+                            vets: []
+                        };
+                    }
+
+                    if (row.instructors) {
+                        row.instructors.split(',').forEach(n => groupedData[id].instructorSet.add(n.trim()));
+                    }
+                    
+                    groupedData[id].vets.push({ 
+                        seq: row.vetSeq, 
+                        name: row.vetName, 
+                        availability: row.availability,
+                        session: row.currentSession
+                    });
+                }
+            });
+
+            renderWaitlist(waitlist);
+            buildDashboard(Object.values(groupedData).map(c => { 
+                c.instructors = Array.from(c.instructorSet); 
+                return c; 
+            }));
+        }
+
+        function renderWaitlist(waitlist) {
+            const waitSection = document.getElementById('waitlist-section');
+            const waitBody = document.getElementById('waitlist-body');
+            document.getElementById('waitlist-count').innerText = waitlist.length;
+            waitBody.innerHTML = '';
+
+            if (waitlist.length > 0) {
+                waitSection.style.display = 'block';
+                waitlist.forEach(vet => {
+                    waitBody.innerHTML += `
+                        <tr>
+                            <td>-</td>
+                            <td class="vet-name-cell" style="font-weight:bold;">${vet.name}</td>
+                            <td>${vet.session} / 10</td>
+                            <td>${vet.notes}</td>
+                            <td class="status-invited">${vet.availability}</td>
+                        </tr>`;
+                });
+            } else {
+                waitSection.style.display = 'none';
+            }
+        }
+
+        function searchVets() {
+            const input = document.getElementById('vet-search').value.toLowerCase();
+            const cards = document.querySelectorAll('.cycle-card');
+
+            cards.forEach(card => {
+                const rows = card.querySelectorAll('tbody tr');
+                let cardHasMatch = false;
+                rows.forEach(row => {
+                    const name = row.querySelector('.vet-name-cell')?.textContent.toLowerCase() || "";
+                    if (name.includes(input)) { 
+                        row.style.display = ""; 
+                        cardHasMatch = true; 
+                    } else { 
+                        row.style.display = "none"; 
+                    }
+                });
+                card.style.display = cardHasMatch ? "" : "none";
+            });
+        }
+
+        function loadDataFromGoogle() {
+            const csvUrl = "https://docs.google.com/spreadsheets/d/e/2PACX-1vRZrgM6dmSRKecR8YR63T4Hvhq9vShmdLKvyqkx-HbO7DbXVNpBdhBl5SfOJFzvtFWBBwYnVYpNo_5z/pub?output=csv";
+            Papa.parse(csvUrl, { 
+                download: true, 
+                header: true, 
+                complete: (r) => processExcelData(r.data) 
+            });
+        }
+
+        loadDataFromGoogle();
+    </script>
 </body>
 </html>
