@@ -144,12 +144,6 @@ body {
     .chapter-metadata {
         font-size: 0.85rem !important;
     }
-}
-.impact-banner {
-    display: flex; /* Changed from grid to flex */
-    gap: 15px;     /* Space between the two mini cards */
-    flex-wrap: wrap;
-}
 
 /* New Wrapper to force horizontal alignment */
 .dashboard-top-row {
