@@ -109,28 +109,29 @@
 
     <!-- Wrapper for horizontal alignment -->
 <div class="dashboard-top-row">
-    <div class="stat-card">
-        <span class="stat-label">Total Veterans Reached</span>
-        <span id="total-vets" class="stat-value">0</span>
-    </div>
-    
-    <div class="stat-card">
-        <span class="stat-label">Graduated Alumni</span>
-        <span id="grad-count" class="stat-value">0</span>
-    </div>
+    <div class="stat-card">
+        <span class="stat-label">Total Veterans Reached</span>
+        <span id="total-vets" class="stat-value">0</span>
+    </div>
+    
+    <div class="stat-card">
+        <span class="stat-label">Graduated Alumni</span>
+        <span id="grad-count" class="stat-value">0</span>
+    </div>
 
-    <div class="year-tracker-container">
-        <span class="stat-label">Select Year</span>
-        <div class="year-options" style="margin-top: 8px;">
-            <span class="year-pill active">2026</span>
-            <span class="year-pill">2027</span>
-            <span class="year-pill">2028</span>
-            <span class="year-pill">2029</span>
-            <span class="year-pill">2030</span>
-        </div>
-    </div>
+    <div class="year-tracker-container">
+        <span class="stat-label">Select Year</span>
+        <div class="year-options">
+            <span class="year-pill active">2026</span>
+            <span class="year-pill">2027</span>
+            <span class="year-pill">2028</span>
+            <span class="year-pill">2029</span>
+            <span class="year-pill">2030</span>
+        </div>
+    </div>
 </div>
 
+<div id="active-leads" style="display: none;"></div>
 </div>
     <div class="search-container">
         <input type="text" id="vet-search" placeholder="Search Veteran Name..." onkeyup="searchVets()">
