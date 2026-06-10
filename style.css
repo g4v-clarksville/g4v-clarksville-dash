@@ -157,11 +157,15 @@ body {
 .stat-card {
     background: var(--card-surface);
     border: 1px solid var(--border-color);
-    padding: 20px;
-    border-radius: 8px;
+    padding: 10px 12px;
+    border-radius: 6px;
     flex: 1;
-    text-align: center;
+    text-align: left;
     box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+    min-height: 70px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 }
 
 .stat-label {
