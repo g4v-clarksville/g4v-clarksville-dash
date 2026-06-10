@@ -22,40 +22,20 @@ body {
     padding: 20px;
 }
 
-/* --- Header Row Fix --- */
-.header-inner {
-    display: flex;
-    flex-direction: row;        /* Forces a horizontal row */
-    align-items: center;        /* Vertically centers all items */
-    justify-content: space-between; /* Pins items to edges and space */
-    width: 100%;
-    padding: 20px 40px;
-    box-sizing: border-box;
-    background-color: var(--bg-void);
-}
+/* --- Header Section --- */
+.header-inner { display: flex; align-items: center; justify-content: space-between; padding: 20px 40px; width: 100%; box-sizing: border-box; }
+.header-main-content { display: flex; align-items: center; justify-content: center; gap: 40px; flex-grow: 1; margin-right: 20px; }
+.header-logo { width: auto; height: 80px; object-fit: contain; }
+.osd-logo { height: 70px; }
+.g4v-logo { height: 90px; }
+.header-titles { text-align: center; }
+.header-titles h1 { color: var(--text-dim); margin: 0; font-size: 1.6rem; }
 
-/* Fixes the logos and title to prevent them from growing/shrinking */
-.header-logo {
-    height: 80px; 
-    width: auto; 
-    object-fit: contain;
-    flex-shrink: 0; /* Prevents logos from squishing */
-}
-
-.header-titles {
-    flex: 1;                /* Allows title to take available middle space */
-    text-align: center;
-    padding: 0 20px;
-}
-
-.header-qr {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    width: 100px;
-    flex-shrink: 0;         /* Prevents QR from being pushed out */
-}
-
+.header-qr { display: flex; flex-direction: column; align-items: center; text-align: center; width: 100px; }
+.header-qr img { width: 75px; height: 75px; display: block; }
+.header-qr p { font-size: 0.65rem; color: #FFD700; margin-top: 5px; width: 100px; line-height: 1.2; font-weight: bold; }
+.header-qr p a { color: #FFD700; text-decoration: underline; display: block; margin-top: 2px; filter: brightness(1.2); }
+.header-qr p a:hover { color: #FFFFFF; }
 /* --- Impact Banner Stats --- */
 .impact-banner {
     display: grid;
