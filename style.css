@@ -168,21 +168,25 @@ body {
     justify-content: center;
 }
 
+/* Label matches portfolio-label */
 .stat-label {
-    color: var(--text-dim);
-    display: block;
-    font-size: 0.8rem;
-    text-transform: uppercase;
+    font-size: 0.7rem;
+    font-weight: 700;
+    color: #8899a6;
+    text-transform: none; /* Removes uppercase */
+    margin-bottom: 2px;
 }
 
+/* Value matches portfolio-value */
 .stat-value {
-    color: var(--neon-mint);
-    font-size: 2.2rem;
-    font-weight: bold;
-    display: block;
-    text-shadow: 0 0 15px rgba(6, 211, 217, 0.4);
-    letter-spacing: -1px;
+    font-size: 1.15rem;
+    font-weight: 800;
+    font-family: 'Inter', sans-serif;
+    color: #ffffff;
+    text-shadow: none; /* Removes neon glow */
+    letter-spacing: normal;
 }
+
 #active-leads {
     font-size: 1.4rem;  /* Keeps names legible */
     font-weight: 700;  /* Slightly less heavy than the numbers */
