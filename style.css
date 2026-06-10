@@ -182,6 +182,31 @@ body {
     font-weight: 700;  /* Slightly less heavy than the numbers */
 }
 
+.year-options {
+    display: flex;
+    gap: 6px;
+    margin-top: 4px;
+}
+
+.year-pill {
+    background: #1c2531;
+    padding: 4px 8px;
+    border-radius: 4px;
+    font-size: 0.7rem;
+    color: #cbd5e1;
+    cursor: pointer;
+    transition: background 0.2s ease;
+}
+
+.year-pill:hover {
+    background: #2a3545;
+}
+
+.year-pill.active {
+    background: #3498db;
+    color: #fff;
+}
+
 /* Cycle Cards */
 .cycle-card {
     background: linear-gradient(145deg, #0D2048, #0A0E14);
