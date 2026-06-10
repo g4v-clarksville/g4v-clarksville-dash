@@ -61,12 +61,6 @@ body {
     flex-grow: 1;
 }
 
-.header-titles h1 {
-    color: var(--text-dim);
-    margin: 0;
-    font-size: 1.6rem;
-}
-
 /* QR Block */
 .header-qr {
     display: flex;
