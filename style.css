@@ -110,6 +110,12 @@ body {
         padding: 15px 20px;
     }
 
+    /* Stack the new dashboard top row on small screens */
+    .dashboard-top-row {
+        grid-template-columns: 1fr;
+        gap: 15px;
+    }
+
     .header-logo {
         width: 100px; /* Adjusted slightly up from 50px so the G4V emblem stays sharp and readable */
         height: auto;
