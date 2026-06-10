@@ -30,10 +30,19 @@ body {
     box-sizing: border-box;
     
 }
+/* Center Branding Block (logos + title) */
+.header-main-content {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 40px; /* Equal spacing between logo – text – logo */
+    flex-grow: 1;
+    margin-right: 20px; /* Prevents crowding the QR */
+}
 .header-logo {
-    width: 160px;
-    height: auto;
-    flex-shrink: 0;
+    width: auto;
+    height: 80px;
+    object-fit: contain;
 }
 .header-inner h1 {
     flex: 1;
