@@ -148,11 +148,14 @@ body {
 
 
 
-/* Impact Banner now functions as the container for the mini cards */
-.impact-banner {
-    display: flex;
-    gap: 15px; /* 2 mini cards side-by-side */
-    flex-wrap: wrap;
+
+/* New Wrapper to force horizontal alignment */
+.dashboard-top-row {
+    display: grid;
+    grid-template-columns: 3fr 1fr; /* Stats take 2/3, Tracker takes 1/3 */
+    gap: 15px;
+    margin-bottom: 25px;
+    width: 100%;
 }
 
 /* Base card styling for ALL three boxes */
