@@ -138,33 +138,23 @@ body {
     .chapter-metadata {
         font-size: 0.85rem !important;
     }
-}
-
-/* Impact Banner Stats */
-.impact-banner {
-    display: flex;
-    gap: 15px;
-    margin-bottom: 25px;
-}
-
+  
 /* Impact Banner Stats */
 .impact-banner {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    gap: 0.75rem;
+    gap: 15px;
     width: 100%;
-    margin-bottom: 1.5rem;
+    margin-bottom: 25px;
 }
 
 .stat-card {
     background: var(--card-surface);
     border: 1px solid var(--border-color);
-    padding: 10px 12px;
+    padding: 12px;
     border-radius: 6px;
-    flex: 1;
-    text-align: left;
+    text-align: center;
     box-shadow: 0 4px 10px rgba(0,0,0,0.3);
-    min-height: 70px;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -173,20 +163,18 @@ body {
 /* Label matches portfolio-label */
 .stat-label {
     font-size: 0.7rem;
-    font-weight: 700;
-    color: #8899a6;
-    text-transform: none; /* Removes uppercase */
-    margin-bottom: 2px;
+    font-weight: 800;
+    color: var(--text-muted;
+    margin-bottom: 4px;
 }
 
 /* Value matches portfolio-value */
 .stat-value {
-    font-size: 1.15rem;
+    font-size: 1.5rem;
     font-weight: 800;
     font-family: 'Inter', sans-serif;
-    color: #ffffff;
+    color: var(--neon-cyan);
     text-shadow: none; /* Removes neon glow */
-    letter-spacing: normal;
 }
 
 #active-leads {
@@ -221,8 +209,7 @@ body {
 /* Cycle Cards */
 .cycle-card {
     background: linear-gradient(145deg, #0D2048, #0A0E14);
-    border-left: 5px solid
-     var(--border-glow);
+    border-left: 5px solid var(--border-glow);
     border-radius: 4px;
     padding: 20px;
     margin-bottom: 30px;
