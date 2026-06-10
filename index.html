@@ -296,10 +296,15 @@
                 mainContainer.appendChild(cycleSection);
             });
 
-            document.getElementById('total-vets').innerText = totalReached;
-            document.getElementById('grad-count').innerText = totalGrads;
-            document.getElementById('active-leads').innerText = Array.from(activeInstructors).join(' & ') || "None Active";
-        }
+            // At the end of buildDashboard function:
+            document.getElementById('total-vets').innerText = totalReached;
+            document.getElementById('grad-count').innerText = totalGrads;
+            
+            // Add this safe check to prevent crashes
+            const leadsElement = document.getElementById('active-leads');
+            if (leadsElement) {
+                leadsElement.innerText = Array.from(activeInstructors).join(' & ') || "None Active";
+            }
 
         function processExcelData(rawRows) {
             const groupedData = {};
