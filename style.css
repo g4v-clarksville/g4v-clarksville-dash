@@ -53,7 +53,12 @@ body {
 
 /* Title Block */
 .header-titles {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     text-align: center;
+    gap: 4px;
+    flex-grow: 1;
 }
 
 .header-titles h1 {
