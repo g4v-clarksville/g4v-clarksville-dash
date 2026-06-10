@@ -26,6 +26,9 @@ body {
     align-items: center;
     justify-content: space-between;
     padding: 20px 40px;
+    width: 100%;
+    box-sizing: border-box;
+    
 }
 .header-logo {
     width: 160px;
