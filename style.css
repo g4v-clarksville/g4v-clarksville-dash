@@ -44,6 +44,16 @@ body {
     height: 80px;
     object-fit: contain;
 }
+/* Title Block */
+.header-titles {
+    text-align: center;
+}
+
+.header-titles h1 {
+    color: var(--text-dim);
+    margin: 0;
+    font-size: 1.6rem;
+}
 .header-inner h1 {
     flex: 1;
     text-align: center;
