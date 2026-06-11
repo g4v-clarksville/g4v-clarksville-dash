@@ -122,8 +122,8 @@ body {
 }
 /* --- Impact Banner Stats --- */
 .impact-banner {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    display: flex;
+    justify-content: space-between;
     gap: 15px;
     width: 100%;
     margin-bottom: 25px;
@@ -140,19 +140,21 @@ body {
     display: flex;
     flex-direction: column;
     justify-content: center;
+    flex: 1;
+    box-sizing: border-box;
 }
 
 /* Ensure the Year Selector matches the height of the other two */
-.year-selector-card {
+.year-selector-card, .year-options { 
+    gap: 5px;
     display: flex;
-    flex-direction: column;
-    justify-content: center; /* Vertically aligns label and pills */
+    flex-wrap: wrap;
 }
 
 .stat-label { font-size: 0.7rem; font-weight: 700; color: #8899a6; margin-bottom: 5px; }
 .stat-value { font-size: 1.4rem; font-weight: 800; color: #ffffff; }
 
-.year-options { display: flex; gap: 6px; margin-top: 4px; flex-wrap: wrap; }
+
 .year-pill { 
     background: #1c2531; 
     padding: 4px 8px; 
