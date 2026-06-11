@@ -47,8 +47,9 @@
 
 <!-- IMPACT SUMMARY -->
 <div id="impact-summary">
+
     <div class="stat-card">
-        <span class="stat-label">Total Veterans Reached</span>
+        <span class="stat-label">Veterans Engaged</span>
         <span id="total-vets" class="stat-value">0</span>
     </div>
 
@@ -57,14 +58,32 @@
         <span id="grad-count" class="stat-value">0</span>
     </div>
 
+    <div class="stat-card">
+        <span class="stat-label">Active Cohort</span>
+        <span id="active-count" class="stat-value">0</span>
+    </div>
+
+    <div class="stat-card">
+        <span class="stat-label">Waitlist</span>
+        <span id="waitlist-stat" class="stat-value">0</span>
+    </div>
+
+    <div class="stat-card">
+        <span class="stat-label">Avg Days To Start</span>
+        <span id="avg-days" class="stat-value">--</span>
+    </div>
+
     <div class="stat-card year-selector-card">
         <span class="stat-label">Select Year</span>
         <div class="year-options">
             <span class="year-pill active">2026</span>
             <span class="year-pill">2027</span>
             <span class="year-pill">2028</span>
+            <span class="year-pill">2029</span>
+            <span class="year-pill">2030</span>
         </div>
     </div>
+
 </div>
 
 <div class="search-container">
@@ -76,97 +95,118 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.3.2/papaparse.min.js"></script>
 
 <script>
-const mainContainer = document.getElementById("dashboard-root");
+const mainContainer = document.getElementById('dashboard-root');
 let allCycleData = [];
 
 /* -----------------------------
-   PROGRESS CALC
+   WAITLIST TOGGLE
+----------------------------- */
+function toggleWaitlist() {
+    const content = document.getElementById('waitlist-content');
+    const arrow = document.getElementById('waitlist-arrow');
+
+    if (content.style.display === "none") {
+        content.style.display = "block";
+        arrow.innerText = "▲ CLOSE LIST";
+    } else {
+        content.style.display = "none";
+        arrow.innerText = "▼ VIEW LIST";
+    }
+}
+
+/* -----------------------------
+   CYCLE PROGRESS
 ----------------------------- */
 function calculateProgress(cycle) {
     const today = new Date();
 
     if (!cycle.startDate || !cycle.endDate) return 0;
-    if ((cycle.status || "").toLowerCase() === "completed") return 100;
+    if (cycle.status === "Completed") return 100;
+
+    if (cycle.status === "Active" && cycle.vets.length > 0) {
+        const totalPossibleSessions = cycle.vets.length * 10;
+
+        const actualSessionsCompleted = cycle.vets.reduce((sum, vet) => {
+            const sessions = vet.session !== undefined
+                ? vet.session
+                : (vet.currentSession || 0);
+
+            return sum + (parseInt(sessions) || 0);
+        }, 0);
+
+        return Math.min(
+            100,
+            Math.round((actualSessionsCompleted / totalPossibleSessions) * 100)
+        );
+    }
 
     const start = new Date(cycle.startDate);
     const end = new Date(cycle.endDate);
 
     if (today < start) return 0;
 
-    const total = end - start;
+    const totalDuration = end - start;
     const elapsed = today - start;
 
-    return total > 0
-        ? Math.min(99, Math.round((elapsed / total) * 100))
+    return totalDuration > 0
+        ? Math.min(99, Math.round((elapsed / totalDuration) * 100))
         : 0;
 }
 
 /* -----------------------------
-   DASHBOARD RENDER
+   DASHBOARD BUILD
 ----------------------------- */
 function buildDashboard(cycleData) {
 
     let totalReached = 0;
     let totalGrads = 0;
+    let activeLessons = 0;
 
-    mainContainer.innerHTML = "";
+    mainContainer.innerHTML = '';
 
     cycleData.forEach(cycle => {
 
-        const cycleStatus = (cycle.status || "").toLowerCase().trim();
         const progressValue = calculateProgress(cycle);
 
-        let rows = "";
+        let rows = '';
 
         cycle.vets.forEach(vet => {
 
             const sessionCount = parseInt(vet.session) || 0;
-            const avail = (vet.availability || "").toLowerCase().trim();
+            const availabilityText = vet.availability || "Unknown";
+            const availText = availabilityText.toLowerCase().trim();
+            const availabilityClass = availText.replace(/\s/g, "");
 
-            // -----------------------
-            // ALUMNI
-            // -----------------------
-            const isAlumni =
-                avail === "graduated" ||
-                cycleStatus === "completed" ||
-                sessionCount >= 10;
+            if (sessionCount >= 1 || availText === "graduated") totalReached++;
+            if (availText === "graduated") totalGrads++;
 
-            if (isAlumni) totalGrads++;
+            if (sessionCount >= 1 && availText !== "graduated" && availText !== "dropped") {
+                activeLessons++;
+            }
 
-            // -----------------------
-            // REACHED
-            // -----------------------
-            const isReached =
-                (cycleStatus === "active" || cycleStatus === "in lessons") &&
-                sessionCount >= 1 &&
-                sessionCount <= 10;
-
-            if (isReached) totalReached++;
-
-            // -----------------------
-            // ROW DISPLAY LOGIC
-            // -----------------------
             let displayStatus = "";
 
-            if (avail === "dropped") displayStatus = "Dropped";
-            else if (avail === "deferred" || avail === "waiting") displayStatus = "Waiting";
-            else if (sessionCount >= 10 || avail === "graduated") displayStatus = "Graduated";
+            if (availText === "dropped") displayStatus = "Dropped";
+            else if (availText === "deferred" || availText === "waiting") displayStatus = "Waiting";
+            else if (sessionCount >= 10 || availText === "graduated") displayStatus = "Graduated";
             else if (sessionCount > 0) displayStatus = "In Lessons";
-            else displayStatus = (cycleStatus === "active") ? "In Lessons" : "Confirmed";
+            else displayStatus = (cycle.status === "Active") ? "In Lessons" : "Confirmed";
 
             rows += `
                 <tr>
-                    <td>${vet.seq || "-"}</td>
+                    <td>${vet.seq || '-'}</td>
                     <td class="vet-name-cell">${vet.name}</td>
                     <td>${sessionCount} / 10</td>
                     <td>${displayStatus}</td>
-                    <td>${vet.availability || "Unknown"}</td>
+                    <td class="status-${availabilityClass}">
+                        ${availabilityText}
+                    </td>
                 </tr>
             `;
         });
 
-        const section = document.createElement("section");
-        section.className = "cycle-card";
+        const section = document.createElement('section');
+        section.className = 'cycle-card';
 
         section.innerHTML = `
             <h2>Cycle ${cycle.cycleId} (${cycle.status})</h2>
@@ -195,58 +235,146 @@ function buildDashboard(cycleData) {
 
     document.getElementById("total-vets").innerText = totalReached;
     document.getElementById("grad-count").innerText = totalGrads;
+    document.getElementById("active-count").innerText = activeLessons;
 }
 
 /* -----------------------------
-   DATA LOADING
+   DATA LOADING (FIXED)
 ----------------------------- */
-function loadData() {
-    const url = "https://docs.google.com/spreadsheets/d/e/2PACX-1vRZrgM6dmSRKecR8YR63T4Hvhq9vShmdLKvyqkx-HbO7DbXVNpBdhBl5SfOJFzvtFWBBwYnVYpNo_5z/pub?output=csv";
+function loadDataFromGoogle() {
 
-    Papa.parse(url, {
+    const csvUrl =
+        "https://docs.google.com/spreadsheets/d/e/2PACX-1vRZrgM6dmSRKecR8YR63T4Hvhq9vShmdLKvyqkx-HbO7DbXVNpBdhBl5SfOJFzvtFWBBwYnVYpNo_5z/pub?output=csv";
+
+    Papa.parse(csvUrl, {
         download: true,
         header: true,
-        complete: (res) => processData(res.data)
+        complete: (r) => processExcelData(r.data)
     });
 }
 
 /* -----------------------------
    PROCESS DATA
 ----------------------------- */
-function processData(rows) {
+function processExcelData(rawRows) {
 
-    const grouped = {};
+    const groupedData = {};
+    const waitlist = [];
 
-    rows.forEach(r => {
-        const id = (r.cycleId || "").trim();
-        if (!id) return;
+    rawRows.forEach(row => {
 
-        if (!grouped[id]) {
-            grouped[id] = {
-                cycleId: id,
-                status: r.status,
-                startDate: r.startDate,
-                endDate: r.endDate,
-                vets: []
-            };
+        const id = row.cycleId ? row.cycleId.trim() : "";
+        const status = row.status ? row.status.trim() : "";
+
+        if ((status === "Waiting" || status === "Deferred") && row.vetName) {
+            waitlist.push({
+                name: row.vetName,
+                availability: row.availability || "Waiting",
+                notes: status,
+                session: row.currentSession || 0
+            });
+
+            if (!id) return;
         }
 
-        grouped[id].vets.push({
-            seq: r.vetSeq,
-            name: r.vetName,
-            availability: r.availability,
-            session: r.currentSession
-        });
+        if (id) {
+
+            if (!groupedData[id]) {
+                groupedData[id] = {
+                    cycleId: id,
+                    status: row.status,
+                    startDate: row.startDate,
+                    endDate: row.endDate,
+                    instructorSet: new Set(),
+                    vets: []
+                };
+            }
+
+            if (row.instructors) {
+                row.instructors.split(',')
+                    .forEach(n =>
+                        groupedData[id].instructorSet.add(n.trim())
+                    );
+            }
+
+            groupedData[id].vets.push({
+                seq: row.vetSeq,
+                name: row.vetName,
+                availability: row.availability,
+                session: row.currentSession
+            });
+        }
     });
 
-    allCycleData = Object.values(grouped);
-    buildDashboard(allCycleData);
+    renderWaitlist(waitlist);
+
+    allCycleData = Object.values(groupedData).map(c => {
+        c.instructors = Array.from(c.instructorSet);
+        return c;
+    });
+
+    filterByYear("2026");
+}
+
+/* -----------------------------
+   WAITLIST
+----------------------------- */
+function renderWaitlist(waitlist) {
+    const waitStat = document.getElementById('waitlist-stat');
+    if (waitStat) waitStat.innerText = waitlist.length;
+}
+
+/* -----------------------------
+   YEAR FILTER
+----------------------------- */
+function filterByYear(year) {
+    const filtered = allCycleData.filter(cycle => {
+        if (!cycle.startDate) return false;
+        return new Date(cycle.startDate).getFullYear().toString() === year;
+    });
+
+    buildDashboard(filtered);
+}
+
+/* -----------------------------
+   SEARCH
+----------------------------- */
+function searchVets() {
+    const input = document.getElementById('vet-search').value.toLowerCase();
+
+    document.querySelectorAll('#dashboard-root .cycle-card').forEach(card => {
+        let match = false;
+
+        card.querySelectorAll('tbody tr').forEach(row => {
+            const name = row.querySelector('.vet-name-cell')?.textContent.toLowerCase() || "";
+
+            if (name.includes(input)) {
+                row.style.display = "";
+                match = true;
+            } else {
+                row.style.display = "none";
+            }
+        });
+
+        card.style.display = match ? "" : "none";
+    });
 }
 
 /* -----------------------------
    INIT
 ----------------------------- */
-loadData();
+initializeYearSelector();
+loadDataFromGoogle();
+
+function initializeYearSelector() {
+    document.querySelectorAll('.year-pill').forEach(pill => {
+        pill.addEventListener('click', () => {
+            document.querySelectorAll('.year-pill').forEach(p => p.classList.remove('active'));
+            pill.classList.add('active');
+            filterByYear(pill.textContent.trim());
+        });
+    });
+}
 </script>
 
 </body>
