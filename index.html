@@ -202,7 +202,7 @@
         function buildDashboard(cycleData) {
             let totalReached = 0;
             let totalGrads = 0;
-            let activeInstructors = new Set();
+            
             mainContainer.innerHTML = ''; 
 
             cycleData.forEach(cycle => {
@@ -292,7 +292,6 @@
 
             document.getElementById('total-vets').innerText = totalReached;
             document.getElementById('grad-count').innerText = totalGrads;
-            document.getElementById('active-leads').innerText = Array.from(activeInstructors).join(' & ') || "None Active";
         }
 
         function processExcelData(rawRows) {
