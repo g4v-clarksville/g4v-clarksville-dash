@@ -184,36 +184,26 @@ function buildDashboard(cycleData) {
             /* -------------------------
                ENGAGED (unique)
             ------------------------- */
-            if (
-                sessionCount >= 1 ||
-                availText === "graduated" ||
-                cycleStatus === "active"
-            ) {
-                totalEngagedSet.add(vetKey);
-            }
-
-            /* -------------------------
-               ALUMNI (unique)
-            ------------------------- */
-            if (
+            const isGraduated =
                 availText === "graduated" ||
                 sessionCount >= 10 ||
-                cycleStatus === "completed"
-            ) {
-                totalAlumniSet.add(vetKey);
-            }
-
-            /* -------------------------
-               ACTIVE (unique)
-            ------------------------- */
-            if (
-                cycleStatus === "active" &&
-                availText !== "graduated" &&
-                availText !== "dropped"
-            ) {
-                totalActiveSet.add(vetKey);
-            }
-
+                cycleStatus === "completed";
+            
+            const isActive =
+                !isGraduated &&
+                (cycleStatus === "active" || sessionCount > 0) &&
+                availText !== "dropped";
+            
+            const isEngaged =
+                sessionCount >= 1 ||
+                availText === "waiting" ||
+                availText === "deferred" ||
+                isActive ||
+                isGraduated;
+            
+            if (isGraduated) totalAlumniSet.add(vetKey);
+            if (isActive) totalActiveSet.add(vetKey);
+            if (isEngaged) totalEngagedSet.add(vetKey);
             /* -------------------------
                DISPLAY STATUS
             ------------------------- */
