@@ -143,6 +143,29 @@
          function buildDashboard(cycleData) {
             let totalReached = 0;
             let totalGrads = 0;
+             
+                cycleData.forEach(cycle => {
+                    
+                 if (cycle.status === "Active") {
+                cycle.vets.forEach(vet => {
+                const sessionCount = parseInt(vet.session) || 0;
+
+                if (sessionCount >= 1 && sessionCount <= 10) {
+                    totalReached++;
+                }
+            });
+        }   
+            cycle.vets.forEach(vet => {
+                const avail = (vet.availability || "").toLowerCase().trim();
+
+            if (avail === "graduated") {
+            totalGrads++;
+            }
+        });
+    });
+        document.getElementById('total-vets').innerText = totalReached;
+        document.getElementById('grad-count').innerText = totalGrads;
+        }
 
         mainContainer.innerHTML = '';
 
