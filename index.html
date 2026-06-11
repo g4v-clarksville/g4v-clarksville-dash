@@ -141,52 +141,39 @@
         }
 
          function buildDashboard(cycleData) {
-            let totalReached = 0;
-            let totalGrads = 0;
-             
-                cycleData.forEach(cycle => {
-                    
-                 if (cycle.status === "Active") {
-                cycle.vets.forEach(vet => {
-                const sessionCount = parseInt(vet.session) || 0;
+    let totalReached = 0;
+    let totalGrads = 0;
 
-                if (sessionCount >= 1 && sessionCount <= 10) {
-                    totalReached++;
-                }
-            });
-        }   
-            cycle.vets.forEach(vet => {
-                const avail = (vet.availability || "").toLowerCase().trim();
+    mainContainer.innerHTML = '';
 
+    cycleData.forEach(cycle => {
+
+        const progressValue = calculateProgress(cycle);
+
+        // ---- TOTALS (clean + single pass) ----
+        cycle.vets.forEach(vet => {
+            const sessionCount = parseInt(vet.session) || 0;
+            const avail = (vet.availability || "").toLowerCase().trim();
+
+            // REACHED: Active + 1–10 sessions
+            if (cycle.status === "Active" && sessionCount >= 1 && sessionCount <= 10) {
+                totalReached++;
+            }
+
+            // ALUMNI: Graduated only
             if (avail === "graduated") {
-            totalGrads++;
+                totalGrads++;
             }
         });
-    });
-        document.getElementById('total-vets').innerText = totalReached;
-        document.getElementById('grad-count').innerText = totalGrads;
-        }
 
-        mainContainer.innerHTML = '';
-
-        cycleData.forEach(cycle => {
-            
-            const progressValue = calculateProgress(cycle); // MUST be here FIRST
-                let rows = '';
-
-        totalGrads += cycle.vets.filter(v =>
-            v.availability &&
-            v.availability.trim().toLowerCase() === "graduated"
-        ).length;
+        // ---- render rows ----
+        let rows = '';
 
         cycle.vets.forEach(vet => {
-
-        const sessionCount = parseInt(vet.session) || 0;
-
-        const availabilityText = vet.availability || "Unknown";
-        const availText = availabilityText.toLowerCase().trim();
-
-        const availabilityClass = availText.replace(/\s/g, "");
+            const sessionCount = parseInt(vet.session) || 0;
+            const availabilityText = vet.availability || "Unknown";
+            const availText = availabilityText.toLowerCase().trim();
+            const availabilityClass = availText.replace(/\s/g, "");
 
             let displayStatus = "";
 
@@ -196,12 +183,12 @@
                 displayStatus = "Waiting";
             } else if (sessionCount >= 10 || availText === "graduated") {
                 displayStatus = "Graduated";
-            } else if (sessionCount > 0 && sessionCount < 10) {
+            } else if (sessionCount > 0) {
                 displayStatus = "In Lessons";
             } else {
                 displayStatus = (cycle.status === "Active") ? "In Lessons" : "Confirmed";
             }
-        
+
             rows += `
                 <tr class="${availText === 'graduated' ? 'grad-row' : ''}">
                     <td>${vet.seq || '-'}</td>
@@ -215,11 +202,11 @@
                     </td>
                 </tr>
             `;
-         });
+        });
 
         const startDisp = cycle.startDate || "TBD";
         const endDisp = cycle.endDate || "TBD";
-            
+
         const cycleSection = document.createElement('section');
         cycleSection.className = 'cycle-card';
 
@@ -264,7 +251,6 @@
     document.getElementById('total-vets').innerText = totalReached;
     document.getElementById('grad-count').innerText = totalGrads;
 }
-
         function filterByYear(year) {
         const filtered = allCycleData.filter(cycle => {
         if (!cycle.startDate) return false;
