@@ -155,6 +155,10 @@
                     const sessionCount = parseInt(vet.session) || 0;
                     const availabilityText = vet.availability || "Unknown";
                     const availText = availabilityText.toLowerCase();
+                    const availabilityText = vet.availability || "Unknown";
+                    const availabilityClass = availabilityText
+                        .toLowerCase()
+                        .replace(/\s/g, "");
                     
                     if (cycle.status === "Active" || cycle.status === "Completed" || sessionCount > 0 || availText === "graduated" || availText === "completed") {
                         totalReached++;
