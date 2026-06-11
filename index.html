@@ -179,12 +179,9 @@ function buildDashboard(cycleData) {
 
             if (sessionCount >= 1 || availText === "graduated") totalReached++;
             // Count alumni
-            const isAlumni =
-                avail === "graduated" ||          // explicit graduated
-                cycle.status.toLowerCase() === "completed" ||  // completed cycles
-                sessionCount >= 10;               // session 10 implies graduation
-            if (isAlumni) totalGrads++;
-
+            if (avail === "graduated") {
+            totalGrads++;
+            }
             if (sessionCount >= 1 && availText !== "graduated" && availText !== "dropped") {
                 activeLessons++;
             }
