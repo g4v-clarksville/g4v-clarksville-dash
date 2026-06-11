@@ -153,57 +153,52 @@ function calculateProgress(cycle) {
         : 0;
 }
 
-/* -----------------------------
-   DASHBOARD BUILD
------------------------------ */
-function buildDashboard(cycleData) {
-
-    let totalEngagedSet = new Set();
-    let totalAlumniSet = new Set();
-    let totalActiveSet = new Set();
-
-    mainContainer.innerHTML = '';
-
-    cycleData.forEach(cycle => {
-
-        const progressValue = calculateProgress(cycle);
-
-        let rows = '';
-
-        const cycleStatus = (cycle.status || "").toLowerCase();
-
-        cycle.vets.forEach(vet => {
-
-            const sessionCount = parseInt(vet.session) || 0;
-            const availabilityText = vet.availability || "Unknown";
-            const availText = availabilityText.toLowerCase().trim();
-            const availabilityClass = availText.replace(/\s/g, "");
-
-            const vetKey = (vet.name || "").trim().toLowerCase();
-
-            /* -------------------------
-               ENGAGED (unique)
-            ------------------------- */
-            const isGraduated =
-                availText === "graduated" ||
-                sessionCount >= 10 ||
-                cycleStatus === "completed";
+            /* -----------------------------
+               DASHBOARD BUILD
+            ----------------------------- */
+            function buildDashboard(cycleData) {
             
-            const isActive =
-                !isGraduated &&
-                (cycleStatus === "active" || sessionCount > 0) &&
-                availText !== "dropped";
+                let engagedSet = new Set();
+            let alumniSet = new Set();
+            let activeSet = new Set();
+            let deferredSet = new Set();
+            let waitlistSet = new Set();
             
-            const isEngaged =
-                sessionCount >= 1 ||
-                availText === "waiting" ||
-                availText === "deferred" ||
-                isActive ||
-                isGraduated;
+            cycle.vets.forEach(vet => {
+                const vetKey = (vet.name || "").trim().toLowerCase();
+                const availText = (vet.availability || "").toLowerCase().trim();
+                const sessionCount = parseInt(vet.session) || 0;
             
-            if (isGraduated) totalAlumniSet.add(vetKey);
-            if (isActive) totalActiveSet.add(vetKey);
-            if (isEngaged) totalEngagedSet.add(vetKey);
+                // WAITLIST (pre-service)
+                if (availText === "waiting") {
+                    waitlistSet.add(vetKey);
+                    return;
+                }
+            
+                // Engaged = all served veterans
+                engagedSet.add(vetKey);
+            
+                // Alumni / Graduated
+                if (availText === "graduated") {
+                    alumniSet.add(vetKey);
+                }
+            
+                // Active / In Lessons
+                if (availText === "active" || (sessionCount > 0 && availText !== "graduated" && availText !== "dropped")) {
+                    activeSet.add(vetKey);
+                }
+            
+                // Deferred (in program, not active or alumni)
+                if (availText === "deferred") {
+                    deferredSet.add(vetKey);
+                }
+            });
+            
+            // Update dashboard cards
+            document.getElementById('total-vets').innerText = engagedSet.size; // 21
+            document.getElementById('grad-count').innerText = alumniSet.size;  // 8
+            document.getElementById('active-count').innerText = activeSet.size; // 8
+            document.getElementById('waitlist-stat').innerText = waitlistSet.size; // 64
             /* -------------------------
                DISPLAY STATUS
             ------------------------- */
