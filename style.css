@@ -143,15 +143,18 @@ header { width: 100%; }
 }
 #active-leads { font-size: 1.4rem; font-weight: 700; }
 
-/* --- Cycle Cards & Progress --- */
-.cycle-card, #waitlist-section { 
-    background: linear-gradient(145deg, #0D2048, #0A0E14); 
-    border-left: 5px solid var(--border-glow); 
-    border-radius: 4px; 
-    padding: 20px; 
-    margin: 0 auto 30px auto; 
+/* Compact Card Styling */
+.cycle-card, 
+#waitlist-section {
+    background: var(--card-surface); /* Matches the Revenue/Cash Flow card background */
+    border: 1px solid var(--border-color);
+    border-left: 5px solid var(--border-glow); /* Retains your side-glow */
+    border-radius: 8px;
+    padding: 15px; /* Matches the tighter feel of your revenue cards */
+    margin: 0 auto 15px auto;
+    width: 100%;
     max-width: 1200px;
-    box-shadow: 0 6px 15px rgba(0,0,0,0.4); 
+    box-sizing: border-box;
 }
 .cycle-timeline { 
     background: rgba(0, 0, 0, 0.3); 
