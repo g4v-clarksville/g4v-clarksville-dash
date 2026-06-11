@@ -148,6 +148,8 @@
 
         cycleData.forEach(cycle => {
 
+            let rows = '';
+
         totalGrads += cycle.vets.filter(v =>
             v.availability &&
             v.availability.trim().toLowerCase() === "graduated"
@@ -193,6 +195,8 @@
 
         const startDisp = cycle.startDate || "TBD";
         const endDisp = cycle.endDate || "TBD";
+        const cycleSection = document.createElement('section');
+        cycleSection.className = 'cycle-card';
 
         cycleSection.innerHTML = `
             <div class="card-header">
