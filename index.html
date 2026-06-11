@@ -156,97 +156,91 @@ function calculateProgress(cycle) {
             /* -----------------------------
                DASHBOARD BUILD
             ----------------------------- */
-            function buildDashboard(cycleData) {
-    let totalEngagedSet = new Set();
-    let totalAlumniSet = new Set();
-    let totalActiveSet = new Set();
+           function buildDashboard(cycleData) {
+
+    const engaged = new Set();
+    const alumni = new Set();
+    const active = new Set();
 
     mainContainer.innerHTML = '';
 
     cycleData.forEach(cycle => {
 
+        const cycleStatus = (cycle.status || "").toLowerCase();
         const progressValue = calculateProgress(cycle);
         let rows = '';
-        const cycleStatus = (cycle.status || "").toLowerCase();
 
         cycle.vets.forEach(vet => {
-            const sessionCount = parseInt(vet.session) || 0;
-            const availabilityText = vet.availability || "Unknown";
-            const availText = availabilityText.toLowerCase().trim();
-            const availabilityClass = availText.replace(/\s/g, "");
+
             const vetKey = (vet.name || "").trim().toLowerCase();
+            const sessionCount = parseInt(vet.session) || 0;
+            const availText = (vet.availability || "").toLowerCase().trim();
 
-            // UNIQUE COUNT LOGIC
+            // ENGAGED
             if (sessionCount >= 1 || availText === "graduated" || cycleStatus === "active") {
-                totalEngagedSet.add(vetKey);
+                engaged.add(vetKey);
             }
 
+            // ALUMNI
             if (availText === "graduated" || sessionCount >= 10 || cycleStatus === "completed") {
-                totalAlumniSet.add(vetKey);
+                alumni.add(vetKey);
             }
 
+            // ACTIVE
             if (cycleStatus === "active" && availText !== "graduated" && availText !== "dropped") {
-                totalActiveSet.add(vetKey);
+                active.add(vetKey);
             }
 
-            // STATUS DISPLAY
             let displayStatus = "";
+
             if (availText === "dropped") displayStatus = "Dropped";
             else if (availText === "deferred" || availText === "waiting") displayStatus = "Waiting";
             else if (sessionCount >= 10 || availText === "graduated") displayStatus = "Graduated";
             else if (sessionCount > 0) displayStatus = "In Lessons";
             else displayStatus = (cycleStatus === "active") ? "In Lessons" : "Confirmed";
 
-            // Build table rows
             rows += `
                 <tr>
                     <td>${vet.seq || '-'}</td>
                     <td class="vet-name-cell">${vet.name}</td>
                     <td>${sessionCount} / 10</td>
                     <td>${displayStatus}</td>
-                    <td class="status-${availabilityClass}">${availabilityText}</td>
+                    <td>${vet.availability || ""}</td>
                 </tr>
             `;
         });
 
-        const startDisp = cycle.startDate || "TBD";
-        const endDisp = cycle.endDate || "TBD";
-
         const section = document.createElement('section');
         section.className = 'cycle-card';
+
         section.innerHTML = `
             <div class="card-header">
-                <h2 style="margin:0;color:#FFD700;">Cycle ${cycle.cycleId} (${cycle.status})</h2>
+                <h2>Cycle ${cycle.cycleId} (${cycle.status})</h2>
+
                 <div class="cycle-timeline">
                     <span class="timeline-label">TIMELINE:</span>
-                    <span class="timeline-dates">${startDisp} — ${endDisp}</span>
+                    <span class="timeline-dates">
+                        ${cycle.startDate || "TBD"} — ${cycle.endDate || "TBD"}
+                    </span>
                 </div>
+
                 <div class="progress-container">
                     <div class="progress-bar" style="width:${progressValue}%"></div>
-                    <span class="progress-text">${progressValue}% Cycle Progress</span>
+                    <span class="progress-text">${progressValue}%</span>
                 </div>
             </div>
-            <div class="instructor-box">Assigned: ${(cycle.instructors || []).join(' & ')}</div>
+
             <table>
-                <thead>
-                    <tr>
-                        <th>Seq#</th>
-                        <th>Veteran</th>
-                        <th>Session</th>
-                        <th>Status</th>
-                        <th>Availability</th>
-                    </tr>
-                </thead>
                 <tbody>${rows}</tbody>
             </table>
         `;
+
         mainContainer.appendChild(section);
     });
 
-    // Update KPIs once per dashboard
-    document.getElementById("total-vets").innerText = totalEngagedSet.size;
-    document.getElementById("grad-count").innerText = totalAlumniSet.size;
-    document.getElementById("active-count").innerText = totalActiveSet.size;
+    document.getElementById('total-vets').innerText = engaged.size;
+    document.getElementById('grad-count').innerText = alumni.size;
+    document.getElementById('active-count').innerText = active.size;
 }
             /* -------------------------
                DISPLAY STATUS
