@@ -1,4 +1,4 @@
-look through css and find what is restricting the cards: :root {
+:root {
     --bg-void: #0A0E14;
     --bg-dark: #00103e;
     --card-surface: #0D2048;
