@@ -141,7 +141,6 @@ header { width: 100%; }
     color: white; 
     border-radius: 4px; 
 }
-#active-leads { font-size: 1.4rem; font-weight: 700; }
 
 /* Compact Card Styling */
 .cycle-card, 
