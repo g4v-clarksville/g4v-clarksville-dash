@@ -146,7 +146,7 @@
             
             mainContainer.innerHTML = ''; 
 
-            cycleData.forEach(cycle => {
+            cycleData.forEach(cycle => 
                 totalGrads += cycle.vets.filter(v => v.availability && v.availability.trim().toLowerCase() === "graduated").length;
                 
 
@@ -155,7 +155,6 @@
                     const sessionCount = parseInt(vet.session) || 0;
                     const availabilityText = vet.availability || "Unknown";
                     const availText = availabilityText.toLowerCase();
-                    const availabilityText = vet.availability || "Unknown";
                     const availabilityClass = availabilityText
                         .toLowerCase()
                         .replace(/\s/g, "");
@@ -195,7 +194,7 @@
                             <td class="vet-name-cell" style="font-weight:bold;">${vet.name}</td>
                             <td style="color: #FFD700; font-weight: bold;">${sessionCount} / 10</td>
                             <td>${displayStatus}</td>
-                            <td class="status-{availabilityClass}">
+                            <td class="status-${availabilityClass}">
                                 ${availabilityText}
                             </td>
                         </tr>`;
