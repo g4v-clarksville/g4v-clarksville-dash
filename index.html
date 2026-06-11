@@ -141,75 +141,55 @@
         }
 
          function buildDashboard(cycleData) {
-    let totalReached = 0;
-    let totalGrads = 0;
+            let totalReached = 0;
+            let totalGrads = 0;
 
-    mainContainer.innerHTML = '';
+        mainContainer.innerHTML = '';
 
-    cycleData.forEach(cycle => {
+        cycleData.forEach(cycle => {
 
         totalGrads += cycle.vets.filter(v =>
             v.availability &&
             v.availability.trim().toLowerCase() === "graduated"
         ).length;
 
-        // --- PATCH START ---
         cycle.vets.forEach(vet => {
-            const sessionCount = parseInt(vet.session) || 0;
 
-            const availabilityText = vet.availability || "Unknown";
-            const availText = availabilityText.toLowerCase();
-            const availabilityClass = availText.replace(/\s/g, "");
+        const sessionCount = parseInt(vet.session) || 0;
 
-            if (
-                cycle.status === "Active" ||
-                cycle.status === "Completed" ||
-                sessionCount > 0 ||
-                availText === "graduated" ||
-                availText === "completed"
-            ) {
-                totalReached++;
-            }
-        });
-        // --- PATCH END ---
+        const availabilityText = vet.availability || "Unknown";
+        const availText = availabilityText.toLowerCase().trim();
 
-        const progressValue = calculateProgress(cycle);
-
-        const cycleSection = document.createElement('section');
-        cycleSection.className = 'cycle-card';
-
-        let rows = '';
-
-        cycle.vets.forEach(vet => {
+        const availabilityClass = availText.replace(/\s/g, "");
 
             let displayStatus = "";
 
-            if (vet.availability === "Dropped") {
+            if (availText === "dropped") {
                 displayStatus = "Dropped";
-            } else if (vet.availability === "Deferred" || vet.availability === "Waiting") {
+            } else if (availText === "deferred" || availText === "waiting") {
                 displayStatus = "Waiting";
-            } else if (parseInt(vet.session) >= 10 || vet.availability === "Graduated") {
+            } else if (sessionCount >= 10 || availText === "graduated") {
                 displayStatus = "Graduated";
-            } else if (parseInt(vet.session) > 0 && parseInt(vet.session) < 10) {
+            } else if (sessionCount > 0 && sessionCount < 10) {
                 displayStatus = "In Lessons";
             } else {
                 displayStatus = (cycle.status === "Active") ? "In Lessons" : "Confirmed";
             }
-
-            const sessionCount = vet.session || 0;
-
+        
             rows += `
-                <tr class="${vet.availability === 'Graduated' ? 'grad-row' : ''}">
+                <tr class="${availText === 'graduated' ? 'grad-row' : ''}">
                     <td>${vet.seq || '-'}</td>
                     <td class="vet-name-cell" style="font-weight:bold;">${vet.name}</td>
-                    <td style="color: #FFD700; font-weight: bold;">${sessionCount} / 10</td>
+                    <td style="color:#FFD700;font-weight:bold;">
+                        ${sessionCount} / 10
+                    </td>
                     <td>${displayStatus}</td>
                     <td class="status-${availabilityClass}">
                         ${availabilityText}
                     </td>
                 </tr>
             `;
-        });
+         });
 
         const startDisp = cycle.startDate || "TBD";
         const endDisp = cycle.endDate || "TBD";
