@@ -147,8 +147,9 @@
         mainContainer.innerHTML = '';
 
         cycleData.forEach(cycle => {
-
-            let rows = '';
+            
+            const progressValue = calculateProgress(cycle); // MUST be here FIRST
+                let rows = '';
 
         totalGrads += cycle.vets.filter(v =>
             v.availability &&
@@ -195,6 +196,7 @@
 
         const startDisp = cycle.startDate || "TBD";
         const endDisp = cycle.endDate || "TBD";
+            
         const cycleSection = document.createElement('section');
         cycleSection.className = 'cycle-card';
 
