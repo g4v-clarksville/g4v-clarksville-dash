@@ -207,23 +207,39 @@ function buildDashboard(cycleData) {
             `;
         });
 
-        const section = document.createElement('section');
-        section.className = 'cycle-card';
+        const startDisp = cycle.startDate || "TBD";
+        const endDisp = cycle.endDate || "TBD";
 
-        section.innerHTML = `
-            <h2>Cycle ${cycle.cycleId} (${cycle.status})</h2>
+        const cycleSection = document.createElement('section');
+        cycleSection.className = 'cycle-card';
 
-            <div class="progress-container">
-                <div class="progress-bar" style="width:${progressValue}%"></div>
-                <span>${progressValue}%</span>
+        cycleSection.innerHTML = `
+            <div class="card-header">
+                <h2 style="margin: 0; color: #FFD700;">
+                    Cycle ${cycle.cycleId} (${cycle.status})
+                </h2>
+
+                <div class="cycle-timeline">
+                    <span class="timeline-label">TIMELINE:</span>
+                    <span class="timeline-dates">${startDisp} — ${endDisp}</span>
+                </div>
+
+                <div class="progress-container">
+                    <div class="progress-bar" style="width: ${progressValue}%"></div>
+                    <span class="progress-text">${progressValue}% Cycle Progress</span>
+                </div>
+            </div>
+
+            <div class="instructor-box">
+                Assigned: ${(cycle.instructors || []).join(' & ')}
             </div>
 
             <table>
                 <thead>
                     <tr>
-                        <th>Seq</th>
+                        <th>Seq#</th>
                         <th>Veteran</th>
-                        <th>Sessions</th>
+                        <th>Session</th>
                         <th>Status</th>
                         <th>Availability</th>
                     </tr>
@@ -231,6 +247,7 @@ function buildDashboard(cycleData) {
                 <tbody>${rows}</tbody>
             </table>
         `;
+
 
         mainContainer.appendChild(section);
     });
