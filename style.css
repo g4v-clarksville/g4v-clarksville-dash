@@ -23,6 +23,9 @@ body {
     margin: 0;
     padding: 20px;
 }
+html, body {
+    overflow-y: auto;
+}
 
 /* --- 1. Graduation Banner (Centered) --- */
 .g4v-grad-banner {
