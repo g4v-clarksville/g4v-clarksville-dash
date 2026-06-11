@@ -101,25 +101,26 @@ body {
 
 /* --- Impact Banner Stats --- */
 #impact-summary {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 15px;
-    width: 100%;
-    margin-bottom: 20px;
+    display: grid !important;
+    grid-template-columns: repeat(3, 1fr) !important;
+    gap: 15px !important;
+    width: 100% !important;
+    max-width: 1200px !important; /* Prevents it from stretching too far */
+    margin: 20px auto !important; /* Centers the banner on the page */
+    box-sizing: border-box !important;
 }
 
 #impact-summary .stat-card {
     background: var(--card-surface);
     border: 1px solid var(--border-color);
-    padding: 12px;
-    border-radius: 6px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    min-height: 80px;
-    margin: 0;
-    box-sizing: border-box;
+    padding: 15px !important;
+    border-radius: 8px;
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content: center !important;
+    align-items: center !important;
+    min-height: 100px !important;
+    box-sizing: border-box !important;
 }
 
 .year-selector-card .year-options { 
