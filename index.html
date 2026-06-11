@@ -172,18 +172,40 @@ function buildDashboard(cycleData) {
 
         cycle.vets.forEach(vet => {
 
+            const seenEngaged = new Set();
+            const seenAlumni = new Set();
+            const seenActive = new Set();
+
+            cycle.vets.forEach(vet => {
+                
             const sessionCount = parseInt(vet.session) || 0;
             const availabilityText = vet.availability || "Unknown";
             const availText = availabilityText.toLowerCase().trim();
             const availabilityClass = availText.replace(/\s/g, "");
 
-            if (sessionCount >= 1 || availText === "graduated") totalReached++;
-            // Count alumni
-            if (availText === "graduated") {
-            totalGrads++;
+            /* UNIQUE KEY (prevents double counting) */
+            const vetKey = vet.name?.trim().toLowerCase();
+            
+            /* -------------------------
+               ENGAGED (unique)
+            ------------------------- */
+            if (sessionCount >= 1 || availText === "graduated" || (cycle.status || "").toLowerCase() === "active") {
+                seenEngaged.add(vetKey);
             }
-            if (sessionCount >= 1 && availText !== "graduated" && availText !== "dropped") {
-                activeLessons++;
+            
+            /* -------------------------
+               ALUMNI (unique)
+            ------------------------- */
+            if (availText === "graduated" || sessionCount >= 10) {
+                seenAlumni.add(vetKey);
+            }
+            
+            /* -------------------------
+               ACTIVE COHORT (unique)
+            ------------------------- */
+            if ((cycle.status || "").toLowerCase() === "active" && availText !== "graduated" && availText !== "dropped") 
+            {
+                seenActive.add(vetKey);
             }
 
             let displayStatus = "";
