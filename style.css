@@ -121,30 +121,29 @@ body {
     color: #FFFFFF; 
 }
 /* --- Impact Banner Stats --- */
-/* 1. Target the ID to ensure it overrides any block-level defaults */
-.impact-summary {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: stretch;
-    gap: 15px;
-    width: 100%;
-    margin-bottom: 20px;
+/* --- Force the Grid Layout --- */
+#impact-summary {
+    display: grid !important;
+    grid-template-columns: repeat(3, 1fr) !important; /* Forces 3 perfectly equal columns */
+    gap: 15px !important;
+    width: 100% !important;
+    margin-bottom: 20px !important;
 }
 
-.impact-summary .stat-card {
-    flex: 1;
+/* --- Force the cards to fill the Grid cells --- */
+#impact-summary .stat-card {
     background: var(--card-surface);
     border: 1px solid var(--border-color);
-    padding: 12px;
+    padding: 12px !important;
     border-radius: 6px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    text-align: center;
-    min-height: 80px;
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content: center !important;
+    align-items: center !important;
+    min-height: 80px !important;
+    margin: 0 !important;
+    box-sizing: border-box !important;
 }
-
 /* Ensure the Year Selector matches the height of the other two */
 .year-selector-card, .year-options { 
     gap: 5px;
