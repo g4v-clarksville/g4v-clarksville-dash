@@ -23,14 +23,11 @@ body {
 }
 
 /* --- 1. Graduation Banner (Centered) --- */
+/* Centered Banner */
 .g4v-grad-banner {
-    display: flex;
-    flex-direction: column;
-    align-items: center; /* Centers horizontally */
-    justify-content: center;
-    width: 100%;
-    margin-bottom: 25px;
+    text-align: center;
     padding: 20px 0;
+    margin-bottom: 10px; /* Space before collage */
 }
 
 .g4v-grad-title, .g4v-grad-date {
@@ -38,28 +35,25 @@ body {
     margin: 5px 0;
 }
 
-/* --- 2. Collage Row (Single Row, Centered) --- */
+/* Row Styling */
 .g4v-collage-row {
     display: flex;
-    flex-direction: row;      /* Forces everything into one line */
-    justify-content: center;  /* Centers the row of images */
-    align-items: center;      /* Aligns images vertically */
-    gap: 15px;                /* Space between images */
+    justify-content: center; /* Centers images horizontally */
+    align-items: center;     /* Aligns images vertically */
+    gap: 15px;
     width: 100%;
-    flex-wrap: nowrap;        /* Prevents images from dropping to new lines */
-    overflow-x: auto;         /* Adds a scrollbar if the row is wider than the screen */
-    padding: 10px 0;
+    flex-wrap: nowrap;       /* Prevents images from wrapping to the next line */
+    overflow-x: auto;        /* Allows scrolling if screen is too small */
+    padding-bottom: 20px;
 }
 
-/* Base style for the photos */
+/* Individual Photo constraint */
 .g4v-collage-photo {
     height: 70px;
+    flex-shrink: 0;          /* Prevents photos from shrinking */
     border-radius: 6px;
     object-fit: cover;
-    flex-shrink: 0;           /* Prevents images from squishing */
-    transition: transform 0.2s ease;
 }
-
 /* --- Header Section --- */
 .header-inner { 
     display: flex; 
