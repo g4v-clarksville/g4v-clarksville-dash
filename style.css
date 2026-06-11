@@ -25,9 +25,12 @@ body {
 /* --- 1. Graduation Banner (Centered) --- */
 /* Centered Banner */
 .g4v-grad-banner {
-    text-align: center;
-    padding: 20px 0;
-    margin-bottom: 10px; /* Space before collage */
+    background-color: #002d72; 
+    color: white; 
+    text-align: center; 
+    padding: 10px 15px; /* Changed from 20px to 10px */
+    border-bottom: 3px solid #ffc72c;
+    font-family: inherit;
 }
 
 .g4v-grad-title, .g4v-grad-date {
@@ -38,21 +41,20 @@ body {
 /* Row Styling */
 .g4v-collage-row {
     display: flex;
-    justify-content: center; /* Centers images horizontally */
-    align-items: center;     /* Aligns images vertically */
-    gap: 15px;
-    width: 100%;
-    flex-wrap: nowrap;       /* Prevents images from wrapping to the next line */
-    overflow-x: auto;        /* Allows scrolling if screen is too small */
-    padding-bottom: 20px;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;        /* Reduced spacing */
+    margin: 10px 0;   /* Minimal margin */
+    flex-wrap: nowrap;
 }
 
 /* Individual Photo constraint */
 .g4v-collage-photo {
     height: 70px;
+    width: auto;
     flex-shrink: 0;          /* Prevents photos from shrinking */
     border-radius: 6px;
-    object-fit: cover;
+    object-fit: contain;
 }
 /* --- Header Section --- */
 .header-inner { 
