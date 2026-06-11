@@ -29,7 +29,7 @@ body {
     background-color: #002d72; 
     color: white; 
     text-align: center; 
-    padding: 10px 15px;
+    padding: 10px 15px 25px 15px;
     border-bottom: 3px solid #ffc72c;
     font-family: inherit;
 }
@@ -209,7 +209,7 @@ td { padding: 12px 10px; border-bottom: 1px solid rgba(44, 103, 190, 0.3); }
     align-items: center; 
     gap: 25px; 
     max-width: 950px; 
-    margin: 15px auto 0 auto; 
+    margin: 20px auto 0 auto; 
     flex-wrap: nowrap;
 }
 .g4v-collage-photo { 
