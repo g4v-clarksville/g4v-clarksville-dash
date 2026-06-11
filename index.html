@@ -208,6 +208,10 @@ function buildDashboard(cycleData) {
                 seenActive.add(vetKey);
             }
 
+            document.getElementById('total-vets').innerText = seenEngaged.size;
+            document.getElementById('grad-count').innerText = seenAlumni.size;
+            document.getElementById('active-count').innerText = seenActive.size;
+
             let displayStatus = "";
 
             if (availText === "dropped") displayStatus = "Dropped";
