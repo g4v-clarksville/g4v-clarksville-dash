@@ -210,10 +210,10 @@ function buildDashboard(cycleData) {
         const startDisp = cycle.startDate || "TBD";
         const endDisp = cycle.endDate || "TBD";
 
-        const cycleSection = document.createElement('section');
-        cycleSection.className = 'cycle-card';
+        const section = document.createElement('section');
+        section.className = 'cycle-card';
 
-        cycleSection.innerHTML = `
+        section.innerHTML = `
             <div class="card-header">
                 <h2 style="margin: 0; color: #FFD700;">
                     Cycle ${cycle.cycleId} (${cycle.status})
