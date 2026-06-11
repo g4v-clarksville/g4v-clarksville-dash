@@ -158,9 +158,9 @@ function calculateProgress(cycle) {
 ----------------------------- */
 function buildDashboard(cycleData) {
 
-    let totalReached = 0;
-    let totalGrads = 0;
-    let activeLessons = 0;
+    let totalEngagedSet = new Set();
+    let totalAlumniSet = new Set();
+    let totalActiveSet = new Set();
 
     mainContainer.innerHTML = '';
 
@@ -170,55 +170,60 @@ function buildDashboard(cycleData) {
 
         let rows = '';
 
+        const cycleStatus = (cycle.status || "").toLowerCase();
+
         cycle.vets.forEach(vet => {
 
-            const seenEngaged = new Set();
-            const seenAlumni = new Set();
-            const seenActive = new Set();
-
-            cycle.vets.forEach(vet => {
-                
             const sessionCount = parseInt(vet.session) || 0;
             const availabilityText = vet.availability || "Unknown";
             const availText = availabilityText.toLowerCase().trim();
             const availabilityClass = availText.replace(/\s/g, "");
 
-            /* UNIQUE KEY (prevents double counting) */
-            const vetKey = vet.name?.trim().toLowerCase();
-            
+            const vetKey = (vet.name || "").trim().toLowerCase();
+
             /* -------------------------
                ENGAGED (unique)
             ------------------------- */
-            if (sessionCount >= 1 || availText === "graduated" || (cycle.status || "").toLowerCase() === "active") {
-                seenEngaged.add(vetKey);
+            if (
+                sessionCount >= 1 ||
+                availText === "graduated" ||
+                cycleStatus === "active"
+            ) {
+                totalEngagedSet.add(vetKey);
             }
-            
+
             /* -------------------------
                ALUMNI (unique)
             ------------------------- */
-            if (availText === "graduated" || sessionCount >= 10) {
-                seenAlumni.add(vetKey);
+            if (
+                availText === "graduated" ||
+                sessionCount >= 10 ||
+                cycleStatus === "completed"
+            ) {
+                totalAlumniSet.add(vetKey);
             }
-            
+
             /* -------------------------
-               ACTIVE COHORT (unique)
+               ACTIVE (unique)
             ------------------------- */
-            if ((cycle.status || "").toLowerCase() === "active" && availText !== "graduated" && availText !== "dropped") 
-            {
-                seenActive.add(vetKey);
+            if (
+                cycleStatus === "active" &&
+                availText !== "graduated" &&
+                availText !== "dropped"
+            ) {
+                totalActiveSet.add(vetKey);
             }
 
-            document.getElementById('total-vets').innerText = seenEngaged.size;
-            document.getElementById('grad-count').innerText = seenAlumni.size;
-            document.getElementById('active-count').innerText = seenActive.size;
-
+            /* -------------------------
+               DISPLAY STATUS
+            ------------------------- */
             let displayStatus = "";
 
             if (availText === "dropped") displayStatus = "Dropped";
             else if (availText === "deferred" || availText === "waiting") displayStatus = "Waiting";
             else if (sessionCount >= 10 || availText === "graduated") displayStatus = "Graduated";
             else if (sessionCount > 0) displayStatus = "In Lessons";
-            else displayStatus = (cycle.status === "Active") ? "In Lessons" : "Confirmed";
+            else displayStatus = (cycleStatus === "active") ? "In Lessons" : "Confirmed";
 
             rows += `
                 <tr>
@@ -233,27 +238,28 @@ function buildDashboard(cycleData) {
             `;
         });
 
-        const startDisp = cycle.startDate || "TBD";
-        const endDisp = cycle.endDate || "TBD";
-
         const section = document.createElement('section');
         section.className = 'cycle-card';
 
         section.innerHTML = `
             <div class="card-header">
-                <h2 style="margin: 0; color: #FFD700;">
+
+                <h2 style="margin:0;color:#FFD700;">
                     Cycle ${cycle.cycleId} (${cycle.status})
                 </h2>
 
                 <div class="cycle-timeline">
                     <span class="timeline-label">TIMELINE:</span>
-                    <span class="timeline-dates">${startDisp} — ${endDisp}</span>
+                    <span class="timeline-dates">
+                        ${cycle.startDate || "TBD"} — ${cycle.endDate || "TBD"}
+                    </span>
                 </div>
 
                 <div class="progress-container">
-                    <div class="progress-bar" style="width: ${progressValue}%"></div>
+                    <div class="progress-bar" style="width:${progressValue}%"></div>
                     <span class="progress-text">${progressValue}% Cycle Progress</span>
                 </div>
+
             </div>
 
             <div class="instructor-box">
@@ -274,15 +280,16 @@ function buildDashboard(cycleData) {
             </table>
         `;
 
-
         mainContainer.appendChild(section);
     });
 
-    document.getElementById("total-vets").innerText = totalReached;
-    document.getElementById("grad-count").innerText = totalGrads;
-    document.getElementById("active-count").innerText = activeLessons;
+    /* -------------------------
+       FINAL COUNTS (ONCE ONLY)
+    ------------------------- */
+    document.getElementById('total-vets').innerText = totalEngagedSet.size;
+    document.getElementById('grad-count').innerText = totalAlumniSet.size;
+    document.getElementById('active-count').innerText = totalActiveSet.size;
 }
-
 /* -----------------------------
    DATA LOADING (FIXED)
 ----------------------------- */
