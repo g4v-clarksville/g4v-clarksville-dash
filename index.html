@@ -163,6 +163,9 @@ function calculateProgress(cycle) {
     const active = new Set();
     const deferred = new Set();
 
+    let totalDwellDays = 0;
+    let dwellCount = 0;
+
     mainContainer.innerHTML = '';
 
     cycleData.forEach(cycle => {
@@ -172,28 +175,67 @@ function calculateProgress(cycle) {
 
         let rows = '';
 
-        cycle.vets.forEach(vet => {
+        (cycle.vets || []).forEach(vet => {
 
             const vetKey = (vet.name || "").trim().toLowerCase();
-            const statusText = (vet.status || "").toLowerCase().trim();
+
             const sessionCount = parseInt(vet.session) || 0;
-            const availabilityText = vet.availability || "";
+            const availabilityText = vet.availability || "Unknown";
+            const statusText = (vet.status || availabilityText).toLowerCase().trim();
 
-            // KPI sets
-            if (statusText !== "dropped") reached.add(vetKey);
-            if (statusText === "graduated") alumni.add(vetKey);
-            if (statusText === "active") active.add(vetKey);
-            if (statusText === "deferred") deferred.add(vetKey);
+            // -------------------------
+            // KPI SETS
+            // -------------------------
+            if (statusText !== "dropped") {
+                reached.add(vetKey);
+            }
 
-            // DISPLAY STATUS (MUST BE INSIDE LOOP)
+            if (statusText === "graduated") {
+                alumni.add(vetKey);
+            }
+
+            if (statusText === "active" || statusText === "in lessons") {
+                active.add(vetKey);
+            }
+
+            if (statusText === "deferred" || statusText === "waiting") {
+                deferred.add(vetKey);
+            }
+
+            // -------------------------
+            // AVG DWELL TIME
+            // contactDate → startDate
+            // -------------------------
+            const contactDate = vet.contactDate ? new Date(vet.contactDate) : null;
+            const startDate = cycle.startDate ? new Date(cycle.startDate) : null;
+
+            if (contactDate && startDate && !isNaN(contactDate) && !isNaN(startDate)) {
+                const diffDays = (startDate - contactDate) / (1000 * 60 * 60 * 24);
+
+                if (diffDays >= 0) {
+                    totalDwellDays += diffDays;
+                    dwellCount++;
+                }
+            }
+
+            // -------------------------
+            // DISPLAY STATUS
+            // -------------------------
             let displayStatus = "";
 
-            if (statusText === "dropped") displayStatus = "Dropped";
-            else if (statusText === "waiting") displayStatus = "Waiting";
-            else if (statusText === "deferred") displayStatus = "Deferred";
-            else if (statusText === "graduated") displayStatus = "Graduated";
-            else if (statusText === "active") displayStatus = "In Lessons";
-            else displayStatus = "Unknown";
+            if (statusText === "dropped") {
+                displayStatus = "Dropped";
+            } else if (statusText === "waiting") {
+                displayStatus = "Waiting";
+            } else if (statusText === "deferred") {
+                displayStatus = "Deferred";
+            } else if (statusText === "graduated") {
+                displayStatus = "Graduated";
+            } else if (statusText === "active" || sessionCount > 0) {
+                displayStatus = "In Lessons";
+            } else {
+                displayStatus = (cycleStatus === "active") ? "In Lessons" : "Confirmed";
+            }
 
             rows += `
                 <tr>
@@ -211,7 +253,10 @@ function calculateProgress(cycle) {
 
         section.innerHTML = `
             <div class="card-header">
-                <h2>Cycle ${cycle.cycleId} (${cycle.status})</h2>
+
+                <h2 style="margin:0;color:#FFD700;">
+                    Cycle ${cycle.cycleId} (${cycle.status})
+                </h2>
 
                 <div class="cycle-timeline">
                     <span class="timeline-label">TIMELINE:</span>
@@ -224,6 +269,7 @@ function calculateProgress(cycle) {
                     <div class="progress-bar" style="width:${progressValue}%"></div>
                     <span class="progress-text">${progressValue}% Cycle Progress</span>
                 </div>
+
             </div>
 
             <div class="instructor-box">
@@ -247,9 +293,22 @@ function calculateProgress(cycle) {
         mainContainer.appendChild(section);
     });
 
+    // -------------------------
+    // FINAL COUNTS
+    // -------------------------
     document.getElementById('total-vets').innerText = reached.size;
     document.getElementById('grad-count').innerText = alumni.size;
     document.getElementById('active-count').innerText = active.size;
+
+    // -------------------------
+    // AVG DWELL TIME KPI
+    // -------------------------
+    const avgDwell = dwellCount > 0
+        ? Math.round(totalDwellDays / dwellCount)
+        : null;
+
+    document.getElementById('avg-days').innerText =
+        avgDwell !== null ? avgDwell : "--";
 }
             
 /* -----------------------------
