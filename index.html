@@ -199,6 +199,44 @@ function calculateProgress(cycle) {
             if (statusText === "deferred") {
                 deferred.add(vetKey);
             }
+        // -------------------------
+            // DISPLAY STATUS
+            // -------------------------
+            let displayStatus = "";
+
+            if (statusText === "dropped") {
+                displayStatus = "Dropped";
+            }
+            
+            else if (statusText === "waiting") {
+                displayStatus = "Waiting";
+            }
+            
+            else if (statusText === "deferred") {
+                displayStatus = "Deferred";
+            }
+            
+            else if (statusText === "graduated") {
+                displayStatus = "Graduated";
+            }
+            
+            else if (statusText === "active") {
+                displayStatus = "In Lessons";
+            }
+            
+            else {
+                displayStatus = "Unknown";
+            }
+
+            rows += `
+                <tr>
+                    <td>${vet.seq || '-'}</td>
+                    <td class="vet-name-cell">${vet.name || ''}</td>
+                    <td>${sessionCount} / 10</td>
+                    <td>${displayStatus}</td>
+                    <td>${availabilityText}</td>
+                </tr>
+            `;
         });
 
         const section = document.createElement('section');
