@@ -161,6 +161,7 @@ function calculateProgress(cycle) {
     const reached = new Set();
     const alumni = new Set();
     const active = new Set();
+    const deferred = new Set();
 
     mainContainer.innerHTML = '';
 
@@ -173,59 +174,31 @@ function calculateProgress(cycle) {
 
         cycle.vets.forEach(vet => {
 
+        const reached = new Set();
+        const alumni = new Set();
+        const active = new Set();
+        const deferred = new Set();
+        
+        cycle.vets.forEach(vet => {
+        
             const vetKey = (vet.name || "").trim().toLowerCase();
-            const sessionCount = parseInt(vet.session) || 0;
-            const availabilityText = vet.availability || "Unknown";
-            const availText = availabilityText.toLowerCase().trim();
-
-            // -------------------------
-            // ENGAGED
-            // -------------------------
-            if ( 
-                availText === "graduated" || 
-                cycleStatus === "active" ||
-                availText === "deferred"
-            ) {
+            const statusText = (vet.status || "").toLowerCase().trim();
+        
+            if (statusText !== "dropped") {
                 reached.add(vetKey);
             }
-
-            // -------------------------
-            // ALUMNI
-            // -------------------------
-            if (availText === "graduated") {
+        
+            if (statusText === "graduated") {
                 alumni.add(vetKey);
             }
-
-            // -------------------------
-            // ACTIVE
-            // -------------------------
-            if (cycleStatus === "active" && 
-                availText !== "graduated" &&
-                availText !== "deferred" &&
-                availText !== "dropped"
-               ) {
+        
+            if (statusText === "active") {
                 active.add(vetKey);
             }
-
-            // -------------------------
-            // DISPLAY STATUS
-            // -------------------------
-            let displayStatus = "";
-            if (availText === "dropped") displayStatus = "Dropped";
-            else if (availText === "deferred" || availText === "waiting") displayStatus = "Waiting";
-            else if (sessionCount >= 10 || availText === "graduated") displayStatus = "Graduated";
-            else if (sessionCount > 0) displayStatus = "In Lessons";
-            else displayStatus = (cycleStatus === "active") ? "In Lessons" : "Confirmed";
-
-            rows += `
-                <tr>
-                    <td>${vet.seq || '-'}</td>
-                    <td class="vet-name-cell">${vet.name || ''}</td>
-                    <td>${sessionCount} / 10</td>
-                    <td>${displayStatus}</td>
-                    <td>${availabilityText}</td>
-                </tr>
-            `;
+        
+            if (statusText === "deferred") {
+                deferred.add(vetKey);
+            }
         });
 
         const section = document.createElement('section');
