@@ -158,14 +158,14 @@ function calculateProgress(cycle) {
             ----------------------------- */
          function buildDashboard(cycleData) {
 
-        const reached = new Set();
-        const alumni = new Set();
-        const active = new Set();
-        const deferred = new Set();
-    
-        mainContainer.innerHTML = '';
-    
-        cycleData.forEach(cycle => {
+    const reached = new Set();
+    const alumni = new Set();
+    const active = new Set();
+    const deferred = new Set();
+
+    mainContainer.innerHTML = '';
+
+    cycleData.forEach(cycle => {
 
         const cycleStatus = (cycle.status || "").toLowerCase();
         const progressValue = calculateProgress(cycle);
@@ -173,55 +173,27 @@ function calculateProgress(cycle) {
         let rows = '';
 
         cycle.vets.forEach(vet => {
-        
+
             const vetKey = (vet.name || "").trim().toLowerCase();
             const statusText = (vet.status || "").toLowerCase().trim();
-        
-            if (statusText !== "dropped") {
-                reached.add(vetKey);
-            }
-        
-            if (statusText === "graduated") {
-                alumni.add(vetKey);
-            }
-        
-            if (statusText === "active") {
-                active.add(vetKey);
-            }
-        
-            if (statusText === "deferred") {
-                deferred.add(vetKey);
-            }
-            
-        });
-        // -------------------------
-            // DISPLAY STATUS
-            // -------------------------
+            const sessionCount = parseInt(vet.session) || 0;
+            const availabilityText = vet.availability || "";
+
+            // KPI sets
+            if (statusText !== "dropped") reached.add(vetKey);
+            if (statusText === "graduated") alumni.add(vetKey);
+            if (statusText === "active") active.add(vetKey);
+            if (statusText === "deferred") deferred.add(vetKey);
+
+            // DISPLAY STATUS (MUST BE INSIDE LOOP)
             let displayStatus = "";
 
-            if (statusText === "dropped") {
-                displayStatus = "Dropped";
-            }
-            
-            else if (statusText === "waiting") {
-                displayStatus = "Waiting";
-            }
-            
-            else if (statusText === "deferred") {
-                displayStatus = "Deferred";
-            }
-            
-            else if (statusText === "graduated") {
-                displayStatus = "Graduated";
-            }
-            
-            else if (statusText === "active") {
-                displayStatus = "In Lessons";
-            }
-            
-            else {
-                displayStatus = "Unknown";
-            }
+            if (statusText === "dropped") displayStatus = "Dropped";
+            else if (statusText === "waiting") displayStatus = "Waiting";
+            else if (statusText === "deferred") displayStatus = "Deferred";
+            else if (statusText === "graduated") displayStatus = "Graduated";
+            else if (statusText === "active") displayStatus = "In Lessons";
+            else displayStatus = "Unknown";
 
             rows += `
                 <tr>
@@ -240,10 +212,14 @@ function calculateProgress(cycle) {
         section.innerHTML = `
             <div class="card-header">
                 <h2>Cycle ${cycle.cycleId} (${cycle.status})</h2>
+
                 <div class="cycle-timeline">
                     <span class="timeline-label">TIMELINE:</span>
-                    <span class="timeline-dates">${cycle.startDate || "TBD"} — ${cycle.endDate || "TBD"}</span>
+                    <span class="timeline-dates">
+                        ${cycle.startDate || "TBD"} — ${cycle.endDate || "TBD"}
+                    </span>
                 </div>
+
                 <div class="progress-container">
                     <div class="progress-bar" style="width:${progressValue}%"></div>
                     <span class="progress-text">${progressValue}% Cycle Progress</span>
@@ -271,9 +247,6 @@ function calculateProgress(cycle) {
         mainContainer.appendChild(section);
     });
 
-    // -------------------------
-    // FINAL COUNTS
-    // -------------------------
     document.getElementById('total-vets').innerText = reached.size;
     document.getElementById('grad-count').innerText = alumni.size;
     document.getElementById('active-count').innerText = active.size;
