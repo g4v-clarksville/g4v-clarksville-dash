@@ -156,7 +156,7 @@ function calculateProgress(cycle) {
             /* -----------------------------
                DASHBOARD BUILD
             ----------------------------- */
-          function buildDashboard(cycleData) {
+         function buildDashboard(cycleData) {
 
     const engaged = new Set();
     const alumni = new Set();
@@ -179,35 +179,23 @@ function calculateProgress(cycle) {
             const availText = availabilityText.toLowerCase().trim();
 
             // -------------------------
-            // ENGAGED (ALL SERVED)
+            // ENGAGED
             // -------------------------
-            if (
-                sessionCount >= 1 ||
-                availText === "graduated" ||
-                cycleStatus === "active"
-            ) {
+            if (sessionCount >= 1 || availText === "graduated" || cycleStatus === "active") {
                 engaged.add(vetKey);
             }
 
             // -------------------------
-            // ALUMNI (GRADUATED ONLY)
+            // ALUMNI
             // -------------------------
-            if (
-                availText === "graduated" ||
-                sessionCount >= 10 ||
-                cycleStatus === "completed"
-            ) {
+            if (availText === "graduated" || sessionCount >= 10 || cycleStatus === "completed") {
                 alumni.add(vetKey);
             }
 
             // -------------------------
-            // ACTIVE (IN LESSONS ONLY)
+            // ACTIVE
             // -------------------------
-            if (
-                cycleStatus === "active" &&
-                availText !== "graduated" &&
-                availText !== "dropped"
-            ) {
+            if (cycleStatus === "active" && availText !== "graduated" && availText !== "dropped") {
                 active.add(vetKey);
             }
 
@@ -215,26 +203,11 @@ function calculateProgress(cycle) {
             // DISPLAY STATUS
             // -------------------------
             let displayStatus = "";
-
-            if (availText === "dropped") {
-                displayStatus = "Dropped";
-            } else if (
-                availText === "deferred" ||
-                availText === "waiting"
-            ) {
-                displayStatus = "Waiting";
-            } else if (
-                sessionCount >= 10 ||
-                availText === "graduated"
-            ) {
-                displayStatus = "Graduated";
-            } else if (sessionCount > 0) {
-                displayStatus = "In Lessons";
-            } else {
-                displayStatus = (cycleStatus === "active")
-                    ? "In Lessons"
-                    : "Confirmed";
-            }
+            if (availText === "dropped") displayStatus = "Dropped";
+            else if (availText === "deferred" || availText === "waiting") displayStatus = "Waiting";
+            else if (sessionCount >= 10 || availText === "graduated") displayStatus = "Graduated";
+            else if (sessionCount > 0) displayStatus = "In Lessons";
+            else displayStatus = (cycleStatus === "active") ? "In Lessons" : "Confirmed";
 
             rows += `
                 <tr>
@@ -252,23 +225,15 @@ function calculateProgress(cycle) {
 
         section.innerHTML = `
             <div class="card-header">
-
-                <h2 style="margin:0;color:#FFD700;">
-                    Cycle ${cycle.cycleId} (${cycle.status})
-                </h2>
-
+                <h2>Cycle ${cycle.cycleId} (${cycle.status})</h2>
                 <div class="cycle-timeline">
                     <span class="timeline-label">TIMELINE:</span>
-                    <span class="timeline-dates">
-                        ${cycle.startDate || "TBD"} — ${cycle.endDate || "TBD"}
-                    </span>
+                    <span class="timeline-dates">${cycle.startDate || "TBD"} — ${cycle.endDate || "TBD"}</span>
                 </div>
-
                 <div class="progress-container">
                     <div class="progress-bar" style="width:${progressValue}%"></div>
                     <span class="progress-text">${progressValue}% Cycle Progress</span>
                 </div>
-
             </div>
 
             <div class="instructor-box">
@@ -293,7 +258,7 @@ function calculateProgress(cycle) {
     });
 
     // -------------------------
-    // FINAL KPI COUNTS (ONLY ONCE)
+    // FINAL COUNTS
     // -------------------------
     document.getElementById('total-vets').innerText = engaged.size;
     document.getElementById('grad-count').innerText = alumni.size;
