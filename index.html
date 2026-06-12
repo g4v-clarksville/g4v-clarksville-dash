@@ -49,7 +49,7 @@
 <div id="impact-summary">
 
     <div class="stat-card">
-        <span class="stat-label">Veterans Engaged</span>
+        <span class="stat-label">Veterans Reached</span>
         <span id="total-vets" class="stat-value">0</span>
     </div>
 
@@ -181,21 +181,29 @@ function calculateProgress(cycle) {
             // -------------------------
             // ENGAGED
             // -------------------------
-            if (sessionCount >= 1 || availText === "graduated" || cycleStatus === "active") {
-                engaged.add(vetKey);
+            if ( 
+                availText === "graduated" || 
+                cycleStatus === "active" ||
+                availText === "deferred"
+            ) {
+                reached.add(vetKey);
             }
 
             // -------------------------
             // ALUMNI
             // -------------------------
-            if (availText === "graduated" || sessionCount >= 10 || cycleStatus === "completed") {
+            if (availText === "graduated") {
                 alumni.add(vetKey);
             }
 
             // -------------------------
             // ACTIVE
             // -------------------------
-            if (cycleStatus === "active" && availText !== "graduated" && availText !== "dropped") {
+            if (cycleStatus === "active" && 
+                availText !== "graduated" &&
+                availText !== "deferred" &&
+                availText !== "dropped"
+               ) {
                 active.add(vetKey);
             }
 
@@ -260,7 +268,7 @@ function calculateProgress(cycle) {
     // -------------------------
     // FINAL COUNTS
     // -------------------------
-    document.getElementById('total-vets').innerText = engaged.size;
+    document.getElementById('total-vets').innerText = reached.size;
     document.getElementById('grad-count').innerText = alumni.size;
     document.getElementById('active-count').innerText = active.size;
 }
