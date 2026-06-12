@@ -158,27 +158,20 @@ function calculateProgress(cycle) {
             ----------------------------- */
          function buildDashboard(cycleData) {
 
-    const reached = new Set();
-    const alumni = new Set();
-    const active = new Set();
-    const deferred = new Set();
-
-    mainContainer.innerHTML = '';
-
-    cycleData.forEach(cycle => {
+        const reached = new Set();
+        const alumni = new Set();
+        const active = new Set();
+        const deferred = new Set();
+    
+        mainContainer.innerHTML = '';
+    
+        cycleData.forEach(cycle => {
 
         const cycleStatus = (cycle.status || "").toLowerCase();
         const progressValue = calculateProgress(cycle);
 
         let rows = '';
 
-        cycle.vets.forEach(vet => {
-
-        const reached = new Set();
-        const alumni = new Set();
-        const active = new Set();
-        const deferred = new Set();
-        
         cycle.vets.forEach(vet => {
         
             const vetKey = (vet.name || "").trim().toLowerCase();
@@ -199,6 +192,8 @@ function calculateProgress(cycle) {
             if (statusText === "deferred") {
                 deferred.add(vetKey);
             }
+            
+        });
         // -------------------------
             // DISPLAY STATUS
             // -------------------------
