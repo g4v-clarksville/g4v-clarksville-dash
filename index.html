@@ -223,18 +223,37 @@ function calculateProgress(cycle) {
             // -------------------------
             let displayStatus = "";
 
-            if (statusText === "dropped") {
+            const isGraduated =
+                statusText === "graduated" ||
+                availabilityText === "completed" ||
+                sessionCount >= 10;
+            
+            const isDropped = statusText === "dropped";
+            
+            const isDeferred =
+                statusText === "deferred" ||
+                statusText === "waiting";
+            
+            const isActive =
+                !isGraduated &&
+                !isDropped &&
+                !isDeferred &&
+                sessionCount > 0;
+            
+            if (isDropped) {
                 displayStatus = "Dropped";
-            } else if (statusText === "waiting") {
-                displayStatus = "Waiting";
-            } else if (statusText === "deferred") {
+            }
+            else if (isDeferred) {
                 displayStatus = "Deferred";
-            } else if (statusText === "graduated") {
+            }
+            else if (isGraduated) {
                 displayStatus = "Graduated";
-            } else if (statusText === "active" || sessionCount > 0) {
-                displayStatus = "In Lessons";
-            } else {
-                displayStatus = (cycleStatus === "active") ? "In Lessons" : "Confirmed";
+            }
+            else if (isActive) {
+                displayStatus = "Active";
+            }
+            else {
+                displayStatus = "Waiting";
             }
 
             rows += `
