@@ -134,30 +134,24 @@ function toggleWaitlist() {
    CYCLE PROGRESS
 ----------------------------- */
 function calculateProgress(cycle) {
-    const today = new Date();
+    if (!cycle.vets || cycle.vets.length === 0) return 0;
 
-    if (!cycle.startDate || !cycle.endDate) return 0;
     if (cycle.status === "Completed") return 100;
 
-    // -------------------------
-    // ACTIVE: session-based progress
-    // -------------------------
-    if (cycle.status === "Active" && cycle.vets.length > 0) {
-        const actualSessionsCompleted = cycle.vets.reduce((sum, vet) => {
-            const sessions = vet.session !== undefined
-                ? vet.session
-                : (vet.currentSession || 0);
+    const totalPossibleSessions = cycle.vets.length * 10;
 
-            return sum + (parseInt(sessions) || 0);
-        }, 0);
+    const actualSessionsCompleted = cycle.vets.reduce((sum, vet) => {
+        const sessions = vet.session !== undefined
+            ? vet.session
+            : (vet.currentSession || 0);
 
-        const totalPossibleSessions = cycle.vets.length * 10;
+        return sum + (parseInt(sessions) || 0);
+    }, 0);
 
-        return Math.min(
-            100,
-            Math.round((actualSessionsCompleted / totalPossibleSessions) * 100)
-        );
-    }
+    const percent = (actualSessionsCompleted / totalPossibleSessions) * 100;
+
+    return Math.min(100, Math.round(percent));
+}
 
     // -------------------------
     // DEFAULT: time-based progress
