@@ -112,7 +112,9 @@ function toggleWaitlist() {
     const content = document.getElementById('waitlist-content');
     const arrow = document.getElementById('waitlist-arrow');
 
-    if (content.style.display === "none") {
+    const isHidden = getComputedStyle(content).display === "none";
+
+    if (isHidden) {
         content.style.display = "block";
         arrow.innerText = "▲ CLOSE LIST";
     } else {
