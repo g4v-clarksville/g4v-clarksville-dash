@@ -157,19 +157,76 @@ function calculateProgress(cycle) {
                DASHBOARD BUILD
             ----------------------------- */
          function buildDashboard(cycleData) {
-             
-            
 
-            const reached = new Set();
-            const alumni = new Set();
-            const active = new Set();
-            const deferred = new Set();
-        
-            let totalDwellDays = 0;
-            let dwellCount = 0;
+    const reached = new Set();
+    const alumni = new Set();
+    const active = new Set();
+    const deferred = new Set();
+
+    let totalDwellDays = 0;
+    let dwellCount = 0;
 
     mainContainer.innerHTML = '';
 
+    // =====================================================
+    // GLOBAL KPI + DWELL TIME (DO NOT FILTER BY YEAR)
+    // =====================================================
+    allCycleData.forEach(cycle => {
+
+        (cycle.vets || []).forEach(vet => {
+
+            const vetKey = (vet.name || "").trim().toLowerCase();
+
+            const sessionCount = parseInt(vet.session) || 0;
+            const statusText = (vet.status || "").toLowerCase().trim();
+            const availabilityText = (vet.availability || "").toLowerCase().trim();
+
+            // -------------------------
+            // KPI SETS (GLOBAL)
+            // -------------------------
+            if (statusText !== "dropped") {
+                reached.add(vetKey);
+            }
+
+            if (statusText === "graduated" && availabilityText === "completed") {
+                alumni.add(vetKey);
+            }
+
+            if (statusText === "active" && availabilityText === "in lessons") {
+                active.add(vetKey);
+            }
+
+            if (statusText === "deferred" || statusText === "waiting") {
+                deferred.add(vetKey);
+            }
+
+            // -------------------------
+            // AVG DWELL TIME (GLOBAL)
+            // contactDate → startDate
+            // -------------------------
+            const contactDate = vet.contactDate ? new Date(vet.contactDate) : null;
+            const startDate = cycle.startDate ? new Date(cycle.startDate) : null;
+
+            if (
+                contactDate &&
+                startDate &&
+                !isNaN(contactDate.getTime()) &&
+                !isNaN(startDate.getTime())
+            ) {
+                const diffDays =
+                    (startDate - contactDate) / (1000 * 60 * 60 * 24);
+
+                if (diffDays >= 0) {
+                    totalDwellDays += diffDays;
+                    dwellCount++;
+                }
+            }
+        });
+    });
+
+    // =====================================================
+    // RENDER ONLY SELECTED YEAR (cycleData)
+    // =====================================================
     cycleData.forEach(cycle => {
 
         const cycleStatus = (cycle.status || "").toLowerCase();
@@ -179,93 +236,28 @@ function calculateProgress(cycle) {
 
         (cycle.vets || []).forEach(vet => {
 
-            const vetKey = (vet.name || "").trim().toLowerCase();
-
             const sessionCount = parseInt(vet.session) || 0;
             const statusText = (vet.status || "").toLowerCase().trim();
             const availabilityText = vet.availability || "";
             const availability = availabilityText.toLowerCase().trim();
 
             // -------------------------
-            // KPI SETS
-            // -------------------------
-            if (statusText !== "dropped") {
-                reached.add(vetKey);
-            }
-
-            if (statusText === "graduated" && availability === "completed") {
-                alumni.add(vetKey);
-            }
-
-            if (statusText === "active" && availability === "in lessons") {
-                active.add(vetKey);
-            }
-
-            if (statusText === "deferred" && availability === "waiting") {
-                deferred.add(vetKey);
-            }
-
-            // -------------------------
-            // AVG DWELL TIME
-            // contactDate → startDate
-            // -------------------------
-            const contactDate = vet.contactDate
-                ? new Date(vet.contactDate)
-                : null;
-            
-            const startDate = cycle.startDate
-                ? new Date(cycle.startDate)
-                : null;
-            
-            if (
-                contactDate &&
-                startDate &&
-                !isNaN(contactDate.getTime()) &&
-                !isNaN(startDate.getTime())
-            ) {
-                const diffDays =
-                    (startDate - contactDate) /
-                    (1000 * 60 * 60 * 24);
-            
-                if (diffDays >= 0) {
-                    totalDwellDays += diffDays;
-                    dwellCount++;
-                }
-            }
-
-            // -------------------------
             // DISPLAY STATUS
             // -------------------------
             let displayStatus = "Waiting";
 
-                if (
-                    statusText === "graduated" &&
-                    availability === "completed"
-                ) {
-                    displayStatus = "Graduated";
-                }
-                else if (
-                    statusText === "active" &&
-                    availability === "in lessons"
-                ) {
-                    displayStatus = "Active";
-                }
-                else if (
-                    statusText === "deferred" &&
-                    availability === "waiting"
-                ) {
-                    displayStatus = "Deferred";
-                }
-                else if (
-                    statusText === "waiting"
-                ) {
-                    displayStatus = "Waiting";
-                }
-                else if (
-                    statusText === "dropped"
-                ) {
-                    displayStatus = "Dropped";
-                }
+            if (statusText === "graduated" && availability === "completed") {
+                displayStatus = "Graduated";
+            }
+            else if (statusText === "active" && availability === "in lessons") {
+                displayStatus = "Active";
+            }
+            else if (statusText === "deferred" || statusText === "waiting") {
+                displayStatus = "Deferred";
+            }
+            else if (statusText === "dropped") {
+                displayStatus = "Dropped";
+            }
 
             rows += `
                 <tr>
@@ -323,16 +315,13 @@ function calculateProgress(cycle) {
         mainContainer.appendChild(section);
     });
 
-    // -------------------------
-    // FINAL COUNTS
-    // -------------------------
+    // =====================================================
+    // GLOBAL KPI OUTPUT (ALWAYS GLOBAL)
+    // =====================================================
     document.getElementById('total-vets').innerText = reached.size;
     document.getElementById('grad-count').innerText = alumni.size;
     document.getElementById('active-count').innerText = active.size;
 
-    // -------------------------
-    // AVG DWELL TIME KPI
-    // -------------------------
     const avgDwell = dwellCount > 0
         ? Math.round(totalDwellDays / dwellCount)
         : null;
