@@ -190,15 +190,15 @@ function calculateProgress(cycle) {
                 reached.add(vetKey);
             }
 
-            if (statusText === "graduated" || statusText === "completed") {
+            if (statusText === "graduated" && availability === "completed") {
                 alumni.add(vetKey);
             }
 
-            if (statusText === "active" || statusText === "in lessons") {
+            if (statusText === "active" && availability === "in lessons") {
                 active.add(vetKey);
             }
 
-            if (statusText === "deferred" || statusText === "waiting") {
+            if (statusText === "deferred" && availability === "waiting") {
                 deferred.add(vetKey);
             }
 
@@ -206,12 +206,24 @@ function calculateProgress(cycle) {
             // AVG DWELL TIME
             // contactDate → startDate
             // -------------------------
-            const contactDate = vet.contactDate ? new Date(vet.contactDate) : null;
-            const startDate = cycle.startDate ? new Date(cycle.startDate) : null;
-
-            if (contactDate && startDate && !isNaN(contactDate) && !isNaN(startDate)) {
-                const diffDays = (startDate - contactDate) / (1000 * 60 * 60 * 24);
-
+            const contactDate = vet.contactDate
+                ? new Date(vet.contactDate)
+                : null;
+            
+            const startDate = cycle.startDate
+                ? new Date(cycle.startDate)
+                : null;
+            
+            if (
+                contactDate &&
+                startDate &&
+                !isNaN(contactDate.getTime()) &&
+                !isNaN(startDate.getTime())
+            ) {
+                const diffDays =
+                    (startDate - contactDate) /
+                    (1000 * 60 * 60 * 24);
+            
                 if (diffDays >= 0) {
                     totalDwellDays += diffDays;
                     dwellCount++;
@@ -221,40 +233,36 @@ function calculateProgress(cycle) {
             // -------------------------
             // DISPLAY STATUS
             // -------------------------
-            let displayStatus = "";
+            let displayStatus = "Waiting";
 
-            const isGraduated =
-                statusText === "graduated" ||
-                availabilityText === "completed" ||
-                sessionCount >= 10;
-            
-            const isDropped = statusText === "dropped";
-            
-            const isDeferred =
-                statusText === "deferred" ||
-                statusText === "waiting";
-            
-            const isActive =
-                !isGraduated &&
-                !isDropped &&
-                !isDeferred &&
-                sessionCount > 0;
-            
-            if (isDropped) {
-                displayStatus = "Dropped";
-            }
-            else if (isDeferred) {
-                displayStatus = "Deferred";
-            }
-            else if (isGraduated) {
-                displayStatus = "Graduated";
-            }
-            else if (isActive) {
-                displayStatus = "Active";
-            }
-            else {
-                displayStatus = "Waiting";
-            }
+                if (
+                    statusText === "graduated" &&
+                    availability === "completed"
+                ) {
+                    displayStatus = "Graduated";
+                }
+                else if (
+                    statusText === "active" &&
+                    availability === "in lessons"
+                ) {
+                    displayStatus = "Active";
+                }
+                else if (
+                    statusText === "deferred" &&
+                    availability === "waiting"
+                ) {
+                    displayStatus = "Deferred";
+                }
+                else if (
+                    statusText === "waiting"
+                ) {
+                    displayStatus = "Waiting";
+                }
+                else if (
+                    statusText === "dropped"
+                ) {
+                    displayStatus = "Dropped";
+                }
 
             rows += `
                 <tr>
@@ -392,8 +400,10 @@ function processExcelData(rawRows) {
             groupedData[id].vets.push({
                 seq: row.vetSeq,
                 name: row.vetName,
+                status: row.status,
                 availability: row.availability,
-                session: row.currentSession
+                session: row.currentSession,
+                contactDate: row.contactDate
             });
         }
     });
