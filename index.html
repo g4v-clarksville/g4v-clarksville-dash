@@ -181,7 +181,8 @@ function calculateProgress(cycle) {
 
             const sessionCount = parseInt(vet.session) || 0;
             const statusText = (vet.status || "").toLowerCase().trim();
-            const availability = (vet.availability || "").toLowerCase().trim();
+            const availabilityText = vet.availability || "";
+            const availability = availabilityText.toLowerCase().trim();
 
             // -------------------------
             // KPI SETS
