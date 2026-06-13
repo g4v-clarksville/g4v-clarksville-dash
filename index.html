@@ -157,14 +157,16 @@ function calculateProgress(cycle) {
                DASHBOARD BUILD
             ----------------------------- */
          function buildDashboard(cycleData) {
+             
+             const kpiSource = allCycleData;
 
-    const reached = new Set();
-    const alumni = new Set();
-    const active = new Set();
-    const deferred = new Set();
-
-    let totalDwellDays = 0;
-    let dwellCount = 0;
+            const reached = new Set();
+            const alumni = new Set();
+            const active = new Set();
+            const deferred = new Set();
+        
+            let totalDwellDays = 0;
+            let dwellCount = 0;
 
     mainContainer.innerHTML = '';
 
