@@ -124,9 +124,10 @@ function calculateProgress(cycle) {
     if (!cycle.startDate || !cycle.endDate) return 0;
     if (cycle.status === "Completed") return 100;
 
+    // -------------------------
+    // ACTIVE: session-based progress
+    // -------------------------
     if (cycle.status === "Active" && cycle.vets.length > 0) {
-        const totalPossibleSessions = cycle.vets.length * 10;
-
         const actualSessionsCompleted = cycle.vets.reduce((sum, vet) => {
             const sessions = vet.session !== undefined
                 ? vet.session
@@ -135,14 +136,17 @@ function calculateProgress(cycle) {
             return sum + (parseInt(sessions) || 0);
         }, 0);
 
-               return Math.min(
-            100,
-            Math.round(
-                (actualSessionsCompleted /
-                    (cycle.vets.length * 10)) * 100
-            )
-        );
+        const totalPossibleSessions = cycle.vets.length * 10;
 
+        return Math.min(
+            100,
+            Math.round((actualSessionsCompleted / totalPossibleSessions) * 100)
+        );
+    }
+
+    // -------------------------
+    // DEFAULT: time-based progress
+    // -------------------------
     const start = new Date(cycle.startDate);
     const end = new Date(cycle.endDate);
 
