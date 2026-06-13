@@ -139,61 +139,56 @@ function toggleWaitlist() {
    CYCLE PROGRESS
 ----------------------------- */
 function calculateProgress(cycle) {
-    const today = new Date();
-
     const vets = Array.isArray(cycle.vets) ? cycle.vets : [];
+
+    // -------------------------
+    // 1. HARD OVERRIDE: Completed cycle
+    // -------------------------
+    if ((cycle.status || "").toLowerCase() === "completed") {
+        return 100;
+    }
+
     if (vets.length === 0) return 0;
 
-    if (cycle.status === "Completed") return 100;
-
     // -------------------------
-    // SESSION-BASED PROGRESS (PRIMARY TRUTH)
+    // 2. SESSION PROGRESS (TRUTH SOURCE)
     // -------------------------
-    const totalPossibleSessions = vets.length * 10;
+    const totalPossible = vets.length * 10;
 
-    const actualSessionsCompleted = vets.reduce((sum, vet) => {
-        const sessions = Number(vet.session ?? vet.currentSession ?? 0);
-        return sum + (Number.isFinite(sessions) ? sessions : 0);
+    const completed = vets.reduce((sum, vet) => {
+        const s = Number(vet.session ?? vet.currentSession ?? 0);
+        return sum + (Number.isFinite(s) ? s : 0);
     }, 0);
 
-    const sessionBased = totalPossibleSessions > 0
-        ? (actualSessionsCompleted / totalPossibleSessions) * 100
+    const sessionPercent = totalPossible > 0
+        ? (completed / totalPossible) * 100
         : 0;
 
     // -------------------------
-    // TIME-BASED PROGRESS (ONLY GUIDANCE, NEVER OVERRIDES LOW DATA)
+    // 3. FALLBACK TIME PROGRESS ONLY IF NO DATA
     // -------------------------
     if (!cycle.startDate || !cycle.endDate) {
-        return Math.min(100, Math.round(sessionBased));
+        return Math.round(sessionPercent);
     }
 
     const start = new Date(cycle.startDate);
     const end = new Date(cycle.endDate);
+    const now = new Date();
 
-    if (isNaN(start.getTime()) || isNaN(end.getTime())) {
-        return Math.min(100, Math.round(sessionBased));
+    if (isNaN(start) || isNaN(end)) {
+        return Math.round(sessionPercent);
     }
 
-    if (today < start) {
-        return Math.round(sessionBased);
-    }
-
-    const totalDuration = end - start;
-    const elapsed = today - start;
-
-    const timeBased = totalDuration > 0
-        ? (elapsed / totalDuration) * 100
-        : 0;
+    const timePercent = now < start
+        ? 0
+        : Math.min(99, ((now - start) / (end - start)) * 100);
 
     // -------------------------
-    // FINAL LOGIC RULE
-    // session truth ALWAYS dominates timeline drift
+    // 4. FINAL RULE
+    // Completed status ALWAYS wins
+    // Otherwise session drives UI
     // -------------------------
-    const final = sessionBased >= 1
-        ? sessionBased
-        : timeBased;
-
-    return Math.min(100, Math.round(final));
+    return Math.min(100, Math.round(sessionPercent));
 }
             /* -----------------------------
                DASHBOARD BUILD
