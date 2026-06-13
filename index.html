@@ -103,6 +103,11 @@
     </div>
 </div>
 
+<div class="progress-container">
+    <div class="progress-bar" style="width: 40%"></div>
+    <span class="progress-text">40% Cycle Progress</span>
+</div>
+
 <main id="dashboard-root"></main>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.3.2/papaparse.min.js"></script>
@@ -136,23 +141,27 @@ function toggleWaitlist() {
 function calculateProgress(cycle) {
     const today = new Date();
 
-    if (!cycle.vets || cycle.vets.length === 0) return 0;
+    const vets = Array.isArray(cycle.vets) ? cycle.vets : [];
+    if (vets.length === 0) return 0;
+
     if (cycle.status === "Completed") return 100;
 
-    const totalPossibleSessions = cycle.vets.length * 10;
+    // -------------------------
+    // SESSION-BASED PROGRESS (PRIMARY TRUTH)
+    // -------------------------
+    const totalPossibleSessions = vets.length * 10;
 
-    const actualSessionsCompleted = cycle.vets.reduce((sum, vet) => {
-        const sessions = vet.session !== undefined
-            ? vet.session
-            : (vet.currentSession || 0);
-
-        return sum + (parseInt(sessions) || 0);
+    const actualSessionsCompleted = vets.reduce((sum, vet) => {
+        const sessions = Number(vet.session ?? vet.currentSession ?? 0);
+        return sum + (Number.isFinite(sessions) ? sessions : 0);
     }, 0);
 
-    const sessionBased = (actualSessionsCompleted / totalPossibleSessions) * 100;
+    const sessionBased = totalPossibleSessions > 0
+        ? (actualSessionsCompleted / totalPossibleSessions) * 100
+        : 0;
 
     // -------------------------
-    // fallback time-based logic
+    // TIME-BASED PROGRESS (ONLY GUIDANCE, NEVER OVERRIDES LOW DATA)
     // -------------------------
     if (!cycle.startDate || !cycle.endDate) {
         return Math.min(100, Math.round(sessionBased));
@@ -160,6 +169,10 @@ function calculateProgress(cycle) {
 
     const start = new Date(cycle.startDate);
     const end = new Date(cycle.endDate);
+
+    if (isNaN(start.getTime()) || isNaN(end.getTime())) {
+        return Math.min(100, Math.round(sessionBased));
+    }
 
     if (today < start) {
         return Math.round(sessionBased);
@@ -172,10 +185,15 @@ function calculateProgress(cycle) {
         ? (elapsed / totalDuration) * 100
         : 0;
 
-    // choose stronger signal (sessions vs timeline)
-    const percent = Math.max(sessionBased, timeBased);
+    // -------------------------
+    // FINAL LOGIC RULE
+    // session truth ALWAYS dominates timeline drift
+    // -------------------------
+    const final = sessionBased >= 1
+        ? sessionBased
+        : timeBased;
 
-    return Math.min(100, Math.round(percent));
+    return Math.min(100, Math.round(final));
 }
             /* -----------------------------
                DASHBOARD BUILD
@@ -255,6 +273,7 @@ function calculateProgress(cycle) {
 
         const cycleStatus = (cycle.status || "").toLowerCase();
         const progressValue = calculateProgress(cycle);
+            console.log("Cycle:", cycle.cycleId, "Progress:", progressValue);
 
         let rows = '';
 
