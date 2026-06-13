@@ -115,16 +115,15 @@ let allCycleData = [];
    WAITLIST TOGGLE
 ----------------------------- */
 function toggleWaitlist() {
-    const content = document.getElementById('waitlist-content');
+    const content = document.getElementById('waitlist-section');
     const arrow = document.getElementById('waitlist-arrow');
 
-    if (content.style.display === "none") {
-        content.style.display = "block";
-        arrow.innerText = "▲ CLOSE LIST";
-    } else {
-        content.style.display = "none";
-        arrow.innerText = "▼ VIEW LIST";
-    }
+    if (!content || !arrow) return;
+
+    const isHidden = getComputedStyle(content).display === "none";
+
+    content.style.display = isHidden ? "block" : "none";
+    arrow.innerText = isHidden ? "▲ CLOSE LIST" : "▼ VIEW LIST";
 }
 
 /* -----------------------------
