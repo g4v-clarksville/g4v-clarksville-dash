@@ -432,13 +432,39 @@ function processExcelData(rawRows) {
     buildDashboard(allCycleData);
 }
 
-/* -----------------------------
-   WAITLIST
------------------------------ */
-function renderWaitlist(waitlist) {
-    const waitStat = document.getElementById('waitlist-stat');
-    if (waitStat) waitStat.innerText = waitlist.length;
-}
+            /* -----------------------------
+               WAITLIST
+            ----------------------------- */
+            function renderWaitlist(waitlist) {
+                const waitSection = document.getElementById('waitlist-section');
+                const waitBody = document.getElementById('waitlist-body');
+                const waitStat = document.getElementById('waitlist-stat');
+            
+                if (waitStat) waitStat.innerText = waitlist.length;
+            
+                if (!waitBody || !waitSection) return;
+            
+                waitBody.innerHTML = "";
+            
+                if (!waitlist || waitlist.length === 0) {
+                    waitSection.style.display = "none";
+                    return;
+                }
+            
+                waitSection.style.display = "block";
+            
+                waitlist.forEach(vet => {
+                    waitBody.innerHTML += `
+                        <tr>
+                            <td>-</td>
+                            <td class="vet-name-cell" style="font-weight:bold;">${vet.name}</td>
+                            <td>${vet.session} / 10</td>
+                            <td>${vet.notes}</td>
+                            <td class="status-invited">${vet.availability}</td>
+                        </tr>
+                    `;
+                });
+            }
 
 /* -----------------------------
    YEAR FILTER
