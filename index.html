@@ -96,12 +96,12 @@
         <span id="waitlist-arrow">▼ VIEW LIST</span>
     </div>
 
-    <div id="waitlist-content">
+    <div id="waitlist-content" style="display:none;">
         <table>
             <tbody id="waitlist-body"></tbody>
         </table>
     </div>
-</div>>
+</div>
 
 <main id="dashboard-root"></main>
 
@@ -117,6 +117,8 @@ let allCycleData = [];
 function toggleWaitlist() {
     const content = document.getElementById('waitlist-content');
     const arrow = document.getElementById('waitlist-arrow');
+
+    if (!content || !arrow) return;
 
     const isHidden = getComputedStyle(content).display === "none";
 
