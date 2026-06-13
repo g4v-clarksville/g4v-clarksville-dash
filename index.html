@@ -134,8 +134,9 @@ function toggleWaitlist() {
    CYCLE PROGRESS
 ----------------------------- */
 function calculateProgress(cycle) {
-    if (!cycle.vets || cycle.vets.length === 0) return 0;
+    const today = new Date();
 
+    if (!cycle.vets || cycle.vets.length === 0) return 0;
     if (cycle.status === "Completed") return 100;
 
     const totalPossibleSessions = cycle.vets.length * 10;
@@ -148,27 +149,34 @@ function calculateProgress(cycle) {
         return sum + (parseInt(sessions) || 0);
     }, 0);
 
-    const percent = (actualSessionsCompleted / totalPossibleSessions) * 100;
-
-    return Math.min(100, Math.round(percent));
-}
+    const sessionBased = (actualSessionsCompleted / totalPossibleSessions) * 100;
 
     // -------------------------
-    // DEFAULT: time-based progress
+    // fallback time-based logic
     // -------------------------
+    if (!cycle.startDate || !cycle.endDate) {
+        return Math.min(100, Math.round(sessionBased));
+    }
+
     const start = new Date(cycle.startDate);
     const end = new Date(cycle.endDate);
 
-    if (today < start) return 0;
+    if (today < start) {
+        return Math.round(sessionBased);
+    }
 
     const totalDuration = end - start;
     const elapsed = today - start;
 
-    return totalDuration > 0
-        ? Math.min(99, Math.round((elapsed / totalDuration) * 100))
+    const timeBased = totalDuration > 0
+        ? (elapsed / totalDuration) * 100
         : 0;
-}
 
+    // choose stronger signal (sessions vs timeline)
+    const percent = Math.max(sessionBased, timeBased);
+
+    return Math.min(100, Math.round(percent));
+}
             /* -----------------------------
                DASHBOARD BUILD
             ----------------------------- */
