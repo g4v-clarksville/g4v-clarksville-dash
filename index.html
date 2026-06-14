@@ -170,14 +170,41 @@ function toggleWaitlist() {
 
         }, 0);
 
-    const totalPossibleSessions =
-        participatingVets.length * 10;
+                const totalPossibleSessions =
+                    participatingVets.length * 10;
+            
+                const percent =
+                    (completedSessions / totalPossibleSessions) * 100;
+            
+                return Math.min(100, Math.round(percent));
+            }
+            
+                function getCycleStatus(cycle) {
 
-    const percent =
-        (completedSessions / totalPossibleSessions) * 100;
-
-    return Math.min(100, Math.round(percent));
-}
+                const vets = Array.isArray(cycle.vets) ? cycle.vets : [];
+            
+                const participating = vets.filter(v =>
+                    ["active", "graduated"].includes(
+                        (v.status || "").toLowerCase().trim()
+                    )
+                );
+            
+                const allGraduated = participating.length > 0 &&
+                    participating.every(v =>
+                        (v.status || "").toLowerCase().trim() === "graduated"
+                    );
+            
+                const hasProgress = participating.some(v =>
+                    Number(v.session || 0) > 0
+                );
+            
+                if (participating.length === 0) return "Waiting";
+                if (allGraduated) return "Completed";
+                if (hasProgress) return "Active";
+            
+                return "Waiting";
+            }
+    
             /* -----------------------------
                DASHBOARD BUILD
             ----------------------------- */
