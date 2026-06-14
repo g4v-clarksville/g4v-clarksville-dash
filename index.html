@@ -256,25 +256,30 @@ function toggleWaitlist() {
             // AVG DWELL TIME (GLOBAL)
             // contactDate → startDate
             // -------------------------          
-            const contactDate = vet.contactDate ? new Date(vet.contactDate) : null;
-            const startDate = cycle.startDate ? new Date(cycle.startDate) : null;
-
-            if (
-                contactDate &&
-                startDate &&
-                !isNaN(contactDate.getTime()) &&
-                !isNaN(startDate.getTime())
-            ) {
-                const diffDays =
-                    (startDate - contactDate) / (1000 * 60 * 60 * 24);
-
-                if (diffDays >= 0) {
-                    totalDwellDays += diffDays;
-                    dwellCount++;
-                }
-            }
-        });
-    });
+            // YEAR-SPECIFIC DWELL ONLY
+            cycleData.forEach(cycle => {
+            
+                (cycle.vets || []).forEach(vet => {
+            
+                    const contactDate = vet.contactDate ? new Date(vet.contactDate) : null;
+                    const startDate = cycle.startDate ? new Date(cycle.startDate) : null;
+            
+                    if (
+                        contactDate &&
+                        startDate &&
+                        !isNaN(contactDate.getTime()) &&
+                        !isNaN(startDate.getTime())
+                    ) {
+                        const diffDays =
+                            (startDate - contactDate) / (1000 * 60 * 60 * 24);
+            
+                        if (diffDays >= 0) {
+                            totalDwellDays += diffDays;
+                            dwellCount++;
+                        }
+                    }
+                });
+            });
 
     // =====================================================
     // RENDER ONLY SELECTED YEAR (cycleData)
