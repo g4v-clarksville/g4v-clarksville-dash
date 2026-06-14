@@ -223,34 +223,32 @@ function toggleWaitlist() {
             // =====================================================
             // GLOBAL KPI + DWELL TIME (DO NOT FILTER BY YEAR)
             // =====================================================
+            // GLOBAL KPI LOOP
             allCycleData.forEach(cycle => {
-
-            (cycle.vets || []).forEach(vet => {
-
-            const vetKey = (vet.name || "").trim().toLowerCase();
-
-            const sessionCount = parseInt(vet.session) || 0;
-            const statusText = (vet.status || "").toLowerCase().trim();
-            const availabilityText = (vet.availability || "").toLowerCase().trim();
-
-            // -------------------------
-            // KPI SETS (GLOBAL)
-            // -------------------------
-            if (statusText !== "dropped") {
-                reached.add(vetKey);
-            }
-
-            if (statusText === "graduated" && availabilityText === "completed") {
-                alumni.add(vetKey);
-            }
-
-            if (statusText === "active" && availabilityText === "in lessons") {
-                active.add(vetKey);
-            }
-
-            if (statusText === "deferred" || statusText === "waiting") {
-                deferred.add(vetKey);
-            }
+            
+                (cycle.vets || []).forEach(vet => {
+            
+                    const vetKey = (vet.name || "").trim().toLowerCase();
+            
+                    const sessionCount = parseInt(vet.session) || 0;
+                    const statusText = (vet.status || "").toLowerCase().trim();
+                    const availabilityText = (vet.availability || "").toLowerCase().trim();
+            
+                    if (statusText !== "dropped") reached.add(vetKey);
+            
+                    if (statusText === "graduated" && availabilityText === "completed") {
+                        alumni.add(vetKey);
+                    }
+            
+                    if (statusText === "active" && availabilityText === "in lessons") {
+                        active.add(vetKey);
+                    }
+            
+                    if (statusText === "deferred" || statusText === "waiting") {
+                        deferred.add(vetKey);
+                    }
+                });
+            });
 
          
            // YEAR-SPECIFIC DWELL ONLY
