@@ -135,82 +135,70 @@ function toggleWaitlist() {
         arrow.innerText = "▼ VIEW LIST";
     }
 }
-/* -----------------------------
-   CYCLE PROGRESS
------------------------------ */
-function calculateProgress(cycle) {
-    const vets = Array.isArray(cycle.vets) ? cycle.vets : [];
+        /* -----------------------------
+           CYCLE PROGRESS
+        ----------------------------- */
+        function calculateProgress(cycle) {
+        
+            const vets = Array.isArray(cycle.vets)
+                ? cycle.vets
+                : [];
+        
+            if (vets.length === 0) return 0;
+        
+            // Only count veterans actively participating
+            const participatingVets = vets.filter(v => {
+        
+                const status = (v.status || "")
+                    .toLowerCase()
+                    .trim();
+        
+                return status === "active" ||
+                       status === "graduated";
+            });
+        
+            // Cycle hasn't started yet
+            if (participatingVets.length === 0) {
+                return 0;
+            }
+        
+            const completedSessions = participatingVets.reduce((sum, vet) => {
 
-    // -------------------------
-    // 1. HARD OVERRIDE: Completed cycle
-    // -------------------------
-    if ((cycle.status || "").toLowerCase() === "completed") {
-        return 100;
-    }
+            const session = Number(vet.session || 0);
 
-    if (vets.length === 0) return 0;
+            return sum + Math.min(session, 10);
 
-    // -------------------------
-    // 2. SESSION PROGRESS (TRUTH SOURCE)
-    // -------------------------
-    const totalPossible = vets.length * 10;
+        }, 0);
 
-    const completed = vets.reduce((sum, vet) => {
-        const s = Number(vet.session ?? vet.currentSession ?? 0);
-        return sum + (Number.isFinite(s) ? s : 0);
-    }, 0);
+    const totalPossibleSessions =
+        participatingVets.length * 10;
 
-    const sessionPercent = totalPossible > 0
-        ? (completed / totalPossible) * 100
-        : 0;
+    const percent =
+        (completedSessions / totalPossibleSessions) * 100;
 
-    // -------------------------
-    // 3. FALLBACK TIME PROGRESS ONLY IF NO DATA
-    // -------------------------
-    if (!cycle.startDate || !cycle.endDate) {
-        return Math.round(sessionPercent);
-    }
-
-    const start = new Date(cycle.startDate);
-    const end = new Date(cycle.endDate);
-    const now = new Date();
-
-    if (isNaN(start) || isNaN(end)) {
-        return Math.round(sessionPercent);
-    }
-
-    const timePercent = now < start
-        ? 0
-        : Math.min(99, ((now - start) / (end - start)) * 100);
-
-    // -------------------------
-    // 4. FINAL RULE
-    // Completed status ALWAYS wins
-    // Otherwise session drives UI
-    // -------------------------
-    return Math.min(100, Math.round(sessionPercent));
+    return Math.min(100, Math.round(percent));
 }
             /* -----------------------------
                DASHBOARD BUILD
             ----------------------------- */
          function buildDashboard(cycleData) {
 
-    const reached = new Set();
-    const alumni = new Set();
-    const active = new Set();
-    const deferred = new Set();
+            const reached = new Set();
+            const alumni = new Set();
+            const active = new Set();
+            const deferred = new Set();
+        
+            let totalDwellDays = 0;
+            let dwellCount = 0;
+        
+            mainContainer.innerHTML = '';
+        
+            // =====================================================
+            // GLOBAL KPI + DWELL TIME (DO NOT FILTER BY YEAR)
+            // =====================================================
+            allCycleData.forEach(cycle => {
 
-    let totalDwellDays = 0;
-    let dwellCount = 0;
-
-    mainContainer.innerHTML = '';
-
-    // =====================================================
-    // GLOBAL KPI + DWELL TIME (DO NOT FILTER BY YEAR)
-    // =====================================================
-    allCycleData.forEach(cycle => {
-
-        (cycle.vets || []).forEach(vet => {
+            (cycle.vets || []).forEach(vet => {
 
             const vetKey = (vet.name || "").trim().toLowerCase();
 
@@ -240,7 +228,7 @@ function calculateProgress(cycle) {
             // -------------------------
             // AVG DWELL TIME (GLOBAL)
             // contactDate → startDate
-            // -------------------------
+            // -------------------------          
             const contactDate = vet.contactDate ? new Date(vet.contactDate) : null;
             const startDate = cycle.startDate ? new Date(cycle.startDate) : null;
 
@@ -266,7 +254,7 @@ function calculateProgress(cycle) {
     // =====================================================
     cycleData.forEach(cycle => {
 
-        const cycleStatus = (cycle.status || "").toLowerCase();
+      
         const progressValue = calculateProgress(cycle);
             console.log("Cycle:", cycle.cycleId, "Progress:", progressValue);
 
@@ -315,7 +303,7 @@ function calculateProgress(cycle) {
             <div class="card-header">
 
                 <h2 style="margin:0;color:#FFD700;">
-                    Cycle ${cycle.cycleId} (${cycle.status})
+                    Cycle ${cycle.cycleId} (${getCycleStatus(cycle)})
                 </h2>
 
                 <div class="cycle-timeline">
@@ -396,6 +384,8 @@ function processExcelData(rawRows) {
         const id = row.cycleId ? row.cycleId.trim() : "";
         const status = row.status ? row.status.trim() : "";
 
+        if (!id) return;
+
         if ((status === "Waiting" || status === "Deferred") && row.vetName) {
             waitlist.push({
                 name: row.vetName,
@@ -403,39 +393,34 @@ function processExcelData(rawRows) {
                 notes: status,
                 session: row.currentSession || 0
             });
-
-            if (!id) return;
         }
 
-        if (id) {
-
-            if (!groupedData[id]) {
-                groupedData[id] = {
-                    cycleId: id,
-                    status: row.status,
-                    startDate: row.startDate,
-                    endDate: row.endDate,
-                    instructorSet: new Set(),
-                    vets: []
-                };
-            }
-
-            if (row.instructors) {
-                row.instructors.split(',')
-                    .forEach(n =>
-                        groupedData[id].instructorSet.add(n.trim())
-                    );
-            }
-
-            groupedData[id].vets.push({
-                seq: row.vetSeq,
-                name: row.vetName,
-                status: row.status,
-                availability: row.availability,
-                session: row.currentSession,
-                contactDate: row.contactDate
-            });
+        if (!groupedData[id]) {
+            groupedData[id] = {
+                cycleId: id,
+                startDate: row.startDate,
+                endDate: row.endDate,
+                instructorSet: new Set(),
+                vets: []
+            };
         }
+
+        if (row.instructors) {
+            row.instructors.split(',')
+                .forEach(n =>
+                    groupedData[id].instructorSet.add(n.trim())
+                );
+        }
+
+        groupedData[id].vets.push({
+            seq: row.vetSeq,
+            name: row.vetName,
+            status: row.status,
+            availability: row.availability,
+            session: row.currentSession || row.session || 0,
+            contactDate: row.contactDate
+        });
+
     });
 
     renderWaitlist(waitlist);
@@ -447,7 +432,6 @@ function processExcelData(rawRows) {
 
     buildDashboard(allCycleData);
 }
-
             /* -----------------------------
                WAITLIST
             ----------------------------- */
