@@ -139,44 +139,32 @@ function toggleWaitlist() {
            CYCLE PROGRESS
         ----------------------------- */
         function calculateProgress(cycle) {
-        
-            const vets = Array.isArray(cycle.vets)
-                ? cycle.vets
-                : [];
-        
-            if (vets.length === 0) return 0;
-        
-            // Only count veterans actively participating
-            const participatingVets = vets.filter(v => {
-        
-                const status = (v.status || "")
-                    .toLowerCase()
-                    .trim();
-        
-                return status === "active" ||
-                       status === "graduated";
-            });
-        
-            // Cycle hasn't started yet
-            if (participatingVets.length === 0) {
-                return 0;
-            }
-        
-            const completedSessions = participatingVets.reduce((sum, vet) => {
-
-            const session = Number(vet.session || 0);
-
-            return sum + Math.min(session, 10);
-
-        }, 0);
-
-                const totalPossibleSessions =
-                    participatingVets.length * 10;
+                const vets = Array.isArray(cycle.vets) ? cycle.vets : [];
             
-                const percent =
-                    (completedSessions / totalPossibleSessions) * 100;
+                if (vets.length === 0) return 0;
             
-                return Math.min(100, Math.round(percent));
+                const participatingVets = vets.filter(v => {
+                    const status = (v.status || "").toLowerCase().trim();
+            
+                    // include anything that is not dropped
+                    return status !== "dropped";
+                });
+            
+                if (participatingVets.length === 0) return 0;
+            
+                const completedSessions = participatingVets.reduce((sum, vet) => {
+                    const session = Math.min(Number(vet.session) || 0, 10);
+                    return sum + session;
+                }, 0);
+            
+                const totalPossible = participatingVets.length * 10;
+            
+                if (totalPossible === 0) return 0;
+            
+                return Math.min(
+                    100,
+                    Math.round((completedSessions / totalPossible) * 100)
+                );
             }
             
                 function getCycleStatus(cycle) {
@@ -283,6 +271,8 @@ function toggleWaitlist() {
       
         const progressValue = calculateProgress(cycle);
             console.log("Cycle:", cycle.cycleId, "Progress:", progressValue);
+
+         console.log("cycle", cycle.cycleId, "progress", progressValue);
 
         let rows = '';
 
