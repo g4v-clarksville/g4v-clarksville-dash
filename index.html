@@ -409,7 +409,7 @@ function toggleWaitlist() {
                 
                         if (!id) return;
                 
-                        if ((status === "Waiting" && row.vetName) {
+                        if ((status === "Waiting" || status === "Deferred") && row.vetName) {
                             waitlist.push({
                                 name: row.vetName,
                                 availability: row.availability || "Waiting",
