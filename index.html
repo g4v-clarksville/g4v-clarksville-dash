@@ -379,23 +379,28 @@
                 
                     document.getElementById('avg-days').innerText =
                         avgDwell !== null ? avgDwell : "--";
+                
+                        
+                 // =====================================================
+                // 🔥 PROGRESS BAR (MUST BE HERE)
+                // =====================================================
+                const totalVeterans = reached.size;
+                const graduatedVeterans = alumni.size;
+            
+                const completionRate = totalVeterans > 0
+                    ? Math.round((graduatedVeterans / totalVeterans) * 100)
+                    : 0;
+            
+                const progressBar = document.getElementById("global-progress-bar");
+                const progressText = document.getElementById("global-progress-text");
+            
+                if (progressBar && progressText) {
+                    progressBar.style.width = completionRate + "%";
+                    progressText.innerText =
+                        `${graduatedVeterans} / ${totalVeterans} Graduated (${completionRate}%)`;
                 }
-
-                    const totalVeterans = reached.size;
-                    const graduatedVeterans = alumni.size;
+         }
                     
-                    const completionRate = totalVeterans > 0
-                        ? Math.round((graduatedVeterans / totalVeterans) * 100)
-                        : 0;
-                    
-                    const progressBar = document.getElementById("global-progress-bar");
-                    const progressText = document.getElementById("global-progress-text");
-                    
-                    if (progressBar && progressText) {
-                        progressBar.style.width = completionRate + "%";
-                        progressText.innerText = completionRate + "% Graduated";
-                    }
-                            
                 /* -----------------------------
                    DATA LOADING (FIXED)
                 ----------------------------- */
