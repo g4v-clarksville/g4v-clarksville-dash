@@ -291,20 +291,20 @@ function toggleWaitlist() {
             // DISPLAY STATUS
             // -------------------------
             let displayStatus = "Waiting";
-
+            
             if (statusText === "graduated" && availability === "completed") {
                 displayStatus = "Graduated";
             }
             else if (statusText === "active" && availability === "in lessons") {
                 displayStatus = "Active";
             }
-            else if (statusText === "deferred" ||  {
+            else if (statusText === "deferred") {
                 displayStatus = "Deferred";
             }
-            else if (statustext === "waiting" {
-                displayStatus = "waiting";
-                
-            else if (statusText === "dropped" {
+            else if (statusText === "waiting") {
+                displayStatus = "Waiting";
+            }
+            else if (statusText === "dropped") {
                 displayStatus = "Dropped";
             }
 
