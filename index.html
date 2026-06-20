@@ -103,9 +103,9 @@
                     </div>
                 </div>
             
-                <div class="progress-container">
-                    <div class="progress-bar" style="width: 40%"></div>
-                    <span class="progress-text">40% Cycle Progress</span>
+                <div class="progress-container content-width">
+                    <div id="global-progress-bar" class="progress-bar"></div>
+                    <span id="global-progress-text" class="progress-text"></span>
                 </div>
             
             </div>
@@ -270,6 +270,7 @@
                 }
             });
         });
+           
     // =====================================================
     // RENDER ONLY SELECTED YEAR (cycleData)
     // =====================================================
@@ -379,6 +380,21 @@
                     document.getElementById('avg-days').innerText =
                         avgDwell !== null ? avgDwell : "--";
                 }
+
+                    const totalVeterans = reached.size;
+                    const graduatedVeterans = alumni.size;
+                    
+                    const completionRate = totalVeterans > 0
+                        ? Math.round((graduatedVeterans / totalVeterans) * 100)
+                        : 0;
+                    
+                    const progressBar = document.getElementById("global-progress-bar");
+                    const progressText = document.getElementById("global-progress-text");
+                    
+                    if (progressBar && progressText) {
+                        progressBar.style.width = completionRate + "%";
+                        progressText.innerText = completionRate + "% Graduated";
+                    }
                             
                 /* -----------------------------
                    DATA LOADING (FIXED)
