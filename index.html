@@ -236,7 +236,7 @@ function toggleWaitlist() {
                     if (statusText === "waiting") {
                         waiting.add(vetkey);
             
-                    if (statusText === "deferred") {
+                    if (statusText === "deferred" || statusText === "waiting") {
                         deferred.add(vetKey);
                     }
                 });
@@ -298,12 +298,10 @@ function toggleWaitlist() {
             else if (statusText === "active" && availability === "in lessons") {
                 displayStatus = "Active";
             }
-            else if (statusText === "deferred") {
-                displayStatus = "Deferred";
-            }
-            else if (statusText === "waiting") {
+            else if (statusText === "deferred" || statusText === "waiting") {
                 displayStatus = "Waiting";
             }
+            
             else if (statusText === "dropped") {
                 displayStatus = "Dropped";
             }
