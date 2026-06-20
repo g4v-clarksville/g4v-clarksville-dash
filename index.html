@@ -84,57 +84,59 @@
             <span class="year-pill">2030</span>
         </div>
     </div>
-
 </div>
+        <div class="content-width">
+            
+            <div class="search-container">
+                <input id="vet-search" placeholder="Search Veteran Name..." onkeyup="searchVets()">
+                </div>
+            
+                <div id="waitlist-section">
+                    <div id="waitlist-header" onclick="toggleWaitlist()">
+                        <span id="waitlist-arrow">▼ VIEW LIST</span>
+                    </div>
+            
+                    <div id="waitlist-content" style="display:none;">
+                        <table>
+                            <tbody id="waitlist-body"></tbody>
+                        </table>
+                    </div>
+                </div>
+            
+                <div class="progress-container">
+                    <div class="progress-bar" style="width: 40%"></div>
+                    <span class="progress-text">40% Cycle Progress</span>
+                </div>
+            
+            </div>
 
-<div class="search-container">
-    <input id="vet-search" placeholder="Search Veteran Name..." onkeyup="searchVets()">
-</div>
-
-    <div id="waitlist-section" class="content-width">
-    <div id="waitlist-header" onclick="toggleWaitlist()">
-        <span id="waitlist-arrow">▼ VIEW LIST</span>
-    </div>
-
-    <div id="waitlist-content" style="display:none;">
-        <table>
-            <tbody id="waitlist-body"></tbody>
-        </table>
-    </div>
-</div>
-
-<div class="progress-container content-width">
-    <div class="progress-bar" style="width: 40%"></div>
-    <span class="progress-text">40% Cycle Progress</span>
-</div>
-
-<main id="dashboard-root"></main>
-
-<script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.3.2/papaparse.min.js"></script>
-
-<script>
-const mainContainer = document.getElementById('dashboard-root');
-let allCycleData = [];
-
-/* -----------------------------
-   WAITLIST TOGGLE
------------------------------ */
-function toggleWaitlist() {
-    const content = document.getElementById('waitlist-content');
-    const arrow = document.getElementById('waitlist-arrow');
-
-    if (!content || !arrow) return;
-
-    const isHidden = getComputedStyle(content).display === "none";
-
-    if (isHidden) {
-        content.style.display = "block";
-        arrow.innerText = "▲ CLOSE LIST";
-    } else {
-        content.style.display = "none";
-        arrow.innerText = "▼ VIEW LIST";
-    }
-}
+                    <main id="dashboard-root"></main>
+                    
+                    <script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.3.2/papaparse.min.js"></script>
+                    
+                    <script>
+                    const mainContainer = document.getElementById('dashboard-root');
+                    let allCycleData = [];
+                    
+                    /* -----------------------------
+                       WAITLIST TOGGLE
+                    ----------------------------- */
+                    function toggleWaitlist() {
+                        const content = document.getElementById('waitlist-content');
+                        const arrow = document.getElementById('waitlist-arrow');
+                    
+                        if (!content || !arrow) return;
+                    
+                        const isHidden = getComputedStyle(content).display === "none";
+                    
+                        if (isHidden) {
+                            content.style.display = "block";
+                            arrow.innerText = "▲ CLOSE LIST";
+                        } else {
+                            content.style.display = "none";
+                            arrow.innerText = "▼ VIEW LIST";
+                        }
+                    }
         /* -----------------------------
            CYCLE PROGRESS
         ----------------------------- */
