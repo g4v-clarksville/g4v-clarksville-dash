@@ -216,10 +216,7 @@ header {
    SEARCH
 ------------------------------*/
 .search-container {
-    width: 100%;
-    max-width: 1200px;
-    margin: 0 auto 20px auto;
-    padding: 0 40px;
+    margin: 0 0 15px 0;
 }
 
 #vet-search {
@@ -228,7 +225,7 @@ header {
     background: #132D64;
     border: 1px solid var(--border-color);
     color: white;
-    border-radius: 4px;
+    border-radius: 6px;
 }
 
 .content-width {
