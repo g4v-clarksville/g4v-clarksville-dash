@@ -232,6 +232,7 @@ header {
     width: 100%;
     max-width: 1200px;
     margin: 0 auto 15px auto;
+    margin-bottom: 15px;
 }
 
 /* -----------------------------
@@ -255,6 +256,7 @@ header {
     border-radius: 8px;
     padding: 15px;
     overflow: hidden;
+    margin-bottom: 15px;
 }
 /* -----------------------------
    CARD HEADER LAYOUT FIX
@@ -314,6 +316,7 @@ header {
     border-radius: 12px;
     overflow: hidden;
     position: relative;
+    margin-bottom: 15px
 }
 
 .progress-bar {
