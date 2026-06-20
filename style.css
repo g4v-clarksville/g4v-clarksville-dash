@@ -160,6 +160,7 @@ header {
     flex-direction: column;
     align-items: center;
     width: 100px;
+    text-align: center;
 }
 
 .header-qr img {
@@ -171,7 +172,6 @@ header {
     font-size: 0.65rem;
     color: #FFD700;
     margin-top: 5px;
-    width: 100px;
     font-weight: bold;
 }
 
