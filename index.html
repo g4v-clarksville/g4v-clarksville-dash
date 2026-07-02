@@ -144,7 +144,21 @@
                             content.style.display = "none";
                             arrow.innerText = "▼ VIEW LIST";
                         }
-                    }
+
+                        /* --- ADD THIS NEW FUNCTION HERE --- */
+                        function toggleArchive() {
+                            const gallery = document.getElementById('may-grad-gallery');
+                            const btn = document.querySelector('.archive-toggle');
+                            
+                            if (gallery.style.display === "none") {
+                                gallery.style.display = "block";
+                                btn.innerText = "▲ Close May 22, 2026 Gallery";
+                            } else {
+                                gallery.style.display = "none";
+                                btn.innerText = "▼ View May 22, 2026 Graduation Gallery";
+                            }
+                        }
+                    
         /* -----------------------------
            CYCLE PROGRESS
         ----------------------------- */
