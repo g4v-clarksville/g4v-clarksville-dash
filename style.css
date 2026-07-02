@@ -42,7 +42,44 @@ body {
 /* -----------------------------
    GRADUATION BANNER
 ------------------------------*/
+/* --- BANNER OVERRIDES --- */
+.banner-container { 
+    margin-bottom: 20px; 
+    width: 100%; 
+}
+
+/* Base Banner Style */
 .g4v-grad-banner {
+    width: 100%;
+    background-color: #002d72;
+    color: white;
+    text-align: center;
+    padding: 15px;
+    border-bottom: 3px solid #ffc72c;
+}
+
+/* Archive Specific Styling */
+.g4v-grad-banner.archive {
+    background-color: #1a1a1a;
+    border-bottom: 1px solid #333;
+}
+
+.archive-toggle {
+    width: 100%;
+    padding: 12px;
+    background: #0D2048; /* Matches your --card-surface */
+    color: #FFD700;
+    border: 1px solid #2c67be;
+    cursor: pointer;
+    text-align: center;
+    font-weight: bold;
+    margin-top: 10px;
+    border-radius: 4px;
+}
+.archive-toggle:hover { background: #132D64; }
+
+
+/*.g4v-grad-banner {
     width: 100%;
     display: block;
     position: relative;
