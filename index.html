@@ -565,14 +565,24 @@
                     });
                 }
 
-                /* -----------------------------
+               /*-------------------------------
                    INIT
                 ----------------------------- */
                 initializeYearSelector();
                 loadDataFromGoogle();
                 
+                // Set default view to 2026 after data processes
+                setTimeout(() => {
+                    filterByYear("2026");
+                }, 500);
+                
                 function initializeYearSelector() {
                     document.querySelectorAll('.year-pill').forEach(pill => {
+                        // Set initial active state for 2026 pill
+                        if (pill.textContent.trim() === "2026") {
+                            pill.classList.add('active');
+                        }
+                
                         pill.addEventListener('click', () => {
                             document.querySelectorAll('.year-pill').forEach(p => p.classList.remove('active'));
                             pill.classList.add('active');
