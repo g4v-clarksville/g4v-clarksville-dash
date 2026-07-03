@@ -155,62 +155,62 @@
                             }
                         }
                     
-        /* -----------------------------
-           CYCLE PROGRESS
-        ----------------------------- */
-        function calculateProgress(cycle) {
-                const vets = Array.isArray(cycle.vets) ? cycle.vets : [];
+                                /* -----------------------------
+                                   CYCLE PROGRESS
+                                ----------------------------- */
+                        function calculateProgress(cycle) {
+                               const vets = Array.isArray(cycle.vets) ? cycle.vets : [];
+                                    
+                            if (vets.length === 0) return 0;
+                                    
+                                const participatingVets = vets.filter(v => {
+                                const status = (v.status || "").toLowerCase().trim();
+                                    
+                                  // include anything that is not dropped
+                                  return status !== "dropped";
+                         });
+                                    
+                             if (participatingVets.length === 0) return 0;
+                                    
+                                const completedSessions = participatingVets.reduce((sum, vet) => {
+                                const session = Math.min(Number(vet.session) || 0, 10);
+                                  return sum + session;
+                        }, 0);
+                                    
+                                 const totalPossible = participatingVets.length * 10;
+                                    
+                               if (totalPossible === 0) return 0;
+                                    
+                                    return Math.min(
+                                        100,
+                                        Math.round((completedSessions / totalPossible) * 100)
+                                    );
+                                }
+                                    
+                             function getCycleStatus(cycle) {
+                        
+                                const vets = Array.isArray(cycle.vets) ? cycle.vets : [];
+                                    
+                                const participating = vets.filter(v =>
+                                    ["active", "graduated"].includes(
+                                     (v.status || "").toLowerCase().trim()
+                                )
+                        );
             
-                if (vets.length === 0) return 0;
+                              const allGraduated = participating.length > 0 &&
+                                 participating.every(v =>
+                                  (v.status || "").toLowerCase().trim() === "graduated"
+                     );
             
-                const participatingVets = vets.filter(v => {
-                    const status = (v.status || "").toLowerCase().trim();
-            
-                    // include anything that is not dropped
-                    return status !== "dropped";
-                });
-            
-                if (participatingVets.length === 0) return 0;
-            
-                const completedSessions = participatingVets.reduce((sum, vet) => {
-                    const session = Math.min(Number(vet.session) || 0, 10);
-                    return sum + session;
-                }, 0);
-            
-                const totalPossible = participatingVets.length * 10;
-            
-                if (totalPossible === 0) return 0;
-            
-                return Math.min(
-                    100,
-                    Math.round((completedSessions / totalPossible) * 100)
+                             const hasProgress = participating.some(v =>
+                                Number(v.session || 0) > 0
                 );
-            }
             
-                function getCycleStatus(cycle) {
-
-                const vets = Array.isArray(cycle.vets) ? cycle.vets : [];
+                            if (participating.length === 0) return "Waiting";
+                            if (allGraduated) return "Completed";
+                            if (hasProgress) return "Active";
             
-                const participating = vets.filter(v =>
-                    ["active", "graduated"].includes(
-                        (v.status || "").toLowerCase().trim()
-                    )
-                );
-            
-                const allGraduated = participating.length > 0 &&
-                    participating.every(v =>
-                        (v.status || "").toLowerCase().trim() === "graduated"
-                    );
-            
-                const hasProgress = participating.some(v =>
-                    Number(v.session || 0) > 0
-                );
-            
-                if (participating.length === 0) return "Waiting";
-                if (allGraduated) return "Completed";
-                if (hasProgress) return "Active";
-            
-                return "Waiting";
+                                return "Waiting";
             }
     
             /* -----------------------------
@@ -493,7 +493,7 @@
                         return c;
                     });
                 
-                    buildDashboard(allCycleData);
+                    buildDashboard("2026");
                 }
             /* -----------------------------
                WAITLIST
@@ -570,11 +570,7 @@
                 ----------------------------- */
                 initializeYearSelector();
                 loadDataFromGoogle();
-                
-                // Set default view to 2026 after data processes
-                setTimeout(() => {
-                    filterByYear("2026");
-                }, 500);
+            
                 
                 function initializeYearSelector() {
                     document.querySelectorAll('.year-pill').forEach(pill => {
