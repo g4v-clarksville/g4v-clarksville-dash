@@ -155,7 +155,7 @@ function calculateProgress(cycle) {
         
     const participatingVets = vets.filter(v => {
         const status = (v.status || "").toLowerCase().trim();
-        return status !== "dropped";
+        return status !== "dropped" && status != "deferred";
     });
         
     if (participatingVets.length === 0) return 0;
