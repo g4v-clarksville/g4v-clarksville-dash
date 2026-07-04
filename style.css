@@ -218,37 +218,48 @@ header {
 #impact-summary {
     display: flex;
     justify-content: center;
-    gap: 15px;
+    gap: 16px;
     width: 100%;
     max-width: 1200px;
     margin: 0 auto 20px auto;
     padding: 0 40px;
+    align-items: stretch; /* Ensures all cards match the height of the largest card */
 }
 
 .stat-card {
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: space-between;
     align-items: center;
     background: var(--card-surface);
     border: 1px solid var(--border-color);
-    padding: 16px 20px; /* Tightens the top/bottom vertical padding */
-    min-width: 140px;   /* Let them shrink a bit horizontally if needed */
-    height: auto;       /* Avoid hardcoded tall heights like 150px */
+    padding: 16px;       /* Compact vertical and horizontal spacing */
+    min-width: 130px;    /* Optimizes width to fit the data cleanly */
+    flex: 1;             /* Allows boxes to share space proportionally */
+    border-radius: 8px;  /* Rounds out all sharp box edges */
+    text-align: center;
 }
 
 .stat-label {
-    font-size: 0.85rem;
-    color: #a0aec0;     /* Lighten the text slightly for better legibility */
-    margin-bottom: 6px; /* Bring it closer to the number */
+    font-size: 0.75rem;  /* Slightly dropped to balance font visual weight */
+    color: #a0aec0;     
     text-transform: uppercase;
     letter-spacing: 0.5px;
+    
+    /* Forces an identical vertical boundary box so single-line labels 
+       (like "WAITLIST") align perfectly with multi-line labels */
+    min-height: 2.4em;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .stat-value {
-    font-size: 2rem;    /* Makes the data the absolute hero of the card */
+    font-size: 2.2rem;   /* Boosted slightly to emphasize the metric value */
     font-weight: bold;
     color: #ffffff;
+    margin-top: 8px;     /* Stable separation from the label boundary */
+    line-height: 1;
 }
 /* -----------------------------
    SEARCH
