@@ -15,7 +15,7 @@
 }
 
 /* -----------------------------
-    GLOBAL FIXES (IMPORTANT)
+   GLOBAL FIXES (IMPORTANT)
 ------------------------------*/
 html, body {
     height: auto;
@@ -40,7 +40,7 @@ body {
 }
 
 /* -----------------------------
-    GRADUATION BANNER
+   GRADUATION BANNER
 ------------------------------*/
 /* --- BANNER OVERRIDES --- */
 .banner-container { 
@@ -94,10 +94,10 @@ body {
 .g4v-grad-date {
     text-align: center;
     margin: 5px 0;
-}*/
+}
 
 /* -----------------------------
-    COLLAGE (FIXED FLOW)
+   COLLAGE (FIXED FLOW)
 ------------------------------*/
 .g4v-collage-row {
     display: flex;
@@ -157,7 +157,7 @@ body {
 }
 
 /* -----------------------------
-    HEADER
+   HEADER
 ------------------------------*/
 header {
     width: 100%;
@@ -213,7 +213,7 @@ header {
 }
 
 /* -----------------------------
-    IMPACT CARDS
+   IMPACT CARDS
 ------------------------------*/
 #impact-summary {
     display: flex;
@@ -250,8 +250,8 @@ header {
 }
 
 /* -----------------------------
-    SEARCH
-------------------------------*/
+   SEARCH
+------------------------------
 .search-container {
     margin: 0 0 15px 0;
 }
@@ -270,10 +270,10 @@ header {
     max-width: 1200px;
     margin: 0 auto 15px auto;
     margin-bottom: 15px;
-} /* FIXED: Changed *> to */ */
+} */
 
 /* -----------------------------
-    DASHBOARD ROOT (CRITICAL FIX)
+   DASHBOARD ROOT (CRITICAL FIX)
 ------------------------------*/
 #dashboard-root {
     width: 100%;
@@ -283,7 +283,7 @@ header {
 }
 
 /* -----------------------------
-    CARDS
+   CARDS
 ------------------------------*/
 .cycle-card {
     background: var(--card-surface);
@@ -338,7 +338,7 @@ header {
     letter-spacing: 0.8px;
 }
 /* -----------------------------
-    CARD HEADER LAYOUT FIX
+   CARD HEADER LAYOUT FIX
 ------------------------------*/
 .card-header {
     display: flex;
@@ -364,9 +364,11 @@ header {
 }
 
 /* Timeline pill refinement */
-/* FIXED: Consolidated duplicate .cycle-timeline blocks */
-.cycle-timeline { 
+.cycle-timeline {
     white-space: nowrap;
+}
+
+.cycle-timeline { 
     background: rgba(0, 0, 0, 0.3); 
     padding: 4px 12px; 
     border-radius: 20px; 
@@ -385,9 +387,8 @@ header {
 }
 
 /* -----------------------------
-    PROGRESS BAR
-------------------------------*/
-/*
+   PROGRESS BAR
+------------------------------
 .progress-container {
     background: #132D64;
     height: 24px;
@@ -412,10 +413,10 @@ header {
     font-weight: bold;
     color: white;
 }
-*/ /* FIXED: Cleaned up trailing '--*/' */
+*/
 
 /* -----------------------------
-    TABLE FIX (IMPORTANT)
+   TABLE FIX (IMPORTANT)
 ------------------------------*/
 table {
     width: 100%;
@@ -440,7 +441,7 @@ td {
 }
 
 /* -----------------------------
-    RESPONSIVE
+   RESPONSIVE
 ------------------------------*/
 @media (max-width: 768px) {
 
@@ -470,7 +471,7 @@ td {
     }
 }
 /* -----------------------------
-    YEAR SELECTOR (3x2 GRID OVERRIDE)
+   YEAR SELECTOR (3x2 GRID OVERRIDE)
 ------------------------------*/
 /* 1. Make the container card align items nicely */
 .year-selector-card {
@@ -519,3 +520,4 @@ td {
     color: var(--text-bright);
     box-shadow: 0 0 8px rgba(9, 195, 242, 0.3); /* Subtle cyberpunk glow */
 }
+
