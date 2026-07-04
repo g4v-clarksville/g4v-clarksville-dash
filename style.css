@@ -230,6 +230,8 @@ header {
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    background: var(--card-surface);
+    border: 1px solid var(--border-color);
     padding: 16px 20px; /* Tightens the top/bottom vertical padding */
     min-width: 140px;   /* Let them shrink a bit horizontally if needed */
     height: auto;       /* Avoid hardcoded tall heights like 150px */
