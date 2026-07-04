@@ -4,30 +4,30 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>G4V Clarksville Dashboard</title>
-<link rel="stylesheet" href="style.css?v=1">
+<link class="code-annotation" rel="stylesheet" href="style.css?v=1">
 </head>
 
 <body>
 <div class="banner-container">
     <!-- UPCOMING EVENT BANNER -->
-<div class="g4v-grad-banner active">
-    <h2 class="g4v-grad-title" style="margin:0">Next G4V Graduation</h2>
-    <p class="g4v-grad-date" style="margin:5px 0 0 0;">August 14, 2026 @ 12:00 PM, Operation Stand Down</p>
-</div>
+    <div class="g4v-grad-banner active">
+        <h2 class="g4v-grad-title" style="margin:0">Next G4V Graduation</h2>
+        <p class="g4v-grad-date" style="margin:5px 0 0 0;">August 14, 2026 @ 12:00 PM, Operation Stand Down</p>
+    </div>
 
     <button class="archive-toggle" onclick="toggleArchive()">▼ View May 22, 2026 Graduation Gallery</button>
     <div id="may-grad-gallery" class="g4v-grad-banner archive" style="display:none;">
-    <div class="g4v-collage-row">
-        <img src="G4V_Class_22May.png" class="g4v-collage-photo">
-        <img src="graduation_photo2.png" class="g4v-collage-photo">
-        <img src="graduation_photo3.png" class="g4v-collage-photo">
-        <img src="graduation_photo4.png" class="g4v-collage-photo">
-        <img src="graduation_photo5.png" class="g4v-collage-photo">
-        <img src="graduation_photo6.png" class="g4v-collage-photo">
-        <img src="graduation_photo7.png" class="g4v-collage-photo">
-        <img src="graduation_photo8.png" class="g4v-collage-photo">
+        <div class="g4v-collage-row">
+            <img src="G4V_Class_22May.png" class="g4v-collage-photo">
+            <img src="graduation_photo2.png" class="g4v-collage-photo">
+            <img src="graduation_photo3.png" class="g4v-collage-photo">
+            <img src="graduation_photo4.png" class="g4v-collage-photo">
+            <img src="graduation_photo5.png" class="g4v-collage-photo">
+            <img src="graduation_photo6.png" class="g4v-collage-photo">
+            <img src="graduation_photo7.png" class="g4v-collage-photo">
+            <img src="graduation_photo8.png" class="g4v-collage-photo">
+        </div>
     </div>
-</div>
 </div>
 
 <header>
@@ -52,7 +52,6 @@
 
 <!-- IMPACT SUMMARY -->
 <div id="impact-summary">
-
     <div class="stat-card">
         <span class="stat-label">Veterans Reached</span>
         <span id="total-vets" class="stat-value">0</span>
@@ -90,228 +89,193 @@
         </div>
     </div>
 </div>
-        <div class="content-width">
-           <!-- <div class="search-container">
-                <input id="vet-search" placeholder="Search Veteran Name..." onkeyup="searchVets()">
-                </div> -->
-            
-                <div id="waitlist-section">
-                    <div id="waitlist-header" onclick="toggleWaitlist()">
-                        <span id="waitlist-arrow">▼ VIEW LIST</span>
-                    </div>
-            
-                    <div id="waitlist-content" style="display:none;">
-                        <table>
-                            <tbody id="waitlist-body"></tbody>
-                        </table>
-                    </div>
-                </div>
-            
-            <!--<div class="progress-container">
-                <div id="global-progress-bar" class="progress-bar"></div>
-                    <span id="global-progress-text" class="progress-text"></span>
-            </div>-->    
-         </div>
 
-                    <main id="dashboard-root"></main>
-                    
-                    <script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.3.2/papaparse.min.js"></script>
-                    
-                    <script>
-                    const mainContainer = document.getElementById('dashboard-root');
-                    let allCycleData = [];
-                    
-                    /* -----------------------------
-                       WAITLIST TOGGLE
-                    ----------------------------- */
-                    function toggleWaitlist() {
-                        const content = document.getElementById('waitlist-content');
-                        const arrow = document.getElementById('waitlist-arrow');
-                    
-                        if (!content || !arrow) return;
-                    
-                        const isHidden = getComputedStyle(content).display === "none";
-                    
-                        if (isHidden) {
-                            content.style.display = "block";
-                            arrow.innerText = "▲ CLOSE LIST";
-                        } else {
-                            content.style.display = "none";
-                            arrow.innerText = "▼ VIEW LIST";
-                        }
-                    }
+<div class="content-width">
+    <div id="waitlist-section">
+        <div id="waitlist-header" onclick="toggleWaitlist()">
+            <span id="waitlist-arrow">▼ VIEW LIST</span>
+        </div>
 
-                        /* --- ADD THIS NEW FUNCTION HERE --- */
-                        function toggleArchive() {
-                            const gallery = document.getElementById('may-grad-gallery');
-                            const btn = document.querySelector('.archive-toggle');
-                            
-                            if (gallery.style.display === "none") {
-                                gallery.style.display = "block";
-                                btn.innerText = "▲ Close May 22, 2026 Gallery";
-                            } else {
-                                gallery.style.display = "none";
-                                btn.innerText = "▼ View May 22, 2026 Graduation Gallery";
-                            }
-                        }
-                    
-                                /* -----------------------------
-                                   CYCLE PROGRESS
-                                ----------------------------- */
-                        function calculateProgress(cycle) {
-                               const vets = Array.isArray(cycle.vets) ? cycle.vets : [];
-                                    
-                            if (vets.length === 0) return 0;
-                                    
-                                const participatingVets = vets.filter(v => {
-                                const status = (v.status || "").toLowerCase().trim();
-                                    
-                                  // include anything that is not dropped
-                                  return status !== "dropped";
-                         });
-                                    
-                             if (participatingVets.length === 0) return 0;
-                                    
-                                const completedSessions = participatingVets.reduce((sum, vet) => {
-                                const session = Math.min(Number(vet.session) || 0, 10);
-                                  return sum + session;
-                        }, 0);
-                                    
-                                 const totalPossible = participatingVets.length * 10;
-                                    
-                               if (totalPossible === 0) return 0;
-                                    
-                                    return Math.min(
-                                        100,
-                                        Math.round((completedSessions / totalPossible) * 100)
-                                    );
-                                }
-                                    
-                             function getCycleStatus(cycle) {
-                        
-                                const vets = Array.isArray(cycle.vets) ? cycle.vets : [];
-                                    
-                                const participating = vets.filter(v =>
-                                    ["active", "graduated"].includes(
-                                     (v.status || "").toLowerCase().trim()
-                                )
-                        );
-            
-                              const allGraduated = participating.length > 0 &&
-                                 participating.every(v =>
-                                  (v.status || "").toLowerCase().trim() === "graduated"
-                     );
-            
-                             const hasProgress = participating.some(v =>
-                                Number(v.session || 0) > 0
-                );
-            
-                            if (participating.length === 0) return "Waiting";
-                            if (allGraduated) return "Completed";
-                            if (hasProgress) return "Active";
-            
-                                return "Waiting";
-            }
+        <div id="waitlist-content" style="display:none;">
+            <table>
+                <tbody id="waitlist-body"></tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+<main id="dashboard-root"></main>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.3.2/papaparse.min.js"></script>
+
+<script>
+const mainContainer = document.getElementById('dashboard-root');
+let allCycleData = [];
+
+/* -----------------------------
+    WAITLIST TOGGLE
+----------------------------- */
+function toggleWaitlist() {
+    const content = document.getElementById('waitlist-content');
+    const arrow = document.getElementById('waitlist-arrow');
+
+    if (!content || !arrow) return;
+
+    const isHidden = getComputedStyle(content).display === "none";
+
+    if (isHidden) {
+        content.style.display = "block";
+        arrow.innerText = "▲ CLOSE LIST";
+    } else {
+        content.style.display = "none";
+        arrow.innerText = "▼ VIEW LIST";
+    }
+}
+
+function toggleArchive() {
+    const gallery = document.getElementById('may-grad-gallery');
+    const btn = document.querySelector('.archive-toggle');
     
-            /* -----------------------------
-               DASHBOARD BUILD
-            ----------------------------- */
-         function buildDashboard(cycleData) {
+    if (gallery.style.display === "none") {
+        gallery.style.display = "block";
+        btn.innerText = "▲ Close May 22, 2026 Gallery";
+    } else {
+        gallery.style.display = "none";
+        btn.innerText = "▼ View May 22, 2026 Graduation Gallery";
+    }
+}
 
-            const reached = new Set();
-            const alumni = new Set();
-            const active = new Set();
-            const waiting = new Set();
-            const deferred = new Set();
+/* -----------------------------
+    CYCLE PROGRESS
+----------------------------- */
+function calculateProgress(cycle) {
+    const vets = Array.isArray(cycle.vets) ? cycle.vets : [];
         
-            let totalDwellDays = 0;
-            let dwellCount = 0;
+    if (vets.length === 0) return 0;
         
-            mainContainer.innerHTML = '';
+    const participatingVets = vets.filter(v => {
+        const status = (v.status || "").toLowerCase().trim();
+        return status !== "dropped";
+    });
         
-            // =====================================================
-            // GLOBAL KPI + DWELL TIME (DO NOT FILTER BY YEAR)
-            // =====================================================
-            // GLOBAL KPI LOOP
-            allCycleData.forEach(cycle => {
-            
-                (cycle.vets || []).forEach(vet => {
-            
-                    const vetKey = (vet.name || "").trim().toLowerCase();
-            
-                    const sessionCount = parseInt(vet.session) || 0;
-                    const statusText = (vet.status || "").toLowerCase().trim();
-                    const availabilityText = (vet.availability || "").toLowerCase().trim();
-            
-                    if (statusText !== "dropped") reached.add(vetKey);
-            
-                    if (statusText === "graduated" && availabilityText === "completed") {
-                        alumni.add(vetKey);
-                    }
-            
-                    if (statusText === "active" && availabilityText === "in lessons") {
-                        active.add(vetKey);
-                    }
+    if (participatingVets.length === 0) return 0;
+        
+    const completedSessions = participatingVets.reduce((sum, vet) => {
+        const session = Math.min(Number(vet.session) || 0, 10);
+        return sum + session;
+    }, 0);
+        
+    const totalPossible = participatingVets.length * 10;
+        
+    if (totalPossible === 0) return 0;
+        
+    return Math.min(
+        100,
+        Math.round((completedSessions / totalPossible) * 100)
+    );
+}
+    
+function getCycleStatus(cycle) {
+    const vets = Array.isArray(cycle.vets) ? cycle.vets : [];
+        
+    const participating = vets.filter(v =>
+        ["active", "graduated"].includes(
+            (v.status || "").toLowerCase().trim()
+        )
+    );
 
-                    if (statusText === "waiting") {
-                        waiting.add(vetKey);
-                    }
-                    
-                    if (statusText === "deferred") {
-                        deferred.add(vetKey);
-                    }
-                });
-            });
+    const allGraduated = participating.length > 0 &&
+        participating.every(v =>
+            (v.status || "").toLowerCase().trim() === "graduated"
+        );
 
-         
-           // YEAR-SPECIFIC DWELL ONLY
-            cycleData.forEach(cycle => {
-        
-            (cycle.vets || []).forEach(vet => {
-        
-                const contactDate = vet.contactDate ? new Date(vet.contactDate) : null;
-                const startDate = cycle.startDate ? new Date(cycle.startDate) : null;
-        
-                if (
-                    contactDate &&
-                    startDate &&
-                    !isNaN(contactDate.getTime()) &&
-                    !isNaN(startDate.getTime())
-                ) {
-                    const diffDays =
-                        (startDate - contactDate) / (1000 * 60 * 60 * 24);
-        
-                    if (diffDays >= 0) {
-                        totalDwellDays += diffDays;
-                        dwellCount++;
-                    }
-                }
-            });
+    const hasProgress = participating.some(v =>
+        Number(v.session || 0) > 0
+    );
+
+    if (participating.length === 0) return "Waiting";
+    if (allGraduated) return "Completed";
+    if (hasProgress) return "Active";
+
+    return "Waiting";
+}
+
+/* -----------------------------
+    DASHBOARD BUILD
+----------------------------- */
+function buildDashboard(cycleData) {
+    const reached = new Set();
+    const alumni = new Set();
+    const active = new Set();
+    const waiting = new Set();
+    const deferred = new Set();
+
+    let totalDwellDays = 0;
+    let dwellCount = 0;
+
+    mainContainer.innerHTML = '';
+
+    // GLOBAL KPI LOOP
+    allCycleData.forEach(cycle => {
+        (cycle.vets || []).forEach(vet => {
+            const vetKey = (vet.name || "").trim().toLowerCase();
+            const statusText = (vet.status || "").toLowerCase().trim();
+            const availabilityText = (vet.availability || "").toLowerCase().trim();
+
+            if (statusText !== "dropped") reached.add(vetKey);
+
+            if (statusText === "graduated" && availabilityText === "completed") {
+                alumni.add(vetKey);
+            }
+
+            if (statusText === "active" && availabilityText === "in lessons") {
+                active.add(vetKey);
+            }
+
+            if (statusText === "waiting") {
+                waiting.add(vetKey);
+            }
+            
+            if (statusText === "deferred") {
+                deferred.add(vetKey);
+            }
         });
-           
-    // =====================================================
-    // RENDER ONLY SELECTED YEAR (cycleData)
-    // =====================================================
+    });
+
+    // YEAR-SPECIFIC DWELL ONLY
     cycleData.forEach(cycle => {
+        (cycle.vets || []).forEach(vet => {
+            const contactDate = vet.contactDate ? new Date(vet.contactDate) : null;
+            const startDate = cycle.startDate ? new Date(cycle.startDate) : null;
 
-      
+            if (
+                contactDate &&
+                startDate &&
+                !isNaN(contactDate.getTime()) &&
+                !isNaN(startDate.getTime())
+            ) {
+                const diffDays = (startDate - contactDate) / (1000 * 60 * 60 * 24);
+
+                if (diffDays >= 0) {
+                    totalDwellDays += diffDays;
+                    dwellCount++;
+                }
+            }
+        });
+    });
+   
+    // RENDER ONLY SELECTED YEAR (cycleData)
+    cycleData.forEach(cycle => {
         const progressValue = calculateProgress(cycle);
-            console.log("Cycle:", cycle.cycleId, "Progress:", progressValue);
-
-         console.log("cycle", cycle.cycleId, "progress", progressValue);
-
+        const cycleStatus = getCycleStatus(cycle);
         let rows = '';
 
         (cycle.vets || []).forEach(vet => {
-
             const sessionCount = parseInt(vet.session) || 0;
             const statusText = (vet.status || "").toLowerCase().trim();
             const availabilityText = vet.availability || "";
             const availability = availabilityText.toLowerCase().trim();
 
-            // -------------------------
-            // DISPLAY STATUS
-            // -------------------------
             let displayStatus = "Waiting";
             
             if (statusText === "graduated" && availability === "completed") {
@@ -323,7 +287,6 @@
             else if (statusText === "deferred" || statusText === "waiting") {
                 displayStatus = "Waiting";
             }
-            
             else if (statusText === "dropped") {
                 displayStatus = "Dropped";
             }
@@ -343,10 +306,9 @@
         section.className = 'cycle-card';
 
         section.innerHTML = `
-            <div class="card-header">
-
+            <div class="card-header" onclick="this.parentElement.classList.toggle('collapsed')" style="cursor:pointer;">
                 <h2 style="margin:0;color:#FFD700;">
-                    Cycle ${cycle.cycleId} (${getCycleStatus(cycle)})
+                    <span class="card-toggle-arrow">▼</span>Cycle ${cycle.cycleId} (${cycleStatus})
                 </h2>
 
                 <div class="cycle-timeline">
@@ -360,7 +322,6 @@
                     <div class="progress-bar" style="width:${progressValue}%"></div>
                     <span class="progress-text">${progressValue}% Cycle Progress</span>
                 </div>
-
             </div>
 
             <div class="instructor-box">
@@ -384,210 +345,151 @@
         mainContainer.appendChild(section);
     });
 
-                    // =====================================================
-                    // GLOBAL KPI OUTPUT (ALWAYS GLOBAL)
-                    // =====================================================
-                    document.getElementById('total-vets').innerText = reached.size;
-                    document.getElementById('grad-count').innerText = alumni.size;
-                    document.getElementById('active-count').innerText = active.size;
-                
-                    const avgDwell = dwellCount > 0
-                        ? Math.round(totalDwellDays / dwellCount)
-                        : null;
-                
-                    document.getElementById('avg-days').innerText =
-                        avgDwell !== null ? avgDwell : "--";
-                
-                        
-                 // =====================================================
-                // 🔥 PROGRESS BAR (MUST BE HERE)
-                // =====================================================
-                /*-- const totalVeterans = reached.size;
-                const graduatedVeterans = alumni.size;
-            
-                const completionRate = totalVeterans > 0
-                    ? Math.round((graduatedVeterans / totalVeterans) * 100)
-                    : 0;
-            
-                const progressBar = document.getElementById("global-progress-bar");
-                const progressText = document.getElementById("global-progress-text");
-            
-                if (progressBar && progressText) {
-                    progressBar.style.width = completionRate + "%";
-                    progressText.innerText =
-                        `${graduatedVeterans} / ${totalVeterans} Graduated (${completionRate}%)`;
-                } --*/
-         }
+    // GLOBAL KPI OUTPUT
+    document.getElementById('total-vets').innerText = reached.size;
+    document.getElementById('grad-count').innerText = alumni.size;
+    document.getElementById('active-count').innerText = active.size;
+
+    const avgDwell = dwellCount > 0 ? Math.round(totalDwellDays / dwellCount) : null;
+    document.getElementById('avg-days').innerText = avgDwell !== null ? avgDwell : "--";
+}
                     
-                /* -----------------------------
-                   DATA LOADING (FIXED)
-                ----------------------------- */
-                function loadDataFromGoogle() {
-                
-                    const csvUrl =
-                        "https://docs.google.com/spreadsheets/d/e/2PACX-1vRZrgM6dmSRKecR8YR63T4Hvhq9vShmdLKvyqkx-HbO7DbXVNpBdhBl5SfOJFzvtFWBBwYnVYpNo_5z/pub?output=csv";
-                
-                    Papa.parse(csvUrl, {
-                        download: true,
-                        header: true,
-                        complete: (r) => processExcelData(r.data)
-                    });
-                }
+/* -----------------------------
+    DATA LOADING
+----------------------------- */
+function loadDataFromGoogle() {
+    const csvUrl = "https://docs.google.com/spreadsheets/d/e/2PACX-1vRZrgM6dmSRKecR8YR63T4Hvhq9vShmdLKvyqkx-HbO7DbXVNpBdhBl5SfOJFzvtFWBBwYnVYpNo_5z/pub?output=csv";
 
-                /* -----------------------------
-                   PROCESS DATA
-                ----------------------------- */
-                function processExcelData(rawRows) {
-                
-                    const groupedData = {};
-                    const waitlist = [];
-                
-                    rawRows.forEach(row => {
-                
-                        const id = row.cycleId ? row.cycleId.trim() : "";
-                        const status = row.status ? row.status.trim() : "";
-                
-                        if (!id) return;
-                
-                        if ((status === "Waiting" || status === "Deferred") && row.vetName) {
-                            waitlist.push({
-                                name: row.vetName,
-                                availability: row.availability || "Waiting",
-                                notes: status,
-                                session: row.currentSession || 0
-                            });
-                        }
-                
-                        if (!groupedData[id]) {
-                            groupedData[id] = {
-                                cycleId: id,
-                                startDate: row.startDate,
-                                endDate: row.endDate,
-                                instructorSet: new Set(),
-                                vets: []
-                            };
-                        }
-                
-                        if (row.instructors) {
-                            row.instructors.split(',')
-                                .forEach(n =>
-                                    groupedData[id].instructorSet.add(n.trim())
-                                );
-                        }
-                
-                        groupedData[id].vets.push({
-                            seq: row.vetSeq,
-                            name: row.vetName,
-                            status: row.status,
-                            availability: row.availability,
-                            session: row.currentSession || row.session || 0,
-                            contactDate: row.contactDate
-                        });
-                
-                    });
-                
-                    renderWaitlist(waitlist);
-                
-                    allCycleData = Object.values(groupedData).map(c => {
-                        c.instructors = Array.from(c.instructorSet);
-                        return c;
-                    });
-                
-                    filterByYear("2026");
-                }
-            /* -----------------------------
-               WAITLIST
-            ----------------------------- */
-            function renderWaitlist(waitlist) {
-                const waitSection = document.getElementById('waitlist-section');
-                const waitBody = document.getElementById('waitlist-body');
-                const waitStat = document.getElementById('waitlist-stat');
-            
-                if (waitStat) waitStat.innerText = waitlist.length;
-            
-                if (!waitBody || !waitSection) return;
-            
-                waitBody.innerHTML = "";
-            
-                if (!waitlist || waitlist.length === 0) {
-                    waitSection.style.display = "none";
-                    return;
-                }
-            
-                waitSection.style.display = "block";
-            
-                waitlist.forEach(vet => {
-                    waitBody.innerHTML += `
-                        <tr>
-                            <td>-</td>
-                            <td class="vet-name-cell" style="font-weight:bold;">${vet.name}</td>
-                            <td>${vet.session} / 10</td>
-                            <td>${vet.notes}</td>
-                            <td class="status-invited">${vet.availability}</td>
-                        </tr>
-                    `;
-                });
-            }
+    Papa.parse(csvUrl, {
+        download: true,
+        header: true,
+        complete: (r) => processExcelData(r.data)
+    });
+}
 
-                /* -----------------------------
-                   YEAR FILTER
-                ----------------------------- */
-                function filterByYear(year) {
-                    const filtered = allCycleData.filter(cycle => {
-                        if (!cycle.startDate) return false;
-                        return new Date(cycle.startDate).getFullYear().toString() === year;
-                    });
-                
-                    buildDashboard(filtered);
-                }
-                
-                /* -----------------------------
-                   SEARCH
-                ----------------------------- */
-                /*function searchVets() {
-                    const input = document.getElementById('vet-search').value.toLowerCase();
-                
-                    document.querySelectorAll('#dashboard-root .cycle-card').forEach(card => {
-                        let match = false;
-                
-                        card.querySelectorAll('tbody tr').forEach(row => {
-                            const name = row.querySelector('.vet-name-cell')?.textContent.toLowerCase() || "";
-                
-                            if (name.includes(input)) {
-                                row.style.display = "";
-                                match = true;
-                            } else {
-                                row.style.display = "none";
-                            }
-                        });
-                
-                        card.style.display = match ? "" : "none";
-                    });
-                }
-                */
+/* -----------------------------
+    PROCESS DATA
+----------------------------- */
+function processExcelData(rawRows) {
+    const groupedData = {};
+    const waitlist = [];
 
-               /*-------------------------------
-                   INIT
-                ----------------------------- */
-                initializeYearSelector();
-                loadDataFromGoogle();
-            
-                
-                function initializeYearSelector() {
-                    document.querySelectorAll('.year-pill').forEach(pill => {
-                        // Set initial active state for 2026 pill
-                        if (pill.textContent.trim() === "2026") {
-                            pill.classList.add('active');
-                        }
-                
-                        pill.addEventListener('click', () => {
-                            document.querySelectorAll('.year-pill').forEach(p => p.classList.remove('active'));
-                            pill.classList.add('active');
-                            filterByYear(pill.textContent.trim());
-                        });
-                    });
-                }
+    rawRows.forEach(row => {
+        const id = row.cycleId ? row.cycleId.trim() : "";
+        const status = row.status ? row.status.trim() : "";
+
+        // 🔥 FIXED LOGIC ERROR: Checked waitlist requirements *before* checking if id is blank
+        if ((status === "Waiting" || status === "Deferred") && row.vetName) {
+            waitlist.push({
+                name: row.vetName,
+                availability: row.availability || "Waiting",
+                notes: status,
+                session: row.currentSession || 0
+            });
+        }
+
+        if (!id) return; // Safely skip grouped rows without an explicit cycle assignment
+
+        if (!groupedData[id]) {
+            groupedData[id] = {
+                cycleId: id,
+                startDate: row.startDate,
+                endDate: row.endDate,
+                instructorSet: new Set(),
+                vets: []
+            };
+        }
+
+        if (row.instructors) {
+            row.instructors.split(',')
+                .forEach(n => groupedData[id].instructorSet.add(n.trim()));
+        }
+
+        groupedData[id].vets.push({
+            seq: row.vetSeq,
+            name: row.vetName,
+            status: row.status,
+            availability: row.availability,
+            session: row.currentSession || row.session || 0,
+            contactDate: row.contactDate
+        });
+    });
+
+    renderWaitlist(waitlist);
+
+    allCycleData = Object.values(groupedData).map(c => {
+        c.instructors = Array.from(c.instructorSet);
+        return c;
+    });
+
+    filterByYear("2026");
+}
+
+/* -----------------------------
+    WAITLIST RENDER
+----------------------------- */
+function renderWaitlist(waitlist) {
+    const waitSection = document.getElementById('waitlist-section');
+    const waitBody = document.getElementById('waitlist-body');
+    const waitStat = document.getElementById('waitlist-stat');
+
+    if (waitStat) waitStat.innerText = waitlist.length;
+
+    if (!waitBody || !waitSection) return;
+
+    waitBody.innerHTML = "";
+
+    if (!waitlist || waitlist.length === 0) {
+        waitSection.style.display = "none";
+        return;
+    }
+
+    waitSection.style.display = "block";
+
+    waitlist.forEach(vet => {
+        waitBody.innerHTML += `
+            <tr>
+                <td>-</td>
+                <td class="vet-name-cell" style="font-weight:bold;">${vet.name}</td>
+                <td>${vet.session} / 10</td>
+                <td>${vet.notes}</td>
+                <td class="status-invited">${vet.availability}</td>
+            </tr>
+        `;
+    });
+}
+
+/* -----------------------------
+    YEAR FILTER
+----------------------------- */
+function filterByYear(year) {
+    const filtered = allCycleData.filter(cycle => {
+        if (!cycle.startDate) return false;
+        return new Date(cycle.startDate).getFullYear().toString() === year;
+    });
+
+    buildDashboard(filtered);
+}
+
+/* -----------------------------
+    INIT
+----------------------------- */
+initializeYearSelector();
+loadDataFromGoogle();
+
+function initializeYearSelector() {
+    document.querySelectorAll('.year-pill').forEach(pill => {
+        if (pill.textContent.trim() === "2026") {
+            pill.classList.add('active');
+        }
+
+        pill.addEventListener('click', () => {
+            document.querySelectorAll('.year-pill').forEach(p => p.classList.remove('active'));
+            pill.classList.add('active');
+            filterByYear(pill.textContent.trim());
+        });
+    });
+}
 </script>
-
 </body>
 </html>
