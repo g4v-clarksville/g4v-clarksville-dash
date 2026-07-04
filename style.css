@@ -218,7 +218,7 @@ header {
 #impact-summary {
     display: flex;
     justify-content: center;
-    align-items: stretch;       /* Keeps all mini-cards and the year box uniform in height */
+    align-items: stretch;       /* Ensures all mini-cards and the year box match height perfectly */
     gap: 12px;
     width: 100%;
     max-width: 1200px;
@@ -230,56 +230,74 @@ header {
     background: #11161d;
     border: 1px solid #1a222d;
     border-radius: 6px;
-    padding: 12px 14px;
-    flex: 1;                    /* Keeps all metric cards the exact same width */
-    min-width: 120px;
+    padding: 10px 14px;
+    flex: 1;
+    min-width: 130px;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+    text-align: left;           /* Left-aligned exactly like image_b95e26.png */
+    position: relative;
+    overflow: hidden;
 }
 
-/* Enhances the look of the year selector to fit natively right next to them */
-.stat-card.year-selector-card {
-    flex: 1.8;                  /* Gives the year selector layout a bit more room */
-    justify-content: center;
+/* The left accent color bar indicator */
+.stat-card::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: 4px;
+    background-color: var(--accent-color, #00b4d8); /* Dynamic color property falling back to cyan */
 }
+
+/* Unique theme assignments to replicate the image variations */
+.stat-card.vets-reached   { --accent-color: #10b981; } /* Emerald Green */
+.stat-card.grad-alumni    { --accent-color: #34d399; } /* Light Mint */
+.stat-card.active-cohort  { --accent-color: #0ea5e9; } /* Ocean Blue */
+.stat-card.waitlist-card  { --accent-color: #a855f7; } /* Purple */
+.stat-card.avg-days       { --accent-color: #f97316; } /* Amber Orange */
 
 .stat-label {
     font-size: 0.72rem;
     font-weight: 600;
-    color: #718096;             /* Clean, readable secondary tone */
-    text-transform: uppercase;
-    letter-spacing: 0.5px;
+    color: #718096;             /* Low contrast label gray */
+    letter-spacing: 0.3px;
     line-height: 1.2;
-    margin-bottom: 6px;
+    margin-bottom: 4px;
 }
 
 .stat-value {
     font-size: 1.6rem;
     font-weight: 700;
-    color: #ffffff;
+    color: var(--accent-color, #ffffff); /* Text matches the left-accent theme color directly */
     line-height: 1.1;
     margin-bottom: 8px;
 }
 
-/* Decorative metric anchor line that mirrors your progress bar style */
+/* Mini Progress Bar Track */
 .metric-anchor-line {
     width: 100%;
     height: 3px;
-    background: #1a222d;        /* Dark background track */
+    background: #1a222d;
     border-radius: 2px;
     overflow: hidden;
-    position: relative;
 }
 
-/* Gives a clean accent splash matching your brand aesthetic */
-.metric-anchor-line::after {
-    content: '';
-    display: block;
-    width: 35%;                 /* Fixed visual aesthetic accent width */
+/* Mini Progress Bar Indicator filling up a portion */
+.metric-anchor-line div {
     height: 100%;
-    background: #00b4d8;        /* Branded cyan color block tint */
+    background-color: var(--accent-color, #00b4d8);
     border-radius: 2px;
+    width: 40%;                 /* Custom dummy width to simulate the aesthetic metrics fill */
+}
+
+/* Adjusting the Year Selector container wrapper to match seamlessly */
+.stat-card.year-selector-card {
+    flex: 1.8;
+    padding-left: 14px;
+    --accent-color: #475569;    /* Clean neutral steel frame accent for controls */
 }
 /* -----------------------------
    SEARCH
