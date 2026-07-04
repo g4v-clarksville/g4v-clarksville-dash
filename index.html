@@ -91,9 +91,9 @@
     </div>
 </div>
         <div class="content-width">
-            <div class="search-container">
+           <!-- <div class="search-container">
                 <input id="vet-search" placeholder="Search Veteran Name..." onkeyup="searchVets()">
-                </div>
+                </div> -->
             
                 <div id="waitlist-section">
                     <div id="waitlist-header" onclick="toggleWaitlist()">
@@ -107,10 +107,10 @@
                     </div>
                 </div>
             
-            <div class="progress-container">
+            <!--<div class="progress-container">
                 <div id="global-progress-bar" class="progress-bar"></div>
                     <span id="global-progress-text" class="progress-text"></span>
-            </div>    
+            </div>-->    
          </div>
 
                     <main id="dashboard-root"></main>
@@ -402,7 +402,7 @@
                  // =====================================================
                 // 🔥 PROGRESS BAR (MUST BE HERE)
                 // =====================================================
-                const totalVeterans = reached.size;
+                /*-- const totalVeterans = reached.size;
                 const graduatedVeterans = alumni.size;
             
                 const completionRate = totalVeterans > 0
@@ -416,7 +416,7 @@
                     progressBar.style.width = completionRate + "%";
                     progressText.innerText =
                         `${graduatedVeterans} / ${totalVeterans} Graduated (${completionRate}%)`;
-                }
+                } --*/
          }
                     
                 /* -----------------------------
@@ -544,7 +544,7 @@
                 /* -----------------------------
                    SEARCH
                 ----------------------------- */
-                function searchVets() {
+                /*function searchVets() {
                     const input = document.getElementById('vet-search').value.toLowerCase();
                 
                     document.querySelectorAll('#dashboard-root .cycle-card').forEach(card => {
@@ -564,6 +564,7 @@
                         card.style.display = match ? "" : "none";
                     });
                 }
+                */
 
                /*-------------------------------
                    INIT
