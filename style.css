@@ -226,39 +226,46 @@ header {
     align-items: stretch; /* Ensures all cards match the height of the largest card */
 }
 
+#impact-summary {
+    display: flex;
+    justify-content: center;
+    gap: 12px;                  /* Tighter gap between mini-cards */
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto 20px auto;
+    padding: 0 40px;
+    align-items: center;        /* Centered alignment instead of stretching tall */
+}
+
 .stat-card {
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
+    justify-content: center;
     align-items: center;
     background: var(--card-surface);
     border: 1px solid var(--border-color);
-    padding: 16px;       /* Compact vertical and horizontal spacing */
-    min-width: 130px;    /* Optimizes width to fit the data cleanly */
-    flex: 1;             /* Allows boxes to share space proportionally */
-    border-radius: 8px;  /* Rounds out all sharp box edges */
+    border-radius: 6px;         /* Slightly tighter rounding radius for smaller footprint */
+    padding: 8px 12px;          /* Minimal padding to create the mini-card look */
+    min-width: 110px;           /* Narrower base width */
+    max-width: 140px;           /* Caps the container expansion */
+    flex: 1;
     text-align: center;
 }
 
 .stat-label {
-    font-size: 0.75rem;  /* Slightly dropped to balance font visual weight */
+    font-size: 0.68rem;         /* Crisp, smaller uppercase label text */
+    font-weight: 600;
     color: #a0aec0;     
     text-transform: uppercase;
     letter-spacing: 0.5px;
-    
-    /* Forces an identical vertical boundary box so single-line labels 
-       (like "WAITLIST") align perfectly with multi-line labels */
-    min-height: 2.4em;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    margin-bottom: 2px;         /* Brings label right next to the number */
+    line-height: 1.2;
 }
 
 .stat-value {
-    font-size: 2.2rem;   /* Boosted slightly to emphasize the metric value */
+    font-size: 1.5rem;          /* Scaled down to proportional dashboard-snippet height */
     font-weight: bold;
     color: #ffffff;
-    margin-top: 8px;     /* Stable separation from the label boundary */
     line-height: 1;
 }
 /* -----------------------------
