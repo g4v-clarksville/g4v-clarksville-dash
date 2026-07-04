@@ -303,7 +303,17 @@ function buildDashboard(cycleData) {
         });
 
         const section = document.createElement('section');
-        section.className = 'cycle-card';
+        // 🛠️ LOGIC FIX: Check localStorage preference, default to auto-collapse if 100% complete
+        const cycleKey = `card_collapsed_${cycle.cycleId}`;
+        const savedState = localStorage.getItem(cycleKey);
+        
+        let shouldCollapse = false;
+        if (savedState !== null) {
+            shouldCollapse = (savedState === 'true');
+        } else if (progressValue === 100) {
+            shouldCollapse = true;
+        }
+        section.className = 'cycle-card &{shouldCollapse ? 'collapsed' : ''}';
 
         section.innerHTML = `
             <div class="card-header" onclick="this.parentElement.classList.toggle('collapsed')" style="cursor:pointer;">
