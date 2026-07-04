@@ -226,29 +226,28 @@ header {
 }
 
 .stat-card {
-    flex: 1;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    padding: 10px;
-    background: var(--card-surface);
-    border: 1px solid var(--border-color);
-    border-radius: 8px;
+    padding: 16px 20px; /* Tightens the top/bottom vertical padding */
+    min-width: 140px;   /* Let them shrink a bit horizontally if needed */
+    height: auto;       /* Avoid hardcoded tall heights like 150px */
 }
 
 .stat-label {
-    font-size: 0.65rem;
-    font-weight: 700;
-    color: #8899a6;
+    font-size: 0.85rem;
+    color: #a0aec0;     /* Lighten the text slightly for better legibility */
+    margin-bottom: 6px; /* Bring it closer to the number */
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
 }
 
 .stat-value {
-    font-size: 1.5rem;
+    font-size: 2rem;    /* Makes the data the absolute hero of the card */
     font-weight: bold;
-    color: #fff;
+    color: #ffffff;
 }
-
 /* -----------------------------
    SEARCH
 ------------------------------
