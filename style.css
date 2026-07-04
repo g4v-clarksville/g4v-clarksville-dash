@@ -295,6 +295,24 @@ header {
     margin-bottom: 15px;
 }
 
+/* Hides the table content when the card is collapsed */
+.cycle-card.collapsed table,
+.cycle-card.collapsed .instructor-box {
+    display: none;
+}
+
+/* Rotates the arrow indicator if you want to add one next to the title */
+.cycle-card.collapsed .card-toggle-arrow {
+    transform: rotate(-90deg);
+}
+
+.card-toggle-arrow {
+    display: inline-block;
+    transition: transform 0.2s ease;
+    margin-right: 8px;
+    cursor: pointer;
+}
+
 /* Slimmed-down specific rule for the waitlist bar */
 #waitlist-section {
     background: var(--card-surface);
@@ -370,7 +388,7 @@ header {
 
 /* -----------------------------
    PROGRESS BAR
-------------------------------*/
+------------------------------
 .progress-container {
     background: #132D64;
     height: 24px;
@@ -394,7 +412,7 @@ header {
     font-size: 0.85rem;
     font-weight: bold;
     color: white;
-}
+}--*/
 
 /* -----------------------------
    TABLE FIX (IMPORTANT)
