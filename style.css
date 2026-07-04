@@ -251,7 +251,7 @@ header {
 
 /* -----------------------------
    SEARCH
-------------------------------*/
+------------------------------
 .search-container {
     margin: 0 0 15px 0;
 }
@@ -270,7 +270,7 @@ header {
     max-width: 1200px;
     margin: 0 auto 15px auto;
     margin-bottom: 15px;
-}
+} *>
 
 /* -----------------------------
    DASHBOARD ROOT (CRITICAL FIX)
@@ -285,8 +285,7 @@ header {
 /* -----------------------------
    CARDS
 ------------------------------*/
-.cycle-card,
-#waitlist-section {
+.cycle-card {
     background: var(--card-surface);
     border: 1px solid var(--border-color);
     border-left: 5px solid var(--border-glow);
@@ -294,6 +293,31 @@ header {
     padding: 15px;
     overflow: hidden;
     margin-bottom: 15px;
+}
+
+/* Slimmed-down specific rule for the waitlist bar */
+#waitlist-section {
+    background: var(--card-surface);
+    border: 1px solid var(--border-color);
+    border-left: 5px solid var(--border-glow);
+    border-radius: 8px;
+    padding: 6px 12px; /* Much smaller padding to cut the height down */
+    overflow: hidden;
+    margin-bottom: 15px;
+}
+
+/* Ensure the inner header layout behaves nicely inside the new slim padding */
+#waitlist-header {
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    width: 100%;
+}
+
+#waitlist-arrow {
+    font-size: 0.85rem;
+    font-weight: 700;
+    letter-spacing: 0.8px;
 }
 /* -----------------------------
    CARD HEADER LAYOUT FIX
