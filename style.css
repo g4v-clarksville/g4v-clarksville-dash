@@ -218,55 +218,57 @@ header {
 #impact-summary {
     display: flex;
     justify-content: center;
-    gap: 16px;
+    align-items: stretch;       /* Forces all containers to match height perfectly */
+    gap: 12px;
     width: 100%;
     max-width: 1200px;
-    margin: 0 auto 20px auto;
+    margin: 0 auto 24px auto;
     padding: 0 40px;
-    align-items: stretch; /* Ensures all cards match the height of the largest card */
-}
-
-#impact-summary {
-    display: flex;
-    justify-content: center;
-    gap: 12px;                  /* Tighter gap between mini-cards */
-    width: 100%;
-    max-width: 1200px;
-    margin: 0 auto 20px auto;
-    padding: 0 40px;
-    align-items: center;        /* Centered alignment instead of stretching tall */
 }
 
 .stat-card {
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: space-between; /* Pushes label to top, number to bottom evenly */
     align-items: center;
     background: var(--card-surface);
     border: 1px solid var(--border-color);
-    border-radius: 6px;         /* Slightly tighter rounding radius for smaller footprint */
-    padding: 8px 12px;          /* Minimal padding to create the mini-card look */
-    min-width: 110px;           /* Narrower base width */
-    max-width: 140px;           /* Caps the container expansion */
-    flex: 1;
+    border-radius: 8px;
+    padding: 12px;
+    flex: 1;                    /* Forces all data cards to be the exact same width */
+    min-width: 100px;
     text-align: center;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Specific adjustment for the year selector box to align with the mini-cards */
+.stat-card.year-selector-card {
+    flex: 2;                    /* Allows the year box to be wider, but perfectly identical height */
+    justify-content: center;
 }
 
 .stat-label {
-    font-size: 0.68rem;         /* Crisp, smaller uppercase label text */
+    font-size: 0.7rem;
     font-weight: 600;
-    color: #a0aec0;     
+    color: #8a99ad;             /* Slightly softer gray for a cleaner look */
     text-transform: uppercase;
     letter-spacing: 0.5px;
-    margin-bottom: 2px;         /* Brings label right next to the number */
-    line-height: 1.2;
+    line-height: 1.3;
+    margin-bottom: 8px;
+    
+    /* Reserves space for 2 lines so 1-line words like "WAITLIST" don't break the layout */
+    min-height: 2.6em;          
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .stat-value {
-    font-size: 1.5rem;          /* Scaled down to proportional dashboard-snippet height */
-    font-weight: bold;
+    font-size: 1.75rem;         /* Clean, readable size that doesn't overwhelm the container */
+    font-weight: 700;
     color: #ffffff;
     line-height: 1;
+    margin-top: auto;           /* Sticks the numbers perfectly to the bottom baseline */
 }
 /* -----------------------------
    SEARCH
