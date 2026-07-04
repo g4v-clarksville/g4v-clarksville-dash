@@ -9,7 +9,6 @@
 
 <body>
 <div class="banner-container">
-    <!-- UPCOMING EVENT BANNER -->
     <div class="g4v-grad-banner active">
         <h2 class="g4v-grad-title" style="margin:0">Next G4V Graduation</h2>
         <p class="g4v-grad-date" style="margin:5px 0 0 0;">August 14, 2026 @ 12:00 PM, Operation Stand Down</p>
@@ -50,7 +49,6 @@
     </div>
 </header>
 
-<!-- IMPACT SUMMARY -->
 <div id="impact-summary">
     <div class="stat-card">
         <span class="stat-label">Veterans Reached</span>
@@ -303,7 +301,8 @@ function buildDashboard(cycleData) {
         });
 
         const section = document.createElement('section');
-        // 🛠️ LOGIC FIX: Check localStorage preference, default to auto-collapse if 100% complete
+        
+        // 🛠️ FIXED: Handled localStorage validation & fallback correctly 
         const cycleKey = `card_collapsed_${cycle.cycleId}`;
         const savedState = localStorage.getItem(cycleKey);
         
@@ -313,13 +312,15 @@ function buildDashboard(cycleData) {
         } else if (progressValue === 100) {
             shouldCollapse = true;
         }
-        section.className = 'cycle-card ${shouldCollapse ? 'collapsed' : ''}';
+        
+        section.className = `cycle-card ${shouldCollapse ? 'collapsed' : ''}`;
 
+        // 🛠️ FIXED: Changed onclick reference to run through our state tracker function instead of an unmonitored baseline toggle
         section.innerHTML = `
             <div class="card-header" onclick="toggleAndSaveCard(this, '${cycle.cycleId}')" style="cursor:pointer;">
                 <h2 style="margin:0;color:#FFD700;">
                     <span class="card-toggle-arrow">▼</span>Cycle ${cycle.cycleId} (${cycleStatus})
-                </h2>
+                </h2> 
 
                 <div class="cycle-timeline">
                     <span class="timeline-label">TIMELINE:</span>
@@ -363,6 +364,15 @@ function buildDashboard(cycleData) {
     const avgDwell = dwellCount > 0 ? Math.round(totalDwellDays / dwellCount) : null;
     document.getElementById('avg-days').innerText = avgDwell !== null ? avgDwell : "--";
 }
+
+/* -----------------------------
+   CARD TOGGLE STATE STORAGE
+----------------------------- */
+function toggleAndSaveCard(headerElement, cycleId) {
+    const cardSection = headerElement.parentElement;
+    const isNowCollapsed = cardSection.classList.toggle('collapsed');
+    localStorage.setItem(`card_collapsed_${cycleId}`, isNowCollapsed);
+}
                     
 /* -----------------------------
     DATA LOADING
@@ -388,7 +398,6 @@ function processExcelData(rawRows) {
         const id = row.cycleId ? row.cycleId.trim() : "";
         const status = row.status ? row.status.trim() : "";
 
-        // 🔥 FIXED LOGIC ERROR: Checked waitlist requirements *before* checking if id is blank
         if ((status === "Waiting" || status === "Deferred") && row.vetName) {
             waitlist.push({
                 name: row.vetName,
@@ -398,7 +407,7 @@ function processExcelData(rawRows) {
             });
         }
 
-        if (!id) return; // Safely skip grouped rows without an explicit cycle assignment
+        if (!id) return; 
 
         if (!groupedData[id]) {
             groupedData[id] = {
