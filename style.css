@@ -426,4 +426,61 @@ td {
     .header-titles h1 {
         font-size: 1.2rem;
     }
+    /* -----------------------------
+   YEAR SELECTION GRID (3x2)
+------------------------------*/
+.year-selection-box {
+    background: var(--card-surface);
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    padding: 15px;
+    width: fit-content; /* Or width: 100% depending on container placement */
+    min-width: 280px;
+    text-align: center;
+}
+
+.year-selection-box p {
+    margin: 0 0 12px 0;
+    font-size: 0.85rem;
+    font-weight: bold;
+    color: var(--text-muted);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+/* The 3x2 Grid Wrapper */
+.year-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* Exactly 3 equal columns */
+    gap: 10px; /* Space between the buttons */
+}
+
+/* Individual Year Button Style */
+.year-btn {
+    background: rgba(0, 16, 62, 0.4); /* Subtle transparent tint using your dark shade */
+    border: 1px solid var(--border-color);
+    color: var(--text-dim);
+    font-family: inherit;
+    font-size: 0.95rem;
+    font-weight: 600;
+    padding: 10px 0;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: all 0.2s ease-in-out;
+}
+
+/* Hover Effect */
+.year-btn:hover {
+    background: rgba(44, 103, 190, 0.2);
+    border-color: var(--accent-cyan);
+    color: var(--text-bright);
+}
+
+/* Active / Selected Year Style */
+.year-btn.active {
+    background: var(--card-bg); /* Using your brighter blue token */
+    border-color: var(--neon-cyan);
+    color: var(--text-bright);
+    box-shadow: 0 0 8px rgba(9, 195, 242, 0.3); /* Subtle neon glow matching your theme */
+}
 }
