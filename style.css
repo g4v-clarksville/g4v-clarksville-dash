@@ -426,61 +426,54 @@ td {
     .header-titles h1 {
         font-size: 1.2rem;
     }
-    /* -----------------------------
-   YEAR SELECTION GRID (3x2)
+/* -----------------------------
+   YEAR SELECTOR (3x2 GRID OVERRIDE)
 ------------------------------*/
-.year-selection-box {
-    background: var(--card-surface);
-    border: 1px solid var(--border-color);
-    border-radius: 8px;
-    padding: 15px;
-    width: fit-content; /* Or width: 100% depending on container placement */
-    min-width: 280px;
-    text-align: center;
+/* 1. Make the container card align items nicely */
+.year-selector-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    min-width: 260px; /* Ensures a solid footprint */
 }
 
-.year-selection-box p {
-    margin: 0 0 12px 0;
-    font-size: 0.85rem;
-    font-weight: bold;
-    color: var(--text-muted);
-    text-transform: uppercase;
-    letter-spacing: 0.5px;
-}
-
-/* The 3x2 Grid Wrapper */
-.year-grid {
+/* 2. Turn the pill wrapper into a 3x2 Grid */
+.year-options {
     display: grid;
-    grid-template-columns: repeat(3, 1fr); /* Exactly 3 equal columns */
-    gap: 10px; /* Space between the buttons */
+    grid-template-columns: repeat(3, 1fr); /* 3 equal columns */
+    gap: 8px; /* Perfectly uniform spacing */
+    width: 100%;
+    margin-top: 10px;
 }
 
-/* Individual Year Button Style */
-.year-btn {
-    background: rgba(0, 16, 62, 0.4); /* Subtle transparent tint using your dark shade */
+/* 3. Style the spans to look and act like premium buttons */
+.year-pill {
+    background: rgba(0, 16, 62, 0.5); /* Deep transparent dark blue */
     border: 1px solid var(--border-color);
     color: var(--text-dim);
-    font-family: inherit;
-    font-size: 0.95rem;
-    font-weight: 600;
-    padding: 10px 0;
+    text-align: center;
+    padding: 8px 0;
     border-radius: 6px;
+    font-size: 0.9rem;
+    font-weight: 600;
     cursor: pointer;
+    user-select: none;
     transition: all 0.2s ease-in-out;
 }
 
-/* Hover Effect */
-.year-btn:hover {
+/* Hover State */
+.year-pill:hover {
     background: rgba(44, 103, 190, 0.2);
     border-color: var(--accent-cyan);
     color: var(--text-bright);
 }
 
-/* Active / Selected Year Style */
-.year-btn.active {
-    background: var(--card-bg); /* Using your brighter blue token */
+/* Active Selected State */
+.year-pill.active {
+    background: var(--card-bg); /* Brighter theme blue */
     border-color: var(--neon-cyan);
     color: var(--text-bright);
-    box-shadow: 0 0 8px rgba(9, 195, 242, 0.3); /* Subtle neon glow matching your theme */
+    box-shadow: 0 0 8px rgba(9, 195, 242, 0.3); /* Subtle cyberpunk glow */
 }
-}
+
