@@ -313,10 +313,10 @@ function buildDashboard(cycleData) {
         } else if (progressValue === 100) {
             shouldCollapse = true;
         }
-        section.className = 'cycle-card &{shouldCollapse ? 'collapsed' : ''}';
+        section.className = 'cycle-card ${shouldCollapse ? 'collapsed' : ''}';
 
         section.innerHTML = `
-            <div class="card-header" onclick="this.parentElement.classList.toggle('collapsed')" style="cursor:pointer;">
+            <div class="card-header" onclick="toggleAndSaveCard(this, '${cycle.cycleId}')" style="cursor:pointer;">
                 <h2 style="margin:0;color:#FFD700;">
                     <span class="card-toggle-arrow">▼</span>Cycle ${cycle.cycleId} (${cycleStatus})
                 </h2>
