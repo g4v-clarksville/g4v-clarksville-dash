@@ -230,13 +230,15 @@ header {
     background: #11161d;
     border: 1px solid #1a222d;
     border-radius: 6px;
-    padding: 10px 14px;
+    padding: 16px 14px;         /* Increased top/bottom padding slightly for better proportion */
     flex: 1;
     min-width: 130px;
+    height: 100px;              /* OPTIONAL: Hardcode a smaller height if you want them more compact */
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
-    text-align: left;           /* Left-aligned exactly like image_b95e26.png */
+    justify-content: center;    /* CHANGED: Centers the content vertically */
+    align-items: center;        /* CHANGED: Centers the content horizontally */
+    text-align: center;         /* CHANGED: Centers the text alignment */
     position: relative;
     overflow: hidden;
 }
@@ -249,36 +251,36 @@ header {
     top: 0;
     bottom: 0;
     width: 4px;
-    background-color: var(--accent-color, #00b4d8); /* Dynamic color property falling back to cyan */
+    background-color: var(--accent-color, #00b4d8);
 }
 
 /* Unique theme assignments to replicate the image variations */
-.stat-card.vets-reached   { --accent-color: #10b981; } /* Emerald Green */
-.stat-card.grad-alumni    { --accent-color: #34d399; } /* Light Mint */
-.stat-card.active-cohort  { --accent-color: #0ea5e9; } /* Ocean Blue */
-.stat-card.waitlist-card  { --accent-color: #a855f7; } /* Purple */
-.stat-card.avg-days       { --accent-color: #f97316; } /* Amber Orange */
+.stat-card.vets-reached   { --accent-color: #10b981; }
+.stat-card.grad-alumni    { --accent-color: #34d399; }
+.stat-card.active-cohort  { --accent-color: #0ea5e9; }
+.stat-card.waitlist-card  { --accent-color: #a855f7; }
+.stat-card.avg-days       { --accent-color: #f97316; }
 
 .stat-label {
     font-size: 0.72rem;
     font-weight: 600;
-    color: #718096;             /* Low contrast label gray */
+    color: #718096;
     letter-spacing: 0.3px;
     line-height: 1.2;
-    margin-bottom: 4px;
+    margin-bottom: 6px;         /* Slightly adjusted for vertical centering symmetry */
 }
 
 .stat-value {
     font-size: 1.6rem;
     font-weight: 700;
-    color: var(--accent-color, #ffffff); /* Text matches the left-accent theme color directly */
+    color: var(--accent-color, #ffffff);
     line-height: 1.1;
-    margin-bottom: 8px;
+    margin-bottom: 8px;         /* Keeps spacing clean above the line */
 }
 
 /* Mini Progress Bar Track */
 .metric-anchor-line {
-    width: 100%;
+    width: 80%;                 /* CHANGED: Shrunk from 100% so it looks tighter when centered */
     height: 3px;
     background: #1a222d;
     border-radius: 2px;
@@ -290,14 +292,16 @@ header {
     height: 100%;
     background-color: var(--accent-color, #00b4d8);
     border-radius: 2px;
-    width: 40%;                 /* Custom dummy width to simulate the aesthetic metrics fill */
+    width: 40%;
 }
 
 /* Adjusting the Year Selector container wrapper to match seamlessly */
 .stat-card.year-selector-card {
     flex: 1.8;
     padding-left: 14px;
-    --accent-color: #475569;    /* Clean neutral steel frame accent for controls */
+    --accent-color: #475569;
+    align-items: stretch;       /* OVERRIDE: Keeps the year picker grid stretched nicely */
+    justify-content: space-between; /* OVERRIDE: Keeps layout inside picker intact */
 }
 /* -----------------------------
    SEARCH
