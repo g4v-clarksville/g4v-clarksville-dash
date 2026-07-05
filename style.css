@@ -296,24 +296,32 @@ header {
 }
 
 /* Adjusting the Year Selector container wrapper to match seamlessly */
+/* Adjusting the Year Selector container wrapper */
 .stat-card.year-selector-card {
-    flex: 1.8;
-    padding: 10px 14px;            /* Reset to original padding to give the grid space */
+    flex: 2;                       /* Give it a bit more room horizontally if needed */
+    padding: 8px 12px;             /* Tighten padding to maximize breathing room */
     --accent-color: #475569;
     
-    /* OVERRIDES to undo the centering rules of the other cards */
     display: flex;
     flex-direction: column;
-    justify-content: space-between; /* Restores the vertical separation */
-    align-items: stretch;           /* Forces the grid container to stretch to full width */
-    text-align: left;               /* Resets text alignment */
+    justify-content: center;       /* Centers the content vertically */
+    align-items: center;           /* Centers it horizontally to match the rest */
 }
 
-/* Ensure the title inside the year selector doesn't try to center itself */
-.stat-card.year-selector-card .stat-label {
-    text-align: center;             /* Keeps the "Select Year" label centered if desired, or change to 'left' */
-    margin-bottom: 4px;
+/* Force the grid/container holding your buttons to fit perfectly */
+.stat-card.year-selector-card .year-buttons-container, 
+.stat-card.year-selector-card .grid-class-name-you-are-using { 
+    display: flex;
+    flex-wrap: wrap;               /* Lets them wrap cleanly if screen shrinks */
+    gap: 6px;                      /* Reduce spacing between buttons */
+    justify-content: center;
     width: 100%;
+}
+
+/* Make sure individual year buttons are compact */
+.stat-card.year-selector-card button {
+    padding: 4px 8px !important;   /* Reduce internal padding of buttons */
+    font-size: 0.8rem;             /* Make text slightly smaller if needed */
 }
 /* -----------------------------
    SEARCH
