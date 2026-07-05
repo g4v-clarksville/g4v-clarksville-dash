@@ -298,10 +298,22 @@ header {
 /* Adjusting the Year Selector container wrapper to match seamlessly */
 .stat-card.year-selector-card {
     flex: 1.8;
-    padding-left: 14px;
+    padding: 10px 14px;            /* Reset to original padding to give the grid space */
     --accent-color: #475569;
-    align-items: stretch;       /* OVERRIDE: Keeps the year picker grid stretched nicely */
-    justify-content: space-between; /* OVERRIDE: Keeps layout inside picker intact */
+    
+    /* OVERRIDES to undo the centering rules of the other cards */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between; /* Restores the vertical separation */
+    align-items: stretch;           /* Forces the grid container to stretch to full width */
+    text-align: left;               /* Resets text alignment */
+}
+
+/* Ensure the title inside the year selector doesn't try to center itself */
+.stat-card.year-selector-card .stat-label {
+    text-align: center;             /* Keeps the "Select Year" label centered if desired, or change to 'left' */
+    margin-bottom: 4px;
+    width: 100%;
 }
 /* -----------------------------
    SEARCH
