@@ -161,7 +161,7 @@ header {
 /* Blending override rule for your temporary white-background asset */
 .osd-logo { 
     height: 70px; 
-    mix-blend-mode: multiply; 
+    mix-blend-mode: lighten; 
     border-radius: 8px;
     opacity: 0.95;
 }
