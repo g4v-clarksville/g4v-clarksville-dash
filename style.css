@@ -174,17 +174,17 @@ header {
 .header-main-content {
     display: flex;
     align-items: center;
-    justify-content: flex-start; /* CHANGED: Left-aligns branding elements row to balance box */
+    justify-content: center; /* CHANGED: Left-aligns branding elements row to balance box */
     gap: 40px;
     flex-grow: 1;
-    margin-right: 20px;
+    margin-right: 160px;
 }
 
 .header-logo { height: 80px; object-fit: contain; }
 .osd-logo { height: 70px; }
 .g4v-logo { height: 90px; }
 
-.header-titles { text-align: left; } /* CHANGED: Left-aligned text perfectly frames the layout flow */
+.header-titles { text-align: center; } /* CHANGED: Left-aligned text perfectly frames the layout flow */
 
 .header-titles h1 {
     color: var(--text-dim);
