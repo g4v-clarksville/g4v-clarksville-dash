@@ -157,7 +157,7 @@ body {
 }
 
 /* -----------------------------
-   HEADER
+    HEADER
 ------------------------------*/
 header {
     width: 100%;
@@ -174,7 +174,7 @@ header {
 .header-main-content {
     display: flex;
     align-items: center;
-    justify-content: center;
+    justify-content: flex-start; /* CHANGED: Left-aligns branding elements row to balance box */
     gap: 40px;
     flex-grow: 1;
     margin-right: 20px;
@@ -184,7 +184,7 @@ header {
 .osd-logo { height: 70px; }
 .g4v-logo { height: 90px; }
 
-.header-titles { text-align: center; }
+.header-titles { text-align: left; } /* CHANGED: Left-aligned text perfectly frames the layout flow */
 
 .header-titles h1 {
     color: var(--text-dim);
@@ -192,26 +192,65 @@ header {
     font-size: 1.6rem;
 }
 
-.header-qr {
+/* --- OPTION 2 STRUCTURED ACTION CARD --- */
+.header-action-box {
+    background: #11161d;
+    border: 1px solid #1a222d;
+    border-radius: 6px;
+    padding: 10px 14px;
     display: flex;
     flex-direction: column;
-    align-items: center;
-    width: 100px;
-    text-align: center;
+    gap: 6px;
+    align-items: flex-start; /* Keeps title and inner components aligned left */
+    flex-shrink: 0;          /* Prevents browser scaling engine from crushing the layout */
+}
+
+/* Action Box section label title */
+.action-box-label {
+    font-size: 0.65rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: #4b5a6c;
+    margin: 0;
+}
+
+/* Structural formatting for the contents inside the box */
+.header-qr {
+    display: flex;
+    flex-direction: row;    /* CHANGED: Forces image and text to align horizontally side-by-side */
+    align-items: center;    /* Vertically centers code image with text */
+    gap: 12px;              /* Clean gap spacing separating components */
+    text-align: left;
 }
 
 .header-qr img {
-    width: 75px;
-    height: 75px;
+    width: 50px;            /* CHANGED: Sized compactly to match dashboard component scales */
+    height: 50px;
+    background: #ffffff;    /* Clear white card backdrop for perfect scanning visibility */
+    padding: 2px;
+    border-radius: 4px;
+    flex-shrink: 0;
 }
 
 .header-qr p {
     font-size: 0.65rem;
-    color: #FFD700;
-    margin-top: 5px;
+    color: #8899a6;         /* Changed text color slightly for balance; link handles contrast */
+    margin: 0;
     font-weight: bold;
+    line-height: 1.3;
+    max-width: 110px;       /* Constrained width to gracefully drop words onto a new line */
 }
 
+/* Hyperlink styling signature inside the tracker box */
+.header-qr p a {
+    color: #FFD700;         /* Restores your signature yellow color variable strictly for the link text */
+    text-decoration: none;
+}
+
+.header-qr p a:hover {
+    text-decoration: underline;
+}
 /* -----------------------------
    IMPACT CARDS
 ------------------------------*/
