@@ -228,7 +228,7 @@ function buildDashboard(cycleData) {
             const statusText = (vet.status || "").toLowerCase().trim();
             const availabilityText = (vet.availability || "").toLowerCase().trim();
 
-            if (statusText !== "dropped") reached.add(vetKey);
+            if (statusText !== "dropped" && statusText !== "waiting" && statusText !== "deferred") reached.add(vetKey);
 
             if (statusText === "graduated" && availabilityText === "completed") {
                 alumni.add(vetKey);
