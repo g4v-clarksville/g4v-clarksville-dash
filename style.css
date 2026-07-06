@@ -215,57 +215,63 @@ header {
 /* -----------------------------
    IMPACT CARDS
 ------------------------------*/
-/* 1. NEW CONTAINER FOR THE YEAR SELECTOR (TOP ROW) */
-.year-filter-container {
+/* ==========================================================================
+   YEAR TIMELINE TRACK SELECTOR (TOP ROW)
+   ========================================================================== */
+.year-projection-timeline {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start; /* Aligns left to match the stat grid alignment */
+    gap: 8px;
+    margin-top: 15px;
+    margin-bottom: 20px;     /* Spacing separating timeline from metrics row */
     width: 100%;
     max-width: 1200px;
-    margin: 0 auto 16px auto; /* 16px spacing below it, centers with stats */
     padding: 0 40px;
-    display: flex;
-    justify-content: flex-start; /* Aligns row to the left */
+    margin-left: auto;
+    margin-right: auto;
 }
 
-/* Flex row holding the pills cleanly */
-.year-options {
+.timeline-track {
     display: flex;
-    flex-direction: row;
-    gap: 8px; /* Tight, compact gap between pills */
-    flex-wrap: nowrap; /* Forces them to stay in a single row */
-}
-
-/* Individual year pill styling - matches your original compact size */
-.year-pill {
-    background: #11161d;
+    background: #0f141c;
     border: 1px solid #1a222d;
-    border-radius: 6px;
+    padding: 3px;
+    border-radius: 20px;
+    gap: 4px;
+    box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.4);
+}
+
+.btn-year {
+    background: transparent;
+    border: none;
+    color: #8899a6;
     padding: 6px 16px;
-    font-size: 0.8rem;
-    font-weight: 600;
-    color: #718096;
+    font-size: 0.75rem;
+    font-weight: 700;
+    border-radius: 16px;
     cursor: pointer;
-    transition: all 0.2s ease;
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
+    transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-/* Hover state for user feedback */
-.year-pill:hover {
-    border-color: #475569;
+.btn-year:hover {
     color: #ffffff;
+    background: rgba(255, 255, 255, 0.03);
 }
 
-/* Active selected year state */
-.year-pill.active {
-    border-color: #0ea5e9; /* Light blue active border */
-    color: #ffffff;
-    box-shadow: 0 0 8px rgba(14, 165, 233, 0.3);
+.btn-year.active {
+    background: #1a2332;
+    color: #00d2ff;
+    border: 1px solid #253447;
+    box-shadow: 0 2px 6px rgba(0, 210, 255, 0.15);
 }
 
-/* 2. STAT CARDS ROW (BOTTOM ROW) */
+/* ==========================================================================
+   STAT CARDS SYSTEM (BOTTOM ROW)
+   ========================================================================== */
 #impact-summary {
     display: flex;
-    justify-content: center;
+    justify-content: flex-start;
     align-items: stretch;       
     gap: 12px;
     width: 100%;
@@ -284,14 +290,14 @@ header {
     height: 100px;              
     display: flex;
     flex-direction: column;
-    justify-content: center;    
-    align-items: center;        
-    text-align: center;         
+    justify-content: space-between; /* Keeps content distributed vertically */
+    align-items: flex-start;        /* Left-aligned content matching example */
+    text-align: left;               /* Left-aligned text matching example */
     position: relative;
     overflow: hidden;
 }
 
-/* The left accent color bar indicator */
+/* Thin vertical left accent bar indicator strip */
 .stat-card::before {
     content: '';
     position: absolute;
@@ -302,7 +308,7 @@ header {
     background-color: var(--accent-color, #00b4d8);
 }
 
-/* Unique theme assignments to replicate the image variations */
+/* Original theme accent bindings */
 .stat-card.vets-reached   { --accent-color: #10b981; }
 .stat-card.grad-alumni    { --accent-color: #34d399; }
 .stat-card.active-cohort  { --accent-color: #0ea5e9; }
@@ -315,7 +321,6 @@ header {
     color: #718096;
     letter-spacing: 0.3px;
     line-height: 1.2;
-    margin-bottom: 6px;         
 }
 
 .stat-value {
@@ -323,24 +328,23 @@ header {
     font-weight: 700;
     color: var(--accent-color, #ffffff);
     line-height: 1.1;
-    margin-bottom: 8px;         
+    margin-bottom: 4px;
 }
 
-/* Mini Progress Bar Track */
+/* Bottom Progress Track Row */
 .metric-anchor-line {
-    width: 80%;                 
+    width: 100%;                 
     height: 3px;
     background: #1a222d;
     border-radius: 2px;
     overflow: hidden;
+    margin-top: auto;
 }
 
-/* Mini Progress Bar Indicator filling up a portion */
 .metric-anchor-line div {
     height: 100%;
     background-color: var(--accent-color, #00b4d8);
     border-radius: 2px;
-    width: 40%;
 }
 /* -----------------------------
    SEARCH
