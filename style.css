@@ -215,10 +215,58 @@ header {
 /* -----------------------------
    IMPACT CARDS
 ------------------------------*/
+/* 1. NEW CONTAINER FOR THE YEAR SELECTOR (TOP ROW) */
+.year-filter-container {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto 16px auto; /* 16px spacing below it, centers with stats */
+    padding: 0 40px;
+    display: flex;
+    justify-content: flex-start; /* Aligns row to the left */
+}
+
+/* Flex row holding the pills cleanly */
+.year-options {
+    display: flex;
+    flex-direction: row;
+    gap: 8px; /* Tight, compact gap between pills */
+    flex-wrap: nowrap; /* Forces them to stay in a single row */
+}
+
+/* Individual year pill styling - matches your original compact size */
+.year-pill {
+    background: #11161d;
+    border: 1px solid #1a222d;
+    border-radius: 6px;
+    padding: 6px 16px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: #718096;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Hover state for user feedback */
+.year-pill:hover {
+    border-color: #475569;
+    color: #ffffff;
+}
+
+/* Active selected year state */
+.year-pill.active {
+    border-color: #0ea5e9; /* Light blue active border */
+    color: #ffffff;
+    box-shadow: 0 0 8px rgba(14, 165, 233, 0.3);
+}
+
+/* 2. STAT CARDS ROW (BOTTOM ROW) */
 #impact-summary {
     display: flex;
     justify-content: center;
-    align-items: stretch;       /* Ensures all mini-cards and the year box match height perfectly */
+    align-items: stretch;       
     gap: 12px;
     width: 100%;
     max-width: 1200px;
@@ -230,15 +278,15 @@ header {
     background: #11161d;
     border: 1px solid #1a222d;
     border-radius: 6px;
-    padding: 16px 14px;         /* Increased top/bottom padding slightly for better proportion */
+    padding: 16px 14px;         
     flex: 1;
     min-width: 130px;
-    height: 100px;              /* OPTIONAL: Hardcode a smaller height if you want them more compact */
+    height: 100px;              
     display: flex;
     flex-direction: column;
-    justify-content: center;    /* CHANGED: Centers the content vertically */
-    align-items: center;        /* CHANGED: Centers the content horizontally */
-    text-align: center;         /* CHANGED: Centers the text alignment */
+    justify-content: center;    
+    align-items: center;        
+    text-align: center;         
     position: relative;
     overflow: hidden;
 }
@@ -267,7 +315,7 @@ header {
     color: #718096;
     letter-spacing: 0.3px;
     line-height: 1.2;
-    margin-bottom: 6px;         /* Slightly adjusted for vertical centering symmetry */
+    margin-bottom: 6px;         
 }
 
 .stat-value {
@@ -275,12 +323,12 @@ header {
     font-weight: 700;
     color: var(--accent-color, #ffffff);
     line-height: 1.1;
-    margin-bottom: 8px;         /* Keeps spacing clean above the line */
+    margin-bottom: 8px;         
 }
 
 /* Mini Progress Bar Track */
 .metric-anchor-line {
-    width: 80%;                 /* CHANGED: Shrunk from 100% so it looks tighter when centered */
+    width: 80%;                 
     height: 3px;
     background: #1a222d;
     border-radius: 2px;
@@ -293,35 +341,6 @@ header {
     background-color: var(--accent-color, #00b4d8);
     border-radius: 2px;
     width: 40%;
-}
-
-/* Adjusting the Year Selector container wrapper to match seamlessly */
-/* Adjusting the Year Selector container wrapper */
-.stat-card.year-selector-card {
-    flex: 2;                       /* Give it a bit more room horizontally if needed */
-    padding: 8px 12px;             /* Tighten padding to maximize breathing room */
-    --accent-color: #475569;
-    
-    display: flex;
-    flex-direction: column;
-    justify-content: center;       /* Centers the content vertically */
-    align-items: center;           /* Centers it horizontally to match the rest */
-}
-
-/* Force the grid/container holding your buttons to fit perfectly */
-.stat-card.year-selector-card .year-buttons-container, 
-.stat-card.year-selector-card .grid-class-name-you-are-using { 
-    display: flex;
-    flex-wrap: wrap;               /* Lets them wrap cleanly if screen shrinks */
-    gap: 6px;                      /* Reduce spacing between buttons */
-    justify-content: center;
-    width: 100%;
-}
-
-/* Make sure individual year buttons are compact */
-.stat-card.year-selector-card button {
-    padding: 4px 8px !important;   /* Reduce internal padding of buttons */
-    font-size: 0.8rem;             /* Make text slightly smaller if needed */
 }
 /* -----------------------------
    SEARCH
