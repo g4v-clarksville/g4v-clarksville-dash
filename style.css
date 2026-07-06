@@ -166,9 +166,10 @@ header {
 .header-inner {
     display: flex;
     align-items: center;
-    justify-content: space-between;
+    justify-content: center;
     padding: 20px 40px;
     width: 100%;
+    position: relative;
 }
 
 .header-main-content {
@@ -176,8 +177,6 @@ header {
     align-items: center;
     justify-content: center; /* CHANGED: Left-aligns branding elements row to balance box */
     gap: 40px;
-    flex-grow: 1;
-    margin-right: 160px;
 }
 
 .header-logo { height: 80px; object-fit: contain; }
@@ -202,7 +201,10 @@ header {
     flex-direction: column;
     gap: 6px;
     align-items: flex-start; /* Keeps title and inner components aligned left */
-    flex-shrink: 0;          /* Prevents browser scaling engine from crushing the layout */
+    position: absolute;
+    right: 40px;
+    top: 50%;
+    transform: translateY(-50%);/* Prevents browser scaling engine from crushing the layout */
 }
 
 /* Action Box section label title */
