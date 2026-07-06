@@ -216,15 +216,15 @@ header {
    IMPACT CARDS
 ------------------------------*/
 /* ==========================================================================
-   YEAR TIMELINE TRACK SELECTOR (TOP ROW)
+   YEAR TIMELINE TRACK SELECTOR (CENTERED)
    ========================================================================== */
 .year-projection-timeline {
     display: flex;
     flex-direction: column;
-    align-items: flex-start; /* Aligns left to match the stat grid alignment */
+    align-items: center;     /* CHANGED: Centers the timeline capsule container horizontally */
     gap: 8px;
     margin-top: 15px;
-    margin-bottom: 20px;     /* Spacing separating timeline from metrics row */
+    margin-bottom: 20px;     
     width: 100%;
     max-width: 1200px;
     padding: 0 40px;
@@ -267,7 +267,7 @@ header {
 }
 
 /* ==========================================================================
-   STAT CARDS SYSTEM (BOTTOM ROW)
+   STAT CARDS SYSTEM (COMPACT & SMALLER)
    ========================================================================== */
 #impact-summary {
     display: flex;
@@ -284,15 +284,16 @@ header {
     background: #11161d;
     border: 1px solid #1a222d;
     border-radius: 6px;
-    padding: 16px 14px;         
+    padding: 10px 12px;         /* CHANGED: Tighter padding to match smaller example size */
     flex: 1;
+    max-width: 200px;           /* CHANGED: Limits maximum size so they don't stretch too wide */
     min-width: 130px;
-    height: 100px;              
+    height: 85px;               /* CHANGED: Shrunk vertical height for a smaller footprint */
     display: flex;
     flex-direction: column;
-    justify-content: space-between; /* Keeps content distributed vertically */
-    align-items: flex-start;        /* Left-aligned content matching example */
-    text-align: left;               /* Left-aligned text matching example */
+    justify-content: space-between; 
+    align-items: flex-start;        
+    text-align: left;               
     position: relative;
     overflow: hidden;
 }
@@ -316,19 +317,19 @@ header {
 .stat-card.avg-days       { --accent-color: #f97316; }
 
 .stat-label {
-    font-size: 0.72rem;
-    font-weight: 600;
-    color: #718096;
+    font-size: 0.7rem;          /* CHANGED: Slightly adjusted font sizing to balance smaller card */
+    font-weight: 700;
+    color: #8899a6;
     letter-spacing: 0.3px;
     line-height: 1.2;
 }
 
 .stat-value {
-    font-size: 1.6rem;
-    font-weight: 700;
+    font-size: 1.4rem;          /* CHANGED: Slightly downscaled to match the compact framework */
+    font-weight: 800;
     color: var(--accent-color, #ffffff);
     line-height: 1.1;
-    margin-bottom: 4px;
+    margin-bottom: 2px;
 }
 
 /* Bottom Progress Track Row */
