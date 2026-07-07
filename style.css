@@ -305,7 +305,7 @@ header {
     border-radius: 6px;
     padding: 10px 12px;
     flex: 1;
-    max-width: 200px;
+    /*max-width: 200px;*/
     min-width: 130px;
     height: 85px;
     display: flex;
