@@ -40,12 +40,12 @@ body {
 
 /* -----------------------------
     GRADUATION BANNER
-------------------------------*/
+------------------------------
 .banner-container { 
     margin-bottom: 20px; 
     width: 100%; 
 }
-
+*/
 .g4v-grad-banner {
     width: 100%;
     background-color: #002d72;
@@ -365,7 +365,8 @@ header {
     DASHBOARD ROOT & CONTENT WRAPPERS
 ------------------------------*/
 #dashboard-root, 
-.content-width {
+.content-width,
+.banner-container {
     width: 100%;
     max-width: 1120px;
     margin: 0 auto;
