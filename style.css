@@ -372,6 +372,8 @@ header {
     max-width: 1200px;
     margin: 0 auto;
     padding-bottom: 60px;
+    padding-left: 40px;
+    padding-right: 40px;
 }
 
 /* -----------------------------
@@ -500,16 +502,20 @@ td {
         padding: 15px 20px;
     }
 
+    /* Update this block to scale down the dashboard wrapping padding together */
+    #impact-summary, #dashboard-root, .year-projection-timeline {
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+
     #impact-summary {
         flex-direction: column;
-        padding: 0 20px;
     }
 
     .g4v-collage-photo {
         max-width: 90px;
     }
 }
-
 @media (max-width: 480px) {
     .header-titles h1 {
         font-size: 1.2rem;
