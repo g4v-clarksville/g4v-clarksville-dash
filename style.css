@@ -520,4 +520,75 @@ td {
     .header-titles h1 {
         font-size: 1.2rem;
     }
+/* ==========================================================================
+    SCROLLING ANNOUNCEMENT TICKER
+   ========================================================================== */
+.announcement-ticker {
+    display: flex;
+    align-items: center;
+    background: #11161d;
+    border: 1px solid var(--border-color);
+    border-radius: 6px;
+    margin-bottom: 15px;
+    overflow: hidden;
+    height: 36px;
+    box-sizing: border-box;
+}
+
+/* Static badge label on the far left */
+.ticker-label {
+    background: #002d72;
+    color: #FFD700;
+    font-size: 0.65rem;
+    font-weight: 800;
+    letter-spacing: 0.05em;
+    padding: 0 12px;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    border-right: 1px solid var(--border-color);
+    white-space: nowrap;
+    z-index: 2;
+}
+
+/* Moving viewport box container */
+.ticker-wrap {
+    flex: 1; /* Fixed typo from flex-content: 1 */
+    overflow: hidden;
+    width: 100%;
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+/* Continuous moving track layout line */
+.ticker-track {
+    display: flex;
+    white-space: nowrap;
+    animation: ticker-loop 35s linear infinite; /* Adjusted to 35s to account for more items */
+}
+
+/* Allows user to freeze scrolling when hovering over an item */
+.ticker-track:hover {
+    animation-play-state: paused;
+}
+
+/* Layout spacer rules for text nodes */
+.ticker-item {
+    display: inline-block;
+    padding: 0 35px;
+    font-size: 0.8rem;
+    color: var(--text-dim);
+    font-weight: 600;
+}
+
+/* Endless Hardware Accelerated Loop Translate Map */
+@keyframes ticker-loop {
+    0% {
+        transform: translate3d(0, 0, 0);
+    }
+    100% {
+        transform: translate3d(-50%, 0, 0); /* Stops exactly halfway through the duplicate track */
+    }
+}
 }
