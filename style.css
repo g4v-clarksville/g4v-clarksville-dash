@@ -367,10 +367,16 @@ header {
 /* -----------------------------
     DASHBOARD ROOT
 ------------------------------*/
-#dashboard-root {
+#dashboard-root, 
+.content-width {
     width: 100%;
-    max-width: 1120px;
+    max-width: 1120px; /* Or whatever your target width is for the cycles */
     margin: 0 auto;
+    padding-left: 0;
+    padding-right: 0;
+}
+
+#dashboard-root {
     padding-bottom: 60px;
 }
 
@@ -409,8 +415,9 @@ header {
     border-left: 5px solid var(--border-glow);
     border-radius: 8px;
     padding: 6px 12px;
-    overflow: hidden;
     margin-bottom: 15px;
+    box-sizing: border-box; 
+    width: 100%; /* Now forces it to match .content-width perfectly */
 }
 
 #waitlist-header {
