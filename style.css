@@ -293,7 +293,7 @@ header {
     width: 100%;
     max-width: 1120px;
     margin: 0 auto 24px auto;
-    padding: 0 40px;
+    padding: 0;
 }
 
 .stat-card {
@@ -309,7 +309,7 @@ header {
     flex-direction: column;
     justify-content: space-between; 
     align-items: flex-start;        
-    text-align: left;               
+    text-align: left;                
     position: relative;
     overflow: hidden;
 }
@@ -362,12 +362,12 @@ header {
 }
 
 /* -----------------------------
-    DASHBOARD ROOT
+    DASHBOARD ROOT & CONTENT WRAPPERS
 ------------------------------*/
 #dashboard-root, 
 .content-width {
     width: 100%;
-    max-width: 1120px; /* Or whatever your target width is for the cycles */
+    max-width: 1120px;
     margin: 0 auto;
     padding-left: 0;
     padding-right: 0;
@@ -414,7 +414,7 @@ header {
     padding: 6px 12px;
     margin-bottom: 15px;
     box-sizing: border-box; 
-    width: 100%; /* Now forces it to match .content-width perfectly */
+    width: 100%;
 }
 
 #waitlist-header {
@@ -492,6 +492,77 @@ td {
     word-wrap: break-word;
 }
 
+/* ==========================================================================
+    SCROLLING ANNOUNCEMENT TICKER (GLOBAL SPECIFICATION)
+   ========================================================================== */
+.announcement-ticker {
+    display: flex;
+    align-items: center;
+    background: #11161d;
+    border: 1px solid var(--border-color);
+    border-radius: 6px;
+    margin-bottom: 15px;
+    overflow: hidden;
+    height: 38px;
+    box-sizing: border-box;
+    width: 100%;
+}
+
+.ticker-label {
+    background: #002d72;
+    color: #FFD700;
+    font-size: 0.65rem;
+    font-weight: 800;
+    letter-spacing: 0.05em;
+    padding: 0 14px;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    border-right: 1px solid var(--border-color);
+    white-space: nowrap;
+    z-index: 5;
+}
+
+.ticker-wrap {
+    flex: 1;
+    overflow: hidden;
+    position: relative;
+    display: flex;
+    align-items: center;
+    height: 100%;
+    width: 100%;
+}
+
+.ticker-track {
+    display: flex !important;
+    white-space: nowrap !important;
+    will-change: transform;
+    animation: ticker-loop 40s linear infinite;
+}
+
+.ticker-track:hover {
+    animation-play-state: paused;
+    cursor: pointer;
+}
+
+.ticker-item {
+    display: inline-block;
+    padding: 0 40px;
+    font-size: 0.8rem;
+    color: var(--text-dim);
+    font-weight: 600;
+    white-space: nowrap;
+}
+
+@keyframes ticker-loop {
+    0% {
+        transform: translate3d(0, 0, 0);
+    }
+    100% {
+        transform: translate3d(-50%, 0, 0);
+    }
+}
+
 /* -----------------------------
     RESPONSIVE MEDIA QUERIES
 ------------------------------*/
@@ -502,7 +573,6 @@ td {
         padding: 15px 20px;
     }
 
-    /* Update this block to scale down the dashboard wrapping padding together */
     #impact-summary, #dashboard-root, .year-projection-timeline {
         padding-left: 20px;
         padding-right: 20px;
@@ -516,79 +586,9 @@ td {
         max-width: 90px;
     }
 }
+
 @media (max-width: 480px) {
     .header-titles h1 {
         font-size: 1.2rem;
     }
-/* ==========================================================================
-    SCROLLING ANNOUNCEMENT TICKER
-   ========================================================================== */
-.announcement-ticker {
-    display: flex;
-    align-items: center;
-    background: #11161d;
-    border: 1px solid var(--border-color);
-    border-radius: 6px;
-    margin-bottom: 15px;
-    overflow: hidden;
-    height: 36px;
-    box-sizing: border-box;
-}
-
-/* Static badge label on the far left */
-.ticker-label {
-    background: #002d72;
-    color: #FFD700;
-    font-size: 0.65rem;
-    font-weight: 800;
-    letter-spacing: 0.05em;
-    padding: 0 12px;
-    height: 100%;
-    display: flex;
-    align-items: center;
-    border-right: 1px solid var(--border-color);
-    white-space: nowrap;
-    z-index: 2;
-}
-
-/* Moving viewport box container */
-.ticker-wrap {
-    flex: 1; /* Fixed typo from flex-content: 1 */
-    overflow: hidden;
-    width: 100%;
-    position: relative;
-    display: flex;
-    align-items: center;
-}
-
-/* Continuous moving track layout line */
-.ticker-track {
-    display: flex;
-    white-space: nowrap;
-    animation: ticker-loop 35s linear infinite; /* Adjusted to 35s to account for more items */
-}
-
-/* Allows user to freeze scrolling when hovering over an item */
-.ticker-track:hover {
-    animation-play-state: paused;
-}
-
-/* Layout spacer rules for text nodes */
-.ticker-item {
-    display: inline-block;
-    padding: 0 35px;
-    font-size: 0.8rem;
-    color: var(--text-dim);
-    font-weight: 600;
-}
-
-/* Endless Hardware Accelerated Loop Translate Map */
-@keyframes ticker-loop {
-    0% {
-        transform: translate3d(0, 0, 0);
-    }
-    100% {
-        transform: translate3d(-50%, 0, 0); /* Stops exactly halfway through the duplicate track */
-    }
-}
 }
