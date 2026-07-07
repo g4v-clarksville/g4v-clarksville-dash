@@ -296,7 +296,7 @@ header {
     width: 100%;
     max-width: 1120px;
     margin: 0 auto 24px auto;
-    padding: 0;
+    padding: 0 40px;
 }
 
 .stat-card {
@@ -305,7 +305,7 @@ header {
     border-radius: 6px;
     padding: 10px 12px;
     flex: 1;
-    /*max-width: 200px;*/
+    max-width: 200px;
     min-width: 130px;
     height: 85px;
     display: flex;
@@ -372,8 +372,6 @@ header {
     max-width: 1120px;
     margin: 0 auto;
     padding-bottom: 60px;
-    padding-left: 0;
-    padding-right: 0;
 }
 
 /* -----------------------------
