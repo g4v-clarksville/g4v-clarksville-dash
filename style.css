@@ -413,8 +413,6 @@ header {
     padding: 6px 12px;
     overflow: hidden;
     margin-bottom: 15px;
-    box-sizing: border-box; 
-    width: 100%;
 }
 
 #waitlist-header {
