@@ -143,9 +143,10 @@ header {
     display: flex;
     align-items: center;
     justify-content: center;
+    gap: 40px;
+    flex-wrap: wrap;
     padding: 20px 40px;
     width: 100%;
-    position: relative;
 }
 
 .header-main-content {
@@ -153,6 +154,8 @@ header {
     align-items: center;
     justify-content: center;
     gap: 40px;
+    flex: 1;
+    min-width: 300px;
 }
 
 .header-logo { height: 80px; object-fit: contain; }
@@ -173,22 +176,16 @@ header {
 
 /* --- OPTION 2 STRUCTURED ACTION CARD --- */
 .header-action-box {
-    /* Base Styling */
     background: #11161d;
     border: 1px solid #1a222d;
     border-radius: 6px;
     padding: 10px 14px;
-    
-    /* Layout using Flexbox */
     display: flex;
     flex-direction: column;
     gap: 6px;
     align-items: flex-start;
-    
-    /* Ensure it behaves correctly in the flow */
     position: static;
-    flex-shrink: 0; /* Prevents the box from squishing */
-    width: auto;    /* Adjusts to internal content width */
+    flex-shrink: 0;
 }
 
 .action-box-label {
@@ -291,8 +288,9 @@ header {
    ========================================================================== */
 #impact-summary {
     display: flex;
-    justify-content: flex-start;
-    align-items: stretch;       
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;       
     gap: 12px;
     width: 100%;
     max-width: 1120px;
@@ -305,9 +303,9 @@ header {
     border: 1px solid #1a222d;
     border-radius: 6px;
     padding: 10px 12px;
-    flex: 1 1 150px;
+    flex: 1 1 180px;
     max-width: 200px;
-    min-width: 130px;
+    min-width: 150px;
     height: 85px;
     display: flex;
     flex-direction: column;
