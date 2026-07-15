@@ -56,12 +56,10 @@
     <div class="header-inner">
         <div class="header-main-content">
             <img src="Picture1.png" class="header-logo g4v-logo">
-
             <div class="header-titles">
                 <h1>Guitars For Vets: Clarksville</h1>
                 <p class="chapter-metadata">Chapter #287 • Est. February 18, 2026</p>
             </div>
-
             <img src="OSD logo.png" class="header-logo osd-logo">
         </div>
 
@@ -91,6 +89,7 @@
         <span class="stat-label">Veterans Reached</span>
         <span id="total-vets" class="stat-value">0</span>
         <div class="metric-anchor-line"><div style="width: 85%;"></div></div>
+    </div>
     </div>
 
     <div class="stat-card grad-alumni">
@@ -520,26 +519,23 @@ function filterByYear(year) {
 
     buildDashboard(filtered);
 }
-
+function initializeYearSelector() {
+    // Change '.year-pill' to '.btn-year'
+    document.querySelectorAll('.btn-year').forEach(btn => {
+        btn.addEventListener('click', () => {
+            document.querySelectorAll('.btn-year').forEach(p => p.classList.remove('active'));
+            btn.classList.add('active');
+            filterByYear(btn.textContent.trim());
+        });
+    });
+}
 /* -----------------------------
     INIT
 ----------------------------- */
 initializeYearSelector();
 loadDataFromGoogle();
 
-function initializeYearSelector() {
-    document.querySelectorAll('.year-pill').forEach(pill => {
-        if (pill.textContent.trim() === "2026") {
-            pill.classList.add('active');
-        }
 
-        pill.addEventListener('click', () => {
-            document.querySelectorAll('.year-pill').forEach(p => p.classList.remove('active'));
-            pill.classList.add('active');
-            filterByYear(pill.textContent.trim());
-        });
-    });
-}
 </script>
 </body>
 </html>
