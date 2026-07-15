@@ -139,15 +139,14 @@ header {
     width: 100%;
 }
 
-.header-inner {
+ .header-inner {
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 40px;
-    flex-wrap: wrap;
     padding: 20px 40px;
     width: 100%;
-}
+    position: relative;
+} 
 
 .header-main-content {
     display: flex;
@@ -184,8 +183,10 @@ header {
     flex-direction: column;
     gap: 6px;
     align-items: flex-start;
-    position: static;
-    flex-shrink: 0;
+    position: absolute;
+    right: 40px;
+    top: 50%;
+    transform: translateY(-50%); 
 }
 
 .action-box-label {
@@ -286,26 +287,25 @@ header {
 /* ==========================================================================
     STAT CARDS SYSTEM
    ========================================================================== */
-#impact-summary {
+ #impact-summary {
     display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    justify-content: center;       
+    justify-content: flex-start;
+    align-items: stretch;       
     gap: 12px;
     width: 100%;
     max-width: 1120px;
     margin: 0 auto 24px auto;
     padding: 0;
-}
+} 
 
 .stat-card {
     background: #11161d;
     border: 1px solid #1a222d;
     border-radius: 6px;
     padding: 10px 12px;
-    flex: 1 1 180px;
+    flex: 1;
     max-width: 200px;
-    min-width: 150px;
+    min-width: 130px;
     height: 85px;
     display: flex;
     flex-direction: column;
