@@ -301,7 +301,7 @@ header {
     border: 1px solid #1a222d;
     border-radius: 6px;
     padding: 10px 12px;
-    flex: 1;
+    flex: 1 1 150px;
     max-width: 200px;
     min-width: 130px;
     height: 85px;
@@ -572,6 +572,13 @@ td {
         flex-direction: column;
         gap: 12px;
         padding: 15px 20px;
+    }
+
+    .header-action-box {
+        position: static; /* Remove the absolute lock */
+        margin-top: 15px;
+        width: 100%;
+        text-align: center;
     }
 
     #impact-summary, #dashboard-root, .year-projection-timeline {
