@@ -143,11 +143,11 @@ header {
     display: flex;
     flex-direction: row;
     align-items: center;
-    justify-content: space-between;
+    justify-content: center;
     padding: 20px 40px;
     width: 100%;
-    max-width: 1120px;
-    /*position: relative;*/
+    /*max-width: 1120px;*/
+    position: relative;
 }
 
 .header-main-content {
@@ -181,16 +181,14 @@ header {
     padding: 10px 14px;
     display: flex;
     flex-direction: column;
-    /*gap: 6px;*/
-    align-items: center;
+    gap: 6px;
+    align-items: flex-start;
     position: absolute;
-    width: 200px;
-    margin-left: auto;
-    flex-shrink: 0;
-    /*right: 40px;
+    right: 40px;
     top: 50%;
-    transform: translateY(-50%);*/
+    transform: translateY(-50%);
 }
+
 
 .action-box-label {
     font-size: 0.65rem;
