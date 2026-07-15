@@ -44,8 +44,8 @@ body {
 .banner-container { 
     margin-bottom: 20px; 
     width: 100%; 
-}
-*/
+}*/
+
 .g4v-grad-banner {
     width: 100%;
     background-color: #002d72;
@@ -72,6 +72,7 @@ body {
     margin-top: 10px;
     border-radius: 4px;
 }
+
 .archive-toggle:hover { background: #132D64; }
 
 /* -----------------------------
@@ -118,6 +119,7 @@ body {
 }
 
 /* Hover magnification logic updates */
+
 .g4v-collage-photo:nth-child(1):hover { transform: scale(1.95); }
 .g4v-collage-photo:nth-child(2):hover,
 .g4v-collage-photo:nth-child(3):hover,
@@ -130,6 +132,7 @@ body {
 .g4v-collage-photo:nth-child(7):hover,
 .g4v-collage-photo:nth-child(8):hover {
     transform: rotate(0deg) scale(1.95);
+
 }
 
 /* -----------------------------
@@ -139,22 +142,20 @@ header {
     width: 100%;
 }
 
- .header-inner {
+.header-inner {
     display: flex;
     align-items: center;
     justify-content: center;
     padding: 20px 40px;
     width: 100%;
     position: relative;
-} 
+}
 
 .header-main-content {
     display: flex;
     align-items: center;
-    justify-content: center;
-    gap: 40px;
-    flex: 1;
-    min-width: 300px;
+	justify-content: center;
+	gap: 40px;
 }
 
 .header-logo { height: 80px; object-fit: contain; }
@@ -166,7 +167,6 @@ header {
 }
 
 .header-titles { text-align: center; }
-
 .header-titles h1 {
     color: var(--text-dim);
     margin: 0;
@@ -186,7 +186,7 @@ header {
     position: absolute;
     right: 40px;
     top: 50%;
-    transform: translateY(-50%); 
+    transform: translateY(-50%);
 }
 
 .action-box-label {
@@ -209,8 +209,8 @@ header {
 .header-qr img {
     width: 50px;
     height: 50px;
-    background: #ffffff;
-    padding: 2px;
+	background: #ffffff;
+	padding: 2px;
     border-radius: 4px;
     flex-shrink: 0;
 }
@@ -236,6 +236,7 @@ header {
 /* ==========================================================================
     YEAR TIMELINE TRACK SELECTOR (CENTERED)
    ========================================================================== */
+
 .year-projection-timeline {
     display: flex;
     flex-direction: column;
@@ -287,7 +288,7 @@ header {
 /* ==========================================================================
     STAT CARDS SYSTEM
    ========================================================================== */
- #impact-summary {
+#impact-summary {
     display: flex;
     justify-content: flex-start;
     align-items: stretch;       
@@ -296,7 +297,7 @@ header {
     max-width: 1120px;
     margin: 0 auto 24px auto;
     padding: 0;
-} 
+}
 
 .stat-card {
     background: #11161d;
@@ -366,11 +367,12 @@ header {
 /* -----------------------------
     DASHBOARD ROOT & CONTENT WRAPPERS
 ------------------------------*/
+
 #dashboard-root, 
 .content-width,
 .banner-container {
     width: 100%;
-    max-width: 1120px;
+	max-width: 1120px;
     margin: 0 auto;
     padding-left: 0;
     padding-right: 0;
@@ -403,7 +405,7 @@ header {
 }
 
 .card-toggle-arrow {
-    display: inline-block;
+    display: inline block;
     transition: transform 0.2s ease;
     margin-right: 8px;
     cursor: pointer;
@@ -436,6 +438,7 @@ header {
 /* -----------------------------
     CARD HEADER LAYOUT
 ------------------------------*/
+
 .card-header {
     display: flex;
     justify-content: space-between;
@@ -458,6 +461,7 @@ header {
     display: inline-flex; 
     align-items: center; 
 }
+
 .timeline-label { color: var(--accent-orange); font-size: 0.7rem; margin-right: 10px; }
 .timeline-dates { color: var(--text-bright); font-size: 0.9rem; font-family: 'Courier New', Courier, monospace; }
 
@@ -473,11 +477,13 @@ header {
 /* -----------------------------
     TABLES
 ------------------------------*/
+
 table {
     width: 100%;
     border-collapse: collapse;
     table-layout: fixed;
     margin-top: 15px;
+
 }
 
 th {
@@ -487,6 +493,7 @@ th {
     font-size: 0.85rem;
     border-bottom: 1px solid var(--border-color);
     padding: 10px;
+
 }
 
 td {
@@ -498,6 +505,7 @@ td {
 /* ==========================================================================
     SCROLLING ANNOUNCEMENT TICKER (GLOBAL SPECIFICATION)
    ========================================================================== */
+
 .announcement-ticker {
     display: flex;
     align-items: center;
@@ -510,6 +518,7 @@ td {
     box-sizing: border-box;
     width: 100%;
 }
+
 
 .ticker-label {
     background: #002d72;
@@ -549,6 +558,7 @@ td {
 }
 
 .ticker-item {
+
     display: inline-block;
     padding: 0 40px;
     font-size: 0.8rem;
@@ -593,5 +603,7 @@ td {
 @media (max-width: 480px) {
     .header-titles h1 {
         font-size: 1.2rem;
+
     }
-}
+
+} 
