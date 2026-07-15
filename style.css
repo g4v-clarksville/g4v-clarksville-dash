@@ -173,18 +173,22 @@ header {
 
 /* --- OPTION 2 STRUCTURED ACTION CARD --- */
 .header-action-box {
+    /* Base Styling */
     background: #11161d;
     border: 1px solid #1a222d;
     border-radius: 6px;
     padding: 10px 14px;
+    
+    /* Layout using Flexbox */
     display: flex;
     flex-direction: column;
     gap: 6px;
     align-items: flex-start;
-    position: absolute;
-    right: 40px;
-    top: 50%;
-    transform: translateY(-50%);
+    
+    /* Ensure it behaves correctly in the flow */
+    position: static;
+    flex-shrink: 0; /* Prevents the box from squishing */
+    width: auto;    /* Adjusts to internal content width */
 }
 
 .action-box-label {
@@ -572,13 +576,6 @@ td {
         flex-direction: column;
         gap: 12px;
         padding: 15px 20px;
-    }
-
-    .header-action-box {
-        position: static; /* Remove the absolute lock */
-        margin-top: 15px;
-        width: 100%;
-        text-align: center;
     }
 
     #impact-summary, #dashboard-root, .year-projection-timeline {
