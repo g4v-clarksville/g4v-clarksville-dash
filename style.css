@@ -147,12 +147,13 @@ header {
 
 .header-inner {
     display: flex;
-    flex-direction: row;
+    /*flex-direction: row;*/
     align-items: center;
-    justify-content: center;
+    justify-content: space-between;
+    gap:30px;
     padding: 20px 40px;
     width: 100%;
-    position: relative;
+    /*position: relative;*/
     
 }
 
@@ -161,6 +162,7 @@ header {
     align-items: center;
     justify-content: center;
     gap: 40px;
+    flex: 1;
 }
 
 .header-logo { height: 80px; object-fit: contain; }
@@ -190,9 +192,10 @@ header {
     gap: 6px;
     align-items: flex-start;
     position: absolute;
-    right: 40px;
+    flex-shrink: 0;
+    /*right: 40px;
     top: 50%;
-    transform: translateY(-50%);
+    transform: translateY(-50%);*/
 }
 
 
