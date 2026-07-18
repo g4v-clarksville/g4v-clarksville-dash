@@ -529,15 +529,21 @@ loadDataFromGoogle();
 
 function initializeYearSelector() {
     document.querySelectorAll('.btn-year').forEach(button => {
-        if (pill.textContent.trim() === "2026") {
-            pill.classList.add('active');
+
+        if (button.textContent.trim() === "2026") {
+            button.classList.add("active");
         }
 
-        pill.addEventListener('click', () => {
-            document.querySelectorAll('.btn-year').forEach(p => p.classList.remove('active'));
-            pill.classList.add('active');
+        button.addEventListener("click", () => {
+
+            document.querySelectorAll(".btn-year")
+                .forEach(b => b.classList.remove("active"));
+
+            button.classList.add("active");
+
             filterByYear(button.textContent.trim());
         });
+
     });
 }
 </script>
