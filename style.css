@@ -191,7 +191,7 @@ header {
     flex-direction: column;
     gap: 6px;
     align-items: flex-start;
-    position: absolute;
+    /*position: absolute;*/
     flex-shrink: 0;
     /*right: 40px;
     top: 50%;
