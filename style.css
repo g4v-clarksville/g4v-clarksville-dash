@@ -567,6 +567,32 @@ td {
     white-space: nowrap;
 }
 
+.virtual-session-card {
+    background:#1e293b;
+    color:white;
+    padding:20px;
+    margin:20px auto;
+    max-width:600px;
+    border-radius:12px;
+    text-align:center;
+    border:2px solid #FFD700;
+}
+
+.virtual-session-card h3 {
+    color:#FFD700;
+}
+
+.btn-session {
+    display:inline-block;
+    margin-top:10px;
+    padding:12px 24px;
+    background:#FFD700;
+    color:#000;
+    font-weight:bold;
+    border-radius:6px;
+    text-decoration:none;
+}
+
 @keyframes ticker-loop {
     0% {
         transform: translate3d(0, 0, 0);
