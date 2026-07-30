@@ -56,15 +56,34 @@ body {
     width: 100%;
     background-color: #002d72;
     color: white;
-    text-align: center;
-    padding: 15px;
+    /*text-align: center;*/
+    padding: 15px 25px;
     border-bottom: 3px solid #ffc72c;
+    display: flex;
+    justify-content: space-between;
+    align-item: center;
+    box-sizing: border-box;
+}
+
+/* Optional wrapper for your text elements (Title and Date) if you want them stacked together on the left */
+.g4v-grad-banner .banner-text-content {
+    text-align: left; /* Aligns title and date neatly to the left */
+}
+
+.g4v-grad-banner h1 {
+    margin: 0 0 5px 0;
+    font-size: 2rem;
+}
+
+.g4v-grad-banner p {
+    margin: 0;
 }
 
 .g4v-grad-banner .header-action-box {
     width: auto;          /* prevents full-width expansion */
     display: inline-block; /* keeps it at natural size */
-    max-width: fit-content; /* optional: keeps it tight */
+    max-width: fit-content; 
+    flex-shrink: 0;       /* prevents the card from shrinking on smaller screens */
 }
 
 
