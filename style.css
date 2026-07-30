@@ -61,6 +61,13 @@ body {
     border-bottom: 3px solid #ffc72c;
 }
 
+.g4v-grad-banner .header-action-box {
+    width: auto;          /* prevents full-width expansion */
+    display: inline-block; /* keeps it at natural size */
+    max-width: fit-content; /* optional: keeps it tight */
+}
+
+
 .g4v-grad-banner.archive {
     background-color: #1a1a1a;
     border-bottom: 1px solid #333;
