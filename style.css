@@ -67,7 +67,7 @@ body {
 
 /* Optional wrapper for your text elements (Title and Date) if you want them stacked together on the left */
 .g4v-grad-banner .banner-text-content {
-    text-align: left; /* Aligns title and date neatly to the left */
+    text-align: center; /* Aligns title and date neatly to the left */
 }
 
 .g4v-grad-banner h1 {
