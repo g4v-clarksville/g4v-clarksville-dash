@@ -59,9 +59,15 @@
         </div>
     </div>
 </div>
-
 <header>
     <div class="header-inner">
+         <div class="header-action-box">
+            <span class="action-box-label">Support Our Chapter</span>
+            <div class="header-qr">
+                <img src="clarksvilleQR.png">
+                <p>Scan to donate & <a href="https://guitars4vets.org">learn more</a></p>
+            </div>
+        </div>
         <div class="header-main-content">
             <img src="Picture1.png" class="header-logo g4v-logo">
 
@@ -71,15 +77,7 @@
             </div>
 
             <img src="OSD logo.png" class="header-logo osd-logo">
-        </div>
-
-        <div class="header-action-box">
-            <span class="action-box-label">Support Our Chapter</span>
-            <div class="header-qr">
-                <img src="clarksvilleQR.png">
-                <p>Scan to donate & <a href="https://guitars4vets.org">learn more</a></p>
-            </div>
-        </div>
+        </div>       
     </div>
 </header>
     <div class="virtual-session-card">
@@ -88,7 +86,7 @@
     <a href="https://meet.google.com/wwq-zujm-yjj" 
        target="_blank" 
        class="btn-session">
-       Join Google Meet Session
+        Join Google Meet Session
     </a>
 </div>
 
@@ -414,7 +412,7 @@ function buildDashboard(cycleData) {
 }
 
 /* -----------------------------
-   CARD TOGGLE STATE STORAGE
+    CARD TOGGLE STATE STORAGE
 ----------------------------- */
 function toggleAndSaveCard(headerElement, cycleId) {
     const cardSection = headerElement.parentElement;
