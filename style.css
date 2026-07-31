@@ -70,7 +70,7 @@ body {
     flex-direction: column;
     justify-content: center;
     align-items: flex-start; /* Keeps the stacked text lines left-aligned */
-    text-align: left; 
+    text-align: center; 
 }
 
 .g4v-grad-banner h1 {
