@@ -69,7 +69,7 @@ body {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    align-items: flex-start; /* Keeps the stacked text lines left-aligned */
+    align-items: center; /* Keeps the stacked text lines left-aligned */
     text-align: center; 
 }
 
