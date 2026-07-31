@@ -56,7 +56,7 @@ body {
     width: 100%;
     background-color: #002d72;
     color: white;
-    padding: 15px 40px;
+    padding: 15px 25px;
     border-bottom: 3px solid #ffc72c;
     display: flex;
     justify-content: space-between;
@@ -73,10 +73,10 @@ body {
     text-align: left; 
 }
 
-/*.g4v-grad-banner h1 {
+.g4v-grad-banner h1 {
     margin: 0 0 5px 0;
     font-size: 2rem;
-}*/
+}
 
 .g4v-grad-banner h2 {
     font-size: 2rem;
@@ -84,7 +84,7 @@ body {
 }
 
 .g4v-grad-banner p {
-    margin: 0;
+    margin: 5px 0 0 0;
 }
 
 .g4v-grad-banner .banner-location {
