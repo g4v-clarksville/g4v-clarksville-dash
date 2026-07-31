@@ -73,24 +73,14 @@ body {
     text-align: left; 
 }
 
-.g4v-grad-banner .banner-text-content p {
-    margin: 0;
-    display: flex;
-    flex-direction: column; /* Forces everything inside the paragraph to stack vertically */
-}
-
 .g4v-grad-banner h1 {
     margin: 0 0 5px 0;
     font-size: 2rem;
 }
 
 .g4v-grad-banner p {
-    margin: 5px 0 0 0;
+    margin: 0;
 }
-
-.g4v-grad-banner .banner-location {
-    display: block;
-    margin-top: 3px;
 
 .g4v-grad-banner .header-action-box {
     width: auto;          /* prevents full-width expansion */
@@ -100,7 +90,6 @@ body {
     max-width: fit-content; 
     flex-shrink: 0;       /* prevents the card from shrinking on smaller screens */
 }
-
 .g4v-grad-banner.archive {
     background-color: #1a1a1a;
     border-bottom: 1px solid #333;
