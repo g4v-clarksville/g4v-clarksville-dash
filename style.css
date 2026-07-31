@@ -46,28 +46,31 @@ body {
 
 /* -----------------------------
     GRADUATION BANNER
-------------------------------
+------------------------------ */
 .banner-container { 
     margin-bottom: 20px; 
     width: 100%; 
 }
-*/
+
 .g4v-grad-banner {
     width: 100%;
     background-color: #002d72;
     color: white;
-    text-align: center;
     padding: 15px 25px;
     border-bottom: 3px solid #ffc72c;
     display: flex;
     justify-content: space-between;
-    align-item: center;
+    align-items: center; /* Fixed typo (added 's') */
     box-sizing: border-box;
 }
 
-/* Optional wrapper for your text elements (Title and Date) if you want them stacked together on the left */
+/* Wrapper for text elements (Title and Date stacked on the left) */
 .g4v-grad-banner .banner-text-content {
-    text-align: center; /* Aligns title and date neatly to the left */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start; /* Keeps the stacked text lines left-aligned */
+    text-align: left; 
 }
 
 .g4v-grad-banner h1 {
@@ -81,11 +84,12 @@ body {
 
 .g4v-grad-banner .header-action-box {
     width: auto;          /* prevents full-width expansion */
-    display: inline-block; /* keeps it at natural size */
+    display: flex;        /* helps manage internal spacing */
+    align-items: center;  
+    gap: 15px;            /* Adds breathing room between the QR code and the text */
     max-width: fit-content; 
     flex-shrink: 0;       /* prevents the card from shrinking on smaller screens */
 }
-
 
 .g4v-grad-banner.archive {
     background-color: #1a1a1a;
