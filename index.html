@@ -9,10 +9,15 @@
 
 <body>
 <div class="banner-container">
-    <div class="g4v-grad-banner active">
+    <div class="g4v-grad-banner active" style="display: flex; align-items: center; justify-content: space-between; padding: 15px 20px;">
         
-        <!-- Text content grouped together for proper flex column layout -->
-        <div class="banner-text-content">
+        <!-- Left Chapter Logo -->
+        <div class="banner-logo-container" style="flex-shrink: 0;">
+            <img src="Picture1.png" alt="Clarksville Chapter 287 Logo" style="height: 70px; width: auto; border-radius: 50%;">
+        </div>
+        
+        <!-- Text content centered -->
+        <div class="banner-text-content" style="text-align: center; flex-grow: 1; padding: 0 15px;">
             <h2 class="g4v-grad-title" style="margin:0">Next G4V Graduation</h2>
             <p class="g4v-grad-date" style="margin:5px 0 0 0;">
                 August 13, 2026 @ 12:00 PM<br>
@@ -21,7 +26,7 @@
         </div>
 
         <!-- Support Our Chapter card -->
-        <div class="header-action-box">
+        <div class="header-action-box" style="flex-shrink: 0;">
             <span class="action-box-label">Support Our Chapter</span>
             <div class="header-qr">
                 <img src="clarksvilleQR.png">
