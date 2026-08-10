@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Guitars For Vets: Clarksville - Jam Sessions Schedule</title>
+    <style>
+        body {
+            background-color: #12161f;
+            color: #ffffff;
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+        }
+        .content-width {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+        header {
+            text-align: center;
+            margin-bottom: 30px;
+            border-bottom: 2px solid #FFD700;
+            padding-bottom: 15px;
+        }
+        h1 {
+            color: #FFD700;
+            margin-bottom: 5px;
+        }
+        .jam-card {
+            background-color: rgba(26, 31, 44, 0.95);
+            border: 2px solid #FFD700;
+            border-radius: 8px;
+            padding: 20px;
+            margin-bottom: 20px;
+        }
+        .jam-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 10px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            padding-bottom: 10px;
+            margin-bottom: 15px;
+        }
+        .jam-title {
+            color: #FFD700;
+            margin: 0;
+            font-size: 1.2em;
+        }
+        .jam-meta {
+            font-size: 0.9em;
+            color: #ccc;
+        }
+        .btn-setlist {
+            background-color: #FFD700;
+            color: #12161f;
+            border: none;
+            padding: 6px 14px;
+            font-weight: bold;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 0.85em;
+        }
+        .setlist-container {
+            display: none;
+            margin-top: 15px;
+            background: rgba(18, 22, 31, 0.9);
+            border: 1px solid #444;
+            border-radius: 6px;
+            padding: 12px;
+        }
+        .setlist-list {
+            margin: 5px 0 0 20px;
+            padding: 0;
+            font-size: 0.9em;
+        }
+        .setlist-list li {
+            margin-bottom: 6px;
+        }
+        .setlist-list a {
+            color: #61dafb;
+            text-decoration: none;
+        }
+        .setlist-list a:hover {
+            text-decoration: underline;
+        }
+        .back-home {
+            display: inline-block;
+            margin-bottom: 20px;
+            color: #FFD700;
+            text-decoration: none;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+
+<div class="content-width">
+    <a href="index.html" class="back-home">← Back to Main Dashboard</a>
+    
+    <header>
+        <h1>🎸 Chapter Jam Sessions Schedule</h1>
+        <p style="margin: 0; color: #ccc;">Twice-Monthly Gatherings • September — December</p>
+    </header>
+
+    <!-- SEPTEMBER 2026 -->
+    <h2 style="color: #FFD700; border-bottom: 1px solid #FFD700; padding-bottom: 5px; margin-top: 30px;">September 2026</h2>
+
+    <!-- Session 1 -->
+    <div class="jam-card">
+        <div class="jam-header">
+            <div>
+                <h3 class="jam-title">🎵 1st September Jam</h3>
+                <div class="jam-meta">Thursday, Sept 3, 2026 • 6:00 PM – 8:00 PM<br><strong>Location:</strong> VFW Post 11160</div>
+            </div>
+            <button class="btn-setlist" onclick="toggleSetlist('set-sep-1')">View Setlist ▼</button>
+        </div>
+        <div id="set-sep-1" class="setlist-container">
+            <strong style="color: #FFD700; font-size: 0.9em;">Session Setlist & Charts:</strong>
+            <ul class="setlist-list">
+                <li><a href="songs/horse_with_no_name.pdf" target="_blank">A Horse With No Name</a> (Key of Em)</li>
+                <li><a href="songs/knocking_on_heavens_door.pdf" target="_blank">Knockin' on Heaven's Door</a> (Key of G)</li>
+                <li><a href="songs/wish_you_were_here.pdf" target="_blank">Wish You Were Here</a> (Key of G)</li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- Session 2 -->
+    <div class="jam-card">
+        <div class="jam-header">
+            <div>
+                <h3 class="jam-title">🎵 2nd September Jam</h3>
+                <div class="jam-meta">Thursday, Sept 17, 2026 • 6:00 PM – 8:00 PM<br><strong>Location:</strong> American Legion Post 143</div>
+            </div>
+            <button class="btn-setlist" onclick="toggleSetlist('set-sep-2')">View Setlist ▼</button>
+        </div>
+        <div id="set-sep-2" class="setlist-container">
+            <strong style="color: #FFD700; font-size: 0.9em;">Session Setlist & Charts:</strong>
+            <ul class="setlist-list">
+                <li><a href="songs/stand_by_me.pdf" target="_blank">Stand By Me</a> (Key of A)</li>
+                <li><a href="songs/brown_eyed_girl.pdf" target="_blank">Brown Eyed Girl</a> (Key of G)</li>
+                <li><a href="songs/oustide_woman_blues.pdf" target="_blank">Outside Woman Blues</a> (Key of E)</li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- OCTOBER 2026 -->
+    <h2 style="color: #FFD700; border-bottom: 1px solid #FFD700; padding-bottom: 5px; margin-top: 30px;">October 2026</h2>
+
+    <!-- Session 1 -->
+    <div class="jam-card">
+        <div class="jam-header">
+            <div>
+                <h3 class="jam-title">🎵 1st October Jam</h3>
+                <div class="jam-meta">Thursday, Oct 1, 2026 • 6:00 PM – 8:00 PM<br><strong>Location:</strong> Mosaic Church Fellowship Hall</div>
+            </div>
+            <button class="btn-setlist" onclick="toggleSetlist('set-oct-1')">View Setlist ▼</button>
+        </div>
+        <div id="set-oct-1" class="setlist-container">
+            <strong style="color: #FFD700; font-size: 0.9em;">Session Setlist & Charts:</strong>
+            <ul class="setlist-list">
+                <li><a href="songs/fast_car.pdf" target="_blank">Fast Car</a> (Key of C)</li>
+                <li><a href="songs/free_fallin.pdf" target="_blank">Free Fallin'</a> (Key of D)</li>
+            </ul>
+        </div>
+    </div>
+
+</div>
+
+<script>
+function toggleSetlist(id) {
+    var container = document.getElementById(id);
+    if (container.style.display === 'block') {
+        container.style.display = 'none';
+    } else {
+        container.style.display = 'block';
+    }
+}
+</script>
+
+</body>
+</html>
