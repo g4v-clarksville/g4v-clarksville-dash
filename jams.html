@@ -259,6 +259,15 @@ function switchYear(year) {
         }
     }
 }
+    // Automatically read the year from the URL when the page loads (e.g., jams.html?year=2027)
+window.addEventListener('DOMContentLoaded', (event) => {
+    const urlParams = new URLSearchParams(window.location.search);
+    const yearParam = urlParams.get('year');
+    
+    if (yearParam) {
+        switchYear(yearParam);
+    }
+});
 </script>
 
 </body>
