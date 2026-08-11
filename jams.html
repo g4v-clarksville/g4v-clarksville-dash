@@ -16,187 +16,217 @@
         <p style="margin: 0; color: var(--text-muted);">Twice-Monthly Gatherings • September through December</p>
     </header>
 
-    <!-- ================= SEPTEMBER 2026 ================= -->
-    <h2 class="month-heading">September 2026</h2>
-
-    <!-- Session 1 -->
-    <div class="jam-card">
-        <div class="jam-header">
-            <div>
-                <h3 class="jam-title">🎵 1st September Jam</h3>
-                <div class="jam-meta">
-                    Thursday, Sept 7, 2026 • 6:00 PM – 8:00 PM<br>
-                    <strong>Location:</strong> VFW Post 4895, Madison St. Clarksville
-                </div>
-            </div>
-            <button class="btn-setlist" onclick="toggleSetlist('set-sep-1')">View Setlist ▼</button>
-        </div>
-        <div id="set-sep-1" class="setlist-container">
-            <strong style="color: #FFD700; font-size: 0.9rem;">Session Setlist & GitHub Chord Charts:</strong>
-            <ul class="setlist-list">
-                <li><a href="songs/horse_with_no_name.pdf" target="_blank">A Horse With No Name</a> — Key of Em</li>
-                <li><a href="songs/knocking_on_heavens_door.pdf" target="_blank">Knockin' on Heaven's Door</a> — Key of G</li>
-                <li><a href="songs/wish_you_were_here.pdf" target="_blank">Wish You Were Here</a> — Key of G</li>
-            </ul>
+    <!-- Year Selector Track -->
+    <div class="year-projection-timeline">
+        <div class="timeline-track">
+            <button class="btn-year" onclick="switchYear(2025)">2025</button>
+            <button class="btn-year active" onclick="switchYear(2026)">2026</button>
+            <button class="btn-year" onclick="switchYear(2027)">2027</button>
+            <button class="btn-year" onclick="switchYear(2028)">2028</button>
+            <button class="btn-year" onclick="switchYear(2029)">2029</button>
+            <button class="btn-year" onclick="switchYear(2030)">2030</button>
         </div>
     </div>
 
-    <!-- Session 2 -->
-    <div class="jam-card">
-        <div class="jam-header">
-            <div>
-                <h3 class="jam-title">🎵 2nd September Jam</h3>
-                <div class="jam-meta">
-                    Thursday, Sept 21, 2026 • 6:00 PM – 8:00 PM<br>
-                    <strong>Location:</strong> American Legion Post 4895, Madison St. Clarksville
+    <!-- ================= 2026 SCHEDULE ================= -->
+    <div id="schedule-2026" class="year-schedule-section">
+
+        <!-- ================= SEPTEMBER 2026 ================= -->
+        <h2 class="month-heading">September 2026</h2>
+
+        <!-- Session 1 -->
+        <div class="jam-card">
+            <div class="jam-header">
+                <div>
+                    <h3 class="jam-title">🎵 1st September Jam</h3>
+                    <div class="jam-meta">
+                        Thursday, Sept 7, 2026 • 6:00 PM – 8:00 PM<br>
+                        <strong>Location:</strong> VFW Post 4895, Madison St. Clarksville
+                    </div>
                 </div>
+                <button class="btn-setlist" onclick="toggleSetlist('set-sep-1')">View Setlist ▼</button>
             </div>
-            <button class="btn-setlist" onclick="toggleSetlist('set-sep-2')">View Setlist ▼</button>
+            <div id="set-sep-1" class="setlist-container">
+                <strong style="color: #FFD700; font-size: 0.9rem;">Session Setlist & GitHub Chord Charts:</strong>
+                <ul class="setlist-list">
+                    <li><a href="songs/horse_with_no_name.pdf" target="_blank">A Horse With No Name</a> — Key of Em</li>
+                    <li><a href="songs/knocking_on_heavens_door.pdf" target="_blank">Knockin' on Heaven's Door</a> — Key of G</li>
+                    <li><a href="songs/wish_you_were_here.pdf" target="_blank">Wish You Were Here</a> — Key of G</li>
+                </ul>
+            </div>
         </div>
-        <div id="set-sep-2" class="setlist-container">
-            <strong style="color: #FFD700; font-size: 0.9rem;">Session Setlist & GitHub Chord Charts:</strong>
-            <ul class="setlist-list">
-                <li><a href="songs/stand_by_me.pdf" target="_blank">Stand By Me</a> — Key of A</li>
-                <li><a href="songs/brown_eyed_girl.pdf" target="_blank">Brown Eyed Girl</a> — Key of G</li>
-                <li><a href="songs/outside_woman_blues.pdf" target="_blank">Outside Woman Blues</a> — Key of E</li>
-            </ul>
+
+        <!-- Session 2 -->
+        <div class="jam-card">
+            <div class="jam-header">
+                <div>
+                    <h3 class="jam-title">🎵 2nd September Jam</h3>
+                    <div class="jam-meta">
+                        Thursday, Sept 21, 2026 • 6:00 PM – 8:00 PM<br>
+                        <strong>Location:</strong> American Legion Post 4895, Madison St. Clarksville
+                    </div>
+                </div>
+                <button class="btn-setlist" onclick="toggleSetlist('set-sep-2')">View Setlist ▼</button>
+            </div>
+            <div id="set-sep-2" class="setlist-container">
+                <strong style="color: #FFD700; font-size: 0.9rem;">Session Setlist & GitHub Chord Charts:</strong>
+                <ul class="setlist-list">
+                    <li><a href="songs/stand_by_me.pdf" target="_blank">Stand By Me</a> — Key of A</li>
+                    <li><a href="songs/brown_eyed_girl.pdf" target="_blank">Brown Eyed Girl</a> — Key of G</li>
+                    <li><a href="songs/outside_woman_blues.pdf" target="_blank">Outside Woman Blues</a> — Key of E</li>
+                </ul>
+            </div>
         </div>
+
+        <!-- ================= OCTOBER 2026 ================= -->
+        <h2 class="month-heading">October 2026</h2>
+
+        <!-- Session 1 -->
+        <div class="jam-card">
+            <div class="jam-header">
+                <div>
+                    <h3 class="jam-title">🎵 1st October Jam</h3>
+                    <div class="jam-meta">
+                        Thursday, Oct 5, 2026 • 6:00 PM – 8:00 PM<br>
+                        <strong>Location:</strong> American Legion Post 233, Oak Grove
+                    </div>
+                </div>
+                <button class="btn-setlist" onclick="toggleSetlist('set-oct-1')">View Setlist ▼</button>
+            </div>
+            <div id="set-oct-1" class="setlist-container">
+                <strong style="color: #FFD700; font-size: 0.9rem;">Session Setlist & GitHub Chord Charts:</strong>
+                <ul class="setlist-list">
+                    <li><a href="songs/fast_car.pdf" target="_blank">Fast Car</a> — Key of C</li>
+                    <li><a href="songs/free_fallin.pdf" target="_blank">Free Fallin'</a> — Key of D</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Session 2 -->
+        <div class="jam-card">
+            <div class="jam-header">
+                <div>
+                    <h3 class="jam-title">🎵 2nd October Jam</h3>
+                    <div class="jam-meta">
+                        Thursday, Oct 19, 2026 • 6:00 PM – 8:00 PM<br>
+                        <strong>Location:</strong> VFW Post 11160, Lafayette Rd. Clarksville/Woodlawn
+                    </div>
+                </div>
+                <button class="btn-setlist" onclick="toggleSetlist('set-oct-2')">View Setlist ▼</button>
+            </div>
+            <div id="set-oct-2" class="setlist-container">
+                <strong style="color: #FFD700; font-size: 0.9rem;">Session Setlist & GitHub Chord Charts:</strong>
+                <ul class="setlist-list">
+                    <li><a href="songs/hotel_california.pdf" target="_blank">Hotel California</a> — Key of Bm</li>
+                    <li><a href="songs/sweet_home_alabama.pdf" target="_blank">Sweet Home Alabama</a> — Key of G</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- ================= NOVEMBER 2026 ================= -->
+        <h2 class="month-heading">November 2026</h2>
+
+        <!-- Session 1 -->
+        <div class="jam-card">
+            <div class="jam-header">
+                <div>
+                    <h3 class="jam-title">🎵 1st November Jam</h3>
+                    <div class="jam-meta">
+                        Thursday, Nov 9, 2026 • 6:00 PM – 8:00 PM<br>
+                        <strong>Location:</strong> American Legion Post 4895 Madison St. Clarksville
+                    </div>
+                </div>
+                <button class="btn-setlist" onclick="toggleSetlist('set-nov-1')">View Setlist ▼</button>
+            </div>
+            <div id="set-nov-1" class="setlist-container">
+                <strong style="color: #FFD700; font-size: 0.9rem;">Session Setlist & GitHub Chord Charts:</strong>
+                <ul class="setlist-list">
+                    <li><a href="songs/country_roads.pdf" target="_blank">Take Me Home, Country Roads</a> — Key of G</li>
+                    <li><a href="songs/ring_of_fire.pdf" target="_blank">Ring of Fire</a> — Key of G</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Session 2 -->
+        <div class="jam-card">
+            <div class="jam-header">
+                <div>
+                    <h3 class="jam-title">🎵 2nd November Jam</h3>
+                    <div class="jam-meta">
+                        Thursday, Nov 23, 2026 • 6:00 PM – 8:00 PM<br>
+                        <strong>Location:</strong> Mosaic Church Fellowship Hall, Riverside Dr. Clarksville
+                    </div>
+                </div>
+                <button class="btn-setlist" onclick="toggleSetlist('set-nov-2')">View Setlist ▼</button>
+            </div>
+            <div id="set-nov-2" class="setlist-container">
+                <strong style="color: #FFD700; font-size: 0.9rem;">Session Setlist & GitHub Chord Charts:</strong>
+                <ul class="setlist-list">
+                    <li><a href="songs/hurt.pdf" target="_blank">Hurt</a> — Key of Am</li>
+                    <li><a href="songs/blister_in_the_sun.pdf" target="_blank">Blister in the Sun</a> — Key of G</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- ================= DECEMBER 2026 ================= -->
+        <h2 class="month-heading">December 2026</h2>
+
+        <!-- Session 1 -->
+        <div class="jam-card">
+            <div class="jam-header">
+                <div>
+                    <h3 class="jam-title">🎵 1st December Jam</h3>
+                    <div class="jam-meta">
+                        Thursday, Dec 7, 2026 • 6:00 PM – 8:00 PM<br>
+                        <strong>Location:</strong> VFW Post 11160, Lafayette Rd. Clarksville/Woodlawn
+                    </div>
+                </div>
+                <button class="btn-setlist" onclick="toggleSetlist('set-dec-1')">View Setlist ▼</button>
+            </div>
+            <div id="set-dec-1" class="setlist-container">
+                <strong style="color: #FFD700; font-size: 0.9rem;">Session Setlist & GitHub Chord Charts:</strong>
+                <ul class="setlist-list">
+                    <li><a href="songs/silent_night.pdf" target="_blank">Jingle Bell Rock (Holiday Special)</a> — Key of C</li>
+                    <li><a href="songs/knocking_on_heavens_door.pdf" target="_blank">Knockin' on Heaven's Door</a> — Key of G</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Session 2 -->
+        <div class="jam-card">
+            <div class="jam-header">
+                <div>
+                    <h3 class="jam-title">🎵 2nd December Jam (Holiday Wrap-Up)</h3>
+                    <div class="jam-meta">
+                        Thursday, Dec 21, 2026 • 6:00 PM – 8:00 PM<br>
+                        <strong>Location:</strong> American Legion Post 4895, Madison St. Clarksville
+                    </div>
+                </div>
+                <button class="btn-setlist" onclick="toggleSetlist('set-dec-2')">View Setlist ▼</button>
+            </div>
+            <div id="set-dec-2" class="setlist-container">
+                <strong style="color: #FFD700; font-size: 0.9rem;">Session Setlist & GitHub Chord Charts:</strong>
+                <ul class="setlist-list">
+                    <li><a href="songs/blue_christmas.pdf" target="_blank">Blue Christmas</a> — Key of A</li>
+                    <li><a href="songs/stand_by_me.pdf" target="_blank">Stand By Me</a> — Key of A</li>
+                </ul>
+            </div>
+        </div>
+
     </div>
 
-    <!-- ================= OCTOBER 2026 ================= -->
-    <h2 class="month-heading">October 2026</h2>
-
-    <!-- Session 1 -->
-    <div class="jam-card">
-        <div class="jam-header">
-            <div>
-                <h3 class="jam-title">🎵 1st October Jam</h3>
-                <div class="jam-meta">
-                    Thursday, Oct 5, 2026 • 6:00 PM – 8:00 PM<br>
-                    <strong>Location:</strong> American Legion Post 233, Oak Grove
-                </div>
-            </div>
-            <button class="btn-setlist" onclick="toggleSetlist('set-oct-1')">View Setlist ▼</button>
-        </div>
-        <div id="set-oct-1" class="setlist-container">
-            <strong style="color: #FFD700; font-size: 0.9rem;">Session Setlist & GitHub Chord Charts:</strong>
-            <ul class="setlist-list">
-                <li><a href="songs/fast_car.pdf" target="_blank">Fast Car</a> — Key of C</li>
-                <li><a href="songs/free_fallin.pdf" target="_blank">Free Fallin'</a> — Key of D</li>
-            </ul>
-        </div>
+    <!-- ================= OTHER YEARS PLACEHOLDERS ================= -->
+    <div id="schedule-2025" class="year-schedule-section" style="display: none;">
+        <h2 class="month-heading">2025 Schedule</h2>
+        <div class="jam-card"><div class="jam-meta">No records for this year.</div></div>
     </div>
-
-    <!-- Session 2 -->
-    <div class="jam-card">
-        <div class="jam-header">
-            <div>
-                <h3 class="jam-title">🎵 2nd October Jam</h3>
-                <div class="jam-meta">
-                    Thursday, Oct 19, 2026 • 6:00 PM – 8:00 PM<br>
-                    <strong>Location:</strong> VFW Post 11160, Lafayette Rd. Clarksville/Woodlawn
-                </div>
-            </div>
-            <button class="btn-setlist" onclick="toggleSetlist('set-oct-2')">View Setlist ▼</button>
-        </div>
-        <div id="set-oct-2" class="setlist-container">
-            <strong style="color: #FFD700; font-size: 0.9rem;">Session Setlist & GitHub Chord Charts:</strong>
-            <ul class="setlist-list">
-                <li><a href="songs/hotel_california.pdf" target="_blank">Hotel California</a> — Key of Bm</li>
-                <li><a href="songs/sweet_home_alabama.pdf" target="_blank">Sweet Home Alabama</a> — Key of G</li>
-            </ul>
-        </div>
+    <div id="schedule-2027" class="year-schedule-section" style="display: none;">
+        <h2 class="month-heading">2027 Schedule</h2>
+        <div class="jam-card"><div class="jam-meta">Schedule for 2027 will be posted soon. Stay tuned!</div></div>
     </div>
-
-    <!-- ================= NOVEMBER 2026 ================= -->
-    <h2 class="month-heading">November 2026</h2>
-
-    <!-- Session 1 -->
-    <div class="jam-card">
-        <div class="jam-header">
-            <div>
-                <h3 class="jam-title">🎵 1st November Jam</h3>
-                <div class="jam-meta">
-                    Thursday, Nov 9, 2026 • 6:00 PM – 8:00 PM<br>
-                    <strong>Location:</strong> American Legion Post 4895 Madison St. Clarksville
-                </div>
-            </div>
-            <button class="btn-setlist" onclick="toggleSetlist('set-nov-1')">View Setlist ▼</button>
-        </div>
-        <div id="set-nov-1" class="setlist-container">
-            <strong style="color: #FFD700; font-size: 0.9rem;">Session Setlist & GitHub Chord Charts:</strong>
-            <ul class="setlist-list">
-                <li><a href="songs/country_roads.pdf" target="_blank">Take Me Home, Country Roads</a> — Key of G</li>
-                <li><a href="songs/ring_of_fire.pdf" target="_blank">Ring of Fire</a> — Key of G</li>
-            </ul>
-        </div>
-    </div>
-
-    <!-- Session 2 -->
-    <div class="jam-card">
-        <div class="jam-header">
-            <div>
-                <h3 class="jam-title">🎵 2nd November Jam</h3>
-                <div class="jam-meta">
-                    Thursday, Nov 23, 2026 • 6:00 PM – 8:00 PM<br>
-                    <strong>Location:</strong> Mosaic Church Fellowship Hall, Riverside Dr. Clarksville
-                </div>
-            </div>
-            <button class="btn-setlist" onclick="toggleSetlist('set-nov-2')">View Setlist ▼</button>
-        </div>
-        <div id="set-nov-2" class="setlist-container">
-            <strong style="color: #FFD700; font-size: 0.9rem;">Session Setlist & GitHub Chord Charts:</strong>
-            <ul class="setlist-list">
-                <li><a href="songs/hurt.pdf" target="_blank">Hurt</a> — Key of Am</li>
-                <li><a href="songs/blister_in_the_sun.pdf" target="_blank">Blister in the Sun</a> — Key of G</li>
-            </ul>
-        </div>
-    </div>
-
-    <!-- ================= DECEMBER 2026 ================= -->
-    <h2 class="month-heading">December 2026</h2>
-
-    <!-- Session 1 -->
-    <div class="jam-card">
-        <div class="jam-header">
-            <div>
-                <h3 class="jam-title">🎵 1st December Jam</h3>
-                <div class="jam-meta">
-                    Thursday, Dec 7, 2026 • 6:00 PM – 8:00 PM<br>
-                    <strong>Location:</strong> VFW Post 11160, Lafayette Rd. Clarksville/Woodlawn
-                </div>
-            </div>
-            <button class="btn-setlist" onclick="toggleSetlist('set-dec-1')">View Setlist ▼</button>
-        </div>
-        <div id="set-dec-1" class="setlist-container">
-            <strong style="color: #FFD700; font-size: 0.9rem;">Session Setlist & GitHub Chord Charts:</strong>
-            <ul class="setlist-list">
-                <li><a href="songs/silent_night.pdf" target="_blank">Jingle Bell Rock (Holiday Special)</a> — Key of C</li>
-                <li><a href="songs/knocking_on_heavens_door.pdf" target="_blank">Knockin' on Heaven's Door</a> — Key of G</li>
-            </ul>
-        </div>
-    </div>
-
-    <!-- Session 2 -->
-    <div class="jam-card">
-        <div class="jam-header">
-            <div>
-                <h3 class="jam-title">🎵 2nd December Jam (Holiday Wrap-Up)</h3>
-                <div class="jam-meta">
-                    Thursday, Dec 21, 2026 • 6:00 PM – 8:00 PM<br>
-                    <strong>Location:</strong> American Legion Post 4895, Madison St. Clarksville
-                </div>
-            </div>
-            <button class="btn-setlist" onclick="toggleSetlist('set-dec-2')">View Setlist ▼</button>
-        </div>
-        <div id="set-dec-2" class="setlist-container">
-            <strong style="color: #FFD700; font-size: 0.9rem;">Session Setlist & GitHub Chord Charts:</strong>
-            <ul class="setlist-list">
-                <li><a href="songs/blue_christmas.pdf" target="_blank">Blue Christmas</a> — Key of A</li>
-                <li><a href="songs/stand_by_me.pdf" target="_blank">Stand By Me</a> — Key of A</li>
-            </ul>
-        </div>
-    </div>
+    <div id="schedule-2028" class="year-schedule-section" style="display: none;"></div>
+    <div id="schedule-2029" class="year-schedule-section" style="display: none;"></div>
+    <div id="schedule-2030" class="year-schedule-section" style="display: none;"></div>
 
 </div>
 
@@ -207,6 +237,26 @@ function toggleSetlist(id) {
         container.style.display = 'none';
     } else {
         container.style.display = 'block';
+    }
+}
+
+function switchYear(year) {
+    var sections = document.getElementsByClassName('year-schedule-section');
+    for (var i = 0; i < sections.length; i++) {
+        sections[i].style.display = 'none';
+    }
+    
+    var activeSection = document.getElementById('schedule-' + year);
+    if (activeSection) {
+        activeSection.style.display = 'block';
+    }
+
+    var buttons = document.getElementsByClassName('btn-year');
+    for (var i = 0; i < buttons.length; i++) {
+        buttons[i].classList.remove('active');
+        if (buttons[i].textContent.trim() == year) {
+            buttons[i].classList.add('active');
+        }
     }
 }
 </script>
