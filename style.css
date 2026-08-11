@@ -582,7 +582,7 @@ td {
     display: flex !important;
     white-space: nowrap !important;
     will-change: transform;
-    animation: ticker-loop 65s linear infinite;
+    animation: ticker-loop 95s linear infinite;
 }
 
 .ticker-track:hover {
