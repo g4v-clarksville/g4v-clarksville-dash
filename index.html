@@ -74,7 +74,8 @@
     </div>
 </div>
 
-    <button class="archive-toggle" onclick="toggleArchive()">▼ View Graduation Gallery</button>
+    <!-- === Graduation Gallery Section === -->
+<button class="archive-toggle" onclick="toggleArchive()">▼ View Graduation Gallery</button>
 <div id="may-grad-gallery" class="g4v-grad-banner archive" style="display:none; padding: 15px;">
     
     <!-- Gallery Navigation / Selection Tabs -->
@@ -88,23 +89,22 @@
     <div id="grad-aug-26" class="grad-tab-content">
         <h4 style="color: #FFD700; text-align: center; margin: 5px 0 10px 0; font-size: 1em;">August 13, 2026 • Operation Stand Down</h4>
         <div class="g4v-collage-row">
-            <!-- Add image filenames for August graduation below -->
             <img src="images/august_grad_1.png" class="g4v-collage-photo" alt="August Graduation Photo">
         </div>
     </div>
 
-    <!-- May 22, 2026 Gallery Section (Your Existing Photos) -->
+    <!-- May 22, 2026 Gallery Section -->
     <div id="grad-may-26" class="grad-tab-content" style="display: none;">
         <h4 style="color: #FFD700; text-align: center; margin: 5px 0 10px 0; font-size: 1em;">May 22, 2026 • Spring Cohort Celebration</h4>
         <div class="g4v-collage-row">
-            <img src="images/G4V_Class_22May.png" class="g4v-collage-photo">
-            <img src="images/graduation_photo2.png" class="g4v-collage-photo">
-            <img src="images/graduation_photo3.png" class="g4v-collage-photo">
-            <img src="images/graduation_photo4.png" class="g4v-collage-photo">
-            <img src="images/graduation_photo5.png" class="g4v-collage-photo">
-            <img src="images/graduation_photo6.png" class="g4v-collage-photo">
-            <img src="images/graduation_photo7.png" class="g4v-collage-photo">
-            <img src="images/graduation_photo8.png" class="g4v-collage-photo">
+            <img src="images/G4V_Class_22May.png" class="g4v-collage-photo" alt="May Graduation Photo">
+            <img src="images/graduation_photo2.png" class="g4v-collage-photo" alt="May Graduation Photo">
+            <img src="images/graduation_photo3.png" class="g4v-collage-photo" alt="May Graduation Photo">
+            <img src="images/graduation_photo4.png" class="g4v-collage-photo" alt="May Graduation Photo">
+            <img src="images/graduation_photo5.png" class="g4v-collage-photo" alt="May Graduation Photo">
+            <img src="images/graduation_photo6.png" class="g4v-collage-photo" alt="May Graduation Photo">
+            <img src="images/graduation_photo7.png" class="g4v-collage-photo" alt="May Graduation Photo">
+            <img src="images/graduation_photo8.png" class="g4v-collage-photo" alt="May Graduation Photo">
         </div>
     </div>
 
@@ -112,24 +112,26 @@
     <div id="grad-feb-26" class="grad-tab-content" style="display: none;">
         <h4 style="color: #FFD700; text-align: center; margin: 5px 0 10px 0; font-size: 1em;">February 27, 2026 • Inaugural Chapter Milestone</h4>
         <div class="g4v-collage-row">
-            <!-- Add image filenames for February graduation below -->
             <img src="images/feb_2026.png" class="g4v-collage-photo" alt="February Graduation Photo">
         </div>
     </div>
+</div>
 
+<!-- === Special Event Gallery Section === -->
+<button class="archive-toggle" onclick="toggleArchive()">▼ View Special Event Gallery</button>
+<div id="special-event-gallery" class="g4v-grad-banner archive" style="display:none; padding: 15px;">
+    
     <!-- Special Event 2026 Gallery Section -->
-    <div id="tn_coordinators.jpg" class="special-event-tab-content" style="display: none;">
+    <div id="special-event-aug-26" class="special-event-tab-content">
         <h4 style="color: #FFD700; text-align: center; margin: 5px 0 10px 0; font-size: 1em;">Special Event 2 August 2026</h4>
         <div class="g4v-collage-row">
-            <!-- Add image filenames for February graduation below -->
             <img src="images/tn_coordinators.jpg" class="g4v-collage-photo" alt="Special Event Photo">
             <img src="images/wall_of_guitars_1.jpg" class="g4v-collage-photo" alt="Special Event Photo">
             <img src="images/wall_of_guitars_2.jpg" class="g4v-collage-photo" alt="Special Event Photo">
         </div>
     </div>
-    
 </div>
-
+    
 <script>
 function switchGradTab(evt, tabId) {
     var contents = document.getElementsByClassName('grad-tab-content');
