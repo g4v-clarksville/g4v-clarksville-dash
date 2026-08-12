@@ -131,23 +131,7 @@
         </div>
     </div>
 </div>
-    
-<script>
-function switchGradTab(evt, tabId) {
-    var contents = document.getElementsByClassName('grad-tab-content');
-    for (var i = 0; i < contents.length; i++) {
-        contents[i].style.display = 'none';
-    }
-    var buttons = document.getElementsByClassName('grad-tab-btn');
-    for (var i = 0; i < buttons.length; i++) {
-        buttons[i].style.background = 'rgba(26, 31, 44, 0.9)';
-        buttons[i].style.color = '#FFD700';
-    }
-    document.getElementById(tabId).style.display = 'block';
-    evt.currentTarget.style.background = '#FFD700';
-    evt.currentTarget.style.color = '#12161f';
-}
-</script>
+
 <header style="margin-bottom: 1px;">
     <div class="header-inner" style="padding-bottom: 1px;">
 
@@ -281,6 +265,24 @@ function switchGradTab(evt, tabId) {
 <script>
 const mainContainer = document.getElementById('dashboard-root');
 let allCycleData = [];
+
+/* -----------------------------
+    GALLERY TAB SWITCHING
+----------------------------- */
+function switchGradTab(evt, tabId) {
+    var contents = document.getElementsByClassName('grad-tab-content');
+    for (var i = 0; i < contents.length; i++) {
+        contents[i].style.display = 'none';
+    }
+    var buttons = document.getElementsByClassName('grad-tab-btn');
+    for (var i = 0; i < buttons.length; i++) {
+        buttons[i].style.background = 'rgba(26, 31, 44, 0.9)';
+        buttons[i].style.color = '#FFD700';
+    }
+    document.getElementById(tabId).style.display = 'block';
+    evt.currentTarget.style.background = '#FFD700';
+    evt.currentTarget.style.color = '#12161f';
+}
 
 /* -----------------------------
     WAITLIST TOGGLE
