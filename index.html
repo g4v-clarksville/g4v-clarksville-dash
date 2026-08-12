@@ -275,12 +275,30 @@ function switchGradTab(evt, tabId) {
 </div>
    
 <main id="dashboard-root"></main>
-
+    
 <script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.3.2/papaparse.min.js"></script>
 
 <script>
 const mainContainer = document.getElementById('dashboard-root');
 let allCycleData = [];
+
+/* -----------------------------
+    GALLERY TAB SWITCHING
+----------------------------- */
+function switchGradTab(evt, tabId) {
+    var contents = document.getElementsByClassName('grad-tab-content');
+    for (var i = 0; i < contents.length; i++) {
+        contents[i].style.display = 'none';
+    }
+    var buttons = document.getElementsByClassName('grad-tab-btn');
+    for (var i = 0; i < buttons.length; i++) {
+        buttons[i].style.background = 'rgba(26, 31, 44, 0.9)';
+        buttons[i].style.color = '#FFD700';
+    }
+    document.getElementById(tabId).style.display = 'block';
+    evt.currentTarget.style.background = '#FFD700';
+    evt.currentTarget.style.color = '#12161f';
+}
 
 /* -----------------------------
     WAITLIST TOGGLE
@@ -326,7 +344,7 @@ function calculateProgress(cycle) {
         
     const participatingVets = vets.filter(v => {
         const status = (v.status || "").toLowerCase().trim();
-        return status !== "dropped" && status != "deferred";
+        return status !== "dropped" && status !== "deferred";
     });
         
     if (participatingVets.length === 0) return 0;
@@ -386,14 +404,18 @@ function buildDashboard(cycleData) {
 
     mainContainer.innerHTML = '';
 
-    // GLOBAL KPI LOOP
+    // GLOBAL KPI LOOP ACROSS ALL DATA
     allCycleData.forEach(cycle => {
         (cycle.vets || []).forEach(vet => {
             const vetKey = (vet.name || "").trim().toLowerCase();
             const statusText = (vet.status || "").toLowerCase().trim();
             const availabilityText = (vet.availability || "").toLowerCase().trim();
 
-            if (statusText !== "dropped" && statusText !== "waiting" && statusText !== "deferred") reached.add(vetKey);
+            if (!vetKey) return;
+
+            if (statusText !== "dropped" && statusText !== "waiting" && statusText !== "deferred") {
+                reached.add(vetKey);
+            }
 
             if (statusText === "graduated" && availabilityText === "completed") {
                 alumni.add(vetKey);
@@ -413,7 +435,7 @@ function buildDashboard(cycleData) {
         });
     });
 
-    // YEAR-SPECIFIC DWELL ONLY
+    // DWELL TIME CALCULATION
     cycleData.forEach(cycle => {
         (cycle.vets || []).forEach(vet => {
             const contactDate = vet.contactDate ? new Date(vet.contactDate) : null;
@@ -435,7 +457,7 @@ function buildDashboard(cycleData) {
         });
     });
    
-    // RENDER ONLY SELECTED YEAR (cycleData)
+    // RENDER CARDS FOR SELECTED CYCLES
     cycleData.forEach(cycle => {
         const progressValue = calculateProgress(cycle);
         const cycleStatus = getCycleStatus(cycle);
@@ -527,7 +549,7 @@ function buildDashboard(cycleData) {
         mainContainer.appendChild(section);
     });
 
-    // GLOBAL KPI OUTPUT
+    // UPDATE GLOBAL KPI STAT CARDS OUTPUT
     document.getElementById('total-vets').innerText = reached.size;
     document.getElementById('grad-count').innerText = alumni.size;
     document.getElementById('active-count').innerText = active.size;
@@ -546,7 +568,7 @@ function toggleAndSaveCard(headerElement, cycleId) {
 }
                     
 /* -----------------------------
-    DATA LOADING
+    DATA LOADING & FILTERING
 ----------------------------- */
 function loadDataFromGoogle() {
     const csvUrl = "https://docs.google.com/spreadsheets/d/e/2PACX-1vRZrgM6dmSRKecR8YR63T4Hvhq9vShmdLKvyqkx-HbO7DbXVNpBdhBl5SfOJFzvtFWBBwYnVYpNo_5z/pub?output=csv";
@@ -558,9 +580,6 @@ function loadDataFromGoogle() {
     });
 }
 
-/* -----------------------------
-    PROCESS DATA
------------------------------ */
 function processExcelData(rawRows) {
     const groupedData = {};
     const waitlist = [];
@@ -615,6 +634,14 @@ function processExcelData(rawRows) {
     filterByYear("2026");
 }
 
+function filterByYear(year) {
+    const filtered = allCycleData.filter(cycle => {
+        if (!cycle.startDate) return false;
+        return cycle.startDate.includes(year);
+    });
+    buildDashboard(filtered);
+}
+
 /* -----------------------------
     WAITLIST RENDER
 ----------------------------- */
@@ -646,7 +673,9 @@ function renderWaitlist(waitlist) {
         `;
     });
 }
+
 loadDataFromGoogle();
 </script>
+
 </body>
 </html>
