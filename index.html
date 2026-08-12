@@ -74,7 +74,8 @@
     </div>
 </div>
 
-    <button class="archive-toggle" onclick="toggleArchive()">▼ View Graduation Gallery</button>
+    <!-- === Graduation Gallery Section === -->
+<button class="archive-toggle" onclick="toggleArchive('may-grad-gallery', this, 'Graduation Gallery')">▼ View Graduation Gallery</button>
 <div id="may-grad-gallery" class="g4v-grad-banner archive" style="display:none; padding: 15px;">
     
     <!-- Gallery Navigation / Selection Tabs -->
@@ -88,38 +89,36 @@
     <div id="grad-aug-26" class="grad-tab-content">
         <h4 style="color: #FFD700; text-align: center; margin: 5px 0 10px 0; font-size: 1em;">August 13, 2026 • Operation Stand Down</h4>
         <div class="g4v-collage-row">
-            <!-- Add image filenames for August graduation below -->
             <img src="images/august_grad_1.png" class="g4v-collage-photo" alt="August Graduation Photo">
         </div>
     </div>
 
-    <!-- May 22, 2026 Gallery Section (Your Existing Photos) -->
+    <!-- May 22, 2026 Gallery Section -->
     <div id="grad-may-26" class="grad-tab-content" style="display: none;">
         <h4 style="color: #FFD700; text-align: center; margin: 5px 0 10px 0; font-size: 1em;">May 22, 2026 • Spring Cohort Celebration</h4>
         <div class="g4v-collage-row">
-            <img src="images/G4V_Class_22May.png" class="g4v-collage-photo">
-            <img src="images/graduation_photo2.png" class="g4v-collage-photo">
-            <img src="images/graduation_photo3.png" class="g4v-collage-photo">
-            <img src="images/graduation_photo4.png" class="g4v-collage-photo">
-            <img src="images/graduation_photo5.png" class="g4v-collage-photo">
-            <img src="images/graduation_photo6.png" class="g4v-collage-photo">
-            <img src="images/graduation_photo7.png" class="g4v-collage-photo">
-            <img src="images/graduation_photo8.png" class="g4v-collage-photo">
+            <img src="images/G4V_Class_22May.png" class="g4v-collage-photo" alt="May Graduation Photo">
+            <img src="images/graduation_photo2.png" class="g4v-collage-photo" alt="May Graduation Photo">
+            <img src="images/graduation_photo3.png" class="g4v-collage-photo" alt="May Graduation Photo">
+            <img src="images/graduation_photo4.png" class="g4v-collage-photo" alt="May Graduation Photo">
+            <img src="images/graduation_photo5.png" class="g4v-collage-photo" alt="May Graduation Photo">
+            <img src="images/graduation_photo6.png" class="g4v-collage-photo" alt="May Graduation Photo">
+            <img src="images/graduation_photo7.png" class="g4v-collage-photo" alt="May Graduation Photo">
+            <img src="images/graduation_photo8.png" class="g4v-collage-photo" alt="May Graduation Photo">
         </div>
     </div>
 
     <!-- February 2026 Gallery Section -->
-    <div id="images/grad-feb-26" class="grad-tab-content" style="display: none;">
+    <div id="grad-feb-26" class="grad-tab-content" style="display: none;">
         <h4 style="color: #FFD700; text-align: center; margin: 5px 0 10px 0; font-size: 1em;">February 27, 2026 • Inaugural Chapter Milestone</h4>
         <div class="g4v-collage-row">
-            <!-- Add image filenames for February graduation below -->
             <img src="images/feb_2026.png" class="g4v-collage-photo" alt="February Graduation Photo">
         </div>
     </div>
 </div>
 
-    <!-- === Special Event Gallery Section === -->
-<button class="archive-toggle" onclick="toggleArchive()">▼ View Special Event Gallery</button>
+<!-- === Special Event Gallery Section === -->
+<button class="archive-toggle" onclick="toggleArchive('special-event-gallery', this, 'Special Event Gallery')">▼ View Special Event Gallery</button>
 <div id="special-event-gallery" class="g4v-grad-banner archive" style="display:none; padding: 15px;">
     
     <!-- Special Event 2026 Gallery Section -->
@@ -127,29 +126,20 @@
         <h4 style="color: #FFD700; text-align: center; margin: 5px 0 10px 0; font-size: 1em;">Special Event 2 August 2026</h4>
         <div class="g4v-collage-row">
             <img src="images/tn_coordinators.jpg" class="g4v-collage-photo" alt="Special Event Photo">
-            <img src="images/wall_of_guitars_1.jpg" class="g4v-collage-photo" alt="Special Event Photo">
-            <img src="images/wall_of_guitars_2.jpg" class="g4v-collage-photo" alt="Special Event Photo">
+            
+            <!-- Rotated Image 1 -->
+            <div style="display: inline-flex; align-items: center; justify-content: center; overflow: hidden;">
+                <img src="images/wall_of_guitars_1.jpg" class="g4v-collage-photo" style="transform: rotate(90deg); transform-origin: center;" alt="Special Event Photo">
+            </div>
+
+            <!-- Rotated Image 2 -->
+            <div style="display: inline-flex; align-items: center; justify-content: center; overflow: hidden;">
+                <img src="images/wall_of_guitars_2.jpg" class="g4v-collage-photo" style="transform: rotate(90deg); transform-origin: center;" alt="Special Event Photo">
+            </div>
         </div>
     </div>
 </div>
 
-
-<script>
-function switchGradTab(evt, tabId) {
-    var contents = document.getElementsByClassName('grad-tab-content');
-    for (var i = 0; i < contents.length; i++) {
-        contents[i].style.display = 'none';
-    }
-    var buttons = document.getElementsByClassName('grad-tab-btn');
-    for (var i = 0; i < buttons.length; i++) {
-        buttons[i].style.background = 'rgba(26, 31, 44, 0.9)';
-        buttons[i].style.color = '#FFD700';
-    }
-    document.getElementById(tabId).style.display = 'block';
-    evt.currentTarget.style.background = '#FFD700';
-    evt.currentTarget.style.color = '#12161f';
-}
-</script>
 <header style="margin-bottom: 1px;">
     <div class="header-inner" style="padding-bottom: 1px;">
 
@@ -304,17 +294,33 @@ function toggleWaitlist() {
     }
 }
 
-function toggleArchive() {
-    const gallery = document.getElementById('may-grad-gallery');
-    const btn = document.querySelector('.archive-toggle');
+function toggleArchive(galleryId, btnElement, galleryName) {
+    const gallery = document.getElementById(galleryId);
+    
+    if (!gallery) return;
     
     if (gallery.style.display === "none") {
         gallery.style.display = "block";
-        btn.innerText = "▲ Close Graduation Gallery";
+        btnElement.innerText = "▲ Close " + galleryName;
     } else {
         gallery.style.display = "none";
-        btn.innerText = "▼ View Graduation Gallery";
+        btnElement.innerText = "▼ View " + galleryName;
     }
+}
+
+function switchGradTab(evt, tabId) {
+    var contents = document.getElementsByClassName('grad-tab-content');
+    for (var i = 0; i < contents.length; i++) {
+        contents[i].style.display = 'none';
+    }
+    var buttons = document.getElementsByClassName('grad-tab-btn');
+    for (var i = 0; i < buttons.length; i++) {
+        buttons[i].style.background = 'rgba(26, 31, 44, 0.9)';
+        buttons[i].style.color = '#FFD700';
+    }
+    document.getElementById(tabId).style.display = 'block';
+    evt.currentTarget.style.background = '#FFD700';
+    evt.currentTarget.style.color = '#12161f';
 }
 
 /* -----------------------------
@@ -476,7 +482,6 @@ function buildDashboard(cycleData) {
 
         const section = document.createElement('section');
         
-        // 🛠️ FIXED: Handled localStorage validation & fallback correctly 
         const cycleKey = `card_collapsed_${cycle.cycleId}`;
         const savedState = localStorage.getItem(cycleKey);
         
@@ -489,7 +494,6 @@ function buildDashboard(cycleData) {
         
         section.className = `cycle-card ${shouldCollapse ? 'collapsed' : ''}`;
 
-        // 🛠️ FIXED: Changed onclick reference to run through our state tracker function instead of an unmonitored baseline toggle
         section.innerHTML = `
             <div class="card-header" onclick="toggleAndSaveCard(this, '${cycle.cycleId}')" style="cursor:pointer;">
                 <h2 style="margin:0;color:#FFD700;">
