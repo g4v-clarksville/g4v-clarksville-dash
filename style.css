@@ -90,10 +90,14 @@ body {
     max-width: fit-content; 
     flex-shrink: 0;       /* prevents the card from shrinking on smaller screens */
 }
+
 .g4v-grad-banner.archive {
+    display: none !important;
+}
+/*.g4v-grad-banner.archive {
     background-color: #1a1a1a;
     border-bottom: 1px solid #333;
-}
+}*/
 
 .archive-toggle {
     width: 100%;
@@ -181,6 +185,12 @@ body {
 /* =========================================
    2. SPECIAL EVENT GALLERY (Scope)
 ========================================= */
+#special-event-gallery .g4v-collage-photo {
+    width: 95px;
+    height: 70px;
+    transform: rotate(0deg);
+}
+
 #special-event-gallery .g4v-collage-photo:nth-child(1) { 
     width: 140px; 
     height: 95px; 
