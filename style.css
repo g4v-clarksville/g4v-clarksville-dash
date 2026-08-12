@@ -166,11 +166,11 @@ body {
 }
 
 /* Hover magnification logic updates */
-.g4v-collage-photo:nth-child(1):hover { transform: scale(1.95); }
+.g4v-collage-photo:nth-child(1):hover { transform: scale(2.95); }
 .g4v-collage-photo:nth-child(2):hover,
 .g4v-collage-photo:nth-child(3):hover
  {
-    transform: rotate(0deg) scale(1.95);
+    transform: rotate(0deg) scale(2.95);
 }
 
 .g4v-collage-photo:nth-child(4):hover,
@@ -178,7 +178,7 @@ body {
 .g4v-collage-photo:nth-child(6):hover,
 .g4v-collage-photo:nth-child(7):hover,
 .g4v-collage-photo:nth-child(8):hover {
-    transform: rotate(0deg) scale(1.95);
+    transform: rotate(0deg) scale(2.95);
 }
 
 /* -----------------------------
