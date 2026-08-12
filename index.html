@@ -74,8 +74,7 @@
     </div>
 </div>
 
-   <!-- === Graduation Gallery Section === -->
-<button class="archive-toggle" onclick="toggleArchive('may-grad-gallery', this, 'Graduation Gallery')">▼ View Graduation Gallery</button>
+    <button class="archive-toggle" onclick="toggleArchive()">▼ View Graduation Gallery</button>
 <div id="may-grad-gallery" class="g4v-grad-banner archive" style="display:none; padding: 15px;">
     
     <!-- Gallery Navigation / Selection Tabs -->
@@ -86,25 +85,26 @@
     </div>
 
     <!-- August 13, 2026 Gallery Section -->
-    <div id="grad-aug-26" class="grad-tab-content" style="display: block;">
+    <div id="grad-aug-26" class="grad-tab-content">
         <h4 style="color: #FFD700; text-align: center; margin: 5px 0 10px 0; font-size: 1em;">August 13, 2026 • Operation Stand Down</h4>
         <div class="g4v-collage-row">
+            <!-- Add image filenames for August graduation below -->
             <img src="images/august_grad_1.png" class="g4v-collage-photo" alt="August Graduation Photo">
         </div>
     </div>
 
-    <!-- May 22, 2026 Gallery Section -->
+    <!-- May 22, 2026 Gallery Section (Your Existing Photos) -->
     <div id="grad-may-26" class="grad-tab-content" style="display: none;">
         <h4 style="color: #FFD700; text-align: center; margin: 5px 0 10px 0; font-size: 1em;">May 22, 2026 • Spring Cohort Celebration</h4>
         <div class="g4v-collage-row">
-            <img src="images/G4V_Class_22May.png" class="g4v-collage-photo" alt="May Graduation Photo">
-            <img src="images/graduation_photo2.png" class="g4v-collage-photo" alt="May Graduation Photo">
-            <img src="images/graduation_photo3.png" class="g4v-collage-photo" alt="May Graduation Photo">
-            <img src="images/graduation_photo4.png" class="g4v-collage-photo" alt="May Graduation Photo">
-            <img src="images/graduation_photo5.png" class="g4v-collage-photo" alt="May Graduation Photo">
-            <img src="images/graduation_photo6.png" class="g4v-collage-photo" alt="May Graduation Photo">
-            <img src="images/graduation_photo7.png" class="g4v-collage-photo" alt="May Graduation Photo">
-            <img src="images/graduation_photo8.png" class="g4v-collage-photo" alt="May Graduation Photo">
+            <img src="images/G4V_Class_22May.png" class="g4v-collage-photo">
+            <img src="images/graduation_photo2.png" class="g4v-collage-photo">
+            <img src="images/graduation_photo3.png" class="g4v-collage-photo">
+            <img src="images/graduation_photo4.png" class="g4v-collage-photo">
+            <img src="images/graduation_photo5.png" class="g4v-collage-photo">
+            <img src="images/graduation_photo6.png" class="g4v-collage-photo">
+            <img src="images/graduation_photo7.png" class="g4v-collage-photo">
+            <img src="images/graduation_photo8.png" class="g4v-collage-photo">
         </div>
     </div>
 
@@ -112,55 +112,30 @@
     <div id="grad-feb-26" class="grad-tab-content" style="display: none;">
         <h4 style="color: #FFD700; text-align: center; margin: 5px 0 10px 0; font-size: 1em;">February 27, 2026 • Inaugural Chapter Milestone</h4>
         <div class="g4v-collage-row">
+            <!-- Add image filenames for February graduation below -->
             <img src="images/feb_2026.png" class="g4v-collage-photo" alt="February Graduation Photo">
         </div>
     </div>
+
 </div>
 
-<!-- === Special Event Gallery Section === -->
-<button class="archive-toggle" onclick="toggleArchive('special-event-gallery', this, 'Special Event Gallery')">▼ View Special Event Gallery</button>
-<div id="special-event-gallery" class="g4v-grad-banner archive" style="display:none; padding: 15px;">
-    
-    <!-- Special Event 2026 Gallery Section -->
-    <div id="special-event-aug-26" class="special-event-tab-content" style="display: block;">
-        <h4 style="color: #FFD700; text-align: center; margin: 5px 0 10px 0; font-size: 1em;">Special Event 2 August 2026</h4>
-        <div class="g4v-collage-row">
-            <img src="images/tn_coordinators.jpg" class="g4v-collage-photo" alt="Special Event Photo">
-            <img src="images/wall_of_guitars_1.jpg" class="g4v-collage-photo" alt="Special Event Photo">
-            <img src="images/wall_of_guitars_2.jpg" class="g4v-collage-photo" alt="Special Event Photo">
-        </div>
-    </div>
-</div>
-    
 <script>
-/* -----------------------------
-    GALLERY TAB SWITCHING
------------------------------ */
 function switchGradTab(evt, tabId) {
     var contents = document.getElementsByClassName('grad-tab-content');
     for (var i = 0; i < contents.length; i++) {
-        contents[i].classList.remove('active-tab');
         contents[i].style.display = 'none';
     }
-    
     var buttons = document.getElementsByClassName('grad-tab-btn');
     for (var i = 0; i < buttons.length; i++) {
         buttons[i].style.background = 'rgba(26, 31, 44, 0.9)';
         buttons[i].style.color = '#FFD700';
     }
-    
-    var activeTab = document.getElementById(tabId);
-    if (activeTab) {
-        activeTab.classList.add('active-tab');
-        activeTab.style.display = 'block';
-    }
-    
+    document.getElementById(tabId).style.display = 'block';
     evt.currentTarget.style.background = '#FFD700';
     evt.currentTarget.style.color = '#12161f';
-}  
+}
 </script>
-
-    <header style="margin-bottom: 1px;">
+<header style="margin-bottom: 1px;">
     <div class="header-inner" style="padding-bottom: 1px;">
 
         <div class="header-main-content">
@@ -199,7 +174,7 @@ function switchGradTab(evt, tabId) {
                target="_blank" 
                class="btn-session" 
                style="background-color: #d93025; color: white; padding: 6px 15px; font-size: 0.85em; text-decoration: none; border-radius: 5px; display: inline-block;">
-                WATCH: Grand Ole Opry Highlight
+               WATCH: Grand Ole Opry Highlight
             </a>
         </div>
     </div>
@@ -287,30 +262,12 @@ function switchGradTab(evt, tabId) {
 </div>
    
 <main id="dashboard-root"></main>
-    
+
 <script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.3.2/papaparse.min.js"></script>
 
 <script>
 const mainContainer = document.getElementById('dashboard-root');
 let allCycleData = [];
-
-/* -----------------------------
-    GALLERY TAB SWITCHING
------------------------------ */
-function switchGradTab(evt, tabId) {
-    var contents = document.getElementsByClassName('grad-tab-content');
-    for (var i = 0; i < contents.length; i++) {
-        contents[i].style.display = 'none';
-    }
-    var buttons = document.getElementsByClassName('grad-tab-btn');
-    for (var i = 0; i < buttons.length; i++) {
-        buttons[i].style.background = 'rgba(26, 31, 44, 0.9)';
-        buttons[i].style.color = '#FFD700';
-    }
-    document.getElementById(tabId).style.display = 'block';
-    evt.currentTarget.style.background = '#FFD700';
-    evt.currentTarget.style.color = '#12161f';
-}
 
 /* -----------------------------
     WAITLIST TOGGLE
@@ -332,17 +289,16 @@ function toggleWaitlist() {
     }
 }
 
-function toggleArchive(galleryId, btnElement, galleryName) {
-    const gallery = document.getElementById(galleryId);
-    
-    if (!gallery) return;
+function toggleArchive() {
+    const gallery = document.getElementById('may-grad-gallery');
+    const btn = document.querySelector('.archive-toggle');
     
     if (gallery.style.display === "none") {
         gallery.style.display = "block";
-        btnElement.innerText = "▲ Close " + galleryName;
+        btn.innerText = "▲ Close Graduation Gallery";
     } else {
         gallery.style.display = "none";
-        btnElement.innerText = "▼ View " + galleryName;
+        btn.innerText = "▼ View Graduation Gallery";
     }
 }
 
@@ -356,7 +312,7 @@ function calculateProgress(cycle) {
         
     const participatingVets = vets.filter(v => {
         const status = (v.status || "").toLowerCase().trim();
-        return status !== "dropped" && status !== "deferred";
+        return status !== "dropped" && status != "deferred";
     });
         
     if (participatingVets.length === 0) return 0;
@@ -416,18 +372,14 @@ function buildDashboard(cycleData) {
 
     mainContainer.innerHTML = '';
 
-    // GLOBAL KPI LOOP ACROSS ALL DATA
+    // GLOBAL KPI LOOP
     allCycleData.forEach(cycle => {
         (cycle.vets || []).forEach(vet => {
             const vetKey = (vet.name || "").trim().toLowerCase();
             const statusText = (vet.status || "").toLowerCase().trim();
             const availabilityText = (vet.availability || "").toLowerCase().trim();
 
-            if (!vetKey) return;
-
-            if (statusText !== "dropped" && statusText !== "waiting" && statusText !== "deferred") {
-                reached.add(vetKey);
-            }
+            if (statusText !== "dropped" && statusText !== "waiting" && statusText !== "deferred") reached.add(vetKey);
 
             if (statusText === "graduated" && availabilityText === "completed") {
                 alumni.add(vetKey);
@@ -447,7 +399,7 @@ function buildDashboard(cycleData) {
         });
     });
 
-    // DWELL TIME CALCULATION
+    // YEAR-SPECIFIC DWELL ONLY
     cycleData.forEach(cycle => {
         (cycle.vets || []).forEach(vet => {
             const contactDate = vet.contactDate ? new Date(vet.contactDate) : null;
@@ -469,7 +421,7 @@ function buildDashboard(cycleData) {
         });
     });
    
-    // RENDER CARDS FOR SELECTED CYCLES
+    // RENDER ONLY SELECTED YEAR (cycleData)
     cycleData.forEach(cycle => {
         const progressValue = calculateProgress(cycle);
         const cycleStatus = getCycleStatus(cycle);
@@ -509,6 +461,7 @@ function buildDashboard(cycleData) {
 
         const section = document.createElement('section');
         
+        // 🛠️ FIXED: Handled localStorage validation & fallback correctly 
         const cycleKey = `card_collapsed_${cycle.cycleId}`;
         const savedState = localStorage.getItem(cycleKey);
         
@@ -521,6 +474,7 @@ function buildDashboard(cycleData) {
         
         section.className = `cycle-card ${shouldCollapse ? 'collapsed' : ''}`;
 
+        // 🛠️ FIXED: Changed onclick reference to run through our state tracker function instead of an unmonitored baseline toggle
         section.innerHTML = `
             <div class="card-header" onclick="toggleAndSaveCard(this, '${cycle.cycleId}')" style="cursor:pointer;">
                 <h2 style="margin:0;color:#FFD700;">
@@ -561,7 +515,7 @@ function buildDashboard(cycleData) {
         mainContainer.appendChild(section);
     });
 
-    // UPDATE GLOBAL KPI STAT CARDS OUTPUT
+    // GLOBAL KPI OUTPUT
     document.getElementById('total-vets').innerText = reached.size;
     document.getElementById('grad-count').innerText = alumni.size;
     document.getElementById('active-count').innerText = active.size;
@@ -580,7 +534,7 @@ function toggleAndSaveCard(headerElement, cycleId) {
 }
                     
 /* -----------------------------
-    DATA LOADING & FILTERING
+    DATA LOADING
 ----------------------------- */
 function loadDataFromGoogle() {
     const csvUrl = "https://docs.google.com/spreadsheets/d/e/2PACX-1vRZrgM6dmSRKecR8YR63T4Hvhq9vShmdLKvyqkx-HbO7DbXVNpBdhBl5SfOJFzvtFWBBwYnVYpNo_5z/pub?output=csv";
@@ -592,6 +546,9 @@ function loadDataFromGoogle() {
     });
 }
 
+/* -----------------------------
+    PROCESS DATA
+----------------------------- */
 function processExcelData(rawRows) {
     const groupedData = {};
     const waitlist = [];
@@ -646,14 +603,6 @@ function processExcelData(rawRows) {
     filterByYear("2026");
 }
 
-function filterByYear(year) {
-    const filtered = allCycleData.filter(cycle => {
-        if (!cycle.startDate) return false;
-        return cycle.startDate.includes(year);
-    });
-    buildDashboard(filtered);
-}
-
 /* -----------------------------
     WAITLIST RENDER
 ----------------------------- */
@@ -678,16 +627,53 @@ function renderWaitlist(waitlist) {
     waitlist.forEach(vet => {
         waitBody.innerHTML += `
             <tr>
-                <td>${vet.name}</td>
-                <td>${vet.availability}</td>
+                <td>-</td>
+                <td class="vet-name-cell" style="font-weight:bold;">${vet.name}</td>
+                <td>${vet.session} / 10</td>
                 <td>${vet.notes}</td>
+                <td class="status-invited">${vet.availability}</td>
             </tr>
         `;
     });
 }
 
-loadDataFromGoogle();
-</script>
+/* -----------------------------
+    YEAR FILTER
+----------------------------- */
+function filterByYear(year) {
+    const filtered = allCycleData.filter(cycle => {
+        if (!cycle.startDate) return false;
+        return new Date(cycle.startDate).getFullYear().toString() === year;
+    });
 
+    buildDashboard(filtered);
+}
+
+/* -----------------------------
+    INIT
+----------------------------- */
+initializeYearSelector();
+loadDataFromGoogle();
+
+function initializeYearSelector() {
+    document.querySelectorAll('.btn-year').forEach(button => {
+
+        if (button.textContent.trim() === "2026") {
+            button.classList.add("active");
+        }
+
+        button.addEventListener("click", () => {
+
+            document.querySelectorAll(".btn-year")
+                .forEach(b => b.classList.remove("active"));
+
+            button.classList.add("active");
+
+            filterByYear(button.textContent.trim());
+        });
+
+    });
+}
+</script>
 </body>
 </html>
