@@ -136,6 +136,12 @@ body {
 /* =========================================
    1. MAY GRADUATION GALLERY (Scope)
 ========================================= */
+/* Reset all May graduation photos to default upright position */
+#grad-may-26 .g4v-collage-photo {
+    width: 95px;
+    height: 70px;
+    transform: rotate(0deg);
+}
 #grad-may-26 .g4v-collage-photo:nth-child(1) { width: 140px; height: 95px; }
 
 #grad-may-26 .g4v-collage-photo:nth-child(2),
