@@ -126,20 +126,28 @@
         <h4 style="color: #FFD700; text-align: center; margin: 5px 0 10px 0; font-size: 1em;">Special Event 2 August 2026</h4>
         <div class="g4v-collage-row">
             <img src="images/tn_coordinators.jpg" class="g4v-collage-photo" alt="Special Event Photo">
-            
-            <!-- Rotated Image 1 -->
-            <div style="display: inline-flex; align-items: center; justify-content: center; overflow: hidden;">
-                <img src="images/wall_of_guitars_1.jpg" class="g4v-collage-photo" style="transform: rotate(90deg); transform-origin: center;" alt="Special Event Photo">
-            </div>
-
-            <!-- Rotated Image 2 -->
-            <div style="display: inline-flex; align-items: center; justify-content: center; overflow: hidden;">
-                <img src="images/wall_of_guitars_2.jpg" class="g4v-collage-photo" style="transform: rotate(90deg); transform-origin: center;" alt="Special Event Photo">
-            </div>
+            <img src="images/wall_of_guitars_1.jpg" class="g4v-collage-photo" alt="Special Event Photo">
+            <img src="images/wall_of_guitars_2.jpg" class="g4v-collage-photo" alt="Special Event Photo">
         </div>
     </div>
 </div>
-
+    
+<script>
+function switchGradTab(evt, tabId) {
+    var contents = document.getElementsByClassName('grad-tab-content');
+    for (var i = 0; i < contents.length; i++) {
+        contents[i].style.display = 'none';
+    }
+    var buttons = document.getElementsByClassName('grad-tab-btn');
+    for (var i = 0; i < buttons.length; i++) {
+        buttons[i].style.background = 'rgba(26, 31, 44, 0.9)';
+        buttons[i].style.color = '#FFD700';
+    }
+    document.getElementById(tabId).style.display = 'block';
+    evt.currentTarget.style.background = '#FFD700';
+    evt.currentTarget.style.color = '#12161f';
+}
+</script>
 <header style="margin-bottom: 1px;">
     <div class="header-inner" style="padding-bottom: 1px;">
 
@@ -308,21 +316,6 @@ function toggleArchive(galleryId, btnElement, galleryName) {
     }
 }
 
-function switchGradTab(evt, tabId) {
-    var contents = document.getElementsByClassName('grad-tab-content');
-    for (var i = 0; i < contents.length; i++) {
-        contents[i].style.display = 'none';
-    }
-    var buttons = document.getElementsByClassName('grad-tab-btn');
-    for (var i = 0; i < buttons.length; i++) {
-        buttons[i].style.background = 'rgba(26, 31, 44, 0.9)';
-        buttons[i].style.color = '#FFD700';
-    }
-    document.getElementById(tabId).style.display = 'block';
-    evt.currentTarget.style.background = '#FFD700';
-    evt.currentTarget.style.color = '#12161f';
-}
-
 /* -----------------------------
     CYCLE PROGRESS
 ----------------------------- */
@@ -482,6 +475,7 @@ function buildDashboard(cycleData) {
 
         const section = document.createElement('section');
         
+        // 🛠️ FIXED: Handled localStorage validation & fallback correctly 
         const cycleKey = `card_collapsed_${cycle.cycleId}`;
         const savedState = localStorage.getItem(cycleKey);
         
@@ -494,6 +488,7 @@ function buildDashboard(cycleData) {
         
         section.className = `cycle-card ${shouldCollapse ? 'collapsed' : ''}`;
 
+        // 🛠️ FIXED: Changed onclick reference to run through our state tracker function instead of an unmonitored baseline toggle
         section.innerHTML = `
             <div class="card-header" onclick="toggleAndSaveCard(this, '${cycle.cycleId}')" style="cursor:pointer;">
                 <h2 style="margin:0;color:#FFD700;">
