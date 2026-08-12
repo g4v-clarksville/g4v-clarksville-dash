@@ -74,7 +74,7 @@
     </div>
 </div>
 
-  <!-- === Graduation Gallery Section === -->
+    <!-- === Graduation Gallery Section === -->
 <button class="archive-toggle" onclick="toggleArchive('may-grad-gallery', this, 'Graduation Gallery')">▼ View Graduation Gallery</button>
 <div id="may-grad-gallery" class="g4v-grad-banner archive" style="display:none; padding: 15px;">
     
@@ -86,7 +86,7 @@
     </div>
 
     <!-- August 13, 2026 Gallery Section -->
-    <div id="grad-aug-26" class="grad-tab-content">
+    <div id="grad-aug-26" class="grad-tab-content active-tab" style="display: block;">
         <h4 style="color: #FFD700; text-align: center; margin: 5px 0 10px 0; font-size: 1em;">August 13, 2026 • Operation Stand Down</h4>
         <div class="g4v-collage-row">
             <img src="images/august_grad_1.png" class="g4v-collage-photo" alt="August Graduation Photo">
@@ -133,22 +133,34 @@
 </div>
     
 <script>
+/* -----------------------------
+    GALLERY TAB SWITCHING
+----------------------------- */
 function switchGradTab(evt, tabId) {
     var contents = document.getElementsByClassName('grad-tab-content');
     for (var i = 0; i < contents.length; i++) {
+        contents[i].classList.remove('active-tab');
         contents[i].style.display = 'none';
     }
+    
     var buttons = document.getElementsByClassName('grad-tab-btn');
     for (var i = 0; i < buttons.length; i++) {
         buttons[i].style.background = 'rgba(26, 31, 44, 0.9)';
         buttons[i].style.color = '#FFD700';
     }
-    document.getElementById(tabId).style.display = 'block';
+    
+    var activeTab = document.getElementById(tabId);
+    if (activeTab) {
+        activeTab.classList.add('active-tab');
+        activeTab.style.display = 'block';
+    }
+    
     evt.currentTarget.style.background = '#FFD700';
     evt.currentTarget.style.color = '#12161f';
-}
+}  
 </script>
-<header style="margin-bottom: 1px;">
+
+    <header style="margin-bottom: 1px;">
     <div class="header-inner" style="padding-bottom: 1px;">
 
         <div class="header-main-content">
