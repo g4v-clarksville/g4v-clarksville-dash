@@ -302,16 +302,17 @@ function toggleWaitlist() {
     }
 }
 
-function toggleArchive() {
-    const gallery = document.getElementById('may-grad-gallery');
-    const btn = document.querySelector('.archive-toggle');
+function toggleArchive(galleryId, btnElement, galleryName) {
+    const gallery = document.getElementById(galleryId);
+    
+    if (!gallery) return;
     
     if (gallery.style.display === "none") {
         gallery.style.display = "block";
-        btn.innerText = "▲ Close Graduation Gallery";
+        btnElement.innerText = "▲ Close " + galleryName;
     } else {
         gallery.style.display = "none";
-        btn.innerText = "▼ View Graduation Gallery";
+        btnElement.innerText = "▼ View " + galleryName;
     }
 }
 
