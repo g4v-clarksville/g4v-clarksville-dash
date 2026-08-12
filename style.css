@@ -116,6 +116,9 @@ body {
 /* -----------------------------
     COLLAGE (FIXED FLOW)
 ------------------------------*/
+/* -----------------------------
+    COLLAGE (FIXED FLOW)
+------------------------------*/
 .g4v-collage-row {
     display: flex;
     flex-wrap: wrap;
@@ -137,64 +140,44 @@ body {
     height: auto;
 }
 
-/* =========================================
-   1. MAY GRADUATION GALLERY (Scope)
-========================================= */
-/* Reset all May graduation photos to default upright position */
-#grad-may-26 .g4v-collage-photo {
-    width: 95px;
-    height: 70px;
-    transform: rotate(0deg);
-}
-#grad-may-26 .g4v-collage-photo:nth-child(1) { width: 140px; height: 95px; }
-
-#grad-may-26 .g4v-collage-photo:nth-child(2),
-#grad-may-26 .g4v-collage-photo:nth-child(3),
-#grad-may-26 .g4v-collage-photo:nth-child(5) {
+/* Layout orientation geometry locks */
+.g4v-collage-photo:nth-child(1) { width: 140px; height: 95px; }
+.g4v-collage-photo:nth-child(2),
+.g4v-collage-photo:nth-child(3),
+.g4v-collage-photo:nth-child(5) {
     width: 95px;
     height: 70px;
     transform: rotate(90deg);
 }
 
-#grad-may-26 .g4v-collage-photo:nth-child(4),
-#grad-may-26 .g4v-collage-photo:nth-child(6),
-#grad-may-26 .g4v-collage-photo:nth-child(7),
-#grad-may-26 .g4v-collage-photo:nth-child(8) {
+.g4v-collage-photo:nth-child(4),
+.g4v-collage-photo:nth-child(6),
+.g4v-collage-photo:nth-child(7),
+.g4v-collage-photo:nth-child(8) {
     width: 95px;
     height: 70px;
     transform: rotate(0deg);
 }
 
-/* May Graduation Hover Effects */
-#grad-may-26 .g4v-collage-photo:nth-child(1):hover { transform: scale(1.95); }
-
-#grad-may-26 .g4v-collage-photo:nth-child(2):hover,
-#grad-may-26 .g4v-collage-photo:nth-child(3):hover,
-#grad-may-26 .g4v-collage-photo:nth-child(5):hover {
+/* Hover magnification logic updates */
+.g4v-collage-photo:nth-child(1):hover { transform: scale(1.95); }
+.g4v-collage-photo:nth-child(2):hover,
+.g4v-collage-photo:nth-child(3):hover,
+.g4v-collage-photo:nth-child(5):hover {
     transform: rotate(90deg) scale(1.95);
 }
 
-#grad-may-26 .g4v-collage-photo:nth-child(4):hover,
-#grad-may-26 .g4v-collage-photo:nth-child(6):hover,
-#grad-may-26 .g4v-collage-photo:nth-child(7):hover,
-#grad-may-26 .g4v-collage-photo:nth-child(8):hover {
+.g4v-collage-photo:nth-child(4):hover,
+.g4v-collage-photo:nth-child(6):hover,
+.g4v-collage-photo:nth-child(7):hover,
+.g4v-collage-photo:nth-child(8):hover {
     transform: rotate(0deg) scale(1.95);
 }
 
-
-/* =========================================
-   2. SPECIAL EVENT GALLERY (Scope)
-========================================= */
-#special-event-gallery .g4v-collage-photo {
-    width: 95px;
-    height: 70px;
-    transform: rotate(0deg);
-}
-
+/* Special Event Gallery Geometry Locks */
 #special-event-gallery .g4v-collage-photo:nth-child(1) { 
     width: 140px; 
     height: 95px; 
-    transform: rotate(0deg);
 }
 
 #special-event-gallery .g4v-collage-photo:nth-child(2),
@@ -202,16 +185,6 @@ body {
     width: 95px;
     height: 70px;
     transform: rotate(90deg);
-}
-
-/* Special Event Hover Effects */
-#special-event-gallery .g4v-collage-photo:nth-child(1):hover { 
-    transform: scale(1.95); 
-}
-
-#special-event-gallery .g4v-collage-photo:nth-child(2):hover,
-#special-event-gallery .g4v-collage-photo:nth-child(3):hover {
-    transform: rotate(90deg) scale(1.95);
 }
 /* -----------------------------
     HEADER
