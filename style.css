@@ -167,13 +167,6 @@ body {
     transform: rotate(0deg) scale(1.95);
 }
 
-.grad-tab-content {
-    display: none;
-}
-.grad-tab-content.active-tab {
-    display: block !important;
-}
-
 /* -----------------------------
     HEADER
 ------------------------------*/
