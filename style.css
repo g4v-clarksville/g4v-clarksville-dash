@@ -95,6 +95,18 @@ body {
     border-bottom: 1px solid #333;
 }
 
+/* Ensure archive galleries start hidden by default */
+#may-grad-gallery.archive,
+#special-event-gallery.archive {
+    display: none;
+}
+
+/* Ensure they open properly when toggled via JavaScript */
+#may-grad-gallery[style*="display: block"],
+#special-event-gallery[style*="display: block"] {
+    display: block !important;
+}
+
 .archive-toggle {
     width: 100%;
     padding: 12px;
