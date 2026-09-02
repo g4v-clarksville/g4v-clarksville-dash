@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chapter 287 Song Library</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .song-container { max-width: 800px; margin: 20px auto; padding: 20px; font-family: sans-serif; }
+        #searchInput { width: 100%; padding: 12px; font-size: 16px; margin-bottom: 20px; box-sizing: border-box; }
+        .song-card { background: #f9f9f9; border: 1px solid #ddd; padding: 15px; margin-bottom: 10px; border-radius: 5px; }
+        .sing-along { color: #d9534f; font-weight: bold; }
+        .meta { font-size: 14px; color: #666; margin-top: 5px; }
+    </style>
+</head>
+<body>
+    <div class="song-container">
+        <h1>Chapter Song Library</h1>
+        <p id="songCount">Loading songs...</p>
+        <input type="text" id="searchInput" placeholder="Search by title, artist, or keyword..." onkeyup="filterSongs()">
+        <div id="songList"></div>
+    </div>
+
+    <script>
+        let songs = [];
+
+        fetch('songs.json')
+            .then(res => res.json())
+            .then(data => {
+                songs = data;
+                document.getElementById('songCount').innerText = `Total Songs Available: ${songs.length}`;
+                displaySongs(songs.slice(0, 50)); // Show first 50 initially for fast load
+            });
+
+        function filterSongs() {
+            let query = document.getElementById('searchInput').value.toLowerCase();
+            if (!query) {
+                displaySongs(songs.slice(0, 50));
+                return;
+            }
+            
+            let filtered = songs.filter(s => 
+                (s.title && s.title.toLowerCase().includes(query)) || 
+                (s.artist && s.artist.toLowerCase().includes(query)) ||
+                (s.content && s.content.some(line => line.toLowerCase().includes(query)))
+            );
+            
+            displaySongs(filtered.slice(0, 100)); // Cap display at 100 results for performance
+        }
+
+        function displaySongs(arr) {
+            let html = '';
+            if (arr.length === 0) {
+                document.getElementById('songList').innerHTML = '<p>No matching songs found.</p>';
+                return;
+            }
+
+            arr.forEach(s => {
+                let titleClass = s.is_sing_along ? 'sing-along' : '';
+                html += `<div class="song-card">
+                    <h3 class="${titleClass}">${s.title || 'Untitled'} ${s.artist ? '— ' + s.artist : ''}</h3>
+                    ${s.is_sing_along ? '<span class="meta" style="color:red;">★ Sing-a-Long</span><br>' : ''}
+                    ${s.youtube ? `<a href="${s.youtube}" target="_blank">Watch on YouTube</a><br>` : ''}
+                </div>`;
+            });
+            document.getElementById('songList').innerHTML = html;
+        }
+    </script>
+</body>
+</html>
