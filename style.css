@@ -175,7 +175,15 @@ body {
 .g4v-collage-photo:nth-child(3):hover,
 .g4v-collage-photo:nth-child(9):hover,
 .g4v-collage-photo:nth-child(10):hover,
-.g4v-collage-photo:nth-child(11):hover
+.g4v-collage-photo:nth-child(11):hover,
+.g4v-collage-photo:nth-child(12):hover,
+.g4v-collage-photo:nth-child(13):hover,
+.g4v-collage-photo:nth-child(14):hover,
+.g4v-collage-photo:nth-child(15):hover,
+.g4v-collage-photo:nth-child(16):hover,
+.g4v-collage-photo:nth-child(17):hover,
+.g4v-collage-photo:nth-child(18):hover,
+.g4v-collage-photo:nth-child(19):hover
  {
     transform: rotate(0deg) scale(2.95);
 }
