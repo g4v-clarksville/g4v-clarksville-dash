@@ -151,7 +151,11 @@ body {
 .g4v-collage-photo:nth-child(3),
 .g4v-collage-photo:nth-child(9),
 .g4v-collage-photo:nth-child(10),
-.g4v-collage-photo:nth-child(11)
+.g4v-collage-photo:nth-child(11),
+.g4v-collage-photo:nth-child(16),
+.g4v-collage-photo:nth-child(17),
+.g4v-collage-photo:nth-child(18),
+.g4v-collage-photo:nth-child(19)
 {
     width: 95px;
     height: 70px;
