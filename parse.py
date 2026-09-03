@@ -15,17 +15,17 @@ for para in doc.paragraphs:
     
     upper_text = text.upper()
     
-    # Comprehensive blacklist for all index markers, TOC headers, and artifacts
+    # 1. Bruteforce filter for any TOC markers, symbols, or single-letter index headers
     if set(text) <= {'*', '-', '=', '_', ' ', '—'}:
         continue
-    if any(term in upper_text for term in ["INDEX", "TOC", "(MAIN)", "MAIN INDEX", "BY SONG TITLE", "ARTIST INDEX", "SONG INDEX", "THIS SONG"]):
+    if any(term in upper_text for term in ["INDEX", "TOC", "(MAIN)", "MAIN INDEX", "BY SONG TITLE", "ARTIST INDEX", "SONG INDEX"]):
         continue
     if re.match(r'^\s*-\s*[A-Z0-9]\s*-\s*$', text):
         continue
     if any(c in text for c in ["***", "==="]) or text.startswith("---"):
         continue
 
-    # Strict Song Header check: Must contain separator and NOT be an index line
+    # 2. Song Header check (Title - Artist)
     if (" — " in text or " - " in text) and len(text) < 80:
         sep = " — " if " — " in text else " - "
         parts = text.split(sep, 1)
@@ -34,9 +34,8 @@ for para in doc.paragraphs:
             title = parts[0].strip()
             artist = parts[1].strip()
             
-            # Ensure neither side contains index metadata keywords
-            invalid_keywords = ["INDEX", "MAIN", "TOC", "PAGE", "SLIDE"]
-            if any(kw in title.upper() or kw in artist.upper() for kw in invalid_keywords):
+            # Double check that neither side is an index placeholder
+            if any(kw in title.upper() or kw in artist.upper() for kw in ["INDEX", "MAIN", "TOC", "PAGE"]):
                 continue
                 
             if len(title) > 1 and len(artist) > 1:
@@ -54,7 +53,7 @@ for para in doc.paragraphs:
                 }
                 continue
 
-    # Append content lines if inside a valid song block
+    # 3. Append lyrics if inside a valid song
     if current_song:
         if not text.isdigit() and len(text) < 150:
             current_song["content"].append(text)
@@ -62,12 +61,8 @@ for para in doc.paragraphs:
 if current_song:
     songs.append(current_song)
 
+# This writes the clean data directly to songs.json, which your HTML fetches!
 with open("songs.json", "w", encoding="utf-8") as f:
     json.dump(songs, f, indent=2)
 
-with open("data.js", "w", encoding="utf-8") as f:
-    f.write("const songData = ")
-    json.dump(songs, f, indent=2)
-    f.write(";")
-
-print(f"SUCCESS: Extracted exactly {len(songs)} valid songs and updated data_v2.js.")
+print(f"SUCCESS: Extracted exactly {len(songs)} valid songs to songs.json.")
