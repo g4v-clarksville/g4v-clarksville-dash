@@ -56,21 +56,24 @@ body {
     width: 100%;
     background-color: #002d72;
     color: white;
-    padding: 15px 25px 15px 580px;
+    padding: 15px 25px; /* Removed the rigid 580px left padding */
     border-bottom: 3px solid #ffc72c;
     display: flex;
     justify-content: space-between;
-    align-items: center; /* Fixed typo (added 's') */
+    align-items: center;
     box-sizing: border-box;
+    flex-wrap: wrap; /* Allows wrapping if viewport shrinks */
+    gap: 15px;
 }
 
-/* Wrapper for text elements (Title and Date stacked on the left) */
 .g4v-grad-banner .banner-text-content {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    align-items: center; /* Keeps the stacked text lines left-aligned */
-    text-align: center; 
+    align-items: flex-start; /* Aligns text cleanly to the left */
+    text-align: left; 
+    flex: 1;
+    min-width: 250px;
 }
 
 .g4v-grad-banner h1 {
@@ -227,14 +230,12 @@ header {
 
 .header-inner {
     display: flex;
-    /*flex-direction: row;*/
     align-items: center;
     justify-content: space-between;
-    gap:30px;
+    gap: 20px;
     padding: 20px 40px;
     width: 100%;
-    /*position: relative;*/
-    
+    flex-wrap: wrap; /* Prevents forced overflow clipping */
 }
 
 .header-main-content {
@@ -253,8 +254,11 @@ header {
     height: 80px; 
 }
 
-.header-titles { text-align: center; }
-
+.header-titles { 
+    text-align: left; 
+    flex: 1;
+    min-width: 220px;
+}
 .header-titles h1 {
     color: var(--text-dim);
     margin: 0;
@@ -395,16 +399,17 @@ header {
     background: #11161d;
     border: 1px solid #1a222d;
     border-radius: 6px;
-    padding: 10px 12px;
+    padding: 12px 14px;
     flex: 1;
     max-width: 200px;
     min-width: 130px;
-    height: 85px;
+    height: auto;          /* Replaced fixed 85px height */
+    min-height: 95px;      /* Ensures uniform breathing room */
     display: flex;
     flex-direction: column;
     justify-content: space-between; 
-    align-items: flex-start;        
-    text-align: left;                
+    align-items: flex-start;               
+    text-align: left;                    
     position: relative;
     overflow: hidden;
 }
