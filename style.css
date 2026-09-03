@@ -52,17 +52,18 @@ body {
     width: 100%; 
 }
 
+/* 1. Center content inside the Top Graduation Banner */
 .g4v-grad-banner {
     width: 100%;
     background-color: #002d72;
     color: white;
-    padding: 15px 25px; /* Removed the rigid 580px left padding */
+    padding: 15px 25px;
     border-bottom: 3px solid #ffc72c;
     display: flex;
     justify-content: space-between;
     align-items: center;
     box-sizing: border-box;
-    flex-wrap: wrap; /* Allows wrapping if viewport shrinks */
+    flex-wrap: wrap;
     gap: 15px;
 }
 
@@ -70,12 +71,11 @@ body {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    align-items: flex-start; /* Aligns text cleanly to the left */
-    text-align: left; 
+    align-items: center; /* Centers the stacked text horizontally */
+    text-align: center;  /* Centers multi-line text blocks */
     flex: 1;
     min-width: 250px;
 }
-
 .g4v-grad-banner h1 {
     margin: 0 0 5px 0;
     font-size: 2rem;
@@ -244,6 +244,7 @@ header {
     justify-content: center;
     gap: 40px;
     flex: 1;
+    text-align: center;
 }
 
 .header-logo { height: 80px; object-fit: contain; }
@@ -254,8 +255,9 @@ header {
     height: 80px; 
 }
 
+/* 2. Center content inside the Main Chapter Header */
 .header-titles { 
-    text-align: left; 
+    text-align: center; /* Centers the chapter title and est. date text */
     flex: 1;
     min-width: 220px;
 }
