@@ -7,24 +7,31 @@ doc = docx.Document(file_path)
 
 songs = []
 current_song = None
+parsing_started = False
 
 for para in doc.paragraphs:
     text = para.text.strip().replace('\u2019', "'").replace('\u201c', '"').replace('\u201d', '"')
     if not text:
         continue
     
-    # 1. Absolute blocklist for TOC noise, dividers, and index markers
+    # Force skip everything until we pass the obvious index section 
+    # (e.g., waiting until we see a known early song or skipping blocks with explicit index traits)
     upper_text = text.upper()
+    if not parsing_started:
+        if "DIFFERENT DRUM" in upper_text or "A KISS AT THE END OF THE RAINBOW" in upper_text:
+            parsing_started = True
+        else:
+            continue
+
+    # Absolute blocklist for TOC noise, dividers, and index markers
     if set(text) <= {'*', '-', '=', '_', ' ', '—'}:
         continue
     if any(marker in upper_text for marker in ["(MAIN)", "MAIN INDEX", "BY SONG TITLE", "ARTIST INDEX", "SONG INDEX", "THIS SONG"]):
         continue
     if re.match(r'^\s*-\s*[A-Z]\s*-\s*$', text):
         continue
-    if any(c in text for c in ["***", "==="]) or text.startswith("---"):
-        continue
 
-    # 2. Check if this paragraph is a valid song header (Title - Artist format)
+    # Check if this paragraph is a valid song header (Title - Artist format)
     if (" — " in text or " - " in text) and len(text) < 80:
         sep = " — " if " — " in text else " - "
         parts = text.split(sep, 1)
@@ -33,7 +40,6 @@ for para in doc.paragraphs:
             title = parts[0].strip()
             artist = parts[1].strip()
             
-            # Ensure neither part is a single-letter index marker or generic label
             if len(title) > 1 and len(artist) > 1 and not re.match(r'^-\s*[A-Z]\s*-$', title):
                 if current_song:
                     songs.append(current_song)
@@ -49,7 +55,7 @@ for para in doc.paragraphs:
                 }
                 continue
 
-    # 3. Append lyrics or content lines if inside a valid song block
+    # Append content lines if inside a valid song block
     if current_song:
         if not text.isdigit() and len(text) < 150:
             current_song["content"].append(text)
