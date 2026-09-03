@@ -401,7 +401,6 @@ const songData = [
     "is_sing_along": false,
     "youtube": "",
     "content": [
-      "A Mighty Wind \u2013 The Folksmen, Mitch & Mickey, and The New Main Street",
       "Singers",
       "A Pub With No Beer \u2013 Slim Dusty",
       "The A Team \u2013 Ed Sheeran",
@@ -1102,13 +1101,6 @@ const songData = [
     "content": []
   },
   {
-    "title": "Fare Away",
-    "artist": "The New Main Street Singers",
-    "is_sing_along": true,
-    "youtube": "",
-    "content": []
-  },
-  {
     "title": "Fat Bottomed Girls",
     "artist": "Queen",
     "is_sing_along": true,
@@ -1508,9 +1500,15 @@ const songData = [
     "youtube": "",
     "content": [
       "I'm Yours \u2013 Jason Mraz",
-      "I've Just Seen a Face \u2013 The Beatles",
-      "If - Bread"
+      "I've Just Seen a Face \u2013 The Beatles"
     ]
+  },
+  {
+    "title": "If",
+    "artist": "Bread",
+    "is_sing_along": false,
+    "youtube": "",
+    "content": []
   },
   {
     "title": "If I Fell",
@@ -4538,8 +4536,7 @@ const songData = [
     "is_sing_along": false,
     "youtube": "",
     "content": [
-      "A Kiss At the End of the Rainbow \u2013 Mitch & Mickey",
-      "A Mighty Wind \u2013 The Folksmen, Mitch & Mickey, The New Main Street Singers"
+      "A Kiss At the End of the Rainbow \u2013 Mitch & Mickey"
     ]
   },
   {
@@ -4595,13 +4592,6 @@ const songData = [
   {
     "title": "Early Morning Rain",
     "artist": "Peter, Paul & Mary",
-    "is_sing_along": true,
-    "youtube": "",
-    "content": []
-  },
-  {
-    "title": "Fare Away",
-    "artist": "The New Main Street Singers",
     "is_sing_along": true,
     "youtube": "",
     "content": [
@@ -5459,7 +5449,15 @@ const songData = [
       "Trans-Siberian Orchestra Christmas Trilogy (Libretto with music)",
       "Christmas Eve and Other Stories",
       "The Christmas Attic",
-      "The Lost Christmas Eve",
+      "The Lost Christmas Eve"
+    ]
+  },
+  {
+    "title": "[Note:  As luck would have it, the first song to appear here in Songbook is A Better Place to Be by Harry Chapin.  It has a whole bunch of chords",
+    "artist": "possibly the most of any in Songbook - and some of the chords aren't so friendly for the beginner.  This is NOT typical of Songbook!]",
+    "is_sing_along": false,
+    "youtube": "",
+    "content": [
       "A BETTER PLACE TO BE",
       "Harry Chapin",
       "https://www.youtube.com/watch?v=MNz9MhrzDfo  (Capo 0)(MC0)",
@@ -5849,7 +5847,6 @@ const songData = [
       "Mitch & Mickey",
       "(McKean/O'Toole)",
       "https://www.youtube.com/watch?v=0G4JlMEfsh0  (Capo 0)(MC0)",
-      "[Two versions, the original here in [D] and afterwards in [G] mainly for fingerstyle.]",
       ",  (MITCH & MICKEY) (MITCH) (MICKEY)",
       "INTRO:  D  A  Bm  G  D  Bm  A  <pause>",
       "(NC)        D        G           A               D                G        A",
@@ -5877,6 +5874,7 @@ const songData = [
       "Mitch & Mickey",
       "(McKean/O'Toole)",
       "https://www.youtube.com/watch?v=0G4JlMEfsh0  (Capo 7)(MC0)",
+      "TIP:  For all those strummers who wish they could fingerpick, but can't, this song is good for faking it and still have it sound half decent.",
       "(MITCH & MICKEY) (MITCH) (MICKEY)",
       "INTRO:  G  D  Em  C  G  Em  D  <pause>",
       "(NC)        G        C           D               G                C        D",
@@ -5911,7 +5909,6 @@ const songData = [
       "Am",
       "Some love is just a lie of the heart.",
       "C                          Am                    Em",
-      "The cold remains of what began with a passionate start.",
       "G                                         C",
       "And they may not want it to end.  But it will it's just a question of when.",
       "Am",
@@ -5962,7 +5959,6 @@ const songData = [
       "Am",
       "Some love is just a lie of the heart.",
       "C                          Am                    Em",
-      "The cold remains of what began with a passionate start.",
       "G                                    C     C  Am",
       "But that can't happen to us, cuz it's always been a matter of trust.",
       "C      C  Am  C       Am                      C     C  Am  C  Am",
@@ -5970,17 +5966,9 @@ const songData = [
       "C      C  Am  C           Am                      C     Am  |C|",
       "It's a matter of trust.           Cuz it's always been a matter of trust.",
       "A MIGHTY WIND",
-      "The Folksmen, Mitch & Mickey, The New Main Street Singers",
       "(Levy/Guest/McKean)",
       "https://www.youtube.com/watch?v=y_fOIbuUAiY  (Capo 0)(MC0)"
     ]
-  },
-  {
-    "title": "New Main Street Singers",
-    "artist": "(SISSY & LAURIE)(TERRY)",
-    "is_sing_along": true,
-    "youtube": "",
-    "content": []
   },
   {
     "title": "Folksmen",
@@ -5989,7 +5977,6 @@ const songData = [
     "youtube": "",
     "content": [
       "(MITCH & MICKEY) (ALL SING)",
-      "<New Main Street Singers>",
       "C                                   Am             F",
       "As I travel down the back roads, of this home I love so much.",
       "C             Am",
@@ -6985,6 +6972,7 @@ const songData = [
       "ALICE'S RESTAURANT",
       "Arlo Guthrie",
       "https://www.youtube.com/watch?v=m57gzA2JCcM  (Capo 2)(MC1)",
+      "TIP:  Arlo of course is fingerpicking this song but we'll give it a whirl using chords.",
       ",,(ARLO) (ALL SING)"
     ]
   },
@@ -7002,7 +6990,22 @@ const songData = [
       "C                  C7               F/C                         Fm",
       "Walk right in it's around the back, just a half a mile from the railroad track.",
       "C              A         A7      D7      G     C",
-      "You can get anything you want at Alice's Restaurant.",
+      "You can get anything you want at Alice's Restaurant."
+    ]
+  },
+  {
+    "title": "After the ordeal we went back to the jail Obie said he was going to put us in the cell said \"Kid I'm, going to put you in the cell I want your wallet and your belt.\"  And I said \"Obie I can understand you wanting my wallet so I don't have any money to spend in the cell but what do you want my belt for?\" and he said \"Kid, we don't want any hangings.\"  I said \"Obie did you think I was going to hang myself for littering?\"  Obie said he was making sure and friends Obie was cause he took out the toilet seat so I couldn't hit myself over the head and drown, and he took out the toilet paper so I couldn't bend the bars, roll out the, roll the toilet paper out the window slide down the roll and have me an escape.  Obie was making sure and it was about four or five hours later that Alice",
+    "artist": "remember Alice?  It's a song about Alice - Alice came by and with a few nasty words to Obie on the side, bailed us out of jail and we went back to the church, had a another thanksgiving dinner that couldn't be beat and didn't get up until the next morning, when we all had to go to court.",
+    "is_sing_along": false,
+    "youtube": "",
+    "content": []
+  },
+  {
+    "title": "And I proceeded to tell him the story of the Alice's Restaurant Massacre with, full orchestration and five part harmony and stuff like that and all the phenome",
+    "artist": "stopped me right there and said \"Kid, did you ever go to court?\"  And I proceeded to tell him the story of the twenty seven eight-by-ten color glossy pictures with the circles and arrows and a paragraph on the back of each one and he stopped me right there and said \"Kid, I want you to go over and sit down on that bench that says 'Group W'.  Now kid!\"",
+    "is_sing_along": false,
+    "youtube": "",
+    "content": [
       "(\"KID, HAVE YOU REHABILITATED YOURSELF?\")",
       "C              A         A7      D7      G7    C",
       "You can get anything you want at Alice's Restaurant.\"",
@@ -7559,7 +7562,6 @@ const songData = [
       "G                           C       F         C                        F",
       "I'm still your man, for the roamin',   for as long as there's roamin' allowed.",
       "Dm                      C             F       C                     F",
-      "There'll be a rider and there'll be a wall as long as the dreamer remains.",
       "C                   G        C            Am      F            C",
       "And if it's all for nothin', all the road runnin',   'sbeen in vain.",
       "F            G         F            C",
@@ -7924,8 +7926,15 @@ const songData = [
     "is_sing_along": true,
     "youtube": "",
     "content": [
-      "C    G       F      C    G       F     |C|",
-      "Al - already gone.  Al - already gone.",
+      "C    G       F      C    G       F     |C|"
+    ]
+  },
+  {
+    "title": "Al",
+    "artist": "already gone.  Al - already gone.",
+    "is_sing_along": true,
+    "youtube": "",
+    "content": [
       "ALWAYS LOOK ON THE BRIGHT SIDE OF LIFE",
       "Eric Idle",
       "https://www.youtube.com/watch?v=kE186w91YVU  (Capo 1)(MC1)",
@@ -8069,7 +8078,15 @@ const songData = [
       "D  F#m  G  A,   D  F#m  G  A,   D  F#m  G  A,   D",
       "AMAZING GRACE \u2013 Traditional/Judy Collins",
       "(Newton)",
-      "https://www.youtube.com/watch?v=AtteRD5bBNQ  (Capo 1)(MC1)",
+      "https://www.youtube.com/watch?v=AtteRD5bBNQ  (Capo 1)(MC1)"
+    ]
+  },
+  {
+    "title": "TIP:  So many versions and ways to sing this song.  This is Judy's version and she likes to stretch out the syllables.  The lyric pacing reflects that.  Also pretty in [A] using (A),(D),(E)",
+    "artist": "capo 6 to match Judy, or in [C] using (C)(F)(G) - capo 3 to match Judy.  Nice, easy song to pick as well, not so much here in [D] but more so in [A].",
+    "is_sing_along": false,
+    "youtube": "",
+    "content": [
       "D                         G          D                                         A",
       "A-a-ma, zi-ing Grace, how sweet, the sound, tha-at saved, a-a-a wretch, li-ike me.",
       "D                     G        D                               A D",
@@ -8345,8 +8362,15 @@ const songData = [
       "G  D  G  D  G-C  G  D  G",
       "AMERICAN PIE",
       "Don McLean",
-      "https://www.youtube.com/watch?v=iX_TFkut1PM  (Capo 0)(MC4)",
-      "TIP:  Wherever you see a chord in vertical brackets - |Am| - means strum just once at that position.",
+      "https://www.youtube.com/watch?v=iX_TFkut1PM  (Capo 0)(MC4)"
+    ]
+  },
+  {
+    "title": "TIP:  Wherever you see a chord in vertical brackets",
+    "artist": "|Am| - means strum just once at that position.",
+    "is_sing_along": false,
+    "youtube": "",
+    "content": [
       "TIP:  February 3rd, 1959.  (The day the music died.)",
       "|G|  |D|  |Em|      |Am|              |C|                |Em|",
       "A long long time ago,  I  can still remember how that music,",
@@ -8360,7 +8384,15 @@ const songData = [
       "But February made me shiver, with every paper I'd deliver.",
       "|C|      |G|    |Am|        |C|                    |D|",
       "Bad news on the doorstep, I couldn't take one more step.",
-      "|G|           |Em|               |C|            |D|",
+      "|G|           |Em|               |C|            |D|"
+    ]
+  },
+  {
+    "title": "I can't remember if I cried when I read about his widowed bride.\n|G|       |D|        |Em|             |C|      |D|    |G|   g \u2013 e",
+    "artist": "g \u2013 e \u2013 g \u2013 a - b/g",
+    "is_sing_along": false,
+    "youtube": "",
+    "content": [
       "Something touched me deep inside, the day, the music, died.",
       "G   C         G       D            G            C             G         D",
       "So bye bye Miss American Pie drove my Chevy to the levee but the levee was dry.",
@@ -9979,15 +10011,8 @@ const songData = [
       "BAD DAY",
       "Daniel Powter",
       "https://www.youtube.com/watch?v=gH476CxJxfg  (Capo 1)(MC3)",
-      "TIP:  In the last chorus, a (Bb) follows the (Bm).  That movement is cumbersome and may catch you out if you're not ready for it."
-    ]
-  },
-  {
-    "title": "(DANIEL) (DANIEL",
-    "artist": "OVERDUB)",
-    "is_sing_along": false,
-    "youtube": "",
-    "content": [
+      "TIP:  In the last chorus, a (Bb) follows the (Bm).  That movement is cumbersome and may catch you out if you're not ready for it.",
+      "(DANIEL) (DANIEL - OVERDUB)",
       "INTRO:  <piano>   D  G,  D  G,  D",
       "G                    A     A  D",
       "Where is the moment we needed the most?",
@@ -10066,8 +10091,15 @@ const songData = [
       "And how does it feel, for one more time,",
       "G    A                 D    G",
       "You had a bad day.     You had a bad day.",
-      "Em            A              D     G       Em          A              D",
-      "Ahhh - ahh yeah yeah yeah had a bad day.  Ahhhh - ahh all the week had a bad day.",
+      "Em            A              D     G       Em          A              D"
+    ]
+  },
+  {
+    "title": "Ahhh",
+    "artist": "ahh yeah yeah yeah had a bad day.  Ahhhh - ahh all the week had a bad day.",
+    "is_sing_along": false,
+    "youtube": "",
+    "content": [
       "G    Em          A            D     G           Em  A  |D|",
       "Ahhh la la la la la had a bad day.  Ahhhh . . ."
     ]
@@ -10106,10 +10138,24 @@ const songData = [
       "Broadcast me a joyful noise unto the times Lord,",
       "A                              Bm      G          F#m",
       "Count your blessings, the papers wouldn't lie, I, sigh, not, one, more",
-      "A           D        A            Em                              D        A       Em",
-      "It's been a bad day, please don't take your picture.  It's been a bad day, pleee - eease.",
-      "D        A            Em                           D        A       Em",
-      "It's been a bad day, please don't take a picture.  It's been a bad day, pleee - eease.",
+      "A           D        A            Em                              D        A       Em"
+    ]
+  },
+  {
+    "title": "It's been a bad day, please don't take your picture.  It's been a bad day, pleee",
+    "artist": "eease.",
+    "is_sing_along": false,
+    "youtube": "",
+    "content": [
+      "D        A            Em                           D        A       Em"
+    ]
+  },
+  {
+    "title": "It's been a bad day, please don't take a picture.  It's been a bad day, pleee",
+    "artist": "eease.",
+    "is_sing_along": false,
+    "youtube": "",
+    "content": [
       "D                   A                  G",
       "We're dug in the deep the price is steep the auctioneer is such a creep.",
       "D                   A              Em               A",
@@ -10122,11 +10168,25 @@ const songData = [
       "Broadcast me a joyful noise unto the times Lord,",
       "A                           Bm         G            F#m",
       "Count your blessings, ignore the lower fear, ugh, this, means, war.",
-      "A           D        A            Em                              D        A       Em",
-      "It's been a bad day, please don't take your picture.  It's been a bad day, pleee - eease.",
+      "A           D        A            Em                              D        A       Em"
+    ]
+  },
+  {
+    "title": "It's been a bad day, please don't take your picture.  It's been a bad day, pleee",
+    "artist": "eease.",
+    "is_sing_along": false,
+    "youtube": "",
+    "content": [
       "Uh . . . . . . .  uh . . . . . .  . . . . . . . . uh . . . . . . . . . .",
-      "D        A            Em                           D        A       Gadd",
-      "It's been a bad day, please don't take a picture.  It's been a bad day, pleee - eease.",
+      "D        A            Em                           D        A       Gadd"
+    ]
+  },
+  {
+    "title": "It's been a bad day, please don't take a picture.  It's been a bad day, pleee",
+    "artist": "eease.",
+    "is_sing_along": false,
+    "youtube": "",
+    "content": [
       "Uh . . . . . . .  uh . . . . . . . . . . . . . uh . . . . . . . . . .",
       "<gently>  D . . .    D             G   A    Em",
       "Did-it-did-it dit dit, ahh.",
@@ -10138,17 +10198,45 @@ const songData = [
       "Broadcast me a joyful noise unto the times Lord,",
       "A                              Bm         G           F#m       A",
       "Count your blessings, we're sick of being jerked, a, round.  We, all, fall down.",
-      "A           D        A            Em                              D        A       Em",
-      "It's been a bad day, please don't take your picture.  It's been a bad day, pleee - eease.",
+      "A           D        A            Em                              D        A       Em"
+    ]
+  },
+  {
+    "title": "It's been a bad day, please don't take your picture.  It's been a bad day, pleee",
+    "artist": "eease.",
+    "is_sing_along": false,
+    "youtube": "",
+    "content": [
       "Uh . . . . . . .  uh . . . . . .  . . . . . . . . uh . . . . . . . . . .",
-      "D        A            Em                           D        A       Gadd",
-      "It's been a bad day, please don't take a picture.  It's been a bad day, pleee - eease.",
+      "D        A            Em                           D        A       Gadd"
+    ]
+  },
+  {
+    "title": "It's been a bad day, please don't take a picture.  It's been a bad day, pleee",
+    "artist": "eease.",
+    "is_sing_along": false,
+    "youtube": "",
+    "content": [
       "Uh . . . . . . .  uh . . . . . . . . . . . . . uh . . . . . . . . . .",
-      "A           D        A            Em                              D        A       Em",
-      "It's been a bad day, please don't take your picture.  It's been a bad day, pleee - eease.",
+      "A           D        A            Em                              D        A       Em"
+    ]
+  },
+  {
+    "title": "It's been a bad day, please don't take your picture.  It's been a bad day, pleee",
+    "artist": "eease.",
+    "is_sing_along": false,
+    "youtube": "",
+    "content": [
       "Uh . . . . . . .  uh . . . . . .  . . . . . . . . uh . . . . . . . . . .",
-      "D        A            Em                           D        A       Gadd",
-      "It's been a bad day, please don't take a picture.  It's been a bad day, pleee - eease.",
+      "D        A            Em                           D        A       Gadd"
+    ]
+  },
+  {
+    "title": "It's been a bad day, please don't take a picture.  It's been a bad day, pleee",
+    "artist": "eease.",
+    "is_sing_along": false,
+    "youtube": "",
+    "content": [
       "Uh . . . . . . .  uh . . . . . . . . . . . . . uh . . . . . . . . . .",
       "D             G   A    Em",
       "Did-it-did-it dit dit, ahh.",
@@ -12843,9 +12931,15 @@ const songData = [
       "Old Ninety-Seven went in the wrong hole now in,",
       "Am",
       "Mine number Sixty",
-      "Dm                                                               |C| |Am|  |Dm|",
-      "There's blood on the co - . . . . . . . . . . . . . . . . . <slow down>  -oh  -oh  -oal."
+      "Dm                                                               |C| |Am|  |Dm|"
     ]
+  },
+  {
+    "title": "There's blood on the co",
+    "artist": ". . . . . . . . . . . . . . . . . <slow down>  -oh  -oh  -oal.",
+    "is_sing_along": false,
+    "youtube": "",
+    "content": []
   },
   {
     "title": "Blood on the co",
@@ -13047,7 +13141,15 @@ const songData = [
       "(Orbison/Melson)",
       "https://www.youtube.com/watch?v=_qqvdOwoN-Y  (Capo 2)(MC0)",
       "TIP:  For the intro, form (A) and pick the strings indicated.",
-      "TIP:  <ping> means finish the |E|-|E|-|E| with an upstroke on the open 1st string.",
+      "TIP:  <ping> means finish the |E|-|E|-|E| with an upstroke on the open 1st string."
+    ]
+  },
+  {
+    "title": "TIP:  The movement to the (A+) from the (A) may feel a little awkward but the key is to just keep the two treble fingers from the preceding (A) where they are and bring the \"top\" finger down to the 1st string/1st fret",
+    "artist": "kind of like an (Am) except down one string/set - and put the pinky up at the 4th string/3rd fret.  Not bad.",
+    "is_sing_along": false,
+    "youtube": "",
+    "content": [
       "or (LINDA) (LINDA & DON)"
     ]
   },
@@ -13105,15 +13207,7 @@ const songData = [
       "In the twilight glow I  see her.  Blue, eyes crying, in the rain.",
       "D    D4 D              D4  D         A     A6   A            D",
       "When we kissed goodbye and parted, I knew, we'd never, meet again.",
-      "G    G4 G         G4  G          D                  A     A7"
-    ]
-  },
-  {
-    "title": "Love is like, a dying ember, and on",
-    "artist": "ly memories remain.",
-    "is_sing_along": false,
-    "youtube": "",
-    "content": [
+      "G    G4 G         G4  G          D                  A     A7",
       "D        D4  D          D4 D       A     A6   A              D",
       "And through, the ages, I'll re member, blue, eyes crying, in the rain.",
       "<Repeat chords from first verse>:",
@@ -13294,7 +13388,15 @@ const songData = [
       "(Perkins)",
       "https://www.youtube.com/watch?v=mvsYRAc-BWA   Carl Perkins (Capo 0)(MC3)",
       "https://www.youtube.com/watch?v=Bm5HKlQ6nGM   Elvis the Pelvis (Capo 0)",
-      "TIP:  The A in brackets |A| means strum once at that point.",
+      "TIP:  The A in brackets |A| means strum once at that point."
+    ]
+  },
+  {
+    "title": "TIP:  For a zingy rendition, play the (A) as an (AA5)",
+    "artist": "barre 2nd fret and then extend your pinky over to the 1st string two frets over from the barre to grab the treble <a>.  Then you can hammer/on/off the pinky while strumming.  In the instrumental bridge you do the same for second (D) by playing a (DaddA).",
+    "is_sing_along": false,
+    "youtube": "",
+    "content": [
       ";",
       "|A|                 |A|",
       "Well it's one for the money.  Two for the show.",
@@ -13390,6 +13492,7 @@ const songData = [
       "G               Am7            Am",
       "He was alone in the spot light,    not too much left in sight.",
       "D                                 G     G",
+      "She changed all that, one night, when she sang him this song.",
       "G             Am7  Am   Am",
       "Hey baby I love you.    Hey baby I need you.",
       "D                                                  G    G",
@@ -13688,15 +13791,7 @@ const songData = [
       "Of ev'ry glove that laid him down or\u00a0cut him til he cried out,",
       "Em          D            C",
       "In his anger and his shame, I\u00a0am leaving I am\u00a0leaving",
-      "G           D    C  G  G-C-G"
-    ]
-  },
-  {
-    "title": "But the fighter still remains mmm",
-    "artist": "mmm.",
-    "is_sing_along": true,
-    "youtube": "",
-    "content": [
+      "G           D    C  G  G-C-G",
       "Em           D                           Em",
       "Lie\u00a0la\u00a0lie.  Lie\u00a0la\u00a0lie lie la lie lie.  La\u00a0lie\u00a0lie.",
       "C           D                        Em",
@@ -13781,7 +13876,6 @@ const songData = [
       "Am          G            F",
       "In his anger and his shame, I\u00a0am leaving I am\u00a0leaving",
       "C         G    F  C  C-F-C",
-      "But the fighter still remains mmm-mmm.",
       "Am           G                           Am",
       "Lie\u00a0la\u00a0lie.  Lie\u00a0la\u00a0lie Lie la lie\u00a0lie.  La\u00a0lie\u00a0lie.",
       "F           G                        Am",
@@ -14128,7 +14222,6 @@ const songData = [
       "(D'Abo/Tony Macaulay)",
       "https://www.youtube.com/watch?v=hSofzQURQDk  (Capo 0)(MC1)",
       "TIP:  In the intro emphasize the bass strings on the final (G).",
-      "TIP:  At the end of the verse (don't break my heart) you end on an (F), pause for a beat, and then strum the remaining chords once, quickly.",
       "(COLIN) (ALAN & PETER) (COLIN/ALAN/PETER)",
       "INTRO:  C,  E,  F,  G;   C  E  E7  F,   G",
       "C                          E         E7           F",
@@ -14967,7 +15060,22 @@ const songData = [
     "youtube": "",
     "content": [
       "(Hammond/Orbison/Warren)",
-      "https://www.youtube.com/watch?v=rUCNEB7wivs  (Capo 0)(MC2)",
+      "https://www.youtube.com/watch?v=rUCNEB7wivs  (Capo 0)(MC2)"
+    ]
+  },
+  {
+    "title": "TIP:  Both (F#)",
+    "artist": "which is just (F) moved up one fret - and (F#m) appear in this song.",
+    "is_sing_along": false,
+    "youtube": "",
+    "content": []
+  },
+  {
+    "title": "TIP:  You can play the (C#m) in whichever way is more comfortable to you but Roy sings the first occurance in a lower register, so maybe play the (C#m) in frets 1-3 (first diagram",
+    "artist": "which is just (D7) moved up one string), and then Roy sings it in an upper register the second time so play the (C#m) in frets 4-7 like a (Bm) on the 4th fret.  The chord will appears as (C#m/Bm4).",
+    "is_sing_along": false,
+    "youtube": "",
+    "content": [
       "TIP:  Strike chords in brackets once and sustain.",
       "(-)  (ROY) (ROY & HOWIE)",
       "INTRO:  A  F#m  D  A",
@@ -15359,9 +15467,15 @@ const songData = [
       "<d> = 4th st open      <e> = 4th st/2nd fret   <f#> = 4th sr/4th fret  <g> = 3rd st open",
       "<a> = 3rd st/2nd fret   <g> = 3rd st open      <a> = 3rd st/2nd fret   <b> = 2nd st open",
       "<d> = 4th st open",
-      "<> (JOHN) (JOHN & OVERDUBS) (OVERDUB)",
-      "INTRO with notes:  (Claps)  g \u2013 a \u2013 b - c (ever-so-brief-pause) d \u2013 e - f#- g \u2013 a"
+      "<> (JOHN) (JOHN & OVERDUBS) (OVERDUB)"
     ]
+  },
+  {
+    "title": "INTRO with notes:  (Claps)  g \u2013 a \u2013 b",
+    "artist": "c (ever-so-brief-pause) d \u2013 e - f#- g \u2013 a",
+    "is_sing_along": false,
+    "youtube": "",
+    "content": []
   },
   {
     "title": "g \u2013 a \u2013 b",
@@ -15405,9 +15519,15 @@ const songData = [
       "C       G             D         D7        G",
       "I'm ready to play, today.  Look at me, I can be, Centerfield.",
       "G-G4-G,  G  G-G4-G,  G-G4-G,  G  G-G4-G",
-      "< this: >                                       < or this: >",
-      "g \u2013 a \u2013 b - c (ever-so-brief-pause) d \u2013 e - f#- g \u2013 a      G  C  D  G,  C  D  G,  C  D  G"
+      "< this: >                                       < or this: >"
     ]
+  },
+  {
+    "title": "g \u2013 a \u2013 b",
+    "artist": "c (ever-so-brief-pause) d \u2013 e - f#- g \u2013 a      G  C  D  G,  C  D  G,  C  D  G",
+    "is_sing_along": false,
+    "youtube": "",
+    "content": []
   },
   {
     "title": "g \u2013 a \u2013 b",
@@ -15630,7 +15750,6 @@ const songData = [
       "G                     D",
       "It's those changes in latitudes, changes in attitudes",
       "A                         D",
-      "Nothing remains quite the same.",
       "G                      D",
       "With all of our running and all of our cunning",
       "A                          G        D     D",
@@ -15646,7 +15765,6 @@ const songData = [
       "G                     D",
       "With these changes in latitudes, changes in attitudes",
       "A                         D",
-      "Nothing remains quite the same.",
       "G                      D",
       "Through all of the islands and all of the highlands",
       "A                          G        D     D",
@@ -15663,7 +15781,6 @@ const songData = [
       "A           A7            D",
       "And I know that I just can't go wrong.  With these",
       "G                     D                    A                         D",
-      "Changes in latitudes, changes in attitudes nothing remains quite the same.",
       "G                     D                    A",
       "With all of my running and all of my cunning if I couldn't laugh",
       "|G|   |D|  |A| D         A                         |G|   |D|  |A| D",
@@ -15746,7 +15863,15 @@ const songData = [
       "CHOOSING TEXAS \u2013 Ella Langley",
       "(Lambert/Dick/Langley/Taylor)",
       "https://www.youtube.com/watch?v=xukbqwRuN5w   (Capo 1)(MC2)",
-      "TIP:  If it's been a while between you've moved between the (C) and (Dm), maybe warm up a bit.",
+      "TIP:  If it's been a while between you've moved between the (C) and (Dm), maybe warm up a bit."
+    ]
+  },
+  {
+    "title": "TIP:  The segue from the end of the first chorus to the first instrumental bridge is brief so don't dawdle",
+    "artist": "launch right into the (C)-(Dm)(Dm)(Dm)(Dm)(C)(C)(C) after |C| \"tell.\"",
+    "is_sing_along": false,
+    "youtube": "",
+    "content": [
       "TIP:  In the second verse, delay and drag the (C) until the very end of \"rain\" and \"sing\".",
       "(ELLA) (ELLA & MIRANDA)",
       "INTRO:   C-Dm  Dm  Dm  Dm  C  C  C,   C-Dm  Dm  F  F  C  C  |C|",
@@ -17575,7 +17700,15 @@ const songData = [
     "content": [
       "(Nelson)",
       "https://www.youtube.com/watch?v=MbnrdCS57d0   Patsy (Capo 3)(MC4)",
-      "https://www.youtube.com/watch?v=PdNrSZm18Gw   Willie (Capo 5)",
+      "https://www.youtube.com/watch?v=PdNrSZm18Gw   Willie (Capo 5)"
+    ]
+  },
+  {
+    "title": "TIP:  I don't know what Willie did with the reprise, raised and flattened the key maybe.  I asked him about it one time but he got all pissed off and threw a Lone Star at me",
+    "artist": "I think the IRS was hounding him at the time - but whatever he did really resulted in some messed up the chords and I've renamed some of them like (Eb),(Bbm),(Ab) etc into something a little more memorable/recognizable.  (C#) is played like a (D/A) slid down in the first fret so that's how I've indicated it in the lyrics (D/A1).  But you know what, why not just play the reprise with chords from the previous verse (indicated by >>>).  They finish the song just as well.",
+    "is_sing_along": false,
+    "youtube": "",
+    "content": [
       "TIP:  Patsy and Willie sing the song a little differently, Patsy more hauntingly, and it's Patsy's version that appears here.",
       ";  (PATSY) (THE JORDANAIRES)",
       "INTRO:  G,  C,  CaddG-C   Bm   Am        D7",
@@ -17705,8 +17838,15 @@ const songData = [
       "https://www.youtube.com/watch?v=QS-YZlJLCbM  (Capo 0)(MC0)",
       "TIP:  In the verse there's a (Bm).  You can play an (Em) instead if you'd rather and it will sound just fine.",
       ";;;",
-      "(ELTON) (OVERDUBS/ALL SING)",
-      "INTRO:  g \u2013 c \u2013 a  Gadd, Gadd - G- Gadd;   Em, Em-EmF-Em;   C, C <roll> C;  D, D-D4-D",
+      "(ELTON) (OVERDUBS/ALL SING)"
+    ]
+  },
+  {
+    "title": "INTRO:  g \u2013 c \u2013 a  Gadd, Gadd",
+    "artist": "G- Gadd;   Em, Em-EmF-Em;   C, C <roll> C;  D, D-D4-D",
+    "is_sing_along": false,
+    "youtube": "",
+    "content": [
       "G                                   Bm",
       "I remember when rock was young.  Me and Suzie had so much fun,",
       "C",
@@ -18407,11 +18547,26 @@ const songData = [
     "content": [
       "DEAD MAN'S CURVE \u2013 Jan and Dean",
       "(Kornfeld/Wilson/Berry/Christian)",
-      "https://www.youtube.com/watch?v=yrCuMPeSu9s  (Capo 4)(MC2)",
+      "https://www.youtube.com/watch?v=yrCuMPeSu9s  (Capo 4)(MC2)"
+    ]
+  },
+  {
+    "title": "TIP:  In the intro you form and hold (D).  Then you pick the strings indicated",
+    "artist": "all are open strings until the last one in the second measure.  The P4 means to cover the 4th string/4th fret with your pinky.  Then you play (D) the same way, all (D) for the first measure and then (D) again with the last strum covering the 4th string/4th fret with your pinky for the (D/A).",
+    "is_sing_along": false,
+    "youtube": "",
+    "content": [
       "TIP:  In the verse, play the (D/A) if you can, otherwise a regular (D) works.",
       "TIP:  The spoken part towards the end has one strum before each line, indicated by a chord in brackets |Bb| |Gm| |D/A3| |F4|.",
-      "(JAN) (JAN & DEAN) (DEAN) (BRIAN) (ALL SING)",
-      "INTRO (Form D):  4 \u2013 5 \u2013 4 - 5,  4 \u2013 5 \u2013 4 - P4;   4 \u2013 5 \u2013 4 - 5,  4 \u2013 5 \u2013 4 - P4",
+      "(JAN) (JAN & DEAN) (DEAN) (BRIAN) (ALL SING)"
+    ]
+  },
+  {
+    "title": "INTRO (Form D):  4 \u2013 5 \u2013 4",
+    "artist": "5,  4 \u2013 5 \u2013 4 - P4;   4 \u2013 5 \u2013 4 - 5,  4 \u2013 5 \u2013 4 - P4",
+    "is_sing_along": false,
+    "youtube": "",
+    "content": [
       "D,  D  D/A",
       "I was cruisin' in my Stingray late one night,",
       "G",
@@ -19180,8 +19335,15 @@ const songData = [
     "is_sing_along": false,
     "youtube": "",
     "content": [
-      "Whoa-oh ohh-ohh, I knew we was falling in lo-uh-uh-uh-ve.",
-      "e \u2013 d \u2013 c - a \u2013 g   F                                                   G        G7",
+      "Whoa-oh ohh-ohh, I knew we was falling in lo-uh-uh-uh-ve."
+    ]
+  },
+  {
+    "title": "e \u2013 d \u2013 c",
+    "artist": "a \u2013 g   F                                                   G        G7",
+    "is_sing_along": false,
+    "youtube": "",
+    "content": [
       "Yes I did-and-so-I-told-her-all-the-things-I'd-been dreamin' of.",
       "C                     F            C                               F         C",
       "Now we're together nearly every single day singin' \"Do wah diddy diddy dum diddy do.\"",
@@ -19202,7 +19364,15 @@ const songData = [
       "Do wah diddy diddy dum diddy do.",
       "DO WAH DIDDY \u2013 Manfred Mann",
       "(Barry/Greenwich)",
-      "(MC1) or (MC2)",
+      "(MC1) or (MC2)"
+    ]
+  },
+  {
+    "title": "TIP  The bridges are a bit tricky to get the vocals right.  First, there are notes prior to the beginning of each line",
+    "artist": "which can be ignored - but if you play them the first ones can begin on either the open 4th string while holding the trailing (G), or begin with a (D) and start with the covered ring finger on the 2nd string/third fret, lifting and covering as necessary and then switching back to the (G).  If find the latter a bit easier.   Next, \"Whoa\" is sung as a four syllable, sing-song kind of thing.  Also note the last line in the bridge is a run-on sentence so you have to keep up.  Listen to the song and you'll hear what I mean.",
+    "is_sing_along": false,
+    "youtube": "",
+    "content": [
       ", (PAUL) (MANFRED/MIKE/DAVE) (ALL SING)",
       "INTRO:  Gadd  C  |Gadd|",
       "(NC)                                                   G                  C         G",
@@ -19229,8 +19399,15 @@ const songData = [
     "is_sing_along": false,
     "youtube": "",
     "content": [
-      "Whoa-oh ohh-ohh, I knew we was falling in lo-uh-uh-uh-ve.",
-      "b \u2013 a \u2013 g \u2013 e - d  C                                                   D        D7",
+      "Whoa-oh ohh-ohh, I knew we was falling in lo-uh-uh-uh-ve."
+    ]
+  },
+  {
+    "title": "b \u2013 a \u2013 g \u2013 e",
+    "artist": "d  C                                                   D        D7",
+    "is_sing_along": false,
+    "youtube": "",
+    "content": [
       "Yes I did-and-so-I-told-her-all-the-things-I'd-been dreamin' of.",
       "G                     C            G                               C         G",
       "Now we're together nearly every single day singin' \"Do wah diddy diddy dum diddy do.\"",
@@ -19926,8 +20103,15 @@ const songData = [
       "Whooh ooh ooh ooh ooh who ooh.  (Be happy)  Ooh-ooh ooh-ooh ooh.  (Don't worry be happy)",
       "Coo-coo coo-coo . . . . . . . . . . . . . . . . . . coo-coo coo-coo . . . . . . . . . . .",
       "Doo n doo n doo, doo n doo n doo . . . . . . . . . . . . . . . . . . . . . . . . . . . .",
-      "Am",
-      "Ooh ooh ooh ooh ooh ooh ooh ooh ooh who - ooh.  (Don't worry, don't worry, don't do it.)",
+      "Am"
+    ]
+  },
+  {
+    "title": "Ooh ooh ooh ooh ooh ooh ooh ooh ooh who",
+    "artist": "ooh.  (Don't worry, don't worry, don't do it.)",
+    "is_sing_along": false,
+    "youtube": "",
+    "content": [
       "Coo-coo coo-coo . . . . . . . . . . . . . coo-coo . . . . . . . . . .. . . . . . . . . .",
       "Doo n doo n doo, doo n doo n doo . . . . . . . . . . . . . . . . . . . . . . . . . . . .",
       "C       G",
@@ -19965,8 +20149,15 @@ const songData = [
     "youtube": "",
     "content": [
       "Coo-coo coo-coo . . . . . . . . . . . . . coo-coo . . . . . . . .",
-      "Doo n doo n doo, doo n doo n doo . . . . . . . . . . . . . . . . .",
-      "Am - C - |G|",
+      "Doo n doo n doo, doo n doo n doo . . . . . . . . . . . . . . . . ."
+    ]
+  },
+  {
+    "title": "Am",
+    "artist": "C - |G|",
+    "is_sing_along": false,
+    "youtube": "",
+    "content": [
       "Whooh ooh ooh ooh ooh who ooh.  (I'm happy)",
       "Coo-coo coo-coo . . . . . . . . . . . . . . . . . . . . .",
       "Doo n doo n doo, doo n doo n doo . . . . . . . . . . . . .",
@@ -20050,17 +20241,14 @@ const songData = [
       "Em               G            D                  C",
       "See this ancient riverbed and see where all, the folly's led,",
       "Em                    D                    Em    Em",
-      "Down by the water and down by the old main drag.",
       "G             D                                 C",
       "I was just some tow-head teen feelin' 'round for fingers to get in between,",
       "Em                    D                    Em    Em",
-      "Down by the water and down by the old main drag.",
       "D         Em     Em              D         C",
       "The sea-son ruuubs me wrong,     the sum-mer swelllls anon.",
       "Em            G               D                          C",
       "So knock me down, tear me up, but I would bear it all broken just to fill my cup.",
-      "Em                    D                    Em    Em",
-      "Down by the water and down by the old main drag."
+      "Em                    D                    Em    Em"
     ]
   },
   {
@@ -20072,17 +20260,14 @@ const songData = [
       "Em                 G                D                         C",
       "Sweet descend this rabble round the pretty little patter of a seaport town.",
       "Em                       D                         Em    Em",
-      "Rolling in the water and rolling down the old main drag.",
       "G             D                     C",
       "All dolled up in gabardine the lash-flashing Leda of pier nineteen.",
       "Em                     D                     Em    Em",
-      "Queen of the water and queen of the old main drag.",
       "D         Em     Em              D         C",
       "The sea-son ruuubs me wrong,     the sum-mer swelllls anon.",
       "Em            G               D                          C",
       "So knock me down, tear me up, but I would bear it all broken just to fill my cup.",
-      "Em                    D                    Em    Em",
-      "Down by the water and down by the old main drag."
+      "Em                    D                    Em    Em"
     ]
   },
   {
@@ -20096,18 +20281,8 @@ const songData = [
       "Em               G               D                          C",
       "So knock me down and tear me up, but I would bear it all broken just to fill my cup.",
       "Em                    D                    Em    Em",
-      "Down by the water and down by the old main drag.",
       "D                    Em    Em",
-      "Down by the water and down by the old main drag.",
-      "|Em|                  |D|                  |Em|"
-    ]
-  },
-  {
-    "title": "Down by the water and down by the old main dra",
-    "artist": "ag.",
-    "is_sing_along": false,
-    "youtube": "",
-    "content": [
+      "|Em|                  |D|                  |Em|",
       "DOWN BY THE WATER \u2013 Amy Macdonald",
       "(Macdonald/Sims/Parker)",
       "https://www.youtube.com/watch?v=eh6mrl8fpjA  (Capo 2)(MC2)",
@@ -20433,7 +20608,6 @@ const songData = [
       "D       A          D      G                    D            G",
       "Chase a ghost down south.    Spirits cross the dead fields.",
       "D           Bm                  A           Asus4 A",
-      "Mosquitoes hit the windshield.     All documents remain sealed.",
       "G            D            G             D",
       "So if I come to your door, let me sleep on your floor.",
       "A                 D    D  D",
@@ -21189,7 +21363,15 @@ const songData = [
       "Youuuu.",
       "EAT IT \u2013 Weird Al Yankovic",
       "(Jackson/Yankovic)",
-      "https://www.youtube.com/watch?v=ZcJjMnHoIBI  (Capo 5)(MC5)",
+      "https://www.youtube.com/watch?v=ZcJjMnHoIBI  (Capo 5)(MC5)"
+    ]
+  },
+  {
+    "title": "TIP:  The intro is two strums of |G#|",
+    "artist": "which is depicted as |F4|, then slide down and play two strums of |F|, repeat, and a final strum of |D#| which is (D) moved up one string with your pinky added to the 4th string/4th fret.  And barre the (F4) and (F) if you can to bring in the bass.  Then it's alternating (Em) and (D).",
+    "is_sing_along": false,
+    "youtube": "",
+    "content": [
       "TIP:  While not depicted within the lyrics, throughout the song wrap your thumb over the 6th string/2nd fret to cover the bass <f#> and play (D/F#).",
       "/",
       "(AL) (LOW BACKING) (HIGH BACKING) (ALL SING)",
@@ -21270,8 +21452,15 @@ const songData = [
       "https://www.youtube.com/watch?v=pjdbGNK8gSU  (Plummer/Andrews) (Capo 1)(MC1)",
       "https://www.youtube.com/watch?v=tu-lcwhZcEs  (Plummer/Carr) (Capo 1)(MC1)",
       "TIP:  For the outro hold the (G) from the end of the song and pluck the 5th string, 4th string, and then the three treble strings together.",
-      "(CHRIS) (CHARMIAN) (BOTH)",
-      "INTRO:  Gadd  4 \u2013 4;   D  4 - 4, 4;   C  <open>  4 \u2013 4, 4;  <muted>  D  4 \u2013 4, 4",
+      "(CHRIS) (CHARMIAN) (BOTH)"
+    ]
+  },
+  {
+    "title": "INTRO:  Gadd  4 \u2013 4;   D  4",
+    "artist": "4, 4;   C  <open>  4 \u2013 4, 4;  <muted>  D  4 \u2013 4, 4",
+    "is_sing_along": false,
+    "youtube": "",
+    "content": [
       "G   D7     G   C       G     Em          Am7   D7",
       "Edelweiss, Edelweiss.  Every morning you greet me.",
       "G         D7     G         C       G        D7       G",
@@ -21293,7 +21482,15 @@ const songData = [
       "EIGHT DAYS A WEEK \u2013 The Beatles",
       "(Lennon/McCartney)",
       "https://www.youtube.com/watch?v=kle2xHhRHg4  (Capo 0)(MC2)",
-      "[Also a version in [C] afterwards which doesn't have the (Bm) and is probably easier to play]",
+      "[Also a version in [C] afterwards which doesn't have the (Bm) and is probably easier to play]"
+    ]
+  },
+  {
+    "title": "TIP:  For the (DaddA) in the first chord of the intro/outro form a regular (D) but extend your pinky over to the 1st string of the 5th fret.  The (E7) and (E) are pretty much interchangeable",
+    "artist": "whichever sounds better to you.",
+    "is_sing_along": false,
+    "youtube": "",
+    "content": [
       "/ (JOHN) (JOHN & PAUL)",
       "INTRO:  DaddA  E7  G  D",
       "E7         G                   D",
@@ -21808,7 +22005,15 @@ const songData = [
     "youtube": "",
     "content": [
       "(Petty/Lynne/Dylan/Harrison)",
-      "https://www.youtube.com/watch?v=UMVjToYOjbM  (Capo 0)(MC2)",
+      "https://www.youtube.com/watch?v=UMVjToYOjbM  (Capo 0)(MC2)"
+    ]
+  },
+  {
+    "title": "Middle line:  This is how George plays it, it'll be difficult to play on a small scale, 12-fret guitar",
+    "artist": "better on a 14-fretter and better still with a cutaway - even then string spacing may still be an issue for fat fingers.  These are not the real names of the chords, (D@7) for example is actually another way to play a (G) -- they're all just variations of (G)(A) and (D) -- but I've changed their names so hopefully they'll make sense as to where on the fingerboard you're going and how you'll be playing them.  (D@7) means play the chord as you would a (D) but on the 7th fret (you can forget about the note at the 4th string but if you can add the pinky all the better).",
+    "is_sing_along": false,
+    "youtube": "",
+    "content": [
       "EASY:              , ,",
       "AS PLAYED BY G.H.: , ,",
       "HYBRID:            , ,",
@@ -22322,15 +22527,7 @@ const songData = [
       "F              |Am|  |Am|-|NC|-|Am|, |Am|-|NC|-|Am|, |Am|-|NC|-|F|",
       "The eye of the tiger,",
       "F               |Am| |Am|-|NC|-|Am|, |Am|-|NC|-|Am|, |Am|-|NC|-|F|,  F  F  |Am|",
-      "The eye of the tiger."
-    ]
-  },
-  {
-    "title": "FARE AWAY",
-    "artist": "The New Main Street Singers",
-    "is_sing_along": false,
-    "youtube": "",
-    "content": [
+      "The eye of the tiger.",
       "(Vanston/McKean/O'Toole)",
       "https://www.youtube.com/watch?v=megY_67DHCo  (Capo 0)(MC1)",
       "TIP:  The intro are the chords from the chorus, \"Fare away . . . \"",
@@ -22341,28 +22538,12 @@ const songData = [
       "Sun breaks over the sprits'l yard.  Jib sheet's hauling to leeward hard.",
       "G                     C       G      C       G         D       G     D          G",
       "Crosstree's hummin' a morning hymn.  I'm the cabin boy call me Jim.  His name's Jim.",
-      "C  G           C     G          D    C     G"
-    ]
-  },
-  {
-    "title": "Fare away fare away under main topsail to the fur below of the wily wha",
-    "artist": "ale.",
-    "is_sing_along": false,
-    "youtube": "",
-    "content": [
+      "C  G           C     G          D    C     G",
       "C       G      C         G           A         D",
       "Captain's stalking the quarter deck.  Tells the tale of his first shipwreck.",
       "G               C       G     C          G            D     G",
       "Castaway with a case of rum.  Hoped that rescue would never come.  (Never come).",
-      "C  G           C     G          D    C     G"
-    ]
-  },
-  {
-    "title": "Fare away fare away under main topsail to the fur below of the wily wha",
-    "artist": "ale.",
-    "is_sing_along": false,
-    "youtube": "",
-    "content": [
+      "C  G           C     G          D    C     G",
       "C     G         |D|  |D|  |D|  |D|"
     ]
   },
@@ -22376,17 +22557,16 @@ const songData = [
       "|C|-|C|-|C|-|C|-|C|-|D|-|D|, |D|-|D|,  <pick>  g \u2013 g \u2013 a \u2013 b \u2013 g \u2013 b - d",
       "G                    C        G     C        G           A     D",
       "First mate Peter's a hardened man.  Says the captain's a charlatan.",
-      "G                      C       G              C       G        D             G",
-      "Don't know tackle from futtock plates.  He'll sail us into the Pearrrrr - ly Gates.",
-      "C  G           C     G          D    C     G"
+      "G                      C       G              C       G        D             G"
     ]
   },
   {
-    "title": "Fare away fare away under main topsail to the fur below of the wily wha",
-    "artist": "ale.",
+    "title": "Don't know tackle from futtock plates.  He'll sail us into the Pearrrrr",
+    "artist": "ly Gates.",
     "is_sing_along": false,
     "youtube": "",
     "content": [
+      "C  G           C     G          D    C     G",
       "C     G           C        G         A         D",
       "I been sailing these seven seas, since I's nigh high to a mermaid's knees.",
       "G                   C     Gadd      C       G        C          G",
@@ -22398,9 +22578,15 @@ const songData = [
       "C           G            D    G",
       "Safe in the cabin on the open sea.",
       "C  G           C     G          D    G",
-      "Fare away fare away under main topsail to the fur below of the wily whale.",
-      "C     G          D                                                     C     G",
-      "To the fur below of the wily,                                                 wha - ale.",
+      "C     G          D                                                     C     G"
+    ]
+  },
+  {
+    "title": "To the fur below of the wily,                                                 wha",
+    "artist": "ale.",
+    "is_sing_along": false,
+    "youtube": "",
+    "content": [
       "C     G                                     |D||D| C     G"
     ]
   },
@@ -22773,7 +22959,15 @@ const songData = [
     "youtube": "",
     "content": [
       "(McCorkle)",
-      "https://www.youtube.com/watch?v=0uMWbZj-gWg  (Capo 0)(MC0)",
+      "https://www.youtube.com/watch?v=0uMWbZj-gWg  (Capo 0)(MC0)"
+    ]
+  },
+  {
+    "title": "TIP:  The intro emulates the steel guitar.  At each chord strike fairly forcefully",
+    "artist": "that's the chord in brackets - and strum lightly the same chord.  Then there's a two-note (actually three but the third is buried in the (Em)) step-down at the 6th string in which you pick the 6th string/3rd fret <g> (already covered by the trailing (G), and then the 6th string/2nd fret <f#> and finish with the (Em).  Pretty easy and sounds sweet.",
+    "is_sing_along": false,
+    "youtube": "",
+    "content": [
       "TIP:  In the last verse and outro you'll see chords in |brackets| which means to strum the chord once.",
       "(DOUG) (DOUG/JERRY/FRANK)",
       "INTRO:  |G| G,   |D| D,  |Am| Am,   |C| C,   |G| G   g \u2013 f#  Em  Em  C  C  Em  Em  C  C",
@@ -23892,8 +24086,15 @@ const songData = [
     "content": [
       "I'll look for you if I'm ever back this way.",
       "C                    Dm                 G                  C",
-      "If I get there before the snow flies, and if things are lookin' good,",
-      "Dm                 G     G7 \u2013 G - G7",
+      "If I get there before the snow flies, and if things are lookin' good,"
+    ]
+  },
+  {
+    "title": "Dm                 G     G7 \u2013 G",
+    "artist": "G7",
+    "is_sing_along": false,
+    "youtube": "",
+    "content": [
       "You could meet me, if I send you, down the fare.",
       "C                Dm              G               C",
       "But by then it would be winter, not too much for you to do,"
@@ -24316,8 +24517,15 @@ const songData = [
       "FURTHER ON UP THE ROAD \u2013 Johnny Cash",
       "(Springsteen)",
       "https://www.youtube.com/watch?v=bKpqRbxk4Yk  (Capo 0)(MC0/1)",
-      "[Springsteen's original comes afterwards.]",
-      "INTRO:  <a> - <e> - <d> - <c> - <a> - <g> - Am  Am,   Am  C  C,   C  Am  E7  Am  |Am|",
+      "[Springsteen's original comes afterwards.]"
+    ]
+  },
+  {
+    "title": "INTRO:  <a>",
+    "artist": "<e> - <d> - <c> - <a> - <g> - Am  Am,   Am  C  C,   C  Am  E7  Am  |Am|",
+    "is_sing_along": false,
+    "youtube": "",
+    "content": [
       "NC                Am    Am                  C      C",
       "Where the road is dark,     and the seed is sowed,",
       "Am      Am                  C     C\nWhere the gun is cocked,     as the bullet's cold,",
@@ -24584,8 +24792,15 @@ const songData = [
       "G      A     D    D    G          A      D",
       "And it's,    all right now,    I learned my lesson well.",
       "G            D               G         A          D",
-      "You see you, can't please everyone so ya,    got to please yourself.",
-      "OUTRO:  T2  T3  T4  5O - 5/2 - 5/4 - 4O    <which is:>   f# - g \u2013 g#   a \u2013 b \u2013c# - d",
+      "You see you, can't please everyone so ya,    got to please yourself."
+    ]
+  },
+  {
+    "title": "OUTRO:  T2  T3  T4  5O",
+    "artist": "5/2 - 5/4 - 4O    <which is:>   f# - g \u2013 g#   a \u2013 b \u2013c# - d",
+    "is_sing_along": false,
+    "youtube": "",
+    "content": [
       "G'DAY G'DAY \u2013 Slim Dusty",
       "(Fairbairn)",
       "https://www.youtube.com/watch?v=PT331BRkkP0  (Capo 0)(MC1)",
@@ -26199,8 +26414,14 @@ const songData = [
     "artist": "f# - e \u2013 d \u2013 e \u2013 b  Gadd,   e \u2013 f# - e \u2013 d \u2013 e \u2013 b  D",
     "is_sing_along": false,
     "youtube": "",
+    "content": []
+  },
+  {
+    "title": "f#",
+    "artist": "f# - e \u2013 d \u2013 e \u2013 b  A,   f# - a \u2013 f# - a  D",
+    "is_sing_along": false,
+    "youtube": "",
     "content": [
-      "f# - f# - e \u2013 d \u2013 e \u2013 b  A,   f# - a \u2013 f# - a  D",
       "or      D  Em-Gadd,   Em  Em-D,   D  A7,   A  D",
       "G        Gadd",
       "Grandpa, tell me about the good ol' days.",
@@ -26636,7 +26857,15 @@ const songData = [
     "youtube": "",
     "content": [
       "(Harrison/Orbison/Lynne/Petty/Dylan)",
-      "https://www.youtube.com/watch?v=1o4s1KVJaVA  (Capo 0)(MC2)",
+      "https://www.youtube.com/watch?v=1o4s1KVJaVA  (Capo 0)(MC2)"
+    ]
+  },
+  {
+    "title": "TIP:  For the Roy Orbison",
+    "artist": "sorry, Left Wilbury - part I've tabbed the (B7) but the (Gaug), (G+), or (B) chord can be played as well.  I just find the (B7) easier to play.  If you do not, try the (Gaug).",
+    "is_sing_along": false,
+    "youtube": "",
+    "content": [
       "ororor",
       "(NELSON) (LEFTY) (LUCKY & CHARLIE) (OTIS & LEFTY) (OTIS & NELSON) (ALL SING)",
       "INTRO:  D  C  G  G,   D  C  G  G",
@@ -27328,8 +27557,15 @@ const songData = [
       "C     C                  G    G",
       "And though his wings,   they were never seen,",
       "D             G",
-      "I thought, that he walked, on water.",
-      "|C|-|D|      G               D        |D|     G      O/3 - 2/3 - 2/1 \u2013 O/2 -|Gadd|",
+      "I thought, that he walked, on water."
+    ]
+  },
+  {
+    "title": "|C|-|D|      G               D        |D|     G      O/3",
+    "artist": "2/3 - 2/1 \u2013 O/2 -|Gadd|",
+    "is_sing_along": false,
+    "youtube": "",
+    "content": [
       "Yeah I thought, that he walked ... on water.",
       "HE WAS IN HEAVEN BEFORE HE DIED",
       "John Prine",
@@ -28381,7 +28617,15 @@ const songData = [
       "How's about cookin' somethin' up with me?",
       "HEY JUDE \u2013 The Beatles",
       "(Lennon/McCartney)",
-      "https://www.youtube.com/watch?v=mQER0A0ej0M  (Capo 3)(MC0/4)",
+      "https://www.youtube.com/watch?v=mQER0A0ej0M  (Capo 3)(MC0/4)"
+    ]
+  },
+  {
+    "title": "TIP:  Outro:  Play (D) for the first \"Naaa\" and then add your pinky to the 4th string/4th fret for the second \"na\" and release back to (D) for the third (D)",
+    "artist": "brings out the <f#> note on the walk-up.  Then for the nananana start with (C) and add your pinky to the 2nd string/3rd fret (Cadd9) on the last \u2018na'.  Release to (C) through the next nananana moving to the Gadd on the last \u2018na'.  Then release to a 3-finger (G) and finish with (D).",
+    "is_sing_along": false,
+    "youtube": "",
+    "content": [
       "(PAUL) (JOHN & GEORGE) (JOHN)",
       "D                   A            A7  Asus4    A       D",
       "Hey Jude, don't make it bad.  Take a sad song and make it better.",
@@ -29053,15 +29297,8 @@ const songData = [
       "You can check out any time you like, but you can never leave.\"",
       "Am  E,   G  D,   F  C,   Dm  E;     Am  E,   G  D,   F  C,   Dm  E",
       "Am  E,   G  D,   F  C,   Dm  E;     Am  E,   G  D,   F  C,   Dm  E;   |Am|-|Am|-|Am|-|Am|",
-      "HOUSE OF THE RISING SUN \u2013 The Animals"
-    ]
-  },
-  {
-    "title": "(Traditional",
-    "artist": "Turner/Martin)",
-    "is_sing_along": false,
-    "youtube": "",
-    "content": [
+      "HOUSE OF THE RISING SUN \u2013 The Animals",
+      "(Traditional - Turner/Martin)",
       "https://www.youtube.com/watch?v=MJkr0DWbhTk  (Capo 0)(MC1)",
       "INTRO:  Am  C  D  F  Am  E  Am  E",
       "Am    C         D            F       Am        C      E    E",
@@ -29095,9 +29332,15 @@ const songData = [
       "And\u00a0it's\u00a0been,\u00a0the\u00a0ruin,\u00a0of\u00a0many\u00a0a\u00a0poor\u00a0boy,",
       "Am     E         Am   C  D  F  Am  E  Am",
       "And God, I know, I'm one.",
-      "Dm  Am,   Dm  Am,   |Dm|-|Dm|-|Dm|-|Dm|-|Dm|-|Dm|,   |Am|-|Am|-|Am|-|Am|-|Am|-|Am|",
-      "|Dm|-|Dm|-|Dm|-|Dm|-|Dm|-|Dm|,   |Am|-|Am|-|Am|-|Am|-|Am|-|Am|,  3 \u2013 2 \u2013 1 - P3"
+      "Dm  Am,   Dm  Am,   |Dm|-|Dm|-|Dm|-|Dm|-|Dm|-|Dm|,   |Am|-|Am|-|Am|-|Am|-|Am|-|Am|"
     ]
+  },
+  {
+    "title": "|Dm|-|Dm|-|Dm|-|Dm|-|Dm|-|Dm|,   |Am|-|Am|-|Am|-|Am|-|Am|-|Am|,  3 \u2013 2 \u2013 1",
+    "artist": "P3",
+    "is_sing_along": false,
+    "youtube": "",
+    "content": []
   },
   {
     "title": "HOW LONG",
@@ -29314,7 +29557,15 @@ const songData = [
       "D  C/G  D  C/G . . . |D|",
       "THE HUDSON \u2013 Amy Macdonald",
       "(Macdonald/Jones)",
-      "https://www.youtube.com/watch?v=mkeVIbFgeZg  (Capo 1)(MC0)",
+      "https://www.youtube.com/watch?v=mkeVIbFgeZg  (Capo 1)(MC0)"
+    ]
+  },
+  {
+    "title": "TIP:  Notice the first bridge and chorus ends with a series of 8 rapid strums",
+    "artist": "one of (D) in the bridge and one of (Am) in the chorus \u2013 leading into the (G) that begins the next verse.  These are only shown the first time around but can be played the same way for all subsequent bridge/choruses.  You'll feel it when you get there.",
+    "is_sing_along": false,
+    "youtube": "",
+    "content": [
       "TIP:  The coda includes two picked notes, both on the 3rd string, the first fretted and the second open.",
       "(AMY) (AMY & MATT)"
     ]
@@ -29596,8 +29847,15 @@ const songData = [
       "G      A       G                D",
       "(He has no frien- -ends to help him now.)",
       "D  D,  G;   A  G-D",
-      "D/A                 D                    G                 A      G           D",
-      "Ih - it's fare thee well-ell my old true lover.  I never expe-ect to see you again.",
+      "D/A                 D                    G                 A      G           D"
+    ]
+  },
+  {
+    "title": "Ih",
+    "artist": "it's fare thee well-ell my old true lover.  I never expe-ect to see you again.",
+    "is_sing_along": false,
+    "youtube": "",
+    "content": [
       "D/A                 D                   G                       A   G         D",
       "For-or I'm bound to ride, that northern railroad.  Perhaps I'll die upon this train.",
       "G          A     G            D",
@@ -30512,7 +30770,6 @@ const songData = [
       "Hootie and the Blowfish",
       "(Waits)",
       "https://www.youtube.com/watch?v=xrf9Dkk96Ng  (Capo 0)(MC1)",
-      "[Also presented afterward in the key of [G], mainly for fingerstyle.]",
       "INTRO:  C  F  G,   C  F  G",
       "C                 F                 Gadd",
       "Well I hope that I don't fall in love with you.",
@@ -30568,8 +30825,15 @@ const songData = [
       "C     CaddG    Gadd           F               D",
       "I had a beer and now I hear you calling out for me.",
       "G         Gadd    C       D         G",
-      "Still I hope that I don't fall in love with you.",
-      "f# - g \u2013 a       G       Gadd    C           D",
+      "Still I hope that I don't fall in love with you."
+    ]
+  },
+  {
+    "title": "f#",
+    "artist": "g \u2013 a       G       Gadd    C           D",
+    "is_sing_along": false,
+    "youtube": "",
+    "content": [
       "See the room is crowded people everywhere.",
       "G      Gadd     C           D",
       "And I wonder should I offer you a chair?",
@@ -30578,8 +30842,15 @@ const songData = [
       "C      CaddG   Gadd            C               D",
       "I wish I had the guts to bum one but we've never met.",
       "G         Gadd    C       D         G",
-      "And I hope that I don't fall in love with you.",
-      "f# - g \u2013 a       G          Gadd  C               D",
+      "And I hope that I don't fall in love with you."
+    ]
+  },
+  {
+    "title": "f#",
+    "artist": "g \u2013 a       G          Gadd  C               D",
+    "is_sing_along": false,
+    "youtube": "",
+    "content": [
       "See the night does funny things inside a man.",
       "G      Gadd     C              D",
       "These old tomcat feelings you don't understand.",
@@ -30588,8 +30859,15 @@ const songData = [
       "C          CaddG    Gadd             C                   D",
       "The guy you're with has up and split the chair next to you's free.",
       "G         Gadd      C       D         G",
-      "Now I hope that you don't fall in love with me.",
-      "f# - g \u2013 a        G       Gadd           C              D",
+      "Now I hope that you don't fall in love with me."
+    ]
+  },
+  {
+    "title": "f#",
+    "artist": "g \u2013 a        G       Gadd           C              D",
+    "is_sing_along": false,
+    "youtube": "",
+    "content": [
       "Now it's closing time . . . the music's fading out.",
       "G        Gadd        C            D",
       "Last call for drinks I'll have another stout.",
@@ -30899,8 +31177,15 @@ const songData = [
       "I love, little baby ducks, old pick-up trucks,",
       "D7                      G",
       "Slow moving trains, and rain.",
-      "C              G        C             G",
-      "D7                        G    G  6 \u2013 5 \u2013 4 \u2013 5 \u2013 3 \u2013 4 - 5,  6 \u2013 5 \u2013 4 \u2013 5 \u2013 3 \u2013 4 \u2013 5",
+      "C              G        C             G"
+    ]
+  },
+  {
+    "title": "D7                        G    G  6 \u2013 5 \u2013 4 \u2013 5 \u2013 3 \u2013 4",
+    "artist": "5,  6 \u2013 5 \u2013 4 \u2013 5 \u2013 3 \u2013 4 \u2013 5",
+    "is_sing_along": false,
+    "youtube": "",
+    "content": [
       "Sunday school in May, and hay.",
       "C  D         G",
       "And I, love, you too.",
@@ -30909,8 +31194,15 @@ const songData = [
       "D7                      G",
       "Birds in the world, and squirrels.",
       "C           G    C            G",
-      "I love, coffee in a cup, little fuzzy pups,",
-      "D7                      G      G  6 \u2013 5 \u2013 4 \u2013 5 \u2013 3 \u2013 4 - 5,  6 \u2013 5 \u2013 4 \u2013 5 \u2013 3 \u2013 4 \u2013 5",
+      "I love, coffee in a cup, little fuzzy pups,"
+    ]
+  },
+  {
+    "title": "D7                      G      G  6 \u2013 5 \u2013 4 \u2013 5 \u2013 3 \u2013 4",
+    "artist": "5,  6 \u2013 5 \u2013 4 \u2013 5 \u2013 3 \u2013 4 \u2013 5",
+    "is_sing_along": false,
+    "youtube": "",
+    "content": [
       "Bourbon in a glass, and grass.",
       "C  D         G",
       "And I, love, you too.",
@@ -32070,8 +32362,15 @@ const songData = [
       "Dm            G          C",
       "'Cause I'm happy\u00a0just\u00a0to\u00a0dance\u00a0with\u00a0you.",
       "Am               Dm  E7     Am           Dm  E",
-      "Just\u00a0to dance\u00a0with\u00a0you.\u00a0         Is\u00a0everything\u00a0I\u00a0nee-eed.",
-      "Oh - oh.",
+      "Just\u00a0to dance\u00a0with\u00a0you.\u00a0         Is\u00a0everything\u00a0I\u00a0nee-eed."
+    ]
+  },
+  {
+    "title": "Oh",
+    "artist": "oh.",
+    "is_sing_along": false,
+    "youtube": "",
+    "content": [
       "Am                            Dm       E7",
       "Before this dance is through I think I'll love\u00a0you\u00a0too.",
       "Ohhhh . . . . . . . . . . . . ohhh . . ohh.",
@@ -32087,8 +32386,15 @@ const songData = [
       "Dm            G          C",
       "Cause\u00a0I'm\u00a0happy just\u00a0to\u00a0dance with you.",
       "Am               Dm   E7     Am           Dm  E",
-      "Just\u00a0to dance\u00a0with\u00a0you.\u00a0          Is\u00a0everything\u00a0I\u00a0nee-eed.",
-      "Oh - oh                  Oh - oh.",
+      "Just\u00a0to dance\u00a0with\u00a0you.\u00a0          Is\u00a0everything\u00a0I\u00a0nee-eed."
+    ]
+  },
+  {
+    "title": "Oh",
+    "artist": "oh                  Oh - oh.",
+    "is_sing_along": false,
+    "youtube": "",
+    "content": [
       "Am                            Dm       E7",
       "Before this dance is through I think I'll love\u00a0you\u00a0too.",
       "Ohhhh . . . . . . . . . . . . ohhh . . ohh.",
@@ -32485,8 +32791,15 @@ const songData = [
       "Fallin', yes I am fallin', and she keeps callin', me back again.",
       "D                 C                      G        C        G",
       "Oh fallin', yes I am fallin', and she keeps callin', me back again.",
-      "<one strum each>  |C| |G| |D| |G|-|D|-|G|  <pluck two treble strings of G once to end>",
-      "IF - Bread",
+      "<one strum each>  |C| |G| |D| |G|-|D|-|G|  <pluck two treble strings of G once to end>"
+    ]
+  },
+  {
+    "title": "IF",
+    "artist": "Bread",
+    "is_sing_along": false,
+    "youtube": "",
+    "content": [
       "(Gates)",
       "https://www.youtube.com/watch?v=LYFJRomR12k  (Capo 0)(MC1)",
       "TIP:  (Bm4) is just (Bm) played on the 4th fret.",
@@ -32776,7 +33089,15 @@ const songData = [
       "(Van Zandt)",
       "https://www.youtube.com/watch?v=_7_B0Svzgwg   (Lyle) (Capo 3) (MC0)",
       "https://www.youtube.com/watch?v=ILfCEPL-9Oo   (Emmylou & Don)(Capo 0)",
-      "TIP:  For the intro form (F) but lift off the 1st string.  Pick the 2nd string and open 1st string, replace the mini-barre and strum (F), etc.",
+      "TIP:  For the intro form (F) but lift off the 1st string.  Pick the 2nd string and open 1st string, replace the mini-barre and strum (F), etc."
+    ]
+  },
+  {
+    "title": "TIP:  The (CaddG) can be ignored completely if you prefer.  It just adds a bright emphasis to the high <g> note.  And if you want to get fancy, play the first (CaddG) in the first and third lines with a mini-barre of the 1st fret",
+    "artist": "like you would with an (F) - \"come\" and then lift off pinky for the next strum \"to\" and lift off the 1st string for the strum after that \"me\".  For the (CaddG) in the 2nd and 4th lines of each verse play the (CaddG) as normal \"come\" but lift off the pinky \"to\" and then play the (F) \"me\".  Sounds messy but try it and you'll see it's almost natural.",
+    "is_sing_along": false,
+    "youtube": "",
+    "content": [
       "TIP:  Afterwards is an easier (I think) to play version in (G).",
       "(DON) (EMMYLOU) (DON & EMMYLOU)"
     ]
@@ -33344,7 +33665,6 @@ const songData = [
       "IF YOU WERE TO WAKE UP",
       "Lyle Lovett",
       "(MC5)",
-      "[Here in G, mainly for fingerpicking.  You'd have to capo 10 to sing with Lyle so try the version in (D) above if you're playing to the recording.]",
       "TIP:  It's lower <c>, 2nd string/1st fret, to begin singing on the first (C) at \"you\".  Rise up and then descend to the first (G).",
       "C           G        C               G",
       "If you were to wake up,    and I were beside you.",
@@ -33635,8 +33955,15 @@ const songData = [
       "CaddG                Gadd              CaddG          Gadd",
       "It's too bad, that all, these things.  Can only happ,en in, my dreams.",
       "Ahhhh . . . . . . . . . . .            Ahhhhh . . . . . . . .",
-      "C    Cmaj7    D7          Dm7   G7      C",
-      "On - ly    in dreams.  In beau- ti- ful dreams.",
+      "C    Cmaj7    D7          Dm7   G7      C"
+    ]
+  },
+  {
+    "title": "On",
+    "artist": "ly    in dreams.  In beau- ti- ful dreams.",
+    "is_sing_along": false,
+    "youtube": "",
+    "content": [
       "Ohhhh . . . . . . . .     Ooooh ooooh . . . . .",
       "IN LONESOME DOVE \u2013 Garth Brooks",
       "(Limbaugh/Brooks)",
@@ -33707,7 +34034,6 @@ const songData = [
       "There are places I remember,     all my li-ife though some have changed.",
       "Oooooh . . .  ooooh . . . . . .",
       "D       Em      G7            C      Cm     G",
-      "Some forever not for better,     some have gone \u2013 on and some remain.",
       "Oooooh . . .  ooooh . . .",
       "Em                A             F                     G",
       "All these places have their moments, with lovers and friends, I still can recall.",
@@ -34092,7 +34418,15 @@ const songData = [
       "https://www.youtube.com/watch?v=_CI-0E_jses  (Capo 1)(MC1)",
       "[This is an instrumental.  The Andrews Sisters version follows.]",
       "TIP:  If you REALLY want to see how this could sound on an acoustic guitar",
-      "go here   https://www.youtube.com/watch?v=d6Nfp2Bgfa8",
+      "go here   https://www.youtube.com/watch?v=d6Nfp2Bgfa8"
+    ]
+  },
+  {
+    "title": "TIP:  For the intro, form (F3) -- (F) on the 3rd fret",
+    "artist": "just another way to play (G) -- and hold your pinky aloft over the 2nd string.  Now pick the strings indicated beginning with the 4th string and walk down to the 1st.  Where you see (P2) that stands for \"pinky on the 2nd string\" so put your pinky down and pick the 2nd string once, lift off your pinky and pick it again, and then the 3rd string, then strum (F3).  If you don't want to mess around with picking the individual notes then just strum (G), then (A) for two measures, and end with (A)(D7)(G).",
+    "is_sing_along": false,
+    "youtube": "",
+    "content": [
       "TIP:  Where you see a (G!) or (CaddG!) it means to emphasize the treble <g> with a sharp upstroke on the 1st string to emulate a trumpet.",
       "TIP:  The (D/A3) is actually an (D#) but you play it like a (D) on the 3rd fret and cover the 4th string/5th fret with your pinky if you can.",
       "TIP:  There are timing cues if you're following along with the recording as to where you should be.",
@@ -34453,15 +34787,8 @@ const songData = [
       "https://www.youtube.com/watch?v=lLahdT6wn40  (Alan) (Capo 4)(MC2DropD)",
       "https://www.youtube.com/watch?v=7TKRYyA05o4  (Don) (Capo 3)",
       "[Also in [G] which follows.]",
-      "TIP:  This sing-a-long version is based on Alan's song."
-    ]
-  },
-  {
-    "title": "(ALAN) (ALAN & JOHN)",
-    "artist": "(DON) (DON & GARTH/OVERDUBS)",
-    "is_sing_along": true,
-    "youtube": "",
-    "content": [
+      "TIP:  This sing-a-long version is based on Alan's song.",
+      "(ALAN) (ALAN & JOHN)  -  (DON) (DON & GARTH/OVERDUBS)",
       "INTRO:  D  G,  D  A7;   D  G,  D  A  D",
       "G",
       "First I get cold and hot, think I'm on fire but I'm not.",
@@ -34513,15 +34840,8 @@ const songData = [
     "youtube": "",
     "content": [
       "(McDill)",
-      "(MC0)"
-    ]
-  },
-  {
-    "title": "(ALAN) (ALAN & JOHN)",
-    "artist": "(DON) (DON & GARTH/OVERDUBS)",
-    "is_sing_along": true,
-    "youtube": "",
-    "content": [
+      "(MC0)",
+      "(ALAN) (ALAN & JOHN)  -  (DON) (DON & GARTH/OVERDUBS)",
       "INTRO:   G  C,  G  D7;   G  C,  G  D  G",
       "C",
       "First I get cold and hot, think I'm on fire but I'm not.",
@@ -35517,7 +35837,15 @@ const songData = [
       "From the shore to the wa-ter.  Guess there isn't any more.",
       "IT WAS ALMOST LIKE A SONG \u2013 Ronnie Milsap",
       "(Jordan/David)",
-      "https://www.youtube.com/watch?v=KbeQa2hmznk  (Capo 0)(MC0)",
+      "https://www.youtube.com/watch?v=KbeQa2hmznk  (Capo 0)(MC0)"
+    ]
+  },
+  {
+    "title": "TIP:  The first refrain of \"Now my broken heart . . . \" is sung like the first two verses but the last refrain is sung on the up-note inflection on \"broken\" and \"you each,\" and of course the final \"write\" in the CODA is a high-C.  In the outro (F8)",
+    "artist": "which is actually just (C) played at a different octave - is just (F) played at the 8th fret.",
+    "is_sing_along": false,
+    "youtube": "",
+    "content": [
       "(RONNIE) (RHONDA)",
       "INTRO:   C  F,  Fm;   Fm  C  G-Am;   Am  Dm,  G7;   G7  C",
       "C             F     Fm                 C     G-Am",
@@ -36664,7 +36992,15 @@ const songData = [
       "D  D  G  G,   D  D  A  A;    D  D  G  G,   D  A  D  D  |D|",
       "KIDS OF THE BABY BOOM \u2013 The Bellamy Brothers",
       "(Bellamy)",
-      "https://www.youtube.com/watch?v=xi5Lvr37bew  (Capo 2)(MC0/1)",
+      "https://www.youtube.com/watch?v=xi5Lvr37bew  (Capo 2)(MC0/1)"
+    ]
+  },
+  {
+    "title": "TIP:  Between the (G) and the (Em) are three notes, the first two denoted by <6/3> and <6/2>.  The first note is <g> at the 6th string/3rd fret",
+    "artist": "which will already be covered by the preceding (G).  The second note is <f#> at 6th string/2nd fret so either slide down from the 3rd string to the 2nd string or play the note independent.  Now if you want to get fancy that 2nd note is also a bend note so if you wish you can pull down on that string.  The third note is the open 6th string but it will be covered by strumming the (Em).  It's really pretty easy.",
+    "is_sing_along": false,
+    "youtube": "",
+    "content": [
       "(HOWARD) (HOWARD & DAVID)",
       "INTRO:  Em  G,  6/3-6/2-Em  G,  C",
       "<lift>     C",
@@ -36797,7 +37133,15 @@ const songData = [
       "Killing me soft    ly,     with his song.",
       "KING OF THE ROAD",
       "Roger Miller",
-      "https://www.youtube.com/watch?v=WrhAC0dFis0  (Capo 3)(MC1)",
+      "https://www.youtube.com/watch?v=WrhAC0dFis0  (Capo 3)(MC1)"
+    ]
+  },
+  {
+    "title": "TIP:  For the intro pick the string indicated twice.  <T3> means top (6th) string/3rd fret.  Then drop down one string and pick it in the 2nd, 3rd, and 4th frets -- 5/2, 5/3, 5/4",
+    "artist": "and then pick the open 4th string.  Repeat this sequence and begin the song in (G).  Also note that the first two notes can be played within (G) if you want to pick them that way using your middle finger to flatten the third note and then slide up one.",
+    "is_sing_along": false,
+    "youtube": "",
+    "content": [
       "(ROGER) (ROGER & BUDDY)",
       "INTRO:  <softly>  T3,  5/2,  5/3,  5/4 \u2013 4;    T3,  5/2,  5/3,  5/4 \u2013 4",
       "G            Am      C      D             G",
@@ -36809,7 +37153,6 @@ const songData = [
       "C                  D              G",
       "Man of means by no means.    King of the road.",
       "Am       C       D           G",
-      "Third boxcar midnight train.  Destination Bangor Maine.",
       "Am        C       D              D7",
       "Old worn out suits and shoes.  I don't pay no union dues I smoke,",
       "G           Am     C       D                  G",
@@ -36876,6 +37219,7 @@ const songData = [
       "D                            G",
       "The secret I'm speaking of, is a woman and a man in love,",
       "A                                    D     D  G  A  |D|",
+      "And the answer is in this song that I always sing.",
       "NC             D                  A",
       "You've got to, kiss an angel good mornin',",
       "G                                            D",
@@ -37833,8 +38177,15 @@ const songData = [
       "Dan Fogelberg",
       "https://www.youtube.com/watch?v=KwLbdPIOOkM  (Capo 1)(MC4)",
       "TIP:  In several places the lead in chord for the next line comes in a beat early and is displayed at the of the previous line.",
-      "(DAN) (DAN/JEAN/KENNY)",
-      "INTRO:   Gadd, |Gadd-| - |Gadd| - C - Cmaj7 - C,   C - Cadd9 - Cmaj7 - Am,  Em,  D7",
+      "(DAN) (DAN/JEAN/KENNY)"
+    ]
+  },
+  {
+    "title": "INTRO:   Gadd, |Gadd-|",
+    "artist": "|Gadd| - C - Cmaj7 - C,   C - Cadd9 - Cmaj7 - Am,  Em,  D7",
+    "is_sing_along": false,
+    "youtube": "",
+    "content": [
       "G-C,  G-C,  G-C,  G",
       "Bm             C    Am",
       "An only child alone and wild, a cabinetmaker's son.",
@@ -37867,8 +38218,15 @@ const songData = [
       "C    G            Bm            C",
       "And I'm in Colorado when I'm not in some hotel,",
       "Am              Em                   Am      D7      G     C  G",
-      "Living out this life I've chose, and come to know so well.",
-      "<Horn bridge>  Gadd, |Gadd-| - |Gadd| - C - Cmaj7 - C,   C - Cadd9 - Cmaj7 - Am,",
+      "Living out this life I've chose, and come to know so well."
+    ]
+  },
+  {
+    "title": "<Horn bridge>  Gadd, |Gadd-|",
+    "artist": "|Gadd| - C - Cmaj7 - C,   C - Cadd9 - Cmaj7 - Am,",
+    "is_sing_along": false,
+    "youtube": "",
+    "content": [
       "Em,  D7,  G-C,  G-C,  G-C,  G",
       "Bm             C     Am",
       "I thank you for the music, and your stories of the road.",
@@ -38105,8 +38463,24 @@ const songData = [
       "Oh babe, I hate to go.",
       "LET IT BE \u2013 The Beatles",
       "(Lennon/McCartney)",
-      "https://www.youtube.com/watch?v=QDYfEBY9NM4  (Capo 0)(MC0/5)",
-      "TIP:  In the chorus, hold the (Am) through \"be\" but then move quickly to the (G) to finish.",
+      "https://www.youtube.com/watch?v=QDYfEBY9NM4  (Capo 0)(MC0/5)"
+    ]
+  },
+  {
+    "title": "TIP:  The intro are the piano chords.  Chords in brackets, including those in the intros are struck just once each (like a piano chord).  The intro has a cadence that emphasize one chord and then that same chord followed by a different chord.  Except for the first two sets Paul doesn't play the middle chord but you need the \"null\"",
+    "artist": "meaning it's just a space holder - to keep the rhythm.  If this is too confusing then play another |C| in place of the first |null| and another |G| in place of the second null.",
+    "is_sing_along": false,
+    "youtube": "",
+    "content": [
+      "TIP:  In the chorus, hold the (Am) through \"be\" but then move quickly to the (G) to finish."
+    ]
+  },
+  {
+    "title": "TIP:  In the first bridge, and again at the outro, the |C|-|Bb|-|C| sequence is a little trick.  If the |Bb| gives you trouble play a |G| in its place.  Also, on the next |Em| play only strings 4",
+    "artist": "1.",
+    "is_sing_along": false,
+    "youtube": "",
+    "content": [
       "(PAUL) (JOHN & GEORGE)",
       "INTRO:  |C|, |C|-|null|-|G|;  |G|-|null|-|Am|;  |Am|-|Am|-|F|;  |F|-|F|-|C|",
       "|C|-|C|-|G|;  |G|-|G|-|F|,|C|-|G|-|C|",
@@ -38596,7 +38970,6 @@ const songData = [
       "<banjo>  A  A,  A \u2013 D  A,   A  A  B7  E",
       "<fiddle>  A  A  A \u2013 D  A,   A  A  A  E - A",
       "D                       A",
-      "As we rollll along the main line, there'll be storms, and there'll be night.",
       "B7               E",
       "There'll be sidetracks, unexpected, on the left, and on the right.",
       "A                                    D                 A",
@@ -38640,7 +39013,6 @@ const songData = [
       "<banjo>  G  G,  G \u2013 C  G,   G  G  A7  D",
       "<fiddle>  G  G  G \u2013 C  G,   G  G  G \u2013 D  G",
       "C                       G",
-      "As we rollll along the main line, there'll be storms, and there'll be night.",
       "A7               D",
       "There'll be sidetracks, unexpected, on the left, and on the right.",
       "G                                    C                 G",
@@ -39170,7 +39542,15 @@ const songData = [
     "content": [
       "(Pomus/Shuman)",
       "https://www.youtube.com/watch?v=-x70_ord3UQ   Dwight (Capo 0)(MC0)",
-      "https://www.youtube.com/watch?v=Di2ThVZeGV4   Elvis (Capo 0)",
+      "https://www.youtube.com/watch?v=Di2ThVZeGV4   Elvis (Capo 0)"
+    ]
+  },
+  {
+    "title": "TIP:  The (A)(Asus2)(Emsus4) voicing in the verse is quite easy and is just a sequential pulling off from the (A), 2nd string finger, then 3rd string finger",
+    "artist": "as shown in the diagram - and then finishing with the (E).  Then comes the alternating (A) and (Asus2) in which you just remove and replace the 2nd string finger.  Finally, notice at the end of the verse there's a single strum of |A| which sustains through the end of the line and then comes the rapid strum of (E) right afterwards.",
+    "is_sing_along": false,
+    "youtube": "",
+    "content": [
       "; (DWIGHT) (DWIGHT & PETE)",
       "INTRO:  < Strum E quickly 8 times followed by a palm mute >",
       "NC                       E                           E",
@@ -39557,7 +39937,15 @@ const songData = [
       "A  A  D  A,   A  A  D  A,   A  A  D  |A|",
       "LOLA \u2013 The Kinks",
       "(Davies)",
-      "https://www.youtube.com/watch?v=LemG0cvc4oU  (Capo 0)(MC0)",
+      "https://www.youtube.com/watch?v=LemG0cvc4oU  (Capo 0)(MC0)"
+    ]
+  },
+  {
+    "title": "TIP:  At the end of the arch there's an (F5)",
+    "artist": "(F) played on the 5th fret - which is just another way to play (A) but you need it up there to cover the treble <a> and rise in Davies' voice.",
+    "is_sing_along": false,
+    "youtube": "",
+    "content": [
       ";;or",
       "(RAY) (RAY & DAVE)",
       "INTRO:  |C|-|C|  C  C  D-E,  E",
@@ -39654,7 +40042,15 @@ const songData = [
       "She'll never take you down or, never give you up.    You'll never know until you try.",
       "THE LONESOME FRIENDS OF SCIENCE",
       "John Prine",
-      "https://www.youtube.com/watch?v=gn2MwHGbP1A  (Capo 0)(MC0)",
+      "https://www.youtube.com/watch?v=gn2MwHGbP1A  (Capo 0)(MC0)"
+    ]
+  },
+  {
+    "title": "TIP:  For the intro (and for any (C) in the song for that matter) pick the 5th string and then strum (C/G)",
+    "artist": "with the pinky on the 6th string bass <g> - then the 6th string and strum (C/G).",
+    "is_sing_along": false,
+    "youtube": "",
+    "content": [
       "INTRO:  5-C/G   6-C/G   5-C/G   6-C/G",
       "F",
       "The lonesome friends of science say, \"The world will end most any day.\"",
@@ -39982,7 +40378,6 @@ const songData = [
       "Am                               D",
       "Through the litter and the wreckage, and the cultural junk.",
       "Am                        D",
-      "Bloated with entitlement, loaded on propaganda,",
       "Am                D",
       "And now we're driving dazed and drunk.",
       "Am",
@@ -40063,8 +40458,15 @@ const songData = [
       "A               A  A  D;   D,  D  G-D-A;   A  A  D,  |D|",
       "Long time long time long time gone yeah yeah.",
       "THE LONG WAY AROUND \u2013 Dixie Chicks",
-      "(Maines/Wilson/Maguire/Erwin)",
-      "https://www.youtube.com/watch?v=B1qgazBdKj8  (Capo 0)(MC0)",
+      "https://www.youtube.com/watch?v=B1qgazBdKj8  (Capo 0)(MC0)"
+    ]
+  },
+  {
+    "title": "TIP:  A couple of tricky bits to be aware of.  First is the sing-song (CaddD)-(C).  Not hard, just requires a little concentration.  Hold (C) the whole time with your pinky added to the 2nd string/3rd fret to cover the <d> and strum strings 4",
+    "artist": "1.  On off.",
+    "is_sing_along": false,
+    "youtube": "",
+    "content": [
       "-;",
       "(NATALIE) (NATALIE & MARTIE) (MARTIE & EMILY) (NATALIE & EMILY) (ALL SING)",
       "INTRO:   CaddD-C,  CaddD-C,  CaddD-C,  CaddD-C",
@@ -40198,6 +40600,7 @@ const songData = [
       "LOOK WHAT THEY'VE DONE TO MY SONG",
       "Melanie Safka",
       "https://www.youtube.com/watch?v=Gx_WQGp7YJg  (Capo 3)(MC4/5)",
+      "[Occasionally Melanie recorded this song live capo'd at the 2nd fret.]",
       "INTRO:  G,  G,  G,  G",
       "Em        C                            C7",
       "Look what they've done to my song Ma.  Look what they've done to my song.",
@@ -40492,7 +40895,22 @@ const songData = [
       "<spoken>:  \"If it wasn't for you there would be no me.\"",
       "LOSING MY RELIGION \u2013 R.E.M.",
       "(Stipe/Buck)",
-      "https://www.youtube.com/watch?v=u036M7p6-ak  (Capo 0)(MC5)",
+      "https://www.youtube.com/watch?v=u036M7p6-ak  (Capo 0)(MC5)"
+    ]
+  },
+  {
+    "title": "TIP:  The intro can be played with chords or with a combination of chords and individual notes.  To play the notes form (Asus) as shown in the first diagram",
+    "artist": "(Am) with your pinky to cover the 2nd string/3rd fret.  (1) Pick the 2nd, 1st, 2nd, 3rd, (lift off pinky) and play (Am).  Strum.  (2) Replace the pinky and pick the same strings and play an (F).  Strum.  Now repeat steps (1) and (2) again.  After the second (F) strum (G) and start the song.  Play it through slowly the first time and hear the mandolin in your head.  Not too hard at all.  Just go through it a couple of times.",
+    "is_sing_along": false,
+    "youtube": "",
+    "content": []
+  },
+  {
+    "title": "TIP:  Mandolin outro:  Strum (Am) for 4 bars and then, still holding (Am), pick out the final notes which are:  1st string, 2nd string with pinky added to 2nd string/3rd fret (2/3)",
+    "artist": "like you're playing the (Asus) - remove pinky and pick the 2nd string and 3rd string, pinky back on and pick 2nd string again, pinky off and second string, 3rd string, 2nd string, and finish with a strum or pick of the 4th and 3rd strings together.",
+    "is_sing_along": false,
+    "youtube": "",
+    "content": [
       ";  (MICHAEL) (MICHAEL & MIKE)"
     ]
   },
@@ -40549,15 +40967,8 @@ const songData = [
       "I thought that I heard you laughing.  I thought that I heard you sing.",
       "F                     G   Am   G",
       "I think I thought I saw you try.",
-      "<Mandolin bridge>"
-    ]
-  },
-  {
-    "title": "(Form Am):  1",
-    "artist": "1 - 1  <pinky on>  2/1  <pause>  2/1 - 2/1 - 2/1  <pinky off>",
-    "is_sing_along": false,
-    "youtube": "",
-    "content": [
+      "<Mandolin bridge>",
+      "(Form Am):  1 - 1 - 1  <pinky on>  2/1  <pause>  2/1 - 2/1 - 2/1  <pinky off>",
       "2 - 2 - 2 - 3  <pause>  3 - 3 - 3",
       "1 - 1 - 1  <pinky on>  2/1  <pause>  2/1 - 2/1 - 2/1  <pinky off>",
       "2 - 2 - 2 - 3  <pause>  3 - 3 - 3",
@@ -40583,12 +40994,18 @@ const songData = [
       "F                       Am",
       "But that was just a dream.  Try, cry, fly, try.",
       "F                      G      Am           G",
-      "That was just a dream, just a dream just a dream.  Dream.",
-      "<Mandolin outro>:  Am  Am  Am  Am  < hold Am >  1 - 2/3 - 2 - 3 - 2/3 - 2 - 3 - 2 - 4/3",
+      "That was just a dream, just a dream just a dream.  Dream."
+    ]
+  },
+  {
+    "title": "<Mandolin outro>:  Am  Am  Am  Am  < hold Am >  1",
+    "artist": "2/3 - 2 - 3 - 2/3 - 2 - 3 - 2 - 4/3",
+    "is_sing_along": false,
+    "youtube": "",
+    "content": [
       "LOST HIGHWAY (In D)",
       "Hank Williams",
       "https://www.youtube.com/watch?v=lCgicPdsxxg  (Capo 0)(MC2)",
-      "[Presented afterwards in the key of [G] mainly for fingerstyle.]",
       "TIP:  The intro are the chords in the last line of the verse.",
       "INTRO:  D,  A  D",
       "NC            D           G        D",
@@ -40910,15 +41327,8 @@ const songData = [
       "(Griffith)",
       "https://www.youtube.com/watch?v=OQH3ijRCY-o (Nanci studio) (Capo 1)(MC1)",
       "https://www.youtube.com/watch?v=2GK462XnRjQ  (Nanci live) (Capo 1)",
-      "https://www.youtube.com/watch?v=2dX8QZRwdC8  (Kathy Mattea)(Capo 1)"
-    ]
-  },
-  {
-    "title": "(NANCI) (NANCI & LYLE)",
-    "artist": "(KATHY) (KATHY & DON)",
-    "is_sing_along": true,
-    "youtube": "",
-    "content": [
+      "https://www.youtube.com/watch?v=2dX8QZRwdC8  (Kathy Mattea)(Capo 1)",
+      "(NANCI) (NANCI & LYLE)  -  (KATHY) (KATHY & DON)",
       "INTRO:  A  Asus2  D  A",
       "Asus2                         D",
       "Rita was sixteen years with hazel eyes and chestnut hair.",
@@ -41188,9 +41598,15 @@ const songData = [
       "LOVE HURTS \u2013 Nazareth",
       "(Brant)",
       "https://www.youtube.com/watch?v=WUff6gpqd8s  (Capo 0)(MC0)",
-      "(DAN) (DAN & PETE)",
-      "INTRO <Form (G)>:  6 \u2013 5 \u2013 4 \u2013 5 \u2013 3 \u2013 4 - 5,  6 \u2013 5 \u2013 4 \u2013 5 \u2013 3 \u2013 4 - 5,  |F|  |C|"
+      "(DAN) (DAN & PETE)"
     ]
+  },
+  {
+    "title": "INTRO <Form (G)>:  6 \u2013 5 \u2013 4 \u2013 5 \u2013 3 \u2013 4",
+    "artist": "5,  6 \u2013 5 \u2013 4 \u2013 5 \u2013 3 \u2013 4 - 5,  |F|  |C|",
+    "is_sing_along": false,
+    "youtube": "",
+    "content": []
   },
   {
     "title": "6 \u2013 5 \u2013 4 \u2013 5 \u2013 3 \u2013 4",
@@ -41205,8 +41621,15 @@ const songData = [
       "C      G     B7            Em",
       "To take a lot of pain, take a lot of pain.",
       "G              C                      D     C",
-      "Love is like a cloud.  Holds a lot of rain.",
-      "G      G   F    C         G       5 \u2013 4 \u2013 5 \u2013 3 \u2013 4 - 5,  6 \u2013 5 \u2013 4 \u2013 5 \u2013 3 \u2013 4 - 5",
+      "Love is like a cloud.  Holds a lot of rain."
+    ]
+  },
+  {
+    "title": "G      G   F    C         G       5 \u2013 4 \u2013 5 \u2013 3 \u2013 4",
+    "artist": "5,  6 \u2013 5 \u2013 4 \u2013 5 \u2013 3 \u2013 4 - 5",
+    "is_sing_along": true,
+    "youtube": "",
+    "content": [
       "Love hurts.     Oooh oooh love hurts.",
       "Em        C        D7",
       "I'm young, I know, but eeee-ven so.",
@@ -41215,8 +41638,15 @@ const songData = [
       "G    B7               Em",
       "I really learned a lot, really learned a lot.",
       "B7             C                          D7",
-      "Love is like a stove, burns you when it's hot.",
-      "G      G   F    C         G       5 \u2013 4 \u2013 5 \u2013 3 \u2013 4 - 5,  6 \u2013 5 \u2013 4 \u2013 5 \u2013 3 \u2013 4 - 5",
+      "Love is like a stove, burns you when it's hot."
+    ]
+  },
+  {
+    "title": "G      G   F    C         G       5 \u2013 4 \u2013 5 \u2013 3 \u2013 4",
+    "artist": "5,  6 \u2013 5 \u2013 4 \u2013 5 \u2013 3 \u2013 4 - 5",
+    "is_sing_along": true,
+    "youtube": "",
+    "content": [
       "Love hurts.     Oooh oooh love hurts.",
       "Em                   B7   Em    B7       Em      B7    Em",
       "Some fools think, of happiness, bliss-fulness, togetherness.",
@@ -41329,8 +41759,15 @@ const songData = [
       "LOVE ME TENDER \u2013 Elvis Presley",
       "(Darby)",
       "https://www.youtube.com/watch?v=-9dtQzg7gDM (Capo 2)(MC0)",
-      "TIP:  For the intro form (C/G) and pick the string indicated and strum (C/G).",
-      "TIP:  Be sparse with the chord strums - maybe only at the chord changes and at the end of a line.",
+      "TIP:  For the intro form (C/G) and pick the string indicated and strum (C/G)."
+    ]
+  },
+  {
+    "title": "TIP:  Be sparse with the chord strums",
+    "artist": "maybe only at the chord changes and at the end of a line.",
+    "is_sing_along": false,
+    "youtube": "",
+    "content": [
       "(ELVIS) (JORDANAIRES)",
       "INTRO <Form (C/G)>:   5-C/G,  6-C/G",
       "Cmaj7  C/G   Dm              G7           C",
@@ -41358,8 +41795,15 @@ const songData = [
       "Dm             G7              C",
       "I'll be yours through all the years, till the end of time.",
       "E       Am      C7     F       Fm         C",
-      "Love me tender, love me true.  All, my dreams, fulfilled.",
-      "A        Dm           G7           C     3 \u2013 b3 \u2013 b3 - bO",
+      "Love me tender, love me true.  All, my dreams, fulfilled."
+    ]
+  },
+  {
+    "title": "A        Dm           G7           C     3 \u2013 b3 \u2013 b3",
+    "artist": "bO",
+    "is_sing_along": false,
+    "youtube": "",
+    "content": [
       "For my, darling, I love you.  And I always will.",
       "LOVE ME TONIGHT",
       "Don Williams",
@@ -41922,7 +42366,15 @@ const songData = [
       "(Frey/Henley)",
       "https://drive.google.com/file/d/14utv7XnFU6fcHEEz53hOsOCZTmgu3_eK/view?usp=sharing",
       "(Capo 0)(MC0)",
-      "TIP:  Don't be put off by all the chords--a lot of it is just twinkly bits.  They're correct, and easy to play, but can be skipped without effect.",
+      "TIP:  Don't be put off by all the chords--a lot of it is just twinkly bits.  They're correct, and easy to play, but can be skipped without effect."
+    ]
+  },
+  {
+    "title": "TIP:  In the chorus it's \"And (D) your (Em) smi-(Bm)-le . . .\"   That (D) might catch you off guard.  You can skip that (D) if you want and just carry forward the preceding (G).  And if you don't like that (Bm)",
+    "artist": "which only appears in the chorus - you can play a (D) instead but the (Bm) really does sound better.",
+    "is_sing_along": false,
+    "youtube": "",
+    "content": [
       "(GLENN) (GLENN & DON H.) (GLENN/DON H./JOE/RANDY/DON F.) (RANDY/JOE/DON F.)",
       "INTRO:  G  GF#  C,   Am  D7  G  D",
       "G               GF#              C",
@@ -42527,6 +42979,7 @@ const songData = [
     "content": [
       "(Berry/Buck/Mills/Stipe)",
       "https://www.youtube.com/watch?v=dLxpNiF0YKs  (Capo 0)(MC0)",
+      "TIP:  This song has several nuances to the voicing which, while not difficult, require a little attention -- sorry for all the tips.",
       "TIP:  You don't have to play the (D/A) but if you can add your pinky to the 4th string/4th fret for (D/A) and then lift off for the (D).",
       "TIP:  A couple of lines in the verse are sung up-inflection (like \"Monopoly\") and are so indicated by (up).",
       "(MICHAEL) (MIKE) (MICHAEL & MIKE)",
@@ -42842,6 +43295,7 @@ const songData = [
     "content": [
       "(Kennerly)",
       "https://www.youtube.com/watch?v=RjiBgK1s7Q8  (Capo 1)(MC1)",
+      "TIP:  You can play this song without the (CaddG) but it helps accentuate Emmylou's aching high notes.",
       "(EMMYLOU) (JIMMY) (EMMYLOU & JIMMY)",
       "INTRO:  <spoken softly>   One, two, three, four.  <strum>   C,  C-C,  C",
       "F            G       C",
@@ -42897,6 +43351,7 @@ const songData = [
     "content": [
       "(Kennerly)",
       "https://www.youtube.com/watch?v=RjiBgK1s7Q8  (Capo 6)(MC4)",
+      "TIP:  You can play this song without the (Gadd) but it helps accentuate Emmylou's aching high notes.",
       "(EMMYLOU) (JIMMY) (EMMYLOU & JIMMY)",
       "INTRO:  <spoken softly>  One, two, three, four.  <strum>   G,  G-G,  G",
       "C            D       G",
@@ -43329,6 +43784,7 @@ const songData = [
       "E                  E7",
       "Poor awful cities, they whistle and whine.",
       "Am                           C",
+      "Dream like these hoof beats, dream like this song,",
       "Am                           G       Am",
       "Dream like this lifetime, as I ride along.",
       "G               Am         G           Am  Am",
@@ -43349,6 +43805,7 @@ const songData = [
       "E                  E7",
       "Poor awful cities, they whistle and whine.",
       "Am                           C",
+      "Dream like these hoof beats, dream like this song,",
       "Am                           G       Am",
       "Dream like this lifetime, as I ride along.",
       "G               Am         G           Am  Am",
@@ -43430,7 +43887,15 @@ const songData = [
       "ME AND JULIO DOWN BY THE SCHOOLYARD",
       "Paul Simon",
       "https://www.youtube.com/watch?v=JVdlpZ4M-Hw  (Capo 2)(MC0/5)",
-      "TIP:  The intro is actually in two parts.",
+      "TIP:  The intro is actually in two parts."
+    ]
+  },
+  {
+    "title": "The first 4 bars is a treblish-jangly bit and plays notes  <g>  <a>  <g>  and  < f# >  within alternating chords of (G) and (D).  So emphasize strings 1",
+    "artist": "4, and if you can, add your pinky the note <f#> at the 4th string/4th fret for the trailing (D/A) in each bar.  If too cumbersome just play (D).",
+    "is_sing_along": false,
+    "youtube": "",
+    "content": [
       "INTRO:  G  D  G  D/A,   G  D  G  D/A,   G  D  G  D/A,   G  D  G  D/A",
       "G  C  G  D/F#,   G  C  G  D/F#,   G  C  G  D/F#",
       "G                                                         C        C",
@@ -43479,7 +43944,22 @@ const songData = [
       "ME AND YOU AND A DOG NAMED BOO \u2013 Lobo",
       "(LaVoie)",
       "https://www.youtube.com/watch?v=aTbBvPoxUkk  (Capo 4)(MC2)",
-      "[Afterwards in [G] which is a little easier to play but it won't match the recording.]",
+      "[Afterwards in [G] which is a little easier to play but it won't match the recording.]"
+    ]
+  },
+  {
+    "title": "The first one is (D)-(D)-(D)-(D4)-(D)-(Dsus2).  Three strums of (D), add your pinky to the 1st string/3rd fret, lift the pinky to get back to (D), and lift off the middle finger to play (Dsus2).  (D)",
+    "artist": "on with the pinky - off with the pinky - off with the middle finger.",
+    "is_sing_along": false,
+    "youtube": "",
+    "content": []
+  },
+  {
+    "title": "The next one is a little more difficult because it gets crowded in the 2nd fret.  It's (A)-(A)-(A)-(A6)-(A)-(Asus4) and is played very similarly to the first one.  It's 3 strums of (A), add pinky to the 1st string/2nd fret to get to (A6)",
+    "artist": "so all your fingers are now jammed into the 2nd fret - lift off your pinky to get back to (A), and move your pinky over to the 2nd string/3rd fret while lifting your \"top\" finger off the 4th string and you're at (Asus4).  And just like the (D) sequence, it will always follow a leading (A) and that (A) is the first (A) in the sequence.",
+    "is_sing_along": false,
+    "youtube": "",
+    "content": [
       ";  ; (KENT) (KENT & BACKING)",
       "INTRO:  D-D-D-D4-D-Dsus2,  D-D-D-D4-D-Dsus2,  D-D-D-D4-D-Dsus2,  D-D-D-D4-D-Dsus2",
       "D                       G          A       D    -D-D-D4-D-Dsus2",
@@ -43532,7 +44012,15 @@ const songData = [
       "Me and you and a dog named Boo how I love bein' a free man.",
       "ME AND YOU AND A DOG NAMED BOO \u2013 Lobo",
       "(LaVoie)",
-      "(MC3)",
+      "(MC3)"
+    ]
+  },
+  {
+    "title": "TIP:  The (D)-(D)-(D)-(D4)-(D)-(Dsus2) voicing is played exactly as the version above.  Three strums of (D), add your pinky to the 1st string/3rd fret, lift the pinky to get back to (D), and lift off the middle finger to play (Dsus2).  (D)",
+    "artist": "on with the pinky - off with the pinky - off with the middle finger.  It will always follow a leading (D) and that (D) is the first (D) in the sequence.",
+    "is_sing_along": false,
+    "youtube": "",
+    "content": [
       ";;  (KENT) (KENT & BACKING)",
       "INTRO:  G-G-G-C-Cmaj7-D,  G-G-G-C-Cmaj7-D,  G-G-G-C-Cmaj7-D,  G-G-G-C-Cmaj7-D",
       "G                       C          D       G",
@@ -43805,9 +44293,15 @@ const songData = [
     "youtube": "",
     "content": [
       "MEMORY \u2013 Elaine Paige/Betty Buckley",
-      "(Eliot/Nunn/Webber)",
-      "https://www.youtube.com/watch?v=i7J-SwMJ_jg  (Betty Buckley - Broadway) (Capo 2)(MC3)"
+      "(Eliot/Nunn/Webber)"
     ]
+  },
+  {
+    "title": "https://www.youtube.com/watch?v=i7J-SwMJ_jg  (Betty Buckley",
+    "artist": "Broadway) (Capo 2)(MC3)",
+    "is_sing_along": false,
+    "youtube": "",
+    "content": []
   },
   {
     "title": "https://www.youtube.com/watch?v=8gd_ohoPzYc  (Elaine Paige",
@@ -43961,8 +44455,15 @@ const songData = [
       "Michael row the boat ashore, hallelu-jah.",
       "Em            Dm          C  G C",
       "Michael row the boat ashore, hallelu\u2013u-jah.",
-      "<whistle>  C  C  F  C,   C  Em  Dm  C  G  C",
-      "<Peter, Paul & Mary Version - Single strum chords in |brackets| for final chorus.>",
+      "<whistle>  C  C  F  C,   C  Em  Dm  C  G  C"
+    ]
+  },
+  {
+    "title": "<Peter, Paul & Mary Version",
+    "artist": "Single strum chords in |brackets| for final chorus.>",
+    "is_sing_along": false,
+    "youtube": "",
+    "content": [
       "(PETER) (PAUL) (MARY) (PETER & MARY) (ALL SING)",
       "INTRO:  C  C  F  C,   C  Em  Dm  C  G  C",
       "F   C",
@@ -43985,8 +44486,15 @@ const songData = [
       "F  C",
       "Michael's boat is a music boat, hallelu-jah.",
       "Em              Dm         C   G  C",
-      "Michael's boat is a music boat, hallelu\u2013 u- jah.",
-      "Bo - . . . . .  oat",
+      "Michael's boat is a music boat, hallelu\u2013 u- jah."
+    ]
+  },
+  {
+    "title": "Bo",
+    "artist": ". . . . .  oat",
+    "is_sing_along": false,
+    "youtube": "",
+    "content": [
       "F   C",
       "Michael row the boat ashore, hallelu-jah.",
       "Em            Dm          C  G C",
@@ -44048,8 +44556,15 @@ const songData = [
       "Michael row the boat ashore, hallelu-jah.",
       "Bm            Am          G  D G",
       "Michael row the boat ashore, hallelu\u2013u-jah.",
-      "<whistle>  G  Gadd,  C  G;   G  Bm,  G  D  G,  G",
-      "<Peter, Paul & Mary Version - Single strum chords in |brackets| for final chorus.>",
+      "<whistle>  G  Gadd,  C  G;   G  Bm,  G  D  G,  G"
+    ]
+  },
+  {
+    "title": "<Peter, Paul & Mary Version",
+    "artist": "Single strum chords in |brackets| for final chorus.>",
+    "is_sing_along": false,
+    "youtube": "",
+    "content": [
       "(PETER) (PAUL) (MARY) (PETER & MARY) (ALL SING)",
       "INTRO:  G  Gadd,  C  G;   G  Bm,  G  D  G",
       "Gadd                      C  G",
@@ -44072,8 +44587,15 @@ const songData = [
       "Gadd                       C  G",
       "Michael's boat is a music boat, hallelu-jah.",
       "Bm              Am         G  D G",
-      "Michael's boat is a music boat, hallelu-u-jah.",
-      "Bo - . . . . . . oat",
+      "Michael's boat is a music boat, hallelu-u-jah."
+    ]
+  },
+  {
+    "title": "Bo",
+    "artist": ". . . . . . oat",
+    "is_sing_along": false,
+    "youtube": "",
+    "content": [
       "Gadd                      C  G",
       "Michael row the boat ashore, hallelu-jah.",
       "Bm            Am          G  D G",
@@ -44358,7 +44880,15 @@ const songData = [
     "youtube": "",
     "content": [
       "(Traditional)",
-      "https://www.youtube.com/watch?v=Lrj5Kxdzouc  (Capo 0)(MC2)",
+      "https://www.youtube.com/watch?v=Lrj5Kxdzouc  (Capo 0)(MC2)"
+    ]
+  },
+  {
+    "title": "TIP:  Tune the 6th string down from <e> to <d>.  When playing (G) either lift off the 6th finger so the 6th string is open, or just strum strings 5",
+    "artist": "1 (or just don't worry about it, it'll get lost in the bass if you do cover the 6th string).  When playing (A7) don't strum the 6th string.",
+    "is_sing_along": false,
+    "youtube": "",
+    "content": [
       "(JOHN) (JOHN/TOM/DOUG/STU)",
       "INTRO:  |D| <pause>",
       "|G|                               |D|",
@@ -45211,8 +45741,15 @@ const songData = [
       "MOUNTAINS OF THE HEART",
       "Dave Stamey",
       "https://www.youtube.com/watch?v=x3QXqQM_ypw  (Capo 4)(MC2)",
-      "TIP:  For the final strum of (C) add your pinky to the 1st string of the 3rd fret.",
-      "INTRO:   5 - C/G  6 - C/G,   5 - C/G  6 - C/G,   5 - C/G  6 - C/G,  5 - C/G  6 - C/G",
+      "TIP:  For the final strum of (C) add your pinky to the 1st string of the 3rd fret."
+    ]
+  },
+  {
+    "title": "INTRO:   5",
+    "artist": "C/G  6 - C/G,   5 - C/G  6 - C/G,   5 - C/G  6 - C/G,  5 - C/G  6 - C/G",
+    "is_sing_along": false,
+    "youtube": "",
+    "content": [
       "5 - C/G  6 - C/G,   5 - C/G  6 - C/G,   5 - C/G  6 - C/G,  5 - C/G  6 - C/G",
       "Am            F               F",
       "Somewhere near the timberline he feeds the fire,",
@@ -45468,7 +46005,15 @@ const songData = [
       "(Walker)",
       "https://www.youtube.com/watch?v=e-LVXR6rjXs  (Capo 7)(MC0)",
       "TIP:  There's also a version in (G) which is uncapo'd but a tad harder to play.",
-      "TIP:  Those opening three notes at the end of the intro chords can be played two ways:",
+      "TIP:  Those opening three notes at the end of the intro chords can be played two ways:"
+    ]
+  },
+  {
+    "title": "Treble notes",
+    "artist": "From the (Am) lift your ring finger to open the 3rd string and pick <g>, replace your ring finger to form (Am) and pick the covered 3rd string note <a>, then pick the already covered 2nd string note <c>, and strum (C) to begin the song on \"knew.\"",
+    "is_sing_along": false,
+    "youtube": "",
+    "content": [
       "TIP:  The extra chord at the end of some lines (or before and after a word) means to linger and strum an extra chord measure.",
       "(JEFF) (JEFF & JIMMY)",
       "INTRO:  C,  Em,  Am  <hold C>  g \u2013 a \u2013 c",
@@ -46830,7 +47375,6 @@ const songData = [
       "D  A   E      Esus E          A  E   D     A",
       "To my hometown.  My   hometown.  My hometown.",
       "F#m                                    A",
-      "Now Main Street's whitewashed windows, and vacant stores.",
       "F#m                                    A",
       "Seems-like-there-ain't nobody, wants to come down here no more.",
       "D                                          A",
@@ -46854,7 +47398,15 @@ const songData = [
       "MY HOMETOWN",
       "Bruce Springsteen",
       "https://www.youtube.com/watch?v=z6LABdHtkUA  (Capo 2)(MC4)",
-      "TIP:  This looks really sloppy, and the augmented chords can be ignored in favor of just (G) and (D), but they're not hard to play.",
+      "TIP:  This looks really sloppy, and the augmented chords can be ignored in favor of just (G) and (D), but they're not hard to play."
+    ]
+  },
+  {
+    "title": "So there are three variations of (G) to contend with.  The first is (G/A) which is just (G) without the 2nd finger \u2013 with the 5th string open",
+    "artist": "emphasis on the low <a>.  Next is the (G/A2) which always comes after a (G) so just bring the finger off the 5th string and down to cover note <a> at the 3rd string/2nd fret, emphasis on the middle <a>.  You can release the 6th string as well if it's more comfortable but if so don't strum the 6th string.  Except for the intro/outro the (G/A) is played at the beginning of the line followed by the (G/A2) with (G) played one syllable after each augmentation.  The third variation is (G4) which is only played once in the bridge and is played in the same way as the (G/A2) except you drop down cover note <c> at the 2nd string/1st fret.",
+    "is_sing_along": false,
+    "youtube": "",
+    "content": [
       "INTRO:  G/A2-G  G,  G/A2-G  G,  C  G  D;   D/A  D,  D/A  D,  G  D  C",
       "G/A   G              G/A2 G            C    G     D",
       "I was eight years old, and run  ning with, a dime in my hand.",
@@ -46877,7 +47429,6 @@ const songData = [
       "C  G   D      D/A  D          G  D   C     G",
       "To my hometown.  My   hometown.  My hometown.",
       "C                                      G",
-      "Now Main Street's whitewashed windows, and vacant stores.",
       "C                                      G",
       "Seems-like-there-ain't nobody, wants to come down here no more.",
       "C                                          G",
@@ -47239,6 +47790,13 @@ const songData = [
     ]
   },
   {
+    "title": "TIP:  For the intro, form (C) and slowly hit each string",
+    "artist": "from 4th string down to 2nd string \u2013 and then back up.  Repeat 4 times, ending at the 3rd string for the word \"And\", and then strum (C) to begin the song.",
+    "is_sing_along": false,
+    "youtube": "",
+    "content": []
+  },
+  {
     "title": "INTRO <Form (C)>:  4 \u2013 3 \u2013 2",
     "artist": "3,   4 \u2013 3 \u2013 2 - 3,   4 \u2013 3 \u2013 2 - 3",
     "is_sing_along": false,
@@ -47407,8 +47965,15 @@ const songData = [
       "(Axton)",
       "https://www.youtube.com/watch?v=dm6qw_yeo6o  (Capo 2)(MC2)",
       "TIP:  To find the right note to start the song, strum (D) from the last line of the first verse and hum the Mmmhmm part.",
-      "(CORY) (CORY/DANNY/PAUL)",
-      "NC                             7 \u2013 5 - |G|                              2 \u2013 O - |D|",
+      "(CORY) (CORY/DANNY/PAUL)"
+    ]
+  },
+  {
+    "title": "NC                             7 \u2013 5",
+    "artist": "|G|                              2 \u2013 O - |D|",
+    "is_sing_along": false,
+    "youtube": "",
+    "content": [
       "Well I've never been to Spain,              but I kinda like the music."
     ]
   },
@@ -47466,10 +48031,28 @@ const songData = [
     "artist": "3 - 2/3 - 0",
     "is_sing_along": false,
     "youtube": "",
+    "content": []
+  },
+  {
+    "title": "INTRO <2nd fret/4-3-2>:  4c",
+    "artist": "4c - 3o- 3c - 2o - 3c - 3o - 4o - 4c - 4c - 4o - 4c - 4c",
+    "is_sing_along": false,
+    "youtube": "",
+    "content": []
+  },
+  {
+    "title": "4o",
+    "artist": "4c - 4c - 3o - 3c - 2o - 3c - 3o - 4o - 4c",
+    "is_sing_along": false,
+    "youtube": "",
+    "content": []
+  },
+  {
+    "title": "INTRO <2nd fret/4-3-2 notes>:  e",
+    "artist": "e - g - a - b - a - g - d - e - e - d - e - e",
+    "is_sing_along": false,
+    "youtube": "",
     "content": [
-      "INTRO <2nd fret/4-3-2>:  4c - 4c - 3o- 3c - 2o - 3c - 3o - 4o - 4c - 4c - 4o - 4c - 4c",
-      "4o - 4c - 4c - 3o - 3c - 2o - 3c - 3o - 4o - 4c",
-      "INTRO <2nd fret/4-3-2 notes>:  e - e - g - a - b - a - g - d - e - e - d - e - e",
       "d - e - e - g - a - b - a - g - d \u2013 e",
       "Em, Emsus2-Em  Em;    Em, Emsus2-Em  Em;   Em, Emsus2-Em  Em;    Em, Emsus2-Em  Em",
       "D",
@@ -47787,7 +48370,15 @@ const songData = [
     "youtube": "",
     "content": [
       "(Jagger/Richards)",
-      "https://www.youtube.com/watch?v=DEseb6-hssc  (Capo 2)(MC0)",
+      "https://www.youtube.com/watch?v=DEseb6-hssc  (Capo 2)(MC0)"
+    ]
+  },
+  {
+    "title": "TIP:  The intro is quite quick with one strum per chord.  Holding the (D) form pick the covered 3rd string, then two strums of (D4)",
+    "artist": "just add your pinky - and one more strum of (D).  Repeat 3 more times.",
+    "is_sing_along": false,
+    "youtube": "",
+    "content": [
       "(MICK) (MICK & KEITH)",
       "INTRO <Form (D)>:   3-D4-D4-D,   3-D4-D4-D,   3-D4-D4-D,   3-D4-D4-D",
       "You're the kind of person you meet at certain, dismal dull affairs.",
@@ -47862,7 +48453,15 @@ const songData = [
       "NIGHT RIDER'S LAMENT",
       "Dave Stamey",
       "https://www.youtube.com/watch?v=9PGh9-YuHHg  (Capo 2)(MC0)",
-      "TIP:  For the opening, and the little segue between chorus and verse, pick alternating open 4th and 5th strings and then strum (D).",
+      "TIP:  For the opening, and the little segue between chorus and verse, pick alternating open 4th and 5th strings and then strum (D)."
+    ]
+  },
+  {
+    "title": "TIP:  The end of the song finishes with three picks, a strum, and a hammer on.  So right after the |A| reposition for a (D) but remove the middle finger (that's (Dsus2).  Pick the 4th, 3rd, and 2nd strings, strum (Dsus2) and hammer on the ring finger on the 1st string of the 2nd fret, note <f#>",
+    "artist": "like completing the (D) - to end the song.",
+    "is_sing_along": false,
+    "youtube": "",
+    "content": [
       "INTRO:   4-D  5-D  4-D  5-D,   4-D  5-D  4-D  5-D",
       "G       G",
       "One night while I was ridin,'",
@@ -48033,7 +48632,6 @@ const songData = [
       "F        C                                         E",
       "I've got nicotine stains on my fingers, I've got a silver spoon, on a chain.",
       "F                                  C",
-      "I've got a grand piano to prop up my mortal remains.",
       "C7                                     C7  F",
       "I've got wild staring eyes,     and I've got a strong urge to fly.",
       "Fm                  C      G      Am     D      G             E",
@@ -48404,8 +49002,22 @@ const songData = [
       "Yeah if you'll buy that I'll throw the Golden Gate in free.",
       "ODE TO BILLY JOE",
       "Bobbi Gentry",
-      "https://www.youtube.com/watch?v=cJZ_ViDADOE  (Capo 0)(MC1)",
-      "INTRO <Form (D11)>:   4 - D11 - 2/3;   4 - D11 - 2/3;   4 - D11 - 2/3;   4 - D11 - 2/3",
+      "https://www.youtube.com/watch?v=cJZ_ViDADOE  (Capo 0)(MC1)"
+    ]
+  },
+  {
+    "title": "TIP:  In the intro, form (D11), then pick the 4th string (open) and strum (D11) six times adding the pinky on the 2nd string/3rd fret",
+    "artist": "2/3 - on the 6th strum.  You can leave it there while you reach up again for the next 4th string but lift off prior to the strum.",
+    "is_sing_along": false,
+    "youtube": "",
+    "content": []
+  },
+  {
+    "title": "INTRO <Form (D11)>:   4",
+    "artist": "D11 - 2/3;   4 - D11 - 2/3;   4 - D11 - 2/3;   4 - D11 - 2/3",
+    "is_sing_along": false,
+    "youtube": "",
+    "content": [
       "D                                             D7",
       "It was the third of June another sleepy dusty Delta day.",
       "D                                                  D7",
@@ -48655,7 +49267,15 @@ const songData = [
       "You are lost and gone forever, dreadful sorry, Clementine.",
       "OH PRETTY WOMAN",
       "Roy Orbison",
-      "https://www.youtube.com/watch?v=3KFvoDDs0XM  (Capo 0)(MC2/3)",
+      "https://www.youtube.com/watch?v=3KFvoDDs0XM  (Capo 0)(MC2/3)"
+    ]
+  },
+  {
+    "title": "TIP:  Toward the end there is an (E)(Esus)(E) sequence in which you hold the (E) and just tuck/remove your pinky under your ring ring finger on the 3rd string/2nd fret.  And there's an  (E7full)",
+    "artist": "last diagram from the end - which is only played once and it's just (E) with your pinky added to the 2nd string/3rd fret.",
+    "is_sing_along": false,
+    "youtube": "",
+    "content": [
       ";",
       "(ROY & BILL) (ROY)"
     ]
@@ -48678,8 +49298,15 @@ const songData = [
       "D",
       "Pretty woman.",
       "E          E7             E                            E7      E",
-      "I don't believe you, you're not the truth.  No one could look as good as you.",
-      "<notes>   e - e - g# - b \u2013 d \u2013 e \u2013 d \u2013 b,           e - e - g# - b \u2013 d \u2013 e \u2013 d \u2013 b",
+      "I don't believe you, you're not the truth.  No one could look as good as you."
+    ]
+  },
+  {
+    "title": "<notes>   e",
+    "artist": "e - g# - b \u2013 d \u2013 e \u2013 d \u2013 b,           e - e - g# - b \u2013 d \u2013 e \u2013 d \u2013 b",
+    "is_sing_along": false,
+    "youtube": "",
+    "content": [
       "Mercy.",
       "e - e - g# - b \u2013 d \u2013 e \u2013 d \u2013 b,           e - e - g# - b \u2013 d \u2013 e \u2013 d \u2013 b",
       "<chords>   |E|-|E|-|E|-|E|-|E7D|-|E7|-|E7D|-|E7|",
@@ -48689,8 +49316,15 @@ const songData = [
       "A                F#m                A                 F#m                   D",
       "Pretty woman, won't you pardon me.  Pretty woman, I couldn't help but see.  Pretty woman.",
       "E      E7     E                   E7        E",
-      "That you look lovely as can be.  Are you lonely just like me?",
-      "<notes>   e - e - g# - b \u2013 d \u2013 e \u2013 d \u2013 b,           e - e - g# - b \u2013 d \u2013 e \u2013 d \u2013 b",
+      "That you look lovely as can be.  Are you lonely just like me?"
+    ]
+  },
+  {
+    "title": "<notes>   e",
+    "artist": "e - g# - b \u2013 d \u2013 e \u2013 d \u2013 b,           e - e - g# - b \u2013 d \u2013 e \u2013 d \u2013 b",
+    "is_sing_along": false,
+    "youtube": "",
+    "content": [
       "<Growl>",
       "e - e - g# - b \u2013 d \u2013 e \u2013 d \u2013 b,           e - e - g# - b \u2013 d \u2013 e \u2013 d \u2013 b",
       "<chords>   |E|-|E|-|E|-|E|-|E7D|-|E7|-|E7D|-|E7|",
@@ -48802,14 +49436,21 @@ const songData = [
       "Oh what a thrill, oh what a thrill.",
       "OKIE FROM MUSKOGEE",
       "Merle Haggard",
-      "https://www.youtube.com/watch?v=D5K5l89mpV8  (Capo 0)(MC0)",
+      "https://www.youtube.com/watch?v=D5K5l89mpV8  (Capo 0)(MC0)"
+    ]
+  },
+  {
+    "title": "TIP:  There's a key shift after the chorus in which all the chords are sharped.  Since it's only a couple of chords it's not too uncomfortable as (D) becomes (D#)",
+    "artist": "shown here as (D3) - which is just (D) moved up one fret (but you kind of need to include that 4th string), and (A) becomes (Bb).  Also notice there are two sets of chords, for example (A7)(Bb).  If you're going to play the sharped chords then play the second chord.  If you don't care about singing along with the recording, or are going to capo the 1st fret, then play the first chord, the one in italics.",
+    "is_sing_along": false,
+    "youtube": "",
+    "content": [
       "TIP:  In many of Merle's live performances the song is capo'd at the 1st fret to begin with but not in the album version which is the link above.",
       ";  (MERLE) (MERLE/GENE/BONNIE) (GENE & BONNIE)",
       "INTRO:  A7  A7  D",
       "We don't smoke marijuana in Muskogee.",
       "A7",
       "We don't take our trips on L.S.D.",
-      "We don't burn our draft cards down on Main Street.",
       "D",
       "Cuz we like livin' right, and bein' free.",
       "We don't make a party out of lovin'.",
@@ -48979,10 +49620,24 @@ const songData = [
       "C                 Am                  D7               G",
       "Some drop in from right next door and some from out of town.",
       "Ooooh . . . . . . oooh . . . . . . .  oooh . . . . . . oooh.  Pick it.",
-      "<chords>",
-      "Am  Em  Am  G  |G|,   |C|  |Gadd|  |C|  |F|   |C| - |G| - |C| - |G| - |C|   |G|-|C|",
-      "<strings>",
-      "Am  Em  Am  G  |G|,   2/1,  2/3,  1/O,  1/1    1/0 - 2/3 - 2/1 - 2/0 - 2/1   |G|-|C|",
+      "<chords>"
+    ]
+  },
+  {
+    "title": "Am  Em  Am  G  |G|,   |C|  |Gadd|  |C|  |F|   |C|",
+    "artist": "|G| - |C| - |G| - |C|   |G|-|C|",
+    "is_sing_along": false,
+    "youtube": "",
+    "content": [
+      "<strings>"
+    ]
+  },
+  {
+    "title": "Am  Em  Am  G  |G|,   2/1,  2/3,  1/O,  1/1    1/0",
+    "artist": "2/3 - 2/1 - 2/0 - 2/1   |G|-|C|",
+    "is_sing_along": false,
+    "youtube": "",
+    "content": [
       "<notes>"
     ]
   },
@@ -49033,7 +49688,15 @@ const songData = [
       "OLD MAN",
       "Neil Young",
       "https://www.youtube.com/watch?v=OuVIJlSDOs0  (Capo 0)(MC0) (Live)",
-      "https://www.youtube.com/watch?v=ZKCiC-H2Xbg  (Capo 0)  (Album)",
+      "https://www.youtube.com/watch?v=ZKCiC-H2Xbg  (Capo 0)  (Album)"
+    ]
+  },
+  {
+    "title": "TIP:  Note the two-note (E7) chord which comes into play in two places.  For the little instrumental seque bit between verse and chorus you move from an (Am) to (Am7) to (Em) to (E7) to (G) to (D).  This is done quickly so from the (Em) to the (E7) just lift off the 4th string finger and add your pinky to the <d> at the 2nd string/3rd fret and then move on to the (G).  Then in the chorus itself you do something similar with (Am7) to (E7) to (G).  This time just lift your middle finger up one string while placing your pinky on the <d>.  Practice the sequence a few times",
+    "artist": "really not too bad.",
+    "is_sing_along": false,
+    "youtube": "",
+    "content": [
       ", (NEIL) (NEIL & LINDA)",
       "INTRO:   |Dm7|  Dm7-D9  Dm7-D9  Dm7-D9,  D-Dsus4-D",
       "Dm7-D9  Dm7-D9  Dm7-D9,  D-Dsus4-D",
@@ -49393,7 +50056,6 @@ const songData = [
       "G                              Dm",
       "In the islands where I grew up nothing seems the same.",
       "C                             G",
-      "It's just the patterns that remain an empty shell.",
       "C                                   B7    B7  Am  G  F#m  Em",
       "But there's a strangeness in the air you feel too well.",
       "Em,  Em  Em/D-Em,   Em  Em  C  G",
@@ -49811,8 +50473,15 @@ const songData = [
     "youtube": "",
     "content": [
       "(Moore/Penner)",
-      "https://www.youtube.com/watch?v=3TSktJeimjE  (Capo 2)(MC2)",
-      "TIP:  Note all the chords in brackets - |D| - which means strum just once at that point.",
+      "https://www.youtube.com/watch?v=3TSktJeimjE  (Capo 2)(MC2)"
+    ]
+  },
+  {
+    "title": "TIP:  Note all the chords in brackets",
+    "artist": "|D| - which means strum just once at that point.",
+    "is_sing_along": false,
+    "youtube": "",
+    "content": [
       "TIP:  If you can't quite get it, wait and visit a camp near Bozeman, Montana on April 4th, 2063.  See a man named Zefram Cochrane.",
       "INTRO:  |D7|",
       "|D|                              |D|                   |D7|",
@@ -50028,8 +50697,15 @@ const songData = [
       "TIP:  The chorus is easy.  Just remember to quickly transition from the (A) at the last word to the (A7) immediately afterwards.",
       "TIP:  Since each syllable in the verse pretty much gets it's own chord use downstroke strums for each.",
       "(MICK) (MICK & KEITH)",
-      "INTRO <chords>:  Dm  D4  Dm  Dsus2  Dm  Dm  A  Asus  A-Asus-A,   Dm  Dm",
-      "INTRO <notes>:  2/3 - O1 - 1/1 - 1/3 - 1/1 - O1 - 2/3 - 2/3 - 2/2 - 2/3 - O1 - 2/2 \u2013 A,",
+      "INTRO <chords>:  Dm  D4  Dm  Dsus2  Dm  Dm  A  Asus  A-Asus-A,   Dm  Dm"
+    ]
+  },
+  {
+    "title": "INTRO <notes>:  2/3",
+    "artist": "O1 - 1/1 - 1/3 - 1/1 - O1 - 2/3 - 2/3 - 2/2 - 2/3 - O1 - 2/2 \u2013 A,",
+    "is_sing_along": false,
+    "youtube": "",
+    "content": [
       "Dm  Dm"
     ]
   },
@@ -50169,7 +50845,15 @@ const songData = [
       "They only let him go so long,     out of kindness I suppose.",
       "PAPERBACK WRITER \u2013 The Beatles",
       "(Lennon/McCartney)",
-      "https://www.youtube.com/watch?v=yYvkICbTZIQ  (Capo 0)(MC0)",
+      "https://www.youtube.com/watch?v=yYvkICbTZIQ  (Capo 0)(MC0)"
+    ]
+  },
+  {
+    "title": "TIP:  There's really only two chords to the song but there are several variations on the (G) that gives it flavor.  In the intro and bridge (G/7) means this:  From the leading (G) keep your \"bottom\" finger on the 1st string and slide up to the 7th fret and strum strings 4 \u2013 1 once before returning to the 3rd fret.  You can keep your fingers on the two bass strings in the (G) shape if you want \u2013 because the next chord is another (G)",
+    "artist": "but don't hit those two bass strings.",
+    "is_sing_along": false,
+    "youtube": "",
+    "content": [
       "(JOHN) (PAUL) (GEORGE) (JOHN & GEORGE)",
       "INTRO:  C         G",
       "Paperback writerrrrrrrrrrrrrrrrrr.",
@@ -50681,7 +51365,15 @@ const songData = [
     "youtube": "",
     "content": [
       "(Braddock/Jones)",
-      "https://www.youtube.com/watch?v=PKpQRjj_WbU  (Capo 5)(MC5)",
+      "https://www.youtube.com/watch?v=PKpQRjj_WbU  (Capo 5)(MC5)"
+    ]
+  },
+  {
+    "title": "TIP:  In the \"God is great...\" line you'll see \"beer is (G) good (G)|G|,\" which means play a second half-measure of (G) after \"good\" and then strum (G) once",
+    "artist": "that's the |G| in brackets - followed by no chord until \"crazy\".",
+    "is_sing_along": false,
+    "youtube": "",
+    "content": [
       ";",
       "INTRO:  C  C-CaddD \u2013 C,   Gadd  Gadd-Gadd- Gadd",
       "C  C-CaddD \u2013 C,   Gadd  Gadd-Gadd- Gadd  C",
@@ -50780,15 +51472,8 @@ const songData = [
       "When you're, strange.",
       "PERFECT",
       "Ed Sheeran",
-      "https://www.youtube.com/watch?v=2Vv-BfVoq4g   (Capo 1)(MC1)"
-    ]
-  },
-  {
-    "title": "(ED) (ED & BACKING",
-    "artist": "also Ed)",
-    "is_sing_along": false,
-    "youtube": "",
-    "content": [
+      "https://www.youtube.com/watch?v=2Vv-BfVoq4g   (Capo 1)(MC1)",
+      "(ED) (ED & BACKING - also Ed)",
       "NC        G           Em",
       "I found a love, forrr meee.",
       "C                            D",
@@ -51050,8 +51735,15 @@ const songData = [
       "Oh I wish that I could beeeeee Richard Cory.",
       "PINK HOUSES",
       "John Mellencamp",
-      "https://www.youtube.com/watch?v=qOfkpu6749w   (Capo 0)(MC1)",
-      "TIP:  In the intro, form the (G) and then pick the 6th string <g>, 5th string <b>, and the open third string <g> - followed by the first (G).",
+      "https://www.youtube.com/watch?v=qOfkpu6749w   (Capo 0)(MC1)"
+    ]
+  },
+  {
+    "title": "TIP:  In the intro, form the (G) and then pick the 6th string <g>, 5th string <b>, and the open third string <g>",
+    "artist": "followed by the first (G).",
+    "is_sing_along": false,
+    "youtube": "",
+    "content": [
       "(JOHN) (ALL SING) (CARROLL/JAY/MAGGIE)",
       "INTRO:  g \u2013 b \u2013 g  G  C  G,   g \u2013 b \u2013 g  G  C  G,   G  C  G,   G  C  G",
       "There's a black man, with a black cat, livin' in a black neighborhood.",
@@ -51314,7 +52006,6 @@ const songData = [
       "THE PONY MAN",
       "Gordon Lightfoot",
       "https://www.youtube.com/watch?v=YUHl9YktTHE  (Capo 0)(MC0/4)",
-      "[Presented afterwards in (G) with capo 2, mainly for fingerpicking.]",
       "TIP:  A great bedtime song for youngsters.",
       "TIP:  In the intro aim for the 2nd string on the first (A) and the 3rd string for the second (A).",
       "INTRO:   A  A . . .    A  A . . .",
@@ -51544,7 +52235,15 @@ const songData = [
       "<If playing live>   C  A,  C  A,  C  |A|-|G|, |F|-|F|-|F|-|NC|-|F|-|D|",
       "P.S. I LOVE YOU \u2013 The Beatles",
       "(Lennon/McCartney)",
-      "https://www.youtube.com/watch?v=MA5DkiVKSlM  (Capo 0)(MC1)",
+      "https://www.youtube.com/watch?v=MA5DkiVKSlM  (Capo 0)(MC1)"
+    ]
+  },
+  {
+    "title": "TIP:  Play the (A) with your bottom three fingers.  It will make the transition to the (Bb) that follows in the chorus easier",
+    "artist": "just slide them all up one fret and apply the pinky to 1st string/1st fret.",
+    "is_sing_along": false,
+    "youtube": "",
+    "content": [
       "TIP:  For the sing-a-long version Paul sings everything while John sings everything except the parts in red.",
       "(JOHN & PAUL) (PAUL)",
       "G               D       G               D",
@@ -52205,8 +52904,15 @@ const songData = [
     "youtube": "",
     "content": [
       "(Traditional/Kerrigan)",
-      "https://www.youtube.com/watch?v=z1-QLr6aBaw   (Capo 2)(MC1)",
-      "[Afterwards in (G) mainly for fingerpicking.]",
+      "https://www.youtube.com/watch?v=z1-QLr6aBaw   (Capo 2)(MC1)"
+    ]
+  },
+  {
+    "title": "TIP:  The opening is a harmonica playing the melody of the first three lines of the verse.  You can play the chords but it'll sound sweeter if you can pick out the notes on the high register (3 treble strings",
+    "artist": "largely from within the (D)) through \"sunshine\" and then finish with chord strums of the final sequence beginning with (G).",
+    "is_sing_along": false,
+    "youtube": "",
+    "content": [
       "(MICHAEL) (MICHAEL/DON/CURTIS/JACK)",
       "INTRO:  <slowly>   D  A  D,   D  A7,  D  D7  G",
       "<normal pace>   G  A7  A  D  D-A-D",
@@ -52264,7 +52970,15 @@ const songData = [
       "D  A7  A7  D  D-A-D,  |D| |D|",
       "RED RIVER VALLEY \u2013 Traditional",
       "(Kerrigan)",
-      "(MC3)",
+      "(MC3)"
+    ]
+  },
+  {
+    "title": "TIP:  The opening, based on a rendition by Michael Martin Murphey, is a harmonica playing the melody of the first three lines of the verse.  You can play the chords but it'll sound sweeter if you can pick out the notes on the middle register (strings 5, 4, and 3",
+    "artist": "largely from within the (G)) through \"sunshine\" and then finish with chord strums of the final sequence beginning with (C).",
+    "is_sing_along": false,
+    "youtube": "",
+    "content": [
       "INTRO:  <slowly>   G  D  G,   G  D7,  G  G7  C",
       "<normal pace>   C  D7  D  G  G-D-G",
       "D       G",
@@ -53261,15 +53975,8 @@ const songData = [
       "C                                G            C",
       "So wide you can't get \u2018round it, oh rock-a my soul.",
       "F                                C            F",
-      "So wide you can't get \u2018round it, oh rock-a my soul."
-    ]
-  },
-  {
-    "title": "(Everyone together",
-    "artist": "bridge)",
-    "is_sing_along": false,
-    "youtube": "",
-    "content": [
+      "So wide you can't get \u2018round it, oh rock-a my soul.",
+      "(Everyone together - bridge)",
       "D              A7             D                   A7 D",
       "Rock my soul.  Rock my soul.  Rock my soul.  Rock my soul.",
       "C              G7             C                   G7 C",
@@ -53288,15 +53995,8 @@ const songData = [
       "C                                     G            C",
       "So wide you can't get \u2018round it,      oh rock-a my soul.",
       "F                                             C7   F",
-      "Rock   my   soul.                      rock   my   soul."
-    ]
-  },
-  {
-    "title": "(Everyone together",
-    "artist": "bridge)",
-    "is_sing_along": false,
-    "youtube": "",
-    "content": [
+      "Rock   my   soul.                      rock   my   soul.",
+      "(Everyone together - bridge)",
       "D              A7             D                   A7 D",
       "Rock my soul.  Rock my soul.  Rock my soul.  Rock my soul.",
       "C              G7             C                   G7 C",
@@ -53370,15 +54070,8 @@ const songData = [
       "C                                G            C",
       "So wide you can't get \u2018round it, oh rock-a my soul.",
       "F                                C            F",
-      "So wide you can't get \u2018round it, oh rock-a my soul."
-    ]
-  },
-  {
-    "title": "(Everyone together",
-    "artist": "bridge)",
-    "is_sing_along": false,
-    "youtube": "",
-    "content": [
+      "So wide you can't get \u2018round it, oh rock-a my soul.",
+      "(Everyone together - bridge)",
       "D              A7             D                   A7 D",
       "Rock my soul.  Rock my soul.  Rock my soul.  Rock my soul.",
       "C              G7             C                   G7 C",
@@ -53397,15 +54090,8 @@ const songData = [
       "C                                     G            C",
       "So wide you can't get \u2018round it,      oh rock-a my soul.",
       "F                                             C7   F",
-      "Rock   my   soul.                      rock   my   soul."
-    ]
-  },
-  {
-    "title": "(Everyone together",
-    "artist": "bridge)",
-    "is_sing_along": false,
-    "youtube": "",
-    "content": [
+      "Rock   my   soul.                      rock   my   soul.",
+      "(Everyone together - bridge)",
       "D              A7             D                   A7 D",
       "Rock my soul.  Rock my soul.  Rock my soul.  Rock my soul.",
       "C              G7             C                   G7 C",
@@ -53786,6 +54472,7 @@ const songData = [
       "ROSE OF ALABAMA \u2013 Tom Roush",
       "(Traditional/Steele)",
       "https://www.youtube.com/watch?v=Pr1QnXGTk-o  (Capo 5)(MC4/5)",
+      "TIP:  If you can't recall how this song goes, it's the one from \"The Outlaw Josey Wales\".",
       "TIP:  Note the key change from [G] to [A] the end.",
       "(TOM) (TOM & BACKING)",
       "INTRO:  <fiddle>  G  C  G  Em  D  G  C  G  D  G",
@@ -54052,8 +54739,15 @@ const songData = [
     "youtube": "",
     "content": [
       "Hum de diddy diddy hey.",
-      "C                           Am                          F                         |G|",
-      "Whoa  \u2013  oh  \u2013  oh  -       ohhhhhhh \u2013 whoa \u2013 oh \u2013 oh  -ohhhhhhhhhhhhhhhhhhhhhhhhh-oh.",
+      "C                           Am                          F                         |G|"
+    ]
+  },
+  {
+    "title": "Whoa  \u2013  oh  \u2013  oh",
+    "artist": "ohhhhhhh \u2013 whoa \u2013 oh \u2013 oh  -ohhhhhhhhhhhhhhhhhhhhhhhhh-oh.",
+    "is_sing_along": false,
+    "youtube": "",
+    "content": [
       "Hey hey, hum de diddy diddy hey hey, hum de diddy diddy hey hey hum de diddy diddy oh.",
       "Awwwwwwww.",
       "G        C",
@@ -54587,7 +55281,6 @@ const songData = [
     "content": [
       "(Richards/Jagger)",
       "https://www.youtube.com/watch?v=nrIPxlFzDi0  (Capo 0)(MC0)",
-      "TIP:  It's all about the rhythm of the (E) and (D).  You'll see an extra (E) chords in there necessary to maintain the rhythm.",
       "(MICK) (MICK & KEITH)",
       "INTRO:  E  D,   E  D,   E  D,   E  D,   E",
       "A             E               A",
@@ -55076,8 +55769,15 @@ const songData = [
       "Vern Gosdin",
       "https://www.youtube.com/watch?v=RGMDbOZlQfE  (Capo 0)(MC0)",
       "TIP:  \"E.T.\"?  Ernest Tubb of course.",
-      "(VERN) (VERN/CAROL/DENNIS)",
-      "INTRO:  a \u2013 b \u2013 d -  D  D  G  D,   D  D  G  D,   |D| . . .  |D| . . .  |D| . . .",
+      "(VERN) (VERN/CAROL/DENNIS)"
+    ]
+  },
+  {
+    "title": "INTRO:  a \u2013 b \u2013 d",
+    "artist": "D  D  G  D,   D  D  G  D,   |D| . . .  |D| . . .  |D| . . .",
+    "is_sing_along": false,
+    "youtube": "",
+    "content": [
       "D                         G     D    D  D",
       "They got a vintage Victrola Nineteen Fifty One.",
       "G       D   D  D",
@@ -55937,7 +56637,15 @@ const songData = [
       "Nah nah nah nah nah nah nah nah nah nah nah nah nah nah.",
       "SHUT UP AND KISS ME \u2013 Mary Chapin Carpenter",
       "(Bon Jovi/Sanborn/Child)",
-      "https://www.youtube.com/watch?v=1Oisj8AMSyU  (Capo 2)(MC2)",
+      "https://www.youtube.com/watch?v=1Oisj8AMSyU  (Capo 2)(MC2)"
+    ]
+  },
+  {
+    "title": "TIP:  The cadence is everything so just get the rhythm down.  And it'll be more comfortable if you play that lead-in chord \u2013 that (C)",
+    "artist": "for the next verse at the end of the trailing one as written.",
+    "is_sing_along": false,
+    "youtube": "",
+    "content": [
       "(MARY CHAPIN) (MARY CHAPIN & TRISHA)",
       "INTRO:  <drums> <piano>   D  C  G  G,   D  C  G  G,   D  C  G  G,   D  C  G  G",
       "D             C            G",
@@ -56660,7 +57368,6 @@ const songData = [
       "G                 D7            G     G",
       "Well I feel so broke up, I wanna to go home.",
       "C   G                      C    G",
-      "So hoist up the John B's sail.  See how the mainsail sets.",
       "Gadd          G  D",
       "Call for the Captain ashore, let me go home.",
       "D7        G                 C          C/G",
@@ -56685,9 +57392,7 @@ const songData = [
       "G",
       "Hoist up the John B.",
       "C    G",
-      "See how the mainsail settttts",
       "G",
-      "See how the mainsail",
       "Gadd         G  D7     D         D7"
     ]
   },
@@ -56734,9 +57439,7 @@ const songData = [
       "G",
       "Hoist up the John B.",
       "C    G",
-      "See how the mainsail settttts",
       "G",
-      "See how the mainsail",
       "Gadd         G  D7     D         D7"
     ]
   },
@@ -57091,9 +57794,18 @@ const songData = [
       "G",
       "Some people are shocked, and truly aghast, when they hear a song written by freaks.",
       "D                       A                          D      D-|D|",
+      "Some people think this song is our last.  Some chickens think people have beaks.",
       "SOMETHING \u2013 The Beatles",
       "(Harrison)",
-      "https://www.youtube.com/watch?v=UelDrZ1aFeY  (Capo 0)(MC1)",
+      "https://www.youtube.com/watch?v=UelDrZ1aFeY  (Capo 0)(MC1)"
+    ]
+  },
+  {
+    "title": "TIP:  When playing the transition chords",
+    "artist": "(F)(A7)(D) \u2013 between lines 1 and 2 of the verse the (D) begins the first syllable of \"Something\" so don't dawdle.  Likewise, at the end of line 2 (\"woos me\" and \"shows me\") you go right into the (Am) from the previous (G), so again, don't dawdle.",
+    "is_sing_along": false,
+    "youtube": "",
+    "content": [
       "TIP:  In the chorus (Amaj7) is like a (D7) played up one string.",
       "TIP:  In the long instrumental, begin with (C) and add your pinky to the 1st string/3rd fret for (CaddG) and pull off to get back (C).",
       "; (GEORGE) (GEORGE & JOHN) (GEORGE/JOHN/PAUL)"
@@ -57591,8 +58303,15 @@ const songData = [
       "Am                            F                         C",
       "I wish I was dreamin', the sound of the gallows, they're testing, just outside the wall.",
       "Ooooh . . . . . . . . .  oooh . . . . . . . . . . . . . oooh . . . . . . . . . . . .",
-      "F                       C                       F                         C   G",
-      "Mescal's still free in Amanda's saloon, for the boys from the old Broken \"O - O\".",
+      "F                       C                       F                         C   G"
+    ]
+  },
+  {
+    "title": "Mescal's still free in Amanda's saloon, for the boys from the old Broken \"O",
+    "artist": "O\".",
+    "is_sing_along": true,
+    "youtube": "",
+    "content": [
       "C                     Am                        F                      C    F  C  F  G",
       "I'd give a ransom, to drink there today, and be free of Sonora's Death Row.",
       "C                    Am                        F                      C",
@@ -57657,8 +58376,15 @@ const songData = [
       "Em                            C                         G",
       "I wish I was dreamin', the sound of the gallows, they're testing, just outside the wall.",
       "Ooooh . . . . . . . . .  oooh . . . . . . . . . . . . . oooh . . . . . . . . . . . .",
-      "C                       G                       C                         G   D",
-      "Mescal's still free in Amanda's saloon, for the boys from the old Broken \"O - O\".",
+      "C                       G                       C                         G   D"
+    ]
+  },
+  {
+    "title": "Mescal's still free in Amanda's saloon, for the boys from the old Broken \"O",
+    "artist": "O\".",
+    "is_sing_along": true,
+    "youtube": "",
+    "content": [
       "G                     Em                        C                      G    C  G  C  D",
       "I'd give a ransom, to drink there today, and be free of Sonora's Death Row.",
       "G                    Em                        C                      G",
@@ -57781,7 +58507,6 @@ const songData = [
       "C             F      C                             F       C",
       "Because a vision softly-y creeping, left its seed while I wa-as sleeping.",
       "F                              C              Am",
-      "And the vision, that was planted in my brain, still remains,",
       "C          G        Am      Am-Asus2-Am,  Am-Asus2-|Am|",
       "Within the sound of silence.",
       "NC                           G     G-G4-G,  G-G4-G",
@@ -57871,7 +58596,6 @@ const songData = [
       "G             C      G                             C       G",
       "Because a vision softly-y creeping, left its seed while I wa-as sleeping.",
       "C                CaddG      C  G              Em",
-      "And the vision, that was planted in my brain, still remains,",
       "G          D        Em       Em  Em  |Em|",
       "Within the sound of silence.",
       "NC                           D     D-Dsus4-D,  D-Dsus4-D",
@@ -57940,7 +58664,15 @@ const songData = [
     "content": [
       "(Simon)",
       "https://www.youtube.com/watch?v=4fWyzwo1xg0  (Capo 4)(MC1)",
-      "[Version 3, from the studio album.  Afterwards is an easier version to play which has an (Am) instead of the (Bm).]",
+      "[Version 3, from the studio album.  Afterwards is an easier version to play which has an (Am) instead of the (Bm).]"
+    ]
+  },
+  {
+    "title": "TIP:  For the intro form the modified (Bm)",
+    "artist": "open the 2nd string and barre at least the  1st and 2nd strings of the 2nd fret \u2013 leaving your middle finger hovering over the 2nd string/3rd fret. Now pick the covered strings indicated.  Hold this formation and at the end of the intro pick the 3rd string twice on \"Hello\", now place that hovering ring finger down onto the open 2nd string/3rd fret and pick twice on \"darkness\" and the pick 1st string twice on \"my old\" and finish with a strum of (A) on \"friend.\"",
+    "is_sing_along": false,
+    "youtube": "",
+    "content": [
       "(PAUL & ART)"
     ]
   },
@@ -57955,7 +58687,6 @@ const songData = [
       "D             G     D                              G      D",
       "Because a vision softly-y creeping, left its seed while I wa-as sleeping.",
       "G                Gadd       G  D              Bm",
-      "And the vision, that was planted in my brain, still remains,",
       "D          A        Bm       Bm  |Bm|",
       "Within the sound of silence.",
       "NC                           A                              Bm",
@@ -58019,7 +58750,6 @@ const songData = [
       "C             F     C                              F      C",
       "Because a vision softly-y creeping, left its seed while I wa-as sleeping.",
       "F                              C              Am",
-      "And the vision, that was planted in my brain, still remains,",
       "C          G        Am       Am  |Am|",
       "Within the sound of silence.",
       "NC                           G                              Am",
@@ -58083,7 +58813,6 @@ const songData = [
       "C             F      C                              F       C",
       "I hear the grinding of espresso beans, I need a double shot of pure caffeine.",
       "F                                    C                Am",
-      "And the indie band on the speaker soothes my brain, so I'll remain,",
       "C          G         Am         Am  |Am|",
       "Within the sounds of Starbucks.",
       "NC                      G                            Am",
@@ -58395,8 +59124,15 @@ const songData = [
       "But the weather's good, in southern California.",
       "SOUVENIRS",
       "John Prine",
-      "https://www.youtube.com/watch?v=fZE4IqeXnT8  (Album version)(Capo 5)(MC2)",
-      "https://www.youtube.com/watch?v=2xhmPectY9U  (Live version - starts at 1:25)(Capo 2)",
+      "https://www.youtube.com/watch?v=fZE4IqeXnT8  (Album version)(Capo 5)(MC2)"
+    ]
+  },
+  {
+    "title": "https://www.youtube.com/watch?v=2xhmPectY9U  (Live version",
+    "artist": "starts at 1:25)(Capo 2)",
+    "is_sing_along": false,
+    "youtube": "",
+    "content": [
       "(JOHN) (JOHN & JASON)",
       "INTRO:   D  G  A  D,   D  G  A  D  |D|",
       "NC                         G       A                            D",
@@ -58445,7 +59181,15 @@ const songData = [
       "SPACE ODDITY",
       "David Bowie",
       "https://www.youtube.com/watch?v=iYYRH4apXDo  (Capo 0)(MC0)",
-      "TIP:  (Fmaj7) is just (F) without the 1st string.",
+      "TIP:  (Fmaj7) is just (F) without the 1st string."
+    ]
+  },
+  {
+    "title": "TIP:  In the first two verses you can play (C) instead of (C/G)",
+    "artist": "just gives a little extra bass.  In the last verse you can play (C) and (G) and skip the add chords - just adds a little treble.",
+    "is_sing_along": false,
+    "youtube": "",
+    "content": [
       "TIP:  The instrumental bridge is a little tricky because it's played so fast.",
       "(DAVID) (DAVID & JOHN) (JOHN)",
       "INTRO (soft --> progressively louder):   Fmaj7  Em,  Fmaj7  Em,  Fmaj7  Em,  Fmaj7  Em",
@@ -58582,7 +59326,6 @@ const songData = [
       "Em             C          D",
       "In fifty five fathoms with a fine sandy bottom.",
       "G      C  G",
-      "We filled main tops'l up channel did steer.",
       "Em        C           D",
       "We'll rant and we'll roar like true Yankee sailors.",
       "D7             Gadd",
@@ -59410,7 +60153,22 @@ const songData = [
       "Stop draggin' my heart around.",
       "THE STORY IN YOUR EYES \u2013 Moody Blues",
       "(Hayward)",
-      "https://www.youtube.com/watch?v=yoDXzvXxUbc  (Capo 0)(MC2)",
+      "https://www.youtube.com/watch?v=yoDXzvXxUbc  (Capo 0)(MC2)"
+    ]
+  },
+  {
+    "title": "TIP:  The opening notes of the intro is tricky.  They're the open 6th string <e>, 6th string/2nd fret <f#>, 6th string/3rd fret <g> followed immediately by the first (Am) of the chord riff.  You can just pick the strings with an open hand or you can try this:  Form (Am).  Now pick the open 6th string, wrap your thumb over to cover the 6th string/2nd fret",
+    "artist": "and here comes the hard part - extend your pinky way up to cover the 6th string/3rd fret.  Try it a few times and use whichever method you can.  In either case you start the riff immediately.  Also, in the intro and outro play the (Bm) with just three fingers as shown in the first (Bm) diagram.",
+    "is_sing_along": false,
+    "youtube": "",
+    "content": []
+  },
+  {
+    "title": "TIP:  Note in the chorus the first line ends with an (F#m) and the second line with an (F#).  And for the outro, the intro is repeated three times and then there's a long run of alternating (Am)(D)",
+    "artist": "the piano part - which fades.  To end without the fade you can play as many as you want and then end with single strums of |Em||C||Am|.",
+    "is_sing_along": false,
+    "youtube": "",
+    "content": [
       ";",
       "(JUSTIN) (JUSTIN & JOHN) (RAY & MIKE)"
     ]
@@ -62386,8 +63144,15 @@ const songData = [
       "THEME FROM DETECTORISTS",
       "Johnny Flynn",
       "https://www.youtube.com/watch?v=Q5LbTeti0sw  (Capo 4)(MC3)",
-      "[Afterwards in [G] mainly for fingerstyle.]",
-      "TIP:  The intro consists of two sets of (C) lead-in chords.",
+      "TIP:  The intro consists of two sets of (C) lead-in chords."
+    ]
+  },
+  {
+    "title": "For chords, play the first set of (C) chords on strings 5",
+    "artist": "2 avoiding the 1st string.  Play the (G) on the way to the (Am).  Play the second set of (C) chords on strings 6 - 2.",
+    "is_sing_along": false,
+    "youtube": "",
+    "content": [
       "(JOHNNY) (JOHNNY & DAN)",
       "INTRO:  C/G  C/G  C/G  G-Am,   C/G  C  C  G-Am",
       "C                                      F                           C",
@@ -62430,7 +63195,15 @@ const songData = [
       "THEME FROM DETECTORISTS",
       "Johnny Flynn",
       "(MC4)",
-      "TIP:  The intro consists of two sets of (G) lead-in chords.",
+      "TIP:  The intro consists of two sets of (G) lead-in chords."
+    ]
+  },
+  {
+    "title": "Chords:  Play the first set of (G) chords on the 4 bass strings.  Play the (D/A) on the way to the (Em).  Play the second set of (C) chords on the strings 4",
+    "artist": "1 and play the (D) on the way to the (Em).",
+    "is_sing_along": false,
+    "youtube": "",
+    "content": [
       "(JOHNNY) (JOHNNY & DAN)",
       "INTRO:  G  G  G  D/A-Em,   G  G  G  D-Em",
       "G                                      C                           G",
@@ -63495,7 +64268,6 @@ const songData = [
       "Bm           G                  A",
       "Just me and that old flattop, not caring where we're bound.",
       "D                           G                    D",
-      "From Maine to California, with a five piece travelin' band.",
       "Bm               G               D    D",
       "Singin' songs about the hard times, that face the common man.",
       "G      D      G           Bm",
@@ -63657,8 +64429,15 @@ const songData = [
       "Those were the days oh yes those were the days.",
       "Am                  D       D7          G",
       "La la la la la la.  La la la la la la.  La la la lah, la la la la la lah.",
-      "Am                 Em                  B7                  Em",
-      "La la la la la la, la la la la la la.  La la la lah, la la la la la lah - ah . . . . . . .",
+      "Am                 Em                  B7                  Em"
+    ]
+  },
+  {
+    "title": "La la la la la la, la la la la la la.  La la la lah, la la la la la lah",
+    "artist": "ah . . . . . . .",
+    "is_sing_along": true,
+    "youtube": "",
+    "content": [
       "<capo +1>  Em",
       "Esus          Em",
       "Through the door there came familiar laughter.",
@@ -63935,8 +64714,15 @@ const songData = [
       "Peelin' the years away and we can't relive it.",
       "G          D          G           D",
       "Oh I make you laugh, and you make me cry.",
-      "|A|                            D     G   A   D  G-A",
-      "I believe it's time for me to fly \u2013 y - y.",
+      "|A|                            D     G   A   D  G-A"
+    ]
+  },
+  {
+    "title": "I believe it's time for me to fly \u2013 y",
+    "artist": "y.",
+    "is_sing_along": false,
+    "youtube": "",
+    "content": [
       "D                              A",
       "You said we'd work it out, you said that you had no doubt,",
       "G                           D     G  D",
@@ -64125,8 +64911,24 @@ const songData = [
     "youtube": "",
     "content": [
       "(Taupin/John)",
-      "https://www.youtube.com/watch?v=aqlGlaNlcWE  (Capo 0)(MC0)",
-      "TIP:  Note the lead-in chords in the verse trail so they're played at the end of the previous line/word.",
+      "https://www.youtube.com/watch?v=aqlGlaNlcWE  (Capo 0)(MC0)"
+    ]
+  },
+  {
+    "title": "TIP:  Piano to guitar",
+    "artist": "always a little tough and this one fits that bill.  But it's one of my favorite all-time songs so I though I'd give it a go.  Okay, so it's not denoted, cuz it'd get real messy adding the (CaddD) in there, but whenever you come across the (C) (F) doublet (like in the intro and little instrumental bridge) that (C) (F) series goes 1-2-3-4, 5-6 on the (C) and then 1-2-3-4, 5-6 again on the (F).  Now on that first (C) series you want to add your pinky to the 2nd string/3rd fret to cover the <d> on the 5-6.  So it's (C) 1-2-3-4 (CaddD) 5-6; (F) 1-2-3-4, 5-6.  Don't come in too early, wait for the 4th beat and add it on the 5th.  It's real picky, and you can skip it if you like, but it'll sound more like what Reg is playing.",
+    "is_sing_along": false,
+    "youtube": "",
+    "content": [
+      "TIP:  Note the lead-in chords in the verse trail so they're played at the end of the previous line/word."
+    ]
+  },
+  {
+    "title": "TIP:  The bridge is a bit cumbersome.  Start with (G#) which we're gonna call (F4) cuz  it looks like (F) played on the 4th fret.  Then comes a (Bb) but since we're already up the fretboard just slide two frets up and play the (F) shape on the 6th fret (F6).  Then down to (Gm) on the 3rd fret, then (Cm) which we're calling (Bm3) for similar reasons",
+    "artist": "(Bm) on the 3rd fret.  Then back up to (F4) and (F6) but then come down to play a (G7) but add your pinky to the 2nd string/3rd fret covering the <d> for the first \"softly\", remove the pinky for a regular (G7) for the second \"softly\" and so forth.  Yeah, I know.",
+    "is_sing_along": false,
+    "youtube": "",
+    "content": [
       "INTRO:  C  F,   C  F,   C  F,   C  F,  C",
       "F     C        F     C                     F     F  G-C",
       "Blue jean baby,     L.A. lady,    seamstress for the band.",
@@ -64622,8 +65424,15 @@ const songData = [
       "But tonight, you belo-ong, to me just to little old me.",
       "TRAGEDY \u2013 Bee Gees",
       "(R. Gibb/M. Gibb/B. Gibb)",
-      "https://www.youtube.com/watch?v=lk0alJGhSp0  (Capo 2)(MC1)",
-      "TIP:  The (CaddG) - pinky added to 1st string/3rd fret - can be skipped if you want.",
+      "https://www.youtube.com/watch?v=lk0alJGhSp0  (Capo 2)(MC1)"
+    ]
+  },
+  {
+    "title": "TIP:  The (CaddG)",
+    "artist": "pinky added to 1st string/3rd fret - can be skipped if you want.",
+    "is_sing_along": false,
+    "youtube": "",
+    "content": [
       ";--",
       "(BARRY) (BARRY & ROBIN) (BARRY/ROBIN/MAURICE)",
       "INTRO:  Am  Am  Dm-C-Em-Am,   Em,   Em  G,   G  C  F-C",
@@ -65141,7 +65950,15 @@ const songData = [
       "Sons of the Pioneers/Michael Martin Murphey",
       "(Nolan)",
       "https://www.youtube.com/watch?v=Q-jWVvuut5U   Michael Martin Murphey (Capo 0)(MC0)",
-      "https://www.youtube.com/watch?v=JQc5gDXQGIs   Sons of the Pioneers (Capo 0)",
+      "https://www.youtube.com/watch?v=JQc5gDXQGIs   Sons of the Pioneers (Capo 0)"
+    ]
+  },
+  {
+    "title": "TIP:  For the intro strum one |A| strongly and sing the line and begin strumming with the (D) on \"weeds.\"  The note to begin singing is the <a>",
+    "artist": "3rd string of the (A).",
+    "is_sing_along": false,
+    "youtube": "",
+    "content": [
       "(MICHAEL) (MICHAEL/JACK/JOE/LON)",
       "INTRO:  |A|                                      D      D",
       "Driftin' along with the tumblin', tumble weeds.",
@@ -65226,10 +66043,22 @@ const songData = [
       "Hey mister turn it on, turn it up, turn me loose.",
       "TURN THE PAGE",
       "Bob Seger",
-      "https://www.youtube.com/watch?v=GONmFCkCGCc  (Capo 0)(MC0)",
-      "Part 1:  Start with a single strum of |Dsus4|.  Now lift off the pinky and - now holding the (D) form - pick strings 1, 2, and 3 and strum (Em) once.",
-      "INTRO (notes):   g \u2013 f#,  d \u2013 a \u2013 b;   a \u2013 b,  g \u2013 f# - d \u2013 a \u2013 b,  a \u2013 g \u2013 f# - d - a"
+      "https://www.youtube.com/watch?v=GONmFCkCGCc  (Capo 0)(MC0)"
     ]
+  },
+  {
+    "title": "Part 1:  Start with a single strum of |Dsus4|.  Now lift off the pinky and",
+    "artist": "now holding the (D) form - pick strings 1, 2, and 3 and strum (Em) once.",
+    "is_sing_along": false,
+    "youtube": "",
+    "content": []
+  },
+  {
+    "title": "INTRO (notes):   g \u2013 f#,  d \u2013 a \u2013 b;   a \u2013 b,  g \u2013 f#",
+    "artist": "d \u2013 a \u2013 b,  a \u2013 g \u2013 f# - d - a",
+    "is_sing_along": false,
+    "youtube": "",
+    "content": []
   },
   {
     "title": "INTRO (chords):  |Dsus4|",
@@ -65291,9 +66120,15 @@ const songData = [
       "D          Em                   D                 Em",
       "Now here I am, on the road again.  There I am, up onnnnn the stage.",
       "D           A                    C   C  D             Em",
-      "Here I go, playin' star again.  There I go,    there IIIIIII go.",
-      "OUTRO (notes):  g \u2013 f#,  d \u2013 a \u2013 b;   g \u2013 f#,  d \u2013 a \u2013 b - a \u2013 g \u2013 f# - d \u2013 a - b"
+      "Here I go, playin' star again.  There I go,    there IIIIIII go."
     ]
+  },
+  {
+    "title": "OUTRO (notes):  g \u2013 f#,  d \u2013 a \u2013 b;   g \u2013 f#,  d \u2013 a \u2013 b",
+    "artist": "a \u2013 g \u2013 f# - d \u2013 a - b",
+    "is_sing_along": false,
+    "youtube": "",
+    "content": []
   },
   {
     "title": "OUTRO (chords):  |Dsus4|",
@@ -65618,7 +66453,15 @@ const songData = [
       "Ahhhhhhhhhh-Ahhh",
       "TWO OF US \u2013 The Beatles",
       "(Lennon/McCartney)",
-      "https://www.youtube.com/watch?v=cLQox8e9688  (Capo 5)(MC2)",
+      "https://www.youtube.com/watch?v=cLQox8e9688  (Capo 5)(MC2)"
+    ]
+  },
+  {
+    "title": "TIP:  The intro is a tad much as Paul plays notes and John comes in on top with a strum of (D).  So try forming (D6)",
+    "artist": "which is just (D) without the ring finger - and picking the strings indicated and then strum (D) before beginning the verse.  And it repeats between verses but you'll already be at |D| from the previous verse so just lift off the ring finger.",
+    "is_sing_along": false,
+    "youtube": "",
+    "content": [
       "TIP:  For the drums entering the chorus you'll finish the previous verse on a |D| so just lightly strum additional |D|s and then hit the (F).",
       "FUN FACT:  Charles Hawtrey was an English comic and the lads referred to their amplifiers as \"deaf aids.\"",
       "(JOHN & PAUL) (PAUL) (JOHN)",
@@ -66277,7 +67120,6 @@ const songData = [
       "C  G                    Am",
       "Colors changing hue,       morning fields of amber grain.",
       "C         D7                                  G",
-      "Weathered faces lined in pain, are soothed beneath the artist's loving hand.",
       "Am     D7                    G",
       "Now I understand,     what you tried to say to me.",
       "Em                        Am      D7                                |Em|",
@@ -66356,7 +67198,15 @@ const songData = [
       "G  G  G  G   G  G  G  G   Em  Em  Em  Em   G  G  G  G   G  G  G  G   G  G  G  G  |G|",
       "THE VOICE \u2013 Moody Blues",
       "(Hayward)",
-      "https://www.youtube.com/watch?v=20W4slP2PGg  (Capo 0)(MC0)",
+      "https://www.youtube.com/watch?v=20W4slP2PGg  (Capo 0)(MC0)"
+    ]
+  },
+  {
+    "title": "TIP:  The opening chords for the intro are single strums with a pause in between each one.  (F7),(F3), and (D/A4) are really just (B), (G), and (E) but played as an (F) shape at different frets.  There should be position markers on your fretboard to make them easy to find.  And you need that 4th string on the (D/A4)",
+    "artist": "which is just (D) with your pinky added to the 4th string/4th fret - and there will be time coming off the last (F7) to get squared away.",
+    "is_sing_along": false,
+    "youtube": "",
+    "content": [
       "; (JUSTIN) (JUSTIN & JOHN) (JUSTIN/JOHN/RAY)",
       "INTRO:  |F7|, |F3|, |Em|, |F3|, |F7| . . . |D/A4|",
       "Em  G  C  C,  Em  G  C  C",
@@ -66506,7 +67356,15 @@ const songData = [
     "youtube": "",
     "content": [
       "(Henley/Smith)",
-      "https://www.youtube.com/watch?v=DpQtqulVYBs  (Thank you Rhino/Electra)  (Capo 1)(MC4)",
+      "https://www.youtube.com/watch?v=DpQtqulVYBs  (Thank you Rhino/Electra)  (Capo 1)(MC4)"
+    ]
+  },
+  {
+    "title": "TIP:  There's a little instrumental bridge that goes (Bm)(Daug)(D)(Daug) and is a little tricky.  Play the sequence on the three treble strings and try not to hit the 4th string.  Start with (Bm), and then for the (Daug) move your ring finger down into the 3rd fret while lifting off the pinky \u2013 or reposition the middle and ring fingers in sort of a scrunched up (Am) shape",
+    "artist": "and avoid playing the 4th string, then release and play (D), and then add your pinky above your ring finger on the 3rd string/4th fret to get back to the (Daug).  Repeat.",
+    "is_sing_along": false,
+    "youtube": "",
+    "content": [
       ";",
       "--- (DON) (DON/GLENN/JOE/TIM) (GLENN/JOE/TIM) (TIMOTHY)",
       "INTRO (Form Gadd):  3 \u2013 2 \u2013 3 \u2013 SS,   2 \u2013 3 \u2013 2 \u2013 3 \u2013 SS,   2 \u2013 3 \u2013 2 \u2013 3 \u2013 SS",
@@ -67084,12 +67942,26 @@ const songData = [
       "Yeah I'm a wanderer, yeah the wanderer.  I roam around around around around.",
       "Humma      ahhhh . . . . . .  ahhhh . .          Humma humma humma humma . . .",
       "<sax solo>               D . . . . . . .           D . . . .",
-      "Oh my let go . . . . . .  yeah I'm",
-      "Ahhhhhhh . . . . . . . . . . . . .  whop - ah",
+      "Oh my let go . . . . . .  yeah I'm"
+    ]
+  },
+  {
+    "title": "Ahhhhhhh . . . . . . . . . . . . .  whop",
+    "artist": "ah",
+    "is_sing_along": false,
+    "youtube": "",
+    "content": [
       "G . . . .   D . . . .",
       "Ahhhhhh . . . . . . . whop -ah",
-      "A . . . . . .  G . . . .  .  D . . . .",
-      "Ahhhh-ahh-ahh  ahhhhh . . .  Ahhhh . . whop - ah",
+      "A . . . . . .  G . . . .  .  D . . . ."
+    ]
+  },
+  {
+    "title": "Ahhhh-ahh-ahh  ahhhhh . . .  Ahhhh . . whop",
+    "artist": "ah",
+    "is_sing_along": false,
+    "youtube": "",
+    "content": [
       "A       D",
       "Oh yeah I'm the type of guy that likes to roam around",
       "Humma humma humma humma humma humma humma humma . . .",
@@ -67563,7 +68435,15 @@ const songData = [
     "youtube": "",
     "content": [
       "(Lennon/McCartney)",
-      "https://www.youtube.com/watch?v=IgRrWPdzkao  (Capo 0)(MC0)",
+      "https://www.youtube.com/watch?v=IgRrWPdzkao  (Capo 0)(MC0)"
+    ]
+  },
+  {
+    "title": "[Afterwards there's a version in (G) which elimates the (Bm) and (F#) in favor of (Em) and (B7) or (B).  To play with the recording you'll have to capo at the 7th fret but if you don't care about that you may find that version easier to play",
+    "artist": "although I think the version here sounds purer.]",
+    "is_sing_along": false,
+    "youtube": "",
+    "content": [
       "TIP:  There's no intro so give the opening note a good thump of |D| and then start strumming (D) immediately.",
       "TIP:  The (Dsus2) will always follow the (D) so just lift off the middle finger.",
       "(PAUL) (PAUL & JOHN)",
@@ -67987,7 +68867,6 @@ const songData = [
       "G                                             D",
       "Rest assured this troubadour is acting on His part.",
       "A                G               D",
-      "The union of your spirits here has caused Him to remain.",
       "Bm          D                A",
       "For whenever two or more of you, are gathered in His name,",
       "G     G  G            D     D  E-E7  E7  G  G  D-D4-D",
@@ -68015,7 +68894,6 @@ const songData = [
       "A       Bm             A",
       "Mmm hmmm mmmm mmmm.   Mmmm hmmm mmmm mmm.",
       "D                A                G               D",
-      "Oh the marriage of your spirits here has caused Him to remain.",
       "Bm          D               A",
       "For whenever two or more of you are gathered His name.",
       "G     G  G              D     D  E-E7  E7  G  G  D-D4-|D|",
@@ -68030,7 +68908,6 @@ const songData = [
       "CaddD  C          Cmaj7 D        G         Gadd  G",
       "Rest assured this troubadour, is acting on His   part.",
       "Gadd          D                 CaddD         <g> Gadd",
-      "The union of your spirits here, has caused Him to re  main.",
       "Em      <g>  D           NC  C   <pull>  <a>      D",
       "For whenever two or  more of you are gath ered    in  His name,",
       "<pull>     C/G   <linger>             G     A7-A7G,  Am7-A7sus4-Am7-G",
@@ -68056,7 +68933,6 @@ const songData = [
       "<pull>       C/G   <linger>               G     A7-A7G,  Am7-A7sus4-Am7-G",
       "Oh there is love.             Oh there's love.",
       "Gadd             D                 CaddD        <g> Gadd",
-      "Oh the marriage of your spirits here, has caused Him to re main.",
       "Em      <g>  D           NC  C   <pull> <a>     D",
       "For whenever two or  more of you are gath ered   in His name.",
       "<pull>    C/G   <linger>               G     A7-A7G,  Am7-A7sus4-Am7-|G|",
@@ -69623,7 +70499,6 @@ const songData = [
       "WHICH WAY DOES THAT OLD PONY RUN",
       "Lyle Lovett",
       "https://www.youtube.com/watch?v=ZVhx536i-jM  (Capo 2)(MC1)",
-      "TIP:  There is a pause after \"cowboy\" in the first line which is necessary to maintain the proper cadence for the (G) in \"best\".",
       "INTRO:   C  G,  C  G,   G  G7  Em  A  G  D  C  G  C  G",
       "C                  G",
       "When I was a very young man.",
@@ -70372,8 +71247,15 @@ const songData = [
       "Cat Stevens",
       "https://www.youtube.com/watch?v=k_0U3DlLFSU  (Capo 0)(MC0)",
       "TIP:  For the intro, form (Am) and pick the 5th string and then the 6th before strumming the first (Am).  Thump-thump-strum.",
-      "TIP:  To play the (E)(Esus)(E)(Am) sequence keep the (E) shape and simply add your pinky to the 3rd",
-      "string/2nd fret <a> and then remove it - on/off - and then move to the (Am). Easy.",
+      "TIP:  To play the (E)(Esus)(E)(Am) sequence keep the (E) shape and simply add your pinky to the 3rd"
+    ]
+  },
+  {
+    "title": "string/2nd fret <a> and then remove it",
+    "artist": "on/off - and then move to the (Am). Easy.",
+    "is_sing_along": false,
+    "youtube": "",
+    "content": [
       "INTRO:  5 \u2013 6  Am          D7          G               Cmaj7         F",
       "La la la la la la la la la, la la la la la   la la la la,",
       "Dm             E       E-Esus-E-Am",
@@ -70832,7 +71714,6 @@ const songData = [
       "WONDERFUL TONIGHT",
       "Eric Clapton",
       "https://www.youtube.com/watch?v=xl7Hd2r0LOs  (Capo 0)(MC3)",
-      "TIP:  To maintain cadence with Eric some of the chords that lead into the next line are played at the end of the preceding line.",
       "(ERIC) (ERIC/YVONNE/MARCY)",
       "INTRO:  G  D  C  D  D,   G  D  C  D  D  G",
       "D        D  C                       D                G",
@@ -71188,7 +72069,6 @@ const songData = [
       "G           D                A         A",
       "Sayin' \"Fellas it's too rough to (d) feed ya.\"",
       "Em",
-      "At 7 p.m. a main hatchway caved in",
       "G           D                A         A",
       "He said \"Fellas it's been good to (u) know ya.\"",
       "Em",
@@ -71213,7 +72093,6 @@ const songData = [
       "G              D                 A",
       "They may have broke deep and took (d) water.",
       "Em",
-      "And all that remains is the faces and the names",
       "G             D                A",
       "Of the wives and the sons and the (u) daughters.",
       "A  Em  G  D  A,   G  D  A",
@@ -71312,7 +72191,6 @@ const songData = [
       "C           G                D         D",
       "Sayin' \"Fellas it's too rough to (d) feed ya.\"",
       "Am",
-      "At 7 p.m. a main hatchway caved in",
       "C           G                D         D",
       "He said \"Fellas it's been good to (u) know ya.\"",
       "Am",
@@ -71337,7 +72215,6 @@ const songData = [
       "C              G                 D",
       "They may have broke deep and took (d) water.",
       "Am",
-      "And all that remains is the faces and the names",
       "C             G                D",
       "Of the wives and the sons and the (u) daughters.",
       "D  Am  C  G  D,   C  G  D",
@@ -71794,7 +72671,15 @@ const songData = [
     "youtube": "",
     "content": [
       "(Dylan)",
-      "https://www.youtube.com/watch?v=xwetPaL9ND0  (Capo 0)(MC0)",
+      "https://www.youtube.com/watch?v=xwetPaL9ND0  (Capo 0)(MC0)"
+    ]
+  },
+  {
+    "title": "[This is essentially the same song as above except NGDB switch around the lyrics a bit and play the song so it lasts a bit longer",
+    "artist": "which is a good thing since it's such a fun song to play.]",
+    "is_sing_along": false,
+    "youtube": "",
+    "content": [
       "TIP:  The opening notes are just slightly different from the Byrds version:",
       "(ROGER) (CHRIS) (ROGER/CHRIS/NGDB)"
     ]
@@ -71854,7 +72739,6 @@ const songData = [
       "YOU ARE MY SUNSHINE \u2013 Traditional/Norman Blake",
       "(Davis/Mitchell)",
       "https://www.youtube.com/watch?v=dkNbMZhEGEw  (Capo 4)(MC1)",
-      "[Afterwards in [G] mainly for fingerstyle or flat pickin'.]",
       "TIP:  The intro is a single strum of |D| followed by the chords from \"Please don't take my sunshine away.\"",
       "INTRO:  |D|,  D  A  D",
       "A     D                     G              D",
@@ -73461,7 +74345,15 @@ const songData = [
     "content": [
       "(Traditional)",
       "https://www.youtube.com/watch?v=gLd0ZsyAQd8  (Capo 2)(MC0/5)",
-      "TIP:  In the verse for 7x7 Paul strums all the chords just once at the beginning of each line.",
+      "TIP:  In the verse for 7x7 Paul strums all the chords just once at the beginning of each line."
+    ]
+  },
+  {
+    "title": "TIP:  The short bridge -- |D| born",
+    "artist": "|A| born - |D| born -- between the 5x5 and 6x6, again between 8x8 and 9x9, and at the end of the song is sung in an ascending key.",
+    "is_sing_along": false,
+    "youtube": "",
+    "content": [
       "|D|                     |D|",
       "Children go where I send thee.  How shall I send thee?",
       "D",
@@ -73563,8 +74455,15 @@ const songData = [
       "Three for the Hebrew children.  Two for Paul and Silas.  One for the little bitty baby.",
       "G     D       A     D",
       "Who was born, born, born in Bethlehem.",
-      "|D|    |A|    |D|       |D|  |D| |A|   |A|  |D|      |G|  |Gadd|  |D|",
-      "And he was born - born - borrrrrn; born in, Beth- le,  hem.  In Beth-  le-   hem.",
+      "|D|    |A|    |D|       |D|  |D| |A|   |A|  |D|      |G|  |Gadd|  |D|"
+    ]
+  },
+  {
+    "title": "And he was born",
+    "artist": "born - borrrrrn; born in, Beth- le,  hem.  In Beth-  le-   hem.",
+    "is_sing_along": false,
+    "youtube": "",
+    "content": [
       "---- <additional verses> ----",
       "|D|                     |D|",
       "Children go where I send thee.  How shall I send thee?",
@@ -73588,9 +74487,15 @@ const songData = [
       "Three for the Hebrew children.  Two for Paul and Silas.  One for the little bitty baby.",
       "G     D       A     D",
       "Who was born, born, born in Bethlehem.",
-      "|D|    |A|    |D|       |D|  |D| |A|   |A|  |D|      |G|  |Gadd|  |D|",
-      "And he was born - born - borrrrrn; born in, Beth- le,  hem.  In Beth-  le-   hem."
+      "|D|    |A|    |D|       |D|  |D| |A|   |A|  |D|      |G|  |Gadd|  |D|"
     ]
+  },
+  {
+    "title": "And he was born",
+    "artist": "born - borrrrrn; born in, Beth- le,  hem.  In Beth-  le-   hem.",
+    "is_sing_along": false,
+    "youtube": "",
+    "content": []
   },
   {
     "title": "CHILDREN GO WHERE I SEND THEE",
@@ -73874,8 +74779,15 @@ const songData = [
       "Seven for the seven that never got to heaven.  Six for the six that never got fixed.",
       "Five for the five who stayed alive.  Four for the four that stood at the door.",
       "Three for the Hebrew children.  Two for Paul and Silas.  One for the little bitty baby.",
-      "Who was born, (G) born, (D) born in (A) Bethle (D) hem.",
-      "And he was |D| born - |A| born - |D| borrrrrn; |D| born |D| in, |A| Beth- |A| le, |D| hem.  In |G| Beth |Gadd| le- |D| hem.",
+      "Who was born, (G) born, (D) born in (A) Bethle (D) hem."
+    ]
+  },
+  {
+    "title": "And he was |D| born",
+    "artist": "|A| born - |D| borrrrrn; |D| born |D| in, |A| Beth- |A| le, |D| hem.  In |G| Beth |Gadd| le- |D| hem.",
+    "is_sing_along": false,
+    "youtube": "",
+    "content": [
       "CHRISTMAS CANON",
       "Trans-Siberian Orchestra",
       "(O'Neill/Pachelbel)",
@@ -74167,15 +75079,8 @@ const songData = [
       "Bm    C     G  D     C           Bm        C   G",
       "Noel, Noel, Noel, Noel-el.   Born is the Ki-ing of Israel..",
       "GO TELL IT ON THE MOUNTAIN",
-      "Oslo Gospel Choir/Mahalia Jackson"
-    ]
-  },
-  {
-    "title": "(Work",
-    "artist": "Traditional)",
-    "is_sing_along": false,
-    "youtube": "",
-    "content": [
+      "Oslo Gospel Choir/Mahalia Jackson",
+      "(Work - Traditional)",
       "https://www.youtube.com/watch?v=4nGLCho4ClE  (Capo 0)(MC0) (Oslo Gospel Choir)",
       "https://www.youtube.com/watch?v=EizfkXtv63E  (Capo 0) (Mahalia)",
       ";  (VAERNES/JACKSON) (CHOIR)",
@@ -74187,8 +75092,15 @@ const songData = [
       "G    D     A7        D",
       "Go tell it on the mountain, that Jesus Christ is born.",
       "Goooooooooooooooo tell it,  that Jesus Christ is born.",
-      "A7                      D",
-      "Go    tell it on the moun -         tain,    over      the hills and everywhere.",
+      "A7                      D"
+    ]
+  },
+  {
+    "title": "Go    tell it on the moun",
+    "artist": "tain,    over      the hills and everywhere.",
+    "is_sing_along": false,
+    "youtube": "",
+    "content": [
       "Go tell it        tell it on the mountain,     over the hills     everywhere.",
       "G    D     A7        D",
       "Go tell it on the mountain,               G    that Jesus Christ is born!",
@@ -74518,6 +75430,7 @@ const songData = [
       "C                Am             C                Am",
       "I've heard about this baby boy who's come to earth to bring us joy.",
       "F                   G         C      G",
+      "And I just want to sing this song to ya.",
       "C                  F          G          Am                 F     G",
       "It goes like this the fourth the fifth, the minor fall and the major lift.",
       "E7           Am",
@@ -74572,6 +75485,7 @@ const songData = [
       "G                Em             G                Em",
       "I've heard about this baby boy who's come to earth to bring us joy.",
       "C                   D         G      D",
+      "And I just want to sing this song to ya.",
       "G                  C          D          Em                 C     D",
       "It goes like this the fourth the fifth, the minor fall and the major lift.",
       "B7           Em",
@@ -74865,9 +75779,24 @@ const songData = [
       "All I want is you for Christmas.",
       "I BELIEVE IN FATHER CHRISTMAS \u2013 Greg Lake",
       "(Lake/Sinfield/Prokofiev)",
-      "https://www.youtube.com/watch?v=FhzNmEQg0EI   (Capo 0)(MC0)",
-      "(GREG \u2013 ALL SING)",
-      "INTRO:  D  A  D  A  G  D  G  A,  G  D  G \u2013 A \u2013 |D| |D| |D| - G  D  G \u2013 A - |D| |D| |D|,",
+      "https://www.youtube.com/watch?v=FhzNmEQg0EI   (Capo 0)(MC0)"
+    ]
+  },
+  {
+    "title": "TIP:  The intro begins with a walk down from the fretted <f#> so focus your strum on strings 1-2-3 for the first (D) and (A) and then to 2-3-4 for the rest.  Each chord gets a down-up-down-up except where you see the G \u2013 A leading into the trills",
+    "artist": "|D|-|D|-|D|.  Each gets a down-up.  And for the trills themselves it's down-up-down for each set.  Same applies for the bridge and outro.",
+    "is_sing_along": false,
+    "youtube": "",
+    "content": [
+      "(GREG \u2013 ALL SING)"
+    ]
+  },
+  {
+    "title": "INTRO:  D  A  D  A  G  D  G  A,  G  D  G \u2013 A \u2013 |D| |D| |D|",
+    "artist": "G  D  G \u2013 A - |D| |D| |D|,",
+    "is_sing_along": false,
+    "youtube": "",
+    "content": [
       "|D| |D| |D|,  |D| |D| |D|,  |D| |D| |D|,  G",
       "D                A             D    G",
       "They said there'll be snow at Christmas,",
@@ -75022,9 +75951,7 @@ const songData = [
       "A       A4    A              A4      A                    E  A",
       "And all the souls on earth shall sing on Christmas day in the morning.",
       "A4  A        A4      A                E",
-      "Then let us all rejoice amain on Christmas day on Christmas day.",
       "A      A4  A        A4      A                    E  A",
-      "Then let us all rejoice amain on Christmas day in the morning.",
       "I WISH IT WAS CHRISTMAS TODAY \u2013 Julian Casablancas",
       "(Fallon/Sanz)",
       "https://www.youtube.com/watch?v=1wS-k66MKgs  (Capo 1)(MC1)",
@@ -75592,15 +76519,8 @@ const songData = [
       "(Green/Lowry)",
       "https://www.youtube.com/watch?v=82o9gCm-xB0  (Capo 2)(MC0)",
       "[The version from Pentatonix comes afterwards]",
-      "TIP:  Either the (B7) or (B) will work."
-    ]
-  },
-  {
-    "title": "(KATHY",
-    "artist": "ALL SING)",
-    "is_sing_along": false,
-    "youtube": "",
-    "content": [
+      "TIP:  Either the (B7) or (B) will work.",
+      "(KATHY - ALL SING)",
       "INTRO:  Em  D  Am  Em-B7,   Em  D  Am  Em",
       "B7           Em              D               Am               B7",
       "Mary did you know, that your baby boy, would some day walk on water?",
@@ -77138,9 +78058,15 @@ const songData = [
     "is_sing_along": false,
     "youtube": "",
     "content": [
-      "Then he asked a village peasant, \"What do Russian hearts desire?\"  He answered, \"Peace on earth, of course, and a little Stolichnaya.\"",
-      "18:12 - 22:56 -- The Silent Nutcracker/A Mad Russian's Christmas (Instrumentals)"
+      "Then he asked a village peasant, \"What do Russian hearts desire?\"  He answered, \"Peace on earth, of course, and a little Stolichnaya.\""
     ]
+  },
+  {
+    "title": "18:12",
+    "artist": "22:56 -- The Silent Nutcracker/A Mad Russian's Christmas (Instrumentals)",
+    "is_sing_along": false,
+    "youtube": "",
+    "content": []
   },
   {
     "title": "22:56",
@@ -78133,7 +79059,6 @@ const songData = [
       "In a stable in a manger in the cold winter's air",
       "In the arms of his mother a child's lying there",
       "In a city in a village though the years have gone by",
-      "The child still remains with the dream still close by",
       "And each year on this night that child reawakens",
       "And each year on this night that hope rebegins",
       "That the dream he has offered might one day be taken",
@@ -78147,6 +79072,20 @@ const songData = [
       "In a stable in a manger in the cold winter's air",
       "In the arms of his mother a child's lying there"
     ]
+  },
+  {
+    "title": "And there he also met the girl who did become his wife.  With her his world was now complete",
+    "artist": "he had the perfect life.  When they had graduated college they were wed in a ceremony quite grand.  Then they moved to New York, in a dream they seemed caught, where all had been perfectly planned.  She decorated their park avenue apartment in a 1920's art-deco style, and six months after they had moved in she told him they would soon be having a child.  And after their first ultrasound he knew they were having a son.  Their lives could not have been better and they had only just begun.  Together they arrived early at the hospital on the delivery date, the father was taking no chances and did not want to risk being late.  But while waiting outside the delivery room he could tell that something was going wrong, for too many doctors were rushing in with none coming out for too long.  When her own doctor finally came out with several nurses at his side, he said that his wife had started hemorrhaging, and despite their best efforts, she died.",
+    "is_sing_along": false,
+    "youtube": "",
+    "content": []
+  },
+  {
+    "title": "With this final glimpse, the angel stepped away and the man shook himself out of his trance and then continued his walk back towards his home.  And few would have given his soul half of a chance.  And the angel himself felt helpless as he watched that old man there so he did what even humans do and he quickly said a prayer.  And as the prayer flew to his Lord the angel did decide, to carefully follow the old man and stay closely by his side.  For on this night can one deny, the gift of a more sympathetic eye, to cast upon our fellow man and on this night",
+    "artist": "to understand the frailty of childhood dreams?  Like fireflies over summer streams, and if one dared to remove time's veil, could one retrace those childhood trails?  But whispers in the winter's wind, told of rescued dreams, forgiven sins, and who among us shall be deemed, to rescue some forgotten dream?  So on this night of Christmas Eve, as once again the spirits weave, its snowswept dreams and colored lights, with bits of magic into each life, and as the snow comes gently down, its soul intent to reach the ground, to cover scars the world still feels, perhaps to give them time to heal.  For as men invest in money, and professors in what they know, God invests in mercy like winter invests in snow.",
+    "is_sing_along": true,
+    "youtube": "",
+    "content": []
   },
   {
     "title": "46:03",
@@ -78322,7 +79261,15 @@ const songData = [
       "Individual Songs.",
       "Below the hyperlink, Tips will appear, followed by the chords used in the song and then the lyrics.",
       "KEYS, CAPOs and TRANSPOSITION.  A.K.A. I like [G]",
-      "(I also like a good southern barbecue and a pint of Guinness)",
+      "(I also like a good southern barbecue and a pint of Guinness)"
+    ]
+  },
+  {
+    "title": "Cowboy chords/campfire chords/I",
+    "artist": "IV - V chords.  Songbook is based on easy-to-play chords in the open position almost entirely within the first 5 frets.  I've always found songs in the key of [G] the easiest to play, both for chord strumming and fingerstyle.  I also found I didn't like the (B) or (Bb) chords.  Or Sidney Crosby of the Pittsburgh Penguins.  I don't mind the (B7) or (Bm) but for",
+    "is_sing_along": false,
+    "youtube": "",
+    "content": [
       "ABOUT CHORDS:",
       "For example:",
       "G                         C",
@@ -78338,7 +79285,15 @@ const songData = [
       "Chords in brackets:  If you see a chord in brackets it means strum the chord once.  American Pie by Don McLean is a good example of this:",
       "|G|  |D|  |Em|",
       "A long long time ago . . .",
-      "INTRO:  |C|-|C|-D,  |C|-|C|-D,  |C|-|C|-D-Bm-D-Bm-D-Bm-D7",
+      "INTRO:  |C|-|C|-D,  |C|-|C|-D,  |C|-|C|-D-Bm-D-Bm-D-Bm-D7"
+    ]
+  },
+  {
+    "title": "Individual Notes.  Lower case letters (often within chevrons, e.g., <e>",
+    "artist": "<f>- <g>) are individual notes (picked strings) and usually appear in an intro or instrumental bridge.  When notes appear, there's usually an explanation to go along with them in the \"Tips\".",
+    "is_sing_along": false,
+    "youtube": "",
+    "content": [
       "Here's an example from Arlo Guthrie's Alice's Restaurant:"
     ]
   },
@@ -78370,8 +79325,15 @@ const songData = [
       "We don't need no education.",
       "Am  Am  Am  Am",
       "We don't need no thought control.",
-      "You may have seen the same thing depicted as:",
-      "Am - - - - - - - - or  Am / / / / / / / /",
+      "You may have seen the same thing depicted as:"
+    ]
+  },
+  {
+    "title": "Am",
+    "artist": "- - - - - - - or  Am / / / / / / / /",
+    "is_sing_along": false,
+    "youtube": "",
+    "content": [
       "It's just how I chose to display them.",
       "ABOUT THOSE TIPS:",
       "Grammatically correct:",

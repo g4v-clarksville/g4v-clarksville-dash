@@ -9,10 +9,10 @@ songs = []
 current_song = None
 parsing_started = False
 
-# Strict blocklist for anything that is metadata, a table of contents marker, or an alphabet divider
-EXCLUDED_TERMS = [
+# Words that instantly disqualify a line from being a song title
+TOC_KEYWORDS = [
     "MAIN", "INDEX", "CONTENTS", "POP/ROCK", "BALLADS", "COUNTRY", 
-    "CLASSIC", "UPBEAT", "SECTION", "TITLE", "GENRE", "ARTIST", "BY SONG"
+    "CLASSIC", "UPBEAT", "SECTION", "TITLE", "GENRE", "ARTIST", "BY SONG", "TITLES IN RED"
 ]
 
 for para in doc.paragraphs:
@@ -22,22 +22,22 @@ for para in doc.paragraphs:
     
     upper_text = text.upper()
     
-    # Skip everything until we hit the actual body of the songbook
+    # Strict gate: Do not start parsing actual songs until we pass the index section.
     if not parsing_started:
-        if "DIFFERENT DRUM" in upper_text or "A KISS AT THE END OF THE RAINBOW" in upper_text:
+        if "DIFFERENT DRUM" in upper_text and "LINDA" in upper_text:
             parsing_started = True
         else:
             continue
 
-    # Skip lines made entirely of punctuation, symbols, or single letters/alphabet markers (e.g., - C -, - T -)
+    # Skip any line that is purely decorative or an alphabet section divider
     if set(text) <= {'*', '-', '=', '_', ' ', '—', '.'}:
         continue
     if re.match(r'^\s*[-—]\s*[A-Z0-9]\s*[-—]\s*$', text):
         continue
-    if any(term in upper_text for term in EXCLUDED_TERMS):
+    if any(keyword in upper_text for keyword in TOC_KEYWORDS):
         continue
 
-    # Check for a valid song header format (must contain a separator)
+    # Check for valid song header format (must contain a separator)
     if " — " in text or " - " in text:
         sep = " — " if " — " in text else " - "
         parts = text.split(sep, 1)
@@ -46,18 +46,18 @@ for para in doc.paragraphs:
             title = parts[0].strip()
             artist = parts[1].strip()
             
-            # Rigorous checks to ensure it's an actual song and not an index artifact
-            is_valid_song = (
-                len(title) > 2 and 
-                len(artist) > 2 and 
+            # Rigorous validation: both title and artist must look legitimate
+            is_valid = (
+                len(title) > 1 and 
+                len(artist) > 1 and 
                 not title.isdigit() and
                 not artist.isdigit() and
-                not re.match(r'^[A-Z]\s*$', title) and
-                not any(term in title.upper() for term in EXCLUDED_TERMS) and
-                not any(term in artist.upper() for term in EXCLUDED_TERMS)
+                not title.startswith('(') and
+                not any(kw in title.upper() for kw in TOC_KEYWORDS) and
+                not any(kw in artist.upper() for kw in TOC_KEYWORDS)
             )
             
-            if is_valid_song:
+            if is_valid:
                 if current_song:
                     songs.append(current_song)
                 
@@ -72,7 +72,7 @@ for para in doc.paragraphs:
                 }
                 continue
 
-    # If we have an active song, append valid lyric lines
+    # If we are inside a valid song block, collect lyric lines
     if current_song:
         if len(text) < 150 and not text.isdigit():
             current_song["content"].append(text)
