@@ -15,7 +15,7 @@ for para in doc.paragraphs:
     
     upper_text = text.upper()
     
-    # 1. Bruteforce filter for any TOC markers, symbols, or single-letter index headers
+    # Absolute drop filters for any artifact, divider, or index page noise
     if set(text) <= {'*', '-', '=', '_', ' ', '—'}:
         continue
     if any(term in upper_text for term in ["INDEX", "TOC", "(MAIN)", "MAIN INDEX", "BY SONG TITLE", "ARTIST INDEX", "SONG INDEX"]):
@@ -25,7 +25,7 @@ for para in doc.paragraphs:
     if any(c in text for c in ["***", "==="]) or text.startswith("---"):
         continue
 
-    # 2. Song Header check (Title - Artist)
+    # Check for valid Title - Artist header pattern
     if (" — " in text or " - " in text) and len(text) < 80:
         sep = " — " if " — " in text else " - "
         parts = text.split(sep, 1)
@@ -34,7 +34,7 @@ for para in doc.paragraphs:
             title = parts[0].strip()
             artist = parts[1].strip()
             
-            # Double check that neither side is an index placeholder
+            # Guard against metadata keywords slipping into the title/artist fields
             if any(kw in title.upper() or kw in artist.upper() for kw in ["INDEX", "MAIN", "TOC", "PAGE"]):
                 continue
                 
@@ -53,7 +53,7 @@ for para in doc.paragraphs:
                 }
                 continue
 
-    # 3. Append lyrics if inside a valid song
+    # Append valid lyric lines to the active song
     if current_song:
         if not text.isdigit() and len(text) < 150:
             current_song["content"].append(text)
@@ -61,8 +61,11 @@ for para in doc.paragraphs:
 if current_song:
     songs.append(current_song)
 
-# This writes the clean data directly to songs.json, which your HTML fetches!
+# Save directly to songs.json since your HTML fetches it via fetch('songs.json')
 with open("songs.json", "w", encoding="utf-8") as f:
     json.dump(songs, f, indent=2)
 
 print(f"SUCCESS: Extracted exactly {len(songs)} valid songs to songs.json.")
+print("First 3 songs found:")
+for s in songs[:3]:
+    print(f" - {s['title']} by {s['artist']}")
