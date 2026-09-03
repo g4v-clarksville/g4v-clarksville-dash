@@ -1,0 +1,388 @@
+:root {
+    --bg-void: #0A0E14;
+    --bg-dark: #00103e;
+    --card-surface: #0D2048;
+    --card-bg: #04476a;
+    --neon-cyan: #09C3F2;
+    --neon-mint: #06D3D9;
+    --text-bright: #FFFFFF;
+    --text-dim: #bcc6ff;
+    --text-muted: #A2ADBE;
+    --border-glow: #2C71E7;
+    --border-color: #2c67be;
+    --accent-orange: #FF6F61;
+    --accent-cyan: #09C3F2;
+}
+
+/* -----------------------------
+   GLOBAL FIXES (IMPORTANT)
+------------------------------*/
+html, body {
+    height: auto;
+    min-height: 100%;
+    overflow-x: hidden;
+    overflow-y: auto;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    background-color: var(--bg-void);
+    color: var(--text-dim);
+    font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+    margin: 0;
+    padding: 20px;
+
+    display: flex;
+    flex-direction: column;
+}
+
+/* -----------------------------
+   GRADUATION BANNER
+------------------------------*/
+.g4v-grad-banner {
+    width: 100%;
+    display: block;
+    position: relative;
+    background-color: #002d72;
+    color: white;
+    text-align: center;
+    padding: 10px 15px 25px 15px;
+    border-bottom: 3px solid #ffc72c;
+}
+
+.g4v-grad-title,
+.g4v-grad-date {
+    text-align: center;
+    margin: 5px 0;
+}
+
+/* -----------------------------
+   COLLAGE (FIXED FLOW)
+------------------------------*/
+.g4v-collage-row {
+    display: flex;
+    flex-wrap: wrap;   /* KEY FIX */
+    justify-content: center;
+    align-items: center;
+    gap: 12px;
+
+    max-width: 100%;
+    margin: 20px auto 0 auto;
+    padding: 10px 20px;
+}
+
+.g4v-collage-photo {
+    border-radius: 6px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.35);
+    object-fit: cover;
+    transition: transform 0.2s ease;
+    flex-shrink: 0;
+
+    max-width: 120px;
+    height: auto;
+}
+
+/* Keep your artistic layout */
+.g4v-collage-photo:nth-child(1) { width: 140px; height: 95px; }
+.g4v-collage-photo:nth-child(2),
+.g4v-collage-photo:nth-child(3),
+.g4v-collage-photo:nth-child(5) {
+    width: 95px;
+    height: 70px;
+    transform: rotate(90deg);
+}
+
+.g4v-collage-photo:nth-child(4),
+.g4v-collage-photo:nth-child(6),
+.g4v-collage-photo:nth-child(7),
+.g4v-collage-photo:nth-child(8) {
+    width: 95px;
+    height: 70px;
+    transform: rotate(0deg);
+}
+
+/* Hover effects */
+.g4v-collage-photo:nth-child(1):hover { transform: scale(1.95); }
+.g4v-collage-photo:nth-child(2):hover,
+.g4v-collage-photo:nth-child(3):hover,
+.g4v-collage-photo:nth-child(5):hover {
+    transform: rotate(90deg) scale(1.95);
+}
+
+.g4v-collage-photo:nth-child(4):hover,
+.g4v-collage-photo:nth-child(6):hover,
+.g4v-collage-photo:nth-child(7):hover,
+.g4v-collage-photo:nth-child(8):hover {
+    transform: rotate(0deg) scale(1.95);
+}
+
+/* -----------------------------
+   HEADER
+------------------------------*/
+header {
+    width: 100%;
+}
+
+.header-inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px 40px;
+    width: 100%;
+}
+
+.header-main-content {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 40px;
+    flex-grow: 1;
+    margin-right: 20px;
+}
+
+.header-logo { height: 80px; object-fit: contain; }
+.osd-logo { height: 70px; }
+.g4v-logo { height: 90px; }
+
+.header-titles { text-align: center; }
+
+.header-titles h1 {
+    color: var(--text-dim);
+    margin: 0;
+    font-size: 1.6rem;
+}
+
+.header-qr {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100px;
+}
+
+.header-qr img {
+    width: 75px;
+    height: 75px;
+}
+
+.header-qr p {
+    font-size: 0.65rem;
+    color: #FFD700;
+    margin-top: 5px;
+    width: 100px;
+    font-weight: bold;
+}
+
+/* -----------------------------
+   IMPACT CARDS
+------------------------------*/
+#impact-summary {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto 20px auto;
+    padding: 0 40px;
+}
+
+.stat-card {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+    background: var(--card-surface);
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+}
+
+.stat-label {
+    font-size: 0.65rem;
+    font-weight: 700;
+    color: #8899a6;
+}
+
+.stat-value {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #fff;
+}
+
+/* -----------------------------
+   SEARCH
+------------------------------*/
+.search-container {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto 20px auto;
+    padding: 0 40px;
+}
+
+#vet-search {
+    width: 100%;
+    padding: 12px;
+    background: #132D64;
+    border: 1px solid var(--border-color);
+    color: white;
+    border-radius: 4px;
+}
+
+/* -----------------------------
+   DASHBOARD ROOT (CRITICAL FIX)
+------------------------------*/
+#dashboard-root {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding-bottom: 60px;
+}
+
+/* -----------------------------
+   CARDS
+------------------------------*/
+.cycle-card,
+#waitlist-section {
+    background: var(--card-surface);
+    border: 1px solid var(--border-color);
+    border-left: 5px solid var(--border-glow);
+    border-radius: 8px;
+    padding: 15px;
+    margin: 0 auto 15px auto;
+    width: 100%;
+    overflow: hidden;
+}
+/* -----------------------------
+   CARD HEADER LAYOUT FIX
+------------------------------*/
+.card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 15px;
+    flex-wrap: wrap;
+}
+
+/* Cycle title (left side) */
+.card-header h2 {
+    margin: 0;
+    flex: 1;
+    min-width: 250px;
+}
+
+/* Right-side container for timeline */
+.card-header-right {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 8px;
+}
+
+/* Timeline pill refinement */
+.cycle-timeline {
+    white-space: nowrap;
+}
+
+.cycle-timeline { 
+    background: rgba(0, 0, 0, 0.3); 
+    padding: 4px 12px; 
+    border-radius: 20px; 
+    border: 1px solid var(--border-glow); 
+    display: inline-flex; 
+    align-items: center; 
+}
+.timeline-label { color: var(--accent-orange); font-size: 0.7rem; margin-right: 10px; }
+.timeline-dates { color: var(--text-bright); font-size: 0.9rem; font-family: 'Courier New', Courier, monospace; }
+.instructor-box { 
+    background: rgba(44, 103, 190, 0.2); 
+    border: 1px solid var(--border-color); 
+    color: var(--accent-cyan); 
+    padding: 8px 12px; 
+    margin: 15px 0; font-weight: bold; 
+}
+
+/* -----------------------------
+   PROGRESS BAR
+------------------------------*/
+.progress-container {
+    background: #132D64;
+    height: 24px;
+    border-radius: 12px;
+    overflow: hidden;
+    position: relative;
+}
+
+.progress-bar {
+    background: linear-gradient(90deg, var(--border-glow), var(--neon-cyan));
+    height: 100%;
+    transition: width 0.5s ease-in-out;
+}
+
+.progress-text {
+    position: absolute;
+    width: 100%;
+    text-align: center;
+    line-height: 24px;
+    font-size: 0.85rem;
+    font-weight: bold;
+    color: white;
+}
+
+/* -----------------------------
+   TABLE FIX (IMPORTANT)
+------------------------------*/
+table {
+    width: 100%;
+    border-collapse: collapse;
+    table-layout: fixed;
+    margin-top: 15px;
+}
+
+th {
+    text-align: left;
+    color: var(--accent-orange);
+    text-transform: uppercase;
+    font-size: 0.85rem;
+    border-bottom: 1px solid var(--border-color);
+    padding: 10px;
+}
+
+td {
+    padding: 12px 10px;
+    border-bottom: 1px solid rgba(44, 103, 190, 0.3);
+    word-wrap: break-word;
+}
+
+/* -----------------------------
+   RESPONSIVE
+------------------------------*/
+@media (max-width: 768px) {
+
+    .header-inner {
+        flex-direction: column;
+        gap: 12px;
+        padding: 15px 20px;
+    }
+
+    #impact-summary {
+        flex-direction: column;
+        padding: 0 20px;
+    }
+
+    .search-container {
+        padding: 0 20px;
+    }
+
+    .g4v-collage-photo {
+        max-width: 90px;
+    }
+}
+
+@media (max-width: 480px) {
+    .header-titles h1 {
+        font-size: 1.2rem;
+    }
+}
