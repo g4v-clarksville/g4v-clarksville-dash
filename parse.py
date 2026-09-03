@@ -7,31 +7,25 @@ doc = docx.Document(file_path)
 
 songs = []
 current_song = None
-parsing_started = False
 
 for para in doc.paragraphs:
     text = para.text.strip().replace('\u2019', "'").replace('\u201c', '"').replace('\u201d', '"')
     if not text:
         continue
     
-    # Force skip everything until we pass the obvious index section 
-    # (e.g., waiting until we see a known early song or skipping blocks with explicit index traits)
     upper_text = text.upper()
-    if not parsing_started:
-        if "DIFFERENT DRUM" in upper_text or "A KISS AT THE END OF THE RAINBOW" in upper_text:
-            parsing_started = True
-        else:
-            continue
-
-    # Absolute blocklist for TOC noise, dividers, and index markers
+    
+    # Comprehensive blacklist for all index markers, TOC headers, and artifacts
     if set(text) <= {'*', '-', '=', '_', ' ', '—'}:
         continue
-    if any(marker in upper_text for marker in ["(MAIN)", "MAIN INDEX", "BY SONG TITLE", "ARTIST INDEX", "SONG INDEX", "THIS SONG"]):
+    if any(term in upper_text for term in ["INDEX", "TOC", "(MAIN)", "MAIN INDEX", "BY SONG TITLE", "ARTIST INDEX", "SONG INDEX", "THIS SONG"]):
         continue
-    if re.match(r'^\s*-\s*[A-Z]\s*-\s*$', text):
+    if re.match(r'^\s*-\s*[A-Z0-9]\s*-\s*$', text):
+        continue
+    if any(c in text for c in ["***", "==="]) or text.startswith("---"):
         continue
 
-    # Check if this paragraph is a valid song header (Title - Artist format)
+    # Strict Song Header check: Must contain separator and NOT be an index line
     if (" — " in text or " - " in text) and len(text) < 80:
         sep = " — " if " — " in text else " - "
         parts = text.split(sep, 1)
@@ -40,7 +34,12 @@ for para in doc.paragraphs:
             title = parts[0].strip()
             artist = parts[1].strip()
             
-            if len(title) > 1 and len(artist) > 1 and not re.match(r'^-\s*[A-Z]\s*-$', title):
+            # Ensure neither side contains index metadata keywords
+            invalid_keywords = ["INDEX", "MAIN", "TOC", "PAGE", "SLIDE"]
+            if any(kw in title.upper() or kw in artist.upper() for kw in invalid_keywords):
+                continue
+                
+            if len(title) > 1 and len(artist) > 1:
                 if current_song:
                     songs.append(current_song)
                 
