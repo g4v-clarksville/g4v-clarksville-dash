@@ -99,6 +99,27 @@ body {
 }
 
 /* Layout orientation geometry locks */
+.g4v-collage-photo:nth-child(1) { 
+    width: 140px; 
+    height: 95px; 
+}
+
+.g4v-collage-photo:nth-child(n+2):nth-child(-n+19) {
+    width: 95px;
+    height: 70px;
+    transform: rotate(0deg);
+}
+
+/* Hover magnification logic updates */
+.g4v-collage-photo:nth-child(1):hover { 
+    transform: scale(2.95); 
+}
+
+.g4v-collage-photo:nth-child(n+2):nth-child(-n+19):hover {
+    transform: rotate(0deg) scale(2.95);
+}
+
+/* Layout orientation geometry locks 
 .g4v-collage-photo:nth-child(1) { width: 140px; height: 95px; }
 .g4v-collage-photo:nth-child(2),
 .g4v-collage-photo:nth-child(3),
@@ -117,7 +138,7 @@ body {
     transform: rotate(0deg);
 }
 
-/* Hover magnification logic updates */
+/* Hover magnification logic updates 
 .g4v-collage-photo:nth-child(1):hover { transform: scale(1.95); }
 .g4v-collage-photo:nth-child(2):hover,
 .g4v-collage-photo:nth-child(3):hover,
