@@ -1,3 +1,4 @@
+import re
 import docx
 import json
 
@@ -8,16 +9,22 @@ songs = []
 current_song = None
 
 for para in doc.paragraphs:
-    text = para.text.strip()
+    text = para.text.strip().replace('\u2019', "'").replace('\u201c', '"').replace('\u201d', '"')
     if not text:
         continue
     
-    # A real song header must have a separator and not be index noise
-    if (" — " in text or " - " in text) and not any(c in text for c in ["***", "===", "---", "POP/ROCK"]):
+    # Exclude strict index artifacts, section indicators, or dividers
+    if text.upper() in ["(MAIN)", "MAIN INDEX", "BY SONG TITLE"] or re.match(r'^-\s*[A-Z]\s*-$', text):
+        continue
+    if any(c in text for c in ["***", "==="]) or text.startswith("---"):
+        continue
+
+    # Check if this paragraph is a new song header (Title - Artist format)
+    if (" — " in text or " - " in text) and len(text) < 80:
         sep = " — " if " — " in text else " - "
         parts = text.split(sep, 1)
         
-        if len(parts[0].strip()) > 1 and len(parts[1].strip()) > 1 and len(text) < 80:
+        if len(parts) == 2 and len(parts[0].strip()) > 1 and len(parts[1].strip()) > 1:
             if current_song:
                 songs.append(current_song)
             
@@ -32,7 +39,7 @@ for para in doc.paragraphs:
             }
             continue
 
-    # Append lyrics only if we are actively inside a valid song block
+    # Append lyrics or content lines if we are inside a valid song block
     if current_song:
         if not text.isdigit() and len(text) < 150:
             current_song["content"].append(text)
