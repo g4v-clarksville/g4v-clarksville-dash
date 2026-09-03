@@ -13,33 +13,38 @@ for para in doc.paragraphs:
     if not text:
         continue
     
-    # Exclude strict index artifacts, section indicators, or dividers
-    if text.upper() in ["(MAIN)", "MAIN INDEX", "BY SONG TITLE"] or re.match(r'^-\s*[A-Z]\s*-$', text):
+    # 1. Immediate skips for artifacts, dividers, and TOC noise
+    if set(text) <= {'*', '-', '=', '_', ' ', '—'}:
+        continue
+    if text.upper() in ["(MAIN)", "MAIN INDEX", "BY SONG TITLE", "ARTIST INDEX"]:
+        continue
+    if re.match(r'^-\s*[A-Z]\s*-$', text):
         continue
     if any(c in text for c in ["***", "==="]) or text.startswith("---"):
         continue
 
-    # Check if this paragraph is a new song header (Title - Artist format)
+    # 2. Check for Song Header (Title - Artist)
     if (" — " in text or " - " in text) and len(text) < 80:
         sep = " — " if " — " in text else " - "
         parts = text.split(sep, 1)
         
         if len(parts) == 2 and len(parts[0].strip()) > 1 and len(parts[1].strip()) > 1:
-            if current_song:
-                songs.append(current_song)
-            
-            is_red = any(run.font.color and run.font.color.rgb in [(255, 0, 0), (192, 0, 0)] for run in para.runs)
-            
-            current_song = {
-                "title": parts[0].strip(),
-                "artist": parts[1].strip(),
-                "is_sing_along": is_red,
-                "youtube": "",
-                "content": []
-            }
-            continue
+            if not re.match(r'^-\s*[A-Z]\s*-$', parts[0].strip()) and not re.match(r'^-\s*[A-Z]\s*-$', parts[1].strip()):
+                if current_song:
+                    songs.append(current_song)
+                
+                is_red = any(run.font.color and run.font.color.rgb in [(255, 0, 0), (192, 0, 0)] for run in para.runs)
+                
+                current_song = {
+                    "title": parts[0].strip(),
+                    "artist": parts[1].strip(),
+                    "is_sing_along": is_red,
+                    "youtube": "",
+                    "content": []
+                }
+                continue
 
-    # Append lyrics or content lines if we are inside a valid song block
+    # 3. Append content lines if inside a valid song block
     if current_song:
         if not text.isdigit() and len(text) < 150:
             current_song["content"].append(text)
@@ -47,7 +52,12 @@ for para in doc.paragraphs:
 if current_song:
     songs.append(current_song)
 
-with open("songs.json", "w") as f:
+with open("songs.json", "w", encoding="utf-8") as f:
     json.dump(songs, f, indent=2)
 
-print(f"SUCCESS: Extracted exactly {len(songs)} valid songs.")
+with open("data.js", "w", encoding="utf-8") as f:
+    f.write("const songData = ")
+    json.dump(songs, f, indent=2)
+    f.write(";")
+
+print(f"SUCCESS: Extracted exactly {len(songs)} valid songs and updated data.js.")
