@@ -783,6 +783,41 @@ td {
     text-decoration: underline;
 }
 
+/* Container & Theme Fixes for Song Library */
+.song-library-container {
+    max-width: 860px;
+    margin: 20px auto;
+    padding: 0 20px;
+}
+
+.song-card {
+    background-color: rgba(26, 31, 44, 0.95);
+    border: 1px solid var(--border-color);
+    border-left: 5px solid var(--border-glow);
+    border-radius: 8px;
+    padding: 15px 20px;
+    margin-bottom: 15px;
+    color: var(--text-bright);
+}
+
+.song-card h3, .song-card h4 {
+    color: #FFD700;
+    margin: 0 0 5px 0;
+}
+
+.song-search-input {
+    width: 100%;
+    max-width: 860px;
+    margin: 0 auto 20px auto;
+    display: block;
+    padding: 12px 15px;
+    background: #11161d;
+    border: 1px solid var(--border-color);
+    color: var(--text-bright);
+    border-radius: 6px;
+    font-size: 0.95rem;
+}
+
 @keyframes ticker-loop {
     0% {
         transform: translate3d(0, 0, 0);
