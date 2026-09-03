@@ -70,4 +70,4 @@ with open("data.js", "w", encoding="utf-8") as f:
     json.dump(songs, f, indent=2)
     f.write(";")
 
-print(f"SUCCESS: Extracted exactly {len(songs)} valid songs and updated data.js.")
+print(f"SUCCESS: Extracted exactly {len(songs)} valid songs and updated data_v2.js.")
