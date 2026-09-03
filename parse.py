@@ -7,6 +7,15 @@ doc = docx.Document(file_path)
 
 songs = []
 current_song = None
+parsing_started = False
+
+# Explicit blacklist phrases for table of contents and genre category headers
+BLOCKED_PHRASES = [
+    "(MAIN)", "MAIN INDEX", "BY SONG TITLE", "ARTIST INDEX", 
+    "SONG INDEX", "THIS SONG", "CONTENTS", "INDEX", 
+    "POP/ROCK", "TITLES IN RED ARE", "GENRE", "BALLADS", 
+    "COUNTRY", "CLASSIC", "UPBEAT", "SECTION"
+]
 
 for para in doc.paragraphs:
     text = para.text.strip().replace('\u2019', "'").replace('\u201c', '"').replace('\u201d', '"')
@@ -15,17 +24,25 @@ for para in doc.paragraphs:
     
     upper_text = text.upper()
     
-    # Absolute drop filters for any artifact, divider, or index page noise
-    if set(text) <= {'*', '-', '=', '_', ' ', '—'}:
+    # Force skip everything until past the index section
+    if not parsing_started:
+        if "DIFFERENT DRUM" in upper_text or "A KISS AT THE END OF THE RAINBOW" in upper_text:
+            parsing_started = True
+        else:
+            continue
+
+    # Absolute blocklist for TOC noise, dividers, and index markers
+    if set(text) <= {'*', '-', '=', '_', ' ', '—', '.'}:
         continue
-    if any(term in upper_text for term in ["INDEX", "TOC", "(MAIN)", "MAIN INDEX", "BY SONG TITLE", "ARTIST INDEX", "SONG INDEX"]):
+        
+    if any(phrase in upper_text for phrase in BLOCKED_PHRASES):
         continue
-    if re.match(r'^\s*-\s*[A-Z0-9]\s*-\s*$', text):
-        continue
-    if any(c in text for c in ["***", "==="]) or text.startswith("---"):
+    
+    # Catch alphabet index markers like "- C -" or single letter headers
+    if re.match(r'^\s*[-—]\s*[A-Z0-9]\s*[-—]\s*$', text):
         continue
 
-    # Check for valid Title - Artist header pattern
+    # Check if this paragraph is a valid song header (Title - Artist format)
     if (" — " in text or " - " in text) and len(text) < 80:
         sep = " — " if " — " in text else " - "
         parts = text.split(sep, 1)
@@ -34,11 +51,12 @@ for para in doc.paragraphs:
             title = parts[0].strip()
             artist = parts[1].strip()
             
-            # Guard against metadata keywords slipping into the title/artist fields
-            if any(kw in title.upper() or kw in artist.upper() for kw in ["INDEX", "MAIN", "TOC", "PAGE"]):
-                continue
+            # Strict validation to ensure it's a real song and not a TOC artifact
+            if (len(title) > 2 and len(artist) > 2 and 
+                not re.match(r'^[-—]\s*[A-Z]\s*[-—]$', title) and 
+                not title.isdigit() and
+                not any(p in title.upper() for p in BLOCKED_PHRASES)):
                 
-            if len(title) > 1 and len(artist) > 1:
                 if current_song:
                     songs.append(current_song)
                 
@@ -53,7 +71,7 @@ for para in doc.paragraphs:
                 }
                 continue
 
-    # Append valid lyric lines to the active song
+    # Append content lines if inside a valid song block
     if current_song:
         if not text.isdigit() and len(text) < 150:
             current_song["content"].append(text)
@@ -61,11 +79,12 @@ for para in doc.paragraphs:
 if current_song:
     songs.append(current_song)
 
-# Save directly to songs.json since your HTML fetches it via fetch('songs.json')
 with open("songs.json", "w", encoding="utf-8") as f:
     json.dump(songs, f, indent=2)
 
-print(f"SUCCESS: Extracted exactly {len(songs)} valid songs to songs.json.")
-print("First 3 songs found:")
-for s in songs[:3]:
-    print(f" - {s['title']} by {s['artist']}")
+with open("data.js", "w", encoding="utf-8") as f:
+    f.write("const songData = ")
+    json.dump(songs, f, indent=2)
+    f.write(";")
+
+print(f"SUCCESS: Extracted exactly {len(songs)} valid songs and updated data.js.")

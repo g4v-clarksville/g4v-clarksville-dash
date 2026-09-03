@@ -367,17 +367,14 @@ const songData = [
       "Gimme All Your Lovin'",
       "Tube Snake Boogie",
       "Viva Las Vegas",
-      "POP/ROCK",
       "A  B  C  D  E  F  G  H  I  J  K  L  M  N  O  P  Q  R  S  T  U  V  W  X  Y  Z",
       "OLDIES & DOO WOP",
       "FOLK  SONGS",
-      "COUNTRY",
       "A  B  C  D  E  F  G  H  I  J  K  L  M  N  O  P  Q  R  S  T  U  V  W  X  Y  Z",
       "SPIRITUAL",
       "TRADITIONAL",
       "KID FRIENDLY",
       "CHRISTMAS",
-      "POP/ROCK     (Titles in red are Sing-a-Longs)",
       "A Better Place to Be \u2013 Harry Chapin",
       "A Hard Days Night \u2013 The Beatles"
     ]
@@ -1105,6 +1102,13 @@ const songData = [
     "content": []
   },
   {
+    "title": "Fare Away",
+    "artist": "The New Main Street Singers",
+    "is_sing_along": true,
+    "youtube": "",
+    "content": []
+  },
+  {
     "title": "Fat Bottomed Girls",
     "artist": "Queen",
     "is_sing_along": true,
@@ -1244,8 +1248,7 @@ const songData = [
     "content": [
       "Gimme All Your Lovin' \u2013 ZZ Top",
       "Gimme Some Money \u2013 Spinal Tap",
-      "Girl \u2013 The Beatles",
-      "Girl From the North Country \u2013 Nitty Gritty Dirty Band"
+      "Girl \u2013 The Beatles"
     ]
   },
   {
@@ -1271,13 +1274,6 @@ const songData = [
       "Going Home \u2013 Mary Fahl",
       "Gold \u2013 John Stewart (with Stevie Nicks)"
     ]
-  },
-  {
-    "title": "Going Up the Country",
-    "artist": "Canned Heat",
-    "is_sing_along": false,
-    "youtube": "",
-    "content": []
   },
   {
     "title": "Good Golly Miss Molly",
@@ -1512,15 +1508,9 @@ const songData = [
     "youtube": "",
     "content": [
       "I'm Yours \u2013 Jason Mraz",
-      "I've Just Seen a Face \u2013 The Beatles"
+      "I've Just Seen a Face \u2013 The Beatles",
+      "If - Bread"
     ]
-  },
-  {
-    "title": "If",
-    "artist": "Bread",
-    "is_sing_along": false,
-    "youtube": "",
-    "content": []
   },
   {
     "title": "If I Fell",
@@ -2193,6 +2183,20 @@ const songData = [
   {
     "title": "Mustang Sally",
     "artist": "Wilson Pickett",
+    "is_sing_along": true,
+    "youtube": "",
+    "content": []
+  },
+  {
+    "title": "My Back Pages",
+    "artist": "The Byrds",
+    "is_sing_along": true,
+    "youtube": "",
+    "content": []
+  },
+  {
+    "title": "My Back Pages",
+    "artist": "Bob Dylan & Friends",
     "is_sing_along": true,
     "youtube": "",
     "content": []
@@ -3008,6 +3012,13 @@ const songData = [
     ]
   },
   {
+    "title": "Turn the Page",
+    "artist": "Bob Seger",
+    "is_sing_along": false,
+    "youtube": "",
+    "content": []
+  },
+  {
     "title": "Turn, Turn, Turn",
     "artist": "The Byrds",
     "is_sing_along": true,
@@ -3164,13 +3175,6 @@ const songData = [
     ]
   },
   {
-    "title": "Westcountry Love Song",
-    "artist": "Jinder",
-    "is_sing_along": true,
-    "youtube": "",
-    "content": []
-  },
-  {
     "title": "What a Crying Shame",
     "artist": "The Mavericks",
     "is_sing_along": true,
@@ -3325,8 +3329,7 @@ const songData = [
     "is_sing_along": true,
     "youtube": "",
     "content": [
-      "You've Got to Hide Your Love Away \u2013 The Beatles",
-      "COUNTRY (Y'ALL)    (Titles in red are Sing-a-Longs)"
+      "You've Got to Hide Your Love Away \u2013 The Beatles"
     ]
   },
   {
@@ -3448,7 +3451,8 @@ const songData = [
     "is_sing_along": true,
     "youtube": "",
     "content": [
-      "Big River \u2013 Johnny Cash"
+      "Big River \u2013 Johnny Cash",
+      "Big Rock Candy Mountain \u2013 Harry McClintock"
     ]
   },
   {
@@ -3522,8 +3526,7 @@ const songData = [
     "youtube": "",
     "content": [
       "Cotton Jenny \u2013 Anne Murray/Gordon Lightfoot",
-      "Could I Have This Dance \u2013 Anne Murray",
-      "Country Is \u2013 Tom T. Hall"
+      "Could I Have This Dance \u2013 Anne Murray"
     ]
   },
   {
@@ -4007,15 +4010,9 @@ const songData = [
       "My Rifle, My Pony, and Me \u2013 Dean Martin & Rick Nelson",
       "My Rifle, My Pony, and Me \u2013 Don Williams",
       "- N \u2013",
-      "Navaho Rug \u2013 Ian Tyson"
+      "Navaho Rug \u2013 Ian Tyson",
+      "1982 - Randy Travis"
     ]
-  },
-  {
-    "title": "1982",
-    "artist": "Randy Travis",
-    "is_sing_along": true,
-    "youtube": "",
-    "content": []
   },
   {
     "title": "Night Rider's Lament",
@@ -4199,13 +4196,6 @@ const songData = [
     "artist": "Suzy Bogguss",
     "is_sing_along": false,
     "youtube": "",
-    "content": []
-  },
-  {
-    "title": "Take Me Home Country Roads",
-    "artist": "John Denver",
-    "is_sing_along": true,
-    "youtube": "",
     "content": [
       "Tecumseh Valley \u2013 Nanci Griffith & Arlo Guthrie",
       "The Tennessee Waltz \u2013 Patsy Cline"
@@ -4374,7 +4364,6 @@ const songData = [
     "youtube": "",
     "content": [
       "You're the Reason God Made Oklahoma \u2013 David Frizell & Shelly West",
-      "OLDIES & DOO WOP   (Titles in red are Sing-a-Longs)",
       "A Teenager in Love \u2013 Dion and the Belmonts",
       "At the Hop \u2013 Danny and the Juniors",
       "Battle of New Orleans \u2013 Johnny Horton"
@@ -4533,7 +4522,6 @@ const songData = [
     "is_sing_along": true,
     "youtube": "",
     "content": [
-      "FOLK SONGS   (Titles in red are Sing-a-Longs)",
       "Joan Baez",
       "Bob Dylan",
       "The Folksmen",
@@ -4560,6 +4548,7 @@ const songData = [
     "is_sing_along": true,
     "youtube": "",
     "content": [
+      "Big Rock Candy Mountain \u2013 Harry McClintock",
       "Blood on the Coal \u2013 The Folksmen"
     ]
   },
@@ -4606,6 +4595,13 @@ const songData = [
   {
     "title": "Early Morning Rain",
     "artist": "Peter, Paul & Mary",
+    "is_sing_along": true,
+    "youtube": "",
+    "content": []
+  },
+  {
+    "title": "Fare Away",
+    "artist": "The New Main Street Singers",
     "is_sing_along": true,
     "youtube": "",
     "content": [
@@ -4774,7 +4770,6 @@ const songData = [
     "is_sing_along": false,
     "youtube": "",
     "content": [
-      "SPIRITUAL   (Titles in red are Sing-a-Longs)",
       "Amazing Grace \u2013 Judy Collins",
       "American Trilogy \u2013 Elvis Presley",
       "Battle Hymn of the Republic"
@@ -4908,9 +4903,9 @@ const songData = [
     "is_sing_along": false,
     "youtube": "",
     "content": [
-      "TRADITIONAL   (Titles in red are Sing-a-Longs)",
       "Amazing Grace \u2013 Judy Collins",
       "America the Beautiful",
+      "Big Rock Candy Mountain \u2013 Harry McClintock",
       "Battle Hymn of the Republic",
       "The Crawdad Song",
       "Danny Boy",
@@ -5088,7 +5083,6 @@ const songData = [
       "Whiskey in the Jar \u2013 The Seekers",
       "Will the Circle Be Unbroken \u2013 Nitty Gritty Dirt Band (and Legends)",
       "You are My Sunshine \u2013 Norman Blake",
-      "KID FRIENDLY   (Titles in red are Sing-a-Longs)",
       "Ballad of Jed Clampett (Beverly Hillbillys Theme) \u2013 Flatt & Scruggs"
     ]
   },
@@ -5982,6 +5976,13 @@ const songData = [
     ]
   },
   {
+    "title": "New Main Street Singers",
+    "artist": "(SISSY & LAURIE)(TERRY)",
+    "is_sing_along": true,
+    "youtube": "",
+    "content": []
+  },
+  {
     "title": "Folksmen",
     "artist": "(MARK)(ALAN)(JERRY)",
     "is_sing_along": false,
@@ -6064,6 +6065,7 @@ const songData = [
       "G                                C     G  C  G",
       "Oh what a terrible place, is a pub with no beer.",
       "C                           F",
+      "Then the stockman rides up, with his dry dusty throat.",
       "G                                       C    G",
       "He breasts up to the bar, and pulls a wad from his coat.",
       "C                          F",
@@ -6451,6 +6453,7 @@ const songData = [
       "F              Em              F                     G     D     G",
       "He's a well respected man about town, doing the best things so conserva-tively.",
       "C        Em         Am             C       Em    Am",
+      "And he plays at stocks and shares, and he goes to the regatta,",
       "C          Em        Am               C        Em  Am",
       "And he adores the girl next door, cause he's dying to get at her,",
       "C      Em        Am              C    Em     Am",
@@ -7921,15 +7924,8 @@ const songData = [
     "is_sing_along": true,
     "youtube": "",
     "content": [
-      "C    G       F      C    G       F     |C|"
-    ]
-  },
-  {
-    "title": "Al",
-    "artist": "already gone.  Al - already gone.",
-    "is_sing_along": true,
-    "youtube": "",
-    "content": [
+      "C    G       F      C    G       F     |C|",
+      "Al - already gone.  Al - already gone.",
       "ALWAYS LOOK ON THE BRIGHT SIDE OF LIFE",
       "Eric Idle",
       "https://www.youtube.com/watch?v=kE186w91YVU  (Capo 1)(MC1)",
@@ -8015,7 +8011,6 @@ const songData = [
       "D              A",
       "I've\u00a0held\u00a0it\u00a0all\u00a0inward,\u00a0God\u00a0knows\u00a0I've\u00a0tried.",
       "E             A",
-      "But it's an awful awakening, in a country boy's\u00a0life.",
       "D        A",
       "To look in the mirror in total surprise,",
       "E         A",
@@ -8231,7 +8226,6 @@ const songData = [
       "D7 G             D                 D7         G",
       "O  beautiful for heroes proved, in liberating strife.",
       "D7  G                    D                  A7              D",
-      "Who more than self their country loved, and mercy more than life.",
       "D7 G   D7   G    D7                      G",
       "A  merica.  America.  May God thy gold refine,",
       "C              G              C     D7     G",
@@ -8616,7 +8610,6 @@ const songData = [
       "C             G        Em      G             D          G",
       "From the Murray's green basin, to the dusty Outback, I waltzed, my matilda, all over.",
       "D        C             G",
-      "Then in 1915, my country said \"Son,",
       "D                              C           G",
       "It's time to stop ramblin', there's work, to be done.\"",
       "C           G               Em  |Em|          G        D          G",
@@ -9083,6 +9076,7 @@ const songData = [
       "Em                                Am                                         D      G",
       "Wraps a towel around her as she's heading for the bedroom chair.  It's just another day.",
       "C             G          C             G      C              G             A        A A D",
+      "Slipping into stockings, stepping into shoes, dipping in the pocket of her raincoat.",
       "G",
       "It's just another day.",
       "B7",
@@ -9128,6 +9122,7 @@ const songData = [
       "Wraps a towel around her as she's heading for the bedroom chair.  It's just another day.",
       "Ahhh . . .                        ahhh . . .",
       "C             G          C             G      C              G             A        A A D",
+      "Slipping into stockings, stepping into shoes, dipping in the pocket of her raincoat.",
       "G              C     Am              D      G              E7    Am",
       "It's just another day.  Du du du du du du.  It's just another day.  Du du du du du du.",
       "D      G    F   C   |G|",
@@ -9357,7 +9352,6 @@ const songData = [
       "(MERLE) (MERLE/LEONNA/BOBBY)",
       "INTRO:  <slowly>  <5> C/G,  <6> C/G;   <5> C/G,  <6> C/G",
       "F",
-      "I wish a buck was still silver.  It was back, when the country was strong.",
       "G7                                        C",
       "Back before Elvis, and before, the Vietnam war, came along.",
       "F",
@@ -11023,6 +11017,7 @@ const songData = [
       "G-         A     A7     E  EC#-E,  E  E  EC#-E;   E\u2013EC#-E,  E  E  EC#-E",
       "Get it on, bang a gong, get-it on.",
       "A                            E",
+      "Well you're windy and wild you've got the blues in your shoes and your stockings.",
       "Ooooh . . . oooh . . . . . . . . . . . .  oooh . . . . .  . . . . . .  ooh . . .",
       "A         A6   A6G# E    EC#-E,  E  E  EC#-E",
       "You're windy and wild oh   yeah.",
@@ -12371,6 +12366,7 @@ const songData = [
       "And the tears that I cried for that woman, are gonna flood you Big River.",
       "D                   A            D    D  |D|",
       "And I'm gonna sit right here until I die.",
+      "BIG ROCK CANDY MOUNTAIN \u2013 Harry McClintock",
       "(Traditional)",
       "https://www.youtube.com/watch?v=KSGuBNopzBw  (Capo 5)(MC0)",
       "INTRO:  G  C  G  C  G  D  G",
@@ -12425,6 +12421,7 @@ const songData = [
       "<whistle>  G  C  G,  C  G \u2013 C  G",
       "C       G        C      G                          D   G",
       "I'll see you all this coming fall in the Big Rock Candy Mountains.",
+      "BIG ROCK CANDY MOUNTAIN \u2013 Harry McClintock",
       "(Traditional)",
       "https://www.youtube.com/watch?v=KSGuBNopzBw  (Capo 0)(MC1)",
       "INTRO:  C  F  C  F  C  G  C",
@@ -13108,7 +13105,15 @@ const songData = [
       "In the twilight glow I  see her.  Blue, eyes crying, in the rain.",
       "D    D4 D              D4  D         A     A6   A            D",
       "When we kissed goodbye and parted, I knew, we'd never, meet again.",
-      "G    G4 G         G4  G          D                  A     A7",
+      "G    G4 G         G4  G          D                  A     A7"
+    ]
+  },
+  {
+    "title": "Love is like, a dying ember, and on",
+    "artist": "ly memories remain.",
+    "is_sing_along": false,
+    "youtube": "",
+    "content": [
       "D        D4  D          D4 D       A     A6   A              D",
       "And through, the ages, I'll re member, blue, eyes crying, in the rain.",
       "<Repeat chords from first verse>:",
@@ -13327,6 +13332,7 @@ const songData = [
       "E                   D7                   A      AA5  A6  A  E-A  |A6+|",
       "You can do anything but lay off of my blue suede shoes.",
       "BLUEBERRY HILL \u2013 Fats Domino",
+      "(Rose/Stock/Lewis)",
       "https://www.youtube.com/watch?v=0f2ZBrfd5cI  (Capo 4)(MC4)",
       "TIP:  The intro can be played with chords or by picking out the notes thus:",
       "On the bass strings:  Form up (G) and pick the strings indicated before moving to (C).",
@@ -13682,7 +13688,15 @@ const songData = [
       "Of ev'ry glove that laid him down or\u00a0cut him til he cried out,",
       "Em          D            C",
       "In his anger and his shame, I\u00a0am leaving I am\u00a0leaving",
-      "G           D    C  G  G-C-G",
+      "G           D    C  G  G-C-G"
+    ]
+  },
+  {
+    "title": "But the fighter still remains mmm",
+    "artist": "mmm.",
+    "is_sing_along": true,
+    "youtube": "",
+    "content": [
       "Em           D                           Em",
       "Lie\u00a0la\u00a0lie.  Lie\u00a0la\u00a0lie lie la lie lie.  La\u00a0lie\u00a0lie.",
       "C           D                        Em",
@@ -14211,7 +14225,6 @@ const songData = [
       "G                           C                   Am  F    G  C",
       "Somehow you forgot about love and you were just too busy being fabulous uh huh.",
       "Am              C                           Am",
-      "A little time in the country, doo-do-doo, a day or two to slowww down.",
       "F                      G                       F                   G      C",
       "A bottle of wine and a walk in the moonlight.  Maybe some foolin' around.",
       "Am               C                       Am     F",
@@ -17073,41 +17086,26 @@ const songData = [
       "When we're together it feels so right.",
       "A                          E7-full  EC#  E   A     E  D/A  E  A",
       "Could I have this dance, for the rest     of,  my  life?",
-      "COUNTRY IS",
       "Tom T. Hall",
       "https://www.youtube.com/watch?v=tCZnBMDtQjQ  (Capo 0)(MC0)",
       "(TOM) (BACKING) (BARITONE BACKING) (ALL SING)",
       "INTRO:  g \u2013 a \u2013 c  C  C,   G  G  G  C,  |F|-|C|",
       "C           F                 C           F",
-      "Country is,    sittin' on the back porch,",
       "C                           G",
       "Listenin' to the whip-poorwills, late in the day.",
       "C   F               C         F            C               G7         C    C7",
-      "Country is,    mindin' your business,    helpin' a stranger, if he comes your way.",
       "F                 C     F               C                    G7",
-      "Country is, livin' in the city,    knowin' your people, knowin' your kind.",
       "Ooooh . . . . . . .  oooh.",
       "C         F            C        F",
-      "Country i- . . .  -is, what you make it.",
-      "Oh country is",
       "C   G7                     C       g \u2013 a \u2013 c  C  C,   G  G  G  C,  |F|-|C|",
-      "Country i- . . .  -is, all in your mind.",
-      "Oh country is",
       "F             C       F                C                         G",
-      "Country is, workin' for a living,    thinkin' your own thoughts, lovin' your town.",
       "C   F                C         F",
-      "Country is,    teachin' your children,",
       "C             G7                 C       C7",
       "Find out what's right,     and stand your ground.",
       "F              C          F                C                   G7",
-      "And country is, a havin' a good time,    listen to the music, singin' your part.",
       "Ooooh . . . . . . . oooh.",
       "C          F                  C          F",
-      "Country i- . . .  -is, walkin' in the moonlight.",
-      "Oh country is . . .",
       "C   G7                     C        g \u2013 a \u2013 c  C  C,   G  G  G  C,  |F|-|C|",
-      "Country i- . . .  -is, all in your heart.",
-      "Oh country is . . .",
       "COVER OF THE ROLLING STONE",
       "Dr. Hook and the Medicine Show",
       "(Silverstein)",
@@ -18623,7 +18621,6 @@ const songData = [
       "D               G             D               G",
       "Deeper than the oceans higher than the stars above.",
       "D               G             D                    G",
-      "Well I come from the country and I know I-ain't seen it all.",
       "D                  G             D                    G",
       "But I heard that ocean's salty and the stars they sometimes fall.",
       "Em                               F#m",
@@ -19364,7 +19361,6 @@ const songData = [
       "A                D/A     A                          E     A",
       "See the children of  the earth who wake to find the table bare.",
       "D/A     A                     E        A    A  A  E7  A",
-      "See the gentry in  the country riding off to take the air.",
       "E                             D/A                          A",
       "Reaching for his saddlebag he takes a rusty sword into his hand.",
       "E                              D/A                            A",
@@ -19969,15 +19965,8 @@ const songData = [
     "youtube": "",
     "content": [
       "Coo-coo coo-coo . . . . . . . . . . . . . coo-coo . . . . . . . .",
-      "Doo n doo n doo, doo n doo n doo . . . . . . . . . . . . . . . . ."
-    ]
-  },
-  {
-    "title": "Am",
-    "artist": "C - |G|",
-    "is_sing_along": false,
-    "youtube": "",
-    "content": [
+      "Doo n doo n doo, doo n doo n doo . . . . . . . . . . . . . . . . .",
+      "Am - C - |G|",
       "Whooh ooh ooh ooh ooh who ooh.  (I'm happy)",
       "Coo-coo coo-coo . . . . . . . . . . . . . . . . . . . . .",
       "Doo n doo n doo, doo n doo n doo . . . . . . . . . . . . .",
@@ -20110,7 +20099,15 @@ const songData = [
       "Down by the water and down by the old main drag.",
       "D                    Em    Em",
       "Down by the water and down by the old main drag.",
-      "|Em|                  |D|                  |Em|",
+      "|Em|                  |D|                  |Em|"
+    ]
+  },
+  {
+    "title": "Down by the water and down by the old main dra",
+    "artist": "ag.",
+    "is_sing_along": false,
+    "youtube": "",
+    "content": [
       "DOWN BY THE WATER \u2013 Amy Macdonald",
       "(Macdonald/Sims/Parker)",
       "https://www.youtube.com/watch?v=eh6mrl8fpjA  (Capo 2)(MC2)",
@@ -20210,7 +20207,6 @@ const songData = [
       "C                             G                       Am           C            D",
       "Roll down the window feel the cool of a grove hit the palm of your outstretched hand.",
       "G                 D             G       Em            D        G",
-      "Radio's playin' a tune from the country fiddle and an old time band.",
       "C                         G                 F       C      D",
       "Race with the moon to the edge of the water down in Mary's land",
       "G     Em  D  G  Em  D  G",
@@ -20230,7 +20226,6 @@ const songData = [
       "G     Em  D  G  Em  D  G,   C  G  Am  C  D",
       "Down in Mary's land.",
       "G                 D             G       Em            D        G",
-      "Radio's playin' a tune from the country fiddle and an old time band.",
       "C                         G                 F       C      D  G",
       "Race with the moon to the edge of the water down in Mary's la-hand,",
       "C                          F            G            C              Am",
@@ -20685,6 +20680,7 @@ const songData = [
       "F                                   Am",
       "What if I ride?  What if you walk?  What if you rock around the clock?",
       "Gadd",
+      "Tick.  Tock.  Tick.  Tock.",
       "Em                                                                   Dm",
       "What if you did?  What if you walk?  What if you tried to get off, baby? <riff><riff>",
       "G                              Dm",
@@ -20694,6 +20690,7 @@ const songData = [
       "F                                 Am",
       "Maybe you did, maybe you walked.  Maybe you rocked around the clock.",
       "Gadd",
+      "Tick.  Tock.  Tick.  Tock.",
       "Em                                                       Dm  <riff><riff>",
       "Maybe I ride, maybe you walk.  Maybe I try to get off, baby.",
       "C                        G                                 Dm  Dm",
@@ -20710,6 +20707,7 @@ const songData = [
       "F                                 Am",
       "Maybe you did, maybe you walked.  Maybe you rocked around the clock.",
       "Gadd",
+      "Tick.  Tock.  Tick.  Tock.",
       "Em                                                       Dm",
       "Maybe I ride, maybe you walk.  Maybe I try to get off, baby.",
       "C                                                         Dm  <riff> <riff>",
@@ -20964,35 +20962,29 @@ const songData = [
       "C                                                            G",
       "I love to have a beer with Duncan.  I love to have a beer with Dunc.\n                                                   F       G",
       "We drink in moderation, and we never ever ever get rollin' drunk.\n   C                                                      F",
-      "We drink at the Town and Country, where the atmosphere is great.",
       "Dm             G           C    G",
       "I love to have a beer with Duncan, 'cause Duncan's me mate yeah.",
       "C                                                           G",
       "I love to have a beer with Colin.  I love to have a beer with Col.\n                                                           F          G",
       "We drink in moderation, and it doesn't really matter if he brings his doll.\n   C                                                      F",
-      "We drink at the Town and Country, where the atmosphere is great.\n                           Dm            G          C     G-F-C,  C-G-F-C",
       "I love to have a beer with Colin, \u2018cause Colin's me mate.",
       "G",
       "I love to have a beer with Kevin.  Oh I love to have a beer with Kev.\n                                                     F       G",
       "We drink in moderation, and he drives me home in his big old Chev.\n   C                                                      F",
-      "We drink at the Town and Country, where the atmosphere is great.\n                           Dm            G          C    G",
       "I love to have a beer with Kevin, 'cause Kevin's me mate.",
       "C                                                             G",
       "I love to have a beer with Patrick.  I love to have a beer with Pat.\n                                                             F        G",
       "We drink in moderation, and it wouldn't really matter if the beer was flat.",
       "C                                                      F",
-      "We drink at the Town and Country, where the atmosphere is great.\n                           Dm              G            C     G-F-C-C",
       "I love to have a beer with Patrick, 'cause Patrick's me mate.",
       "(\"Change key\")   A  A",
       "D                                                            A",
       "I love to have a beer with Robert.  I love to have a beer with Bob.\n                                          G           A",
       "We drink in moderation, just one more and back on the job.\n   D                                                      G",
-      "We drink at the Town and Country, where the atmosphere is great.\n                           Em             A           D     A",
       "I love to have a beer with Robert, \u2018cause Robert's me mate.",
       "D                                                               A",
       "I love to have a beer with Duncan ohhh I love to have a beer with Dunc.\n                                                   G       A",
       "We drink in moderation, and we never ever ever get rollin' drunk.\n   D                                                      G",
-      "We drink at the Town and Country, where the atmosphere is great.",
       "Em             A           D    A",
       "I love to have a beer with Duncan, 'cause Duncan's me mate.",
       "G                        Em            A           D     |D|",
@@ -22330,7 +22322,15 @@ const songData = [
       "F              |Am|  |Am|-|NC|-|Am|, |Am|-|NC|-|Am|, |Am|-|NC|-|F|",
       "The eye of the tiger,",
       "F               |Am| |Am|-|NC|-|Am|, |Am|-|NC|-|Am|, |Am|-|NC|-|F|,  F  F  |Am|",
-      "The eye of the tiger.",
+      "The eye of the tiger."
+    ]
+  },
+  {
+    "title": "FARE AWAY",
+    "artist": "The New Main Street Singers",
+    "is_sing_along": false,
+    "youtube": "",
+    "content": [
       "(Vanston/McKean/O'Toole)",
       "https://www.youtube.com/watch?v=megY_67DHCo  (Capo 0)(MC1)",
       "TIP:  The intro are the chords from the chorus, \"Fare away . . . \"",
@@ -22341,12 +22341,28 @@ const songData = [
       "Sun breaks over the sprits'l yard.  Jib sheet's hauling to leeward hard.",
       "G                     C       G      C       G         D       G     D          G",
       "Crosstree's hummin' a morning hymn.  I'm the cabin boy call me Jim.  His name's Jim.",
-      "C  G           C     G          D    C     G",
+      "C  G           C     G          D    C     G"
+    ]
+  },
+  {
+    "title": "Fare away fare away under main topsail to the fur below of the wily wha",
+    "artist": "ale.",
+    "is_sing_along": false,
+    "youtube": "",
+    "content": [
       "C       G      C         G           A         D",
       "Captain's stalking the quarter deck.  Tells the tale of his first shipwreck.",
       "G               C       G     C          G            D     G",
       "Castaway with a case of rum.  Hoped that rescue would never come.  (Never come).",
-      "C  G           C     G          D    C     G",
+      "C  G           C     G          D    C     G"
+    ]
+  },
+  {
+    "title": "Fare away fare away under main topsail to the fur below of the wily wha",
+    "artist": "ale.",
+    "is_sing_along": false,
+    "youtube": "",
+    "content": [
       "C     G         |D|  |D|  |D|  |D|"
     ]
   },
@@ -22361,7 +22377,16 @@ const songData = [
       "G                    C        G     C        G           A     D",
       "First mate Peter's a hardened man.  Says the captain's a charlatan.",
       "G                      C       G              C       G        D             G",
-      "C  G           C     G          D    C     G",
+      "Don't know tackle from futtock plates.  He'll sail us into the Pearrrrr - ly Gates.",
+      "C  G           C     G          D    C     G"
+    ]
+  },
+  {
+    "title": "Fare away fare away under main topsail to the fur below of the wily wha",
+    "artist": "ale.",
+    "is_sing_along": false,
+    "youtube": "",
+    "content": [
       "C     G           C        G         A         D",
       "I been sailing these seven seas, since I's nigh high to a mermaid's knees.",
       "G                   C     Gadd      C       G        C          G",
@@ -23398,6 +23423,7 @@ const songData = [
       "D           D7            G       D        D7                 C   D",
       "I ain't the kind to hang around.  With any new love that I've fou-ound.",
       "G                           Em                A    D             D7              G",
+      "Since movin' is my stock in trade.  I'm movin on.  I won't think of you when I'm gone.",
       "E  D-D,  E  D;   E  D-D,  E  G",
       "D            D7              G    D               D7                   C  D",
       "So don't you shed a tear for me.  Cuz I ain't the love you thought I'd be-ee.",
@@ -23428,6 +23454,7 @@ const songData = [
       "D           D7            G       D        D7                 Em  D",
       "I ain't the kind to hang around.  With any new love that I've fou-ound.",
       "G                     Em                A    D             D7              G",
+      "Movin' is my stock in trade.  I'm movin on.  I won't think of you when I'm gone.",
       "D            D7              G    D           D7                   Em D",
       "So don't you shed a tear for me.  I ain't the love you thought I'd be-ee.",
       "G                            Em               A",
@@ -23731,14 +23758,8 @@ const songData = [
     "artist": "3/6) (F - 3/4) (C - 3/5) (Gadd - 3/6), (2-3 open or G 5-6)",
     "is_sing_along": false,
     "youtube": "",
-    "content": []
-  },
-  {
-    "title": "(G",
-    "artist": "3/6) (F - 3/4) (C - 3/5) (Gadd - 3/6), (2-3 open or G 5-6)",
-    "is_sing_along": false,
-    "youtube": "",
     "content": [
+      "(G - 3/6) (F - 3/4) (C - 3/5) (Gadd - 3/6), (2-3 open or G 5-6)",
       "G                    F                       C                           G",
       "Some folks are born, made to wave the flag.  Ooooh they're red white and blue.",
       "F                   C                            G",
@@ -23871,15 +23892,8 @@ const songData = [
     "content": [
       "I'll look for you if I'm ever back this way.",
       "C                    Dm                 G                  C",
-      "If I get there before the snow flies, and if things are lookin' good,"
-    ]
-  },
-  {
-    "title": "Dm                 G     G7 \u2013 G",
-    "artist": "G7",
-    "is_sing_along": false,
-    "youtube": "",
-    "content": [
+      "If I get there before the snow flies, and if things are lookin' good,",
+      "Dm                 G     G7 \u2013 G - G7",
       "You could meet me, if I send you, down the fare.",
       "C                Dm              G               C",
       "But by then it would be winter, not too much for you to do,"
@@ -25218,7 +25232,6 @@ const songData = [
       "C    Em  Dm      G7   C    Em    Dm-G7  |C|",
       "Ah gir- irl ssssss.      Girrrrrrl",
       "Girl.",
-      "GIRL FROM THE NORTH COUNTRY",
       "Nitty Gritty Dirt Band",
       "(Dylan)",
       "https://www.youtube.com/watch?v=3Q3nTFnp0Fg  (Capo 2)(MC4)",
@@ -25226,7 +25239,6 @@ const songData = [
       "(JAIME) (JAIME & JEFF)",
       "INTRO:   Gadd,  Gadd,  Em",
       "D             G    G",
-      "Well if you're travelin', in the north country fair, \n          Em                     C         G     G",
       "Where the winds hit heavy on the,   border line, \n  Em            C             G      G",
       "Remember me, to one who lives there. \nEm       G     C            G    G   Em",
       "She once was a true love of mine.",
@@ -25248,7 +25260,6 @@ const songData = [
       "Innn the darkness,   of my night, \n    Em      G          C        G    G   Em",
       "And in, the brightness,   of my day.",
       "D             G    G",
-      "So if you're travelin' in the north country fair, \n          Em                     C         G     G",
       "Where the winds hit heavy on the,   border line, \n  Em            C             G      G",
       "Remember me, to one who lives there. \nEm       G     C            G     G",
       "She once was a true love of mine.",
@@ -25483,21 +25494,11 @@ const songData = [
       "G            D     D-  G",
       "When the road finally takes me  home.",
       "F         Gadd         F         Gadd  G     Gadd       C     G",
-      "I'm going hooooooome.  I'm going hoooo-ome.  IIIIIIII'm going home."
-    ]
-  },
-  {
-    "title": "GOING UP THE COUNTRY",
-    "artist": "Canned Heat",
-    "is_sing_along": false,
-    "youtube": "",
-    "content": [
+      "I'm going hooooooome.  I'm going hoooo-ome.  IIIIIIII'm going home.",
       "(Thomas/Wilson)",
       "https://www.youtube.com/watch?v=p0PjECSyJ7w  (Capo 1)(MC1)",
       "INTRO:  <\"whistle\">   A,  A  D;   D,  D  A,  D  A;   A  E,  E  A",
-      "I'm goin' up the country, baby-don't-you want to go?",
       "D                                       A",
-      "I'm goin' up the, country, baby-don't-you want to go?",
       "E                       E7           A",
       "I'm goin' to someplace where I've never been before.",
       "I'm goin', I'm goin', where the water tastes like wine.",
@@ -26198,14 +26199,8 @@ const songData = [
     "artist": "f# - e \u2013 d \u2013 e \u2013 b  Gadd,   e \u2013 f# - e \u2013 d \u2013 e \u2013 b  D",
     "is_sing_along": false,
     "youtube": "",
-    "content": []
-  },
-  {
-    "title": "f#",
-    "artist": "f# - e \u2013 d \u2013 e \u2013 b  A,   f# - a \u2013 f# - a  D",
-    "is_sing_along": false,
-    "youtube": "",
     "content": [
+      "f# - f# - e \u2013 d \u2013 e \u2013 b  A,   f# - a \u2013 f# - a  D",
       "or      D  Em-Gadd,   Em  Em-D,   D  A7,   A  D",
       "G        Gadd",
       "Grandpa, tell me about the good ol' days.",
@@ -29100,15 +29095,9 @@ const songData = [
       "And\u00a0it's\u00a0been,\u00a0the\u00a0ruin,\u00a0of\u00a0many\u00a0a\u00a0poor\u00a0boy,",
       "Am     E         Am   C  D  F  Am  E  Am",
       "And God, I know, I'm one.",
-      "Dm  Am,   Dm  Am,   |Dm|-|Dm|-|Dm|-|Dm|-|Dm|-|Dm|,   |Am|-|Am|-|Am|-|Am|-|Am|-|Am|"
+      "Dm  Am,   Dm  Am,   |Dm|-|Dm|-|Dm|-|Dm|-|Dm|-|Dm|,   |Am|-|Am|-|Am|-|Am|-|Am|-|Am|",
+      "|Dm|-|Dm|-|Dm|-|Dm|-|Dm|-|Dm|,   |Am|-|Am|-|Am|-|Am|-|Am|-|Am|,  3 \u2013 2 \u2013 1 - P3"
     ]
-  },
-  {
-    "title": "|Dm|-|Dm|-|Dm|-|Dm|-|Dm|-|Dm|,   |Am|-|Am|-|Am|-|Am|-|Am|-|Am|,  3 \u2013 2 \u2013 1",
-    "artist": "P3",
-    "is_sing_along": false,
-    "youtube": "",
-    "content": []
   },
   {
     "title": "HOW LONG",
@@ -30579,15 +30568,8 @@ const songData = [
       "C     CaddG    Gadd           F               D",
       "I had a beer and now I hear you calling out for me.",
       "G         Gadd    C       D         G",
-      "Still I hope that I don't fall in love with you."
-    ]
-  },
-  {
-    "title": "f#",
-    "artist": "g \u2013 a       G       Gadd    C           D",
-    "is_sing_along": false,
-    "youtube": "",
-    "content": [
+      "Still I hope that I don't fall in love with you.",
+      "f# - g \u2013 a       G       Gadd    C           D",
       "See the room is crowded people everywhere.",
       "G      Gadd     C           D",
       "And I wonder should I offer you a chair?",
@@ -30596,15 +30578,8 @@ const songData = [
       "C      CaddG   Gadd            C               D",
       "I wish I had the guts to bum one but we've never met.",
       "G         Gadd    C       D         G",
-      "And I hope that I don't fall in love with you."
-    ]
-  },
-  {
-    "title": "f#",
-    "artist": "g \u2013 a       G          Gadd  C               D",
-    "is_sing_along": false,
-    "youtube": "",
-    "content": [
+      "And I hope that I don't fall in love with you.",
+      "f# - g \u2013 a       G          Gadd  C               D",
       "See the night does funny things inside a man.",
       "G      Gadd     C              D",
       "These old tomcat feelings you don't understand.",
@@ -30613,15 +30588,8 @@ const songData = [
       "C          CaddG    Gadd             C                   D",
       "The guy you're with has up and split the chair next to you's free.",
       "G         Gadd      C       D         G",
-      "Now I hope that you don't fall in love with me."
-    ]
-  },
-  {
-    "title": "f#",
-    "artist": "g \u2013 a        G       Gadd           C              D",
-    "is_sing_along": false,
-    "youtube": "",
-    "content": [
+      "Now I hope that you don't fall in love with me.",
+      "f# - g \u2013 a        G       Gadd           C              D",
       "Now it's closing time . . . the music's fading out.",
       "G        Gadd        C            D",
       "Last call for drinks I'll have another stout.",
@@ -30887,7 +30855,6 @@ const songData = [
       "A7                      D",
       "Slow moving trains, and rain.",
       "G              D        G             D",
-      "I love, little country streams, sleep without dreams,",
       "A7                        D",
       "Sunday school in May, and hay.",
       "(D/A) 4 \u2013 3 \u2013 2 \u2013 3 \u2013 1 \u2013 2 \u2013 3,  4 \u2013 3 \u2013 2 \u2013 3 \u2013 1 \u2013 2 \u2013 3",
@@ -30933,7 +30900,6 @@ const songData = [
       "D7                      G",
       "Slow moving trains, and rain.",
       "C              G        C             G",
-      "I love, little country streams, sleep without dreams,",
       "D7                        G    G  6 \u2013 5 \u2013 4 \u2013 5 \u2013 3 \u2013 4 - 5,  6 \u2013 5 \u2013 4 \u2013 5 \u2013 3 \u2013 4 \u2013 5",
       "Sunday school in May, and hay.",
       "C  D         G",
@@ -31710,7 +31676,6 @@ const songData = [
       "There isn't an ocean too deep.  A mountain so high it can keep.",
       "G        C    Am    G            C",
       "Keep me away.      Away from His love.",
-      "<strum C upbeat tempo>",
       "I love Him, I love Him, I love Him.",
       "Am",
       "And where He goes I'll follow, I'll follow, I'll follow.",
@@ -32105,15 +32070,8 @@ const songData = [
       "Dm            G          C",
       "'Cause I'm happy\u00a0just\u00a0to\u00a0dance\u00a0with\u00a0you.",
       "Am               Dm  E7     Am           Dm  E",
-      "Just\u00a0to dance\u00a0with\u00a0you.\u00a0         Is\u00a0everything\u00a0I\u00a0nee-eed."
-    ]
-  },
-  {
-    "title": "Oh",
-    "artist": "oh.",
-    "is_sing_along": false,
-    "youtube": "",
-    "content": [
+      "Just\u00a0to dance\u00a0with\u00a0you.\u00a0         Is\u00a0everything\u00a0I\u00a0nee-eed.",
+      "Oh - oh.",
       "Am                            Dm       E7",
       "Before this dance is through I think I'll love\u00a0you\u00a0too.",
       "Ohhhh . . . . . . . . . . . . ohhh . . ohh.",
@@ -32129,15 +32087,8 @@ const songData = [
       "Dm            G          C",
       "Cause\u00a0I'm\u00a0happy just\u00a0to\u00a0dance with you.",
       "Am               Dm   E7     Am           Dm  E",
-      "Just\u00a0to dance\u00a0with\u00a0you.\u00a0          Is\u00a0everything\u00a0I\u00a0nee-eed."
-    ]
-  },
-  {
-    "title": "Oh",
-    "artist": "oh                  Oh - oh.",
-    "is_sing_along": false,
-    "youtube": "",
-    "content": [
+      "Just\u00a0to dance\u00a0with\u00a0you.\u00a0          Is\u00a0everything\u00a0I\u00a0nee-eed.",
+      "Oh - oh                  Oh - oh.",
       "Am                            Dm       E7",
       "Before this dance is through I think I'll love\u00a0you\u00a0too.",
       "Ohhhh . . . . . . . . . . . . ohhh . . ohh.",
@@ -32341,6 +32292,7 @@ const songData = [
       "I'M YOURS",
       "Jason Mraz",
       "https://www.youtube.com/watch?v=EkHTsc9PU2A  (Capo 4)(MC3)",
+      "(JASON) (TOCA) (JASON & TOCA) (TOCA/ABBY/GIANNA/LAUREN/TAYLOR)",
       "INTRO:   |DaddA|-G  G,  |G|-D  D,  |D|-Em  Em,   |Em|-C  C",
       "G",
       "Well you done done me in you bet I felt it,",
@@ -32533,15 +32485,8 @@ const songData = [
       "Fallin', yes I am fallin', and she keeps callin', me back again.",
       "D                 C                      G        C        G",
       "Oh fallin', yes I am fallin', and she keeps callin', me back again.",
-      "<one strum each>  |C| |G| |D| |G|-|D|-|G|  <pluck two treble strings of G once to end>"
-    ]
-  },
-  {
-    "title": "IF",
-    "artist": "Bread",
-    "is_sing_along": false,
-    "youtube": "",
-    "content": [
+      "<one strum each>  |C| |G| |D| |G|-|D|-|G|  <pluck two treble strings of G once to end>",
+      "IF - Bread",
       "(Gates)",
       "https://www.youtube.com/watch?v=LYFJRomR12k  (Capo 0)(MC1)",
       "TIP:  (Bm4) is just (Bm) played on the 4th fret.",
@@ -33690,15 +33635,8 @@ const songData = [
       "CaddG                Gadd              CaddG          Gadd",
       "It's too bad, that all, these things.  Can only happ,en in, my dreams.",
       "Ahhhh . . . . . . . . . . .            Ahhhhh . . . . . . . .",
-      "C    Cmaj7    D7          Dm7   G7      C"
-    ]
-  },
-  {
-    "title": "On",
-    "artist": "ly    in dreams.  In beau- ti- ful dreams.",
-    "is_sing_along": false,
-    "youtube": "",
-    "content": [
+      "C    Cmaj7    D7          Dm7   G7      C",
+      "On - ly    in dreams.  In beau- ti- ful dreams.",
       "Ohhhh . . . . . . . .     Ooooh ooooh . . . . .",
       "IN LONESOME DOVE \u2013 Garth Brooks",
       "(Limbaugh/Brooks)",
@@ -34003,7 +33941,6 @@ const songData = [
       "https://www.youtube.com/watch?v=GL7ZjFp1Z5s  (Capo 2)(MC2) (Soggy Bottom Boys)",
       "https://www.youtube.com/watch?v=p3L2qf3q-ok  (Capo 3) (Jimmie)",
       "[An easier version without the (B) chords follows.]",
-      "TIP:  There are several versions of this venerable old blues classic.  This is the one that appeared in the film \"O Brother Where Art Thou?\"",
       "(DELMAR) (PETE)",
       "INTRO:   A  A6-A  A,   A  Asus2  D,   E  E,   E  E7,   E7  E  A",
       "I had a friend named Ramblin' Bob.  He used to steal gamble and rob.",
@@ -34870,7 +34807,6 @@ const songData = [
       "NC                C          F  G  C,  C  F  G  C . . .",
       "It's five o'clock somewhere.",
       "< . . . C  F  G  C,   C  F  G  C . . . repeats over the spoken outro >",
-      "What time zone am I on? What country am I in?",
       "It doesn't matter it's five o'clock somewhere.",
       "It's always on five in Margaritaville come to think of it.",
       "I heard that.",
@@ -34948,7 +34884,6 @@ const songData = [
       "NC                D          G  A  D,  D  G  A  D . . .",
       "It's five o'clock somewhere.",
       "< . . . D  G  A  D,   D  G  A  D . . . repeats over the spoken outro >",
-      "What time zone am I on? What country am I in?",
       "It doesn't matter it's five o'clock somewhere.",
       "It's always on five in Margaritaville come to think of it.",
       "I heard that.",
@@ -35655,6 +35590,7 @@ const songData = [
       "A",
       "Bangor,  Baltimore,  Salvador,  Amarillo,",
       "D",
+      "Tocapillo,  Baranquilla,  and Perdilla,  I'm a killer.",
       "D",
       "I've been everywhere man.  I've been everywhere man.",
       "G                                   D",
@@ -35747,6 +35683,7 @@ const songData = [
       "I've been to Ettalong, Dandenong, Woodenbong, Ballarat,",
       "Canberra, Milperra, Unanderra, Captain's Flat,",
       "Cloncurry, River Murray, Kurri Kurri, Girraween,",
+      "Terrigal, Fingal, Stockinbingal, Collaroy and Narrabeen,",
       "Bendigo, Dorrigo, Bangalow, Indooroopilly,",
       "Kirribilli, Yeerongpilly, Wollondilly, don't be silly.",
       "I've been here, there, ev'rywhere, I've been ev'rywhere.",
@@ -35882,7 +35819,6 @@ const songData = [
       "D",
       "There stood a log cabin made of earth and wood,",
       "A",
-      "Where lived a country boy named Johnny B. Goode.",
       "E                             E7",
       "Who never ever learned to read or write so well",
       "A",
@@ -35902,7 +35838,6 @@ const songData = [
       "E                            E7",
       "People passing by they would stop and say,",
       "A",
-      "\"Oh my that little country boy could play.\"",
       "|A|-|Asus|-|A|-|Asus|-|A|                    |A|-|Asus|-|A|-|Asus|-|A|",
       "Go-go,                            go Johnny go, go.",
       "D                  A   |A|-|Asus|-|A|-|Asus|-|A|",
@@ -36370,7 +36305,6 @@ const songData = [
       "C                          F           C     F",
       "Oooh-oh-oh soon soon we'll be married, and raise a family oh yeah.",
       "C                                           F                  C      F",
-      "A cozy, little home, out in the country, with two children maybe three.",
       "C        F                 C           F",
       "I tell you I . . .  I . . . can visualize it all.",
       "F",
@@ -37506,6 +37440,7 @@ const songData = [
       "Wednesday morning papers didn't come.",
       "Pa pa pa pa pa,        pa pa pa pa pa pa pa pa.",
       "Dm                                  G7",
+      "Thursday night your stocking needed mending.",
       "Pa pa pa pa,               pa pa pa pa pa pa pa pa.",
       "|C| |Bm|     |E7|   E",
       "See, how they ru-  -un.",
@@ -37524,7 +37459,6 @@ const songData = [
     "content": [
       "(Kenner)",
       "https://www.youtube.com/watch?v=7fa4BfPQiKs  (Capo 5)(MC3)",
-      "--; (WILSON) (WILSON & MUSCLE SHOALS RHYTHM SECTION)",
       "|F#m|                 |A|   <gentle trill of (A)>",
       "INTRO:  One-two-three.        One-two-three.",
       "|A|-|A|-|A7|-|A| . . . .",
@@ -41424,15 +41358,8 @@ const songData = [
       "Dm             G7              C",
       "I'll be yours through all the years, till the end of time.",
       "E       Am      C7     F       Fm         C",
-      "Love me tender, love me true.  All, my dreams, fulfilled."
-    ]
-  },
-  {
-    "title": "A        Dm           G7           C     3 \u2013 b3 \u2013 b3",
-    "artist": "bO",
-    "is_sing_along": false,
-    "youtube": "",
-    "content": [
+      "Love me tender, love me true.  All, my dreams, fulfilled.",
+      "A        Dm           G7           C     3 \u2013 b3 \u2013 b3 - bO",
       "For my, darling, I love you.  And I always will.",
       "LOVE ME TONIGHT",
       "Don Williams",
@@ -41779,7 +41706,6 @@ const songData = [
       "Am     Gadd     D  D4  D  Dsus2-D,   Am     Gadd     D  D4  D  Dsus2-D",
       "Awwwwwwwwwwwwwwww,                   Awwwwwwwwwwwwwwww.",
       "G              D             G                D",
-      "He went, to fight wars, for his country, and his king.",
       "G              D          G             D",
       "Of his honor, and his glory, the people, would sing.",
       "Am           G    Gadd      Em  D      D4  D  Dsus2-D",
@@ -43711,7 +43637,6 @@ const songData = [
       "Sha-la-la-lah        Ooooooh . . . . . . . . . . . . . . . . . . . . . . . (cont)",
       "E7        D     A",
       "A huh-huh.  Yeah, yea-yeah. (Get real low now.)",
-      ". . . . . . . . . . . . . .",
       "Ahhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhh-ah.",
       "Sha-la-la-la  sha-la-la-lah, sha-la-la-la  sha-la-la-lah",
       "D                                        A                 E7",
@@ -44060,15 +43985,8 @@ const songData = [
       "F  C",
       "Michael's boat is a music boat, hallelu-jah.",
       "Em              Dm         C   G  C",
-      "Michael's boat is a music boat, hallelu\u2013 u- jah."
-    ]
-  },
-  {
-    "title": "Bo",
-    "artist": ". . . . .  oat",
-    "is_sing_along": false,
-    "youtube": "",
-    "content": [
+      "Michael's boat is a music boat, hallelu\u2013 u- jah.",
+      "Bo - . . . . .  oat",
       "F   C",
       "Michael row the boat ashore, hallelu-jah.",
       "Em            Dm          C  G C",
@@ -44154,15 +44072,8 @@ const songData = [
       "Gadd                       C  G",
       "Michael's boat is a music boat, hallelu-jah.",
       "Bm              Am         G  D G",
-      "Michael's boat is a music boat, hallelu-u-jah."
-    ]
-  },
-  {
-    "title": "Bo",
-    "artist": ". . . . . . oat",
-    "is_sing_along": false,
-    "youtube": "",
-    "content": [
+      "Michael's boat is a music boat, hallelu-u-jah.",
+      "Bo - . . . . . . oat",
       "Gadd                      C  G",
       "Michael row the boat ashore, hallelu-jah.",
       "Bm            Am          G  D G",
@@ -44298,7 +44209,6 @@ const songData = [
       "G                                   D",
       "In the middle of a dance floor all alone,",
       "Em                 C",
-      "In the middle of an old school country song.",
       "G                     D                                   G",
       "Right when I was just about to lean on in why'd you have to go then?  Baby-y (yyyy...",
       "D",
@@ -44321,7 +44231,6 @@ const songData = [
       "D",
       "In the middle of a dance floor all alone,",
       "Em                 C",
-      "In the middle of an old school country song.",
       "G                     D                                    G",
       "Right when I was just about to lean on in, why'd you have to go then?  Baby-y,(yyyy...",
       "D",
@@ -46245,7 +46154,15 @@ const songData = [
       "A7  A       A7  A",
       "Now all you want to do is ride around Sal-ly ride Sal-ly ride.",
       "A7  A       A7  A  |A|",
-      "All you want to do is ride around Sal-ly ride Sal-ly ride.",
+      "All you want to do is ride around Sal-ly ride Sal-ly ride."
+    ]
+  },
+  {
+    "title": "MY BACK PAGES",
+    "artist": "Bob Dylan and Friends",
+    "is_sing_along": false,
+    "youtube": "",
+    "content": [
       "(30th Anniversary Tribute)",
       "(Dylan)",
       "https://www.youtube.com/watch?v=rGEIMCWob3U  (Capo 4)(MC5)",
@@ -46313,7 +46230,15 @@ const songData = [
       "<Young solo>   C-Am  Em  Em  F  G  C,   C  Am  Em  Em  F  G,   Am  Em  F  G",
       "C             F     C         F       G         C    F,  C  F,  C  F,  C  F,  |C|",
       "But I was so much older then, I'm younger than that now,",
-      "C . . . |C|",
+      "C . . . |C|"
+    ]
+  },
+  {
+    "title": "MY BACK PAGES",
+    "artist": "The Byrds",
+    "is_sing_along": false,
+    "youtube": "",
+    "content": [
       "(Dylan)",
       "https://www.youtube.com/watch?v=1G9TJk853ps  (Capo 4)(MC5)",
       "TIP:  The Byrd's version of this Dylan song omits two verses.  Those verses are performed in the Dylan and Friends version.",
@@ -46401,7 +46326,6 @@ const songData = [
       "D                  A                  E",
       "Oh have you seen, my dear companion, for he was all, this world to me.",
       "A                 D                    A         E        A",
-      "I hear he's gone, to some far country, and that he cares, no more for me.",
       "D/A             A                                        E",
       "I wish I were, a swallow flying.  I'd fly to a high, and lonesome place.",
       "A                    D/A                 A        E          A",
@@ -46438,7 +46362,6 @@ const songData = [
       "Gadd             C                  Gadd               D",
       "Oh have you seen, my dear companion, for he was all, this world to me.",
       "Gadd              C                    Gadd      D        G",
-      "I hear he's gone, to some far country, and that he cares, no more for me.",
       "C               G                                        D",
       "I wish I were, a swallow flying.  I'd fly to a high, and lonesome place.",
       "Gadd                 C                   Gadd     D          G",
@@ -46857,7 +46780,6 @@ const songData = [
       "G                            D           G",
       "Just take what you need, from the ladies then leave them,",
       "D           A7          D     D7",
-      "With the words, of a sad country song.",
       "G                       D         E7                    A7",
       "My heroes have always been cowboys.  And they still are it seems.",
       "G                       D           G            D                 A7          D",
@@ -47545,15 +47467,8 @@ const songData = [
     "is_sing_along": false,
     "youtube": "",
     "content": [
-      "INTRO <2nd fret/4-3-2>:  4c - 4c - 3o- 3c - 2o - 3c - 3o - 4o - 4c - 4c - 4o - 4c - 4c"
-    ]
-  },
-  {
-    "title": "4o",
-    "artist": "4c - 4c - 3o - 3c - 2o - 3c - 3o - 4o - 4c",
-    "is_sing_along": false,
-    "youtube": "",
-    "content": [
+      "INTRO <2nd fret/4-3-2>:  4c - 4c - 3o- 3c - 2o - 3c - 3o - 4o - 4c - 4c - 4o - 4c - 4c",
+      "4o - 4c - 4c - 3o - 3c - 2o - 3c - 3o - 4o - 4c",
       "INTRO <2nd fret/4-3-2 notes>:  e - e - g - a - b - a - g - d - e - e - d - e - e",
       "d - e - e - g - a - b - a - g - d \u2013 e",
       "Em, Emsus2-Em  Em;    Em, Emsus2-Em  Em;   Em, Emsus2-Em  Em;    Em, Emsus2-Em  Em",
@@ -47820,15 +47735,8 @@ const songData = [
       "Ahhhhhhhhhh             Ahhhhhhhh.",
       "Em            D    Em  Em",
       "Oh how I love you.",
-      "Ahhhhhhhh."
-    ]
-  },
-  {
-    "title": "1982",
-    "artist": "Randy Travis",
-    "is_sing_along": false,
-    "youtube": "",
-    "content": [
+      "Ahhhhhhhh.",
+      "1982 - Randy Travis",
       "(Blackmon/Vipperman)",
       "https://www.youtube.com/watch?v=EJRl5GrW_34  (Capo 2)(MC0)",
       "(RANDY) (KATHIE/DIANE/LISA) (ALL SING)",
@@ -48053,7 +47961,6 @@ const songData = [
       ". . . . . . . . . . . oooh . . . . . . . . . . . . . . ahhhh . . .",
       "D    D  G  G",
       "No matter who you are.",
-      ". . . . . . . . . . . .",
       "D      D                 G     G",
       "Between the soaring dream,    and the bottom line,",
       "D   D                    G     G        D   D           G  G",
@@ -51957,7 +51864,6 @@ const songData = [
       "(MICHAEL) (MICHAEL/DON/HERB)",
       "INTRO:   G  G",
       "C             Am",
-      "I remember a country evening, when the sun was goin' down.",
       "D                           C                G",
       "Sittin' on the front porch, listenin' to the sounds.",
       "C              Am",
@@ -52037,7 +51943,6 @@ const songData = [
     "youtube": "",
     "content": [
       "D               A",
-      "There's a big brown cloud in the city, and the countryside's a sin.",
       "D                    A                                 E",
       "And the price of life is too high to give up; gotta come down again.",
       "A                 E7       A                                 D",
@@ -56499,7 +56404,6 @@ const songData = [
     "youtube": "",
     "content": [
       "D              G",
-      "From the corners of the country, from the cities and the farms.",
       "Em                 C                 G                D",
       "With years and years of livin' tucked up, underneath their arms.",
       "Em             C                  G                C",
@@ -56555,7 +56459,6 @@ const songData = [
     "youtube": "",
     "content": [
       "D              G",
-      "From the corners of the country, from the cities and the farms.",
       "Em                 C                 G                D",
       "With years and years of livin' tucked up, underneath their arms.",
       "Em             C                  G                C",
@@ -60702,6 +60605,7 @@ const songData = [
       "G           F            Em    Em",
       "Now the first of December, was covered with snow.",
       "Am         F             C              Em      Em",
+      "And so was the turnpike from Stockbridge to Boston.",
       "Am                F               C             Em",
       "Though the Berkshires seemed dream-like on account of that frosting.",
       "F           C           G            Dm          Dm  G7",
@@ -61369,7 +61273,6 @@ const songData = [
     "is_sing_along": true,
     "youtube": "",
     "content": [
-      "TAKE ME HOME COUNTRY ROADS",
       "John Denver",
       "https://www.youtube.com/watch?v=1vrEljMfXYo  (Capo 2)(MC0/2)",
       "(JOHN) (JOHN & TAFFY) (JOHN/BILL/TAFFY) (BILL & TAFFY)"
@@ -61388,9 +61291,7 @@ const songData = [
       "D                           C              G",
       "Younger\u00a0than\u00a0the\u00a0mountains, growin' like a breeze.",
       "D            Em         C",
-      "Country\u00a0Roads,\u00a0take\u00a0me\u00a0home, to the place,\u00a0I\u00a0belong.",
       "G               D              C             G",
-      "West Virginia, mountain Momma, take\u00a0me\u00a0home,\u00a0country\u00a0roads.",
       "Em                  D             C                G",
       "All\u00a0my\u00a0mem'ries,\u00a0gather\u00a0'round\u00a0her.  Miner's lady,\u00a0stranger to blue\u00a0water.",
       "Em",
@@ -61398,9 +61299,7 @@ const songData = [
       "D                        C              G",
       "Misty taste of moonshine\u00a0teardrop\u00a0in\u00a0my\u00a0eye.",
       "D            Em         C",
-      "Country\u00a0Roads,\u00a0take\u00a0me\u00a0home, to the place,\u00a0I\u00a0belong.",
       "G               D              C             G",
-      "West Virginia, mountain Momma, take\u00a0me\u00a0home,\u00a0country\u00a0roads.",
       "Em         D            G",
       "I\u00a0hear\u00a0her\u00a0voice in the\u00a0mornin'\u00a0hour as\u00a0she\u00a0calls\u00a0me.",
       "C       G              D",
@@ -61410,15 +61309,10 @@ const songData = [
       "D7",
       "Yesterday.",
       "D            Em         C",
-      "Country\u00a0Roads,\u00a0take\u00a0me\u00a0home, to the place,\u00a0I\u00a0belong.",
       "G               D              C             G",
-      "West Virginia, mountain Momma, take\u00a0me\u00a0home,\u00a0country\u00a0roads.",
       "D            Em         C",
-      "Country\u00a0Roads,\u00a0take\u00a0me\u00a0home, to the place,\u00a0I\u00a0belong.",
       "G               D              C             G",
-      "West Virginia, mountain Momma, take\u00a0me\u00a0home,\u00a0country\u00a0roads.",
-      "D                  G               D                  G      D  G-C-G",
-      "Take\u00a0me\u00a0home,\u00a0down country\u00a0roads.  Take\u00a0me home,\u00a0down country\u00a0roads."
+      "D                  G               D                  G      D  G-C-G"
     ]
   },
   {
@@ -63507,7 +63401,6 @@ const songData = [
       "D                  G     G  G",
       "Just waitin' in its old case.",
       "D      Dsus2     D       Dsus2  D  Dsus2",
-      "It's been up and down, the country roads.",
       "D                    G      G  A",
       "It's brought a tear and a smile.",
       "D        Dsus2     D          Dsus2  D  Dsus2",
@@ -64042,15 +63935,8 @@ const songData = [
       "Peelin' the years away and we can't relive it.",
       "G          D          G           D",
       "Oh I make you laugh, and you make me cry.",
-      "|A|                            D     G   A   D  G-A"
-    ]
-  },
-  {
-    "title": "I believe it's time for me to fly \u2013 y",
-    "artist": "y.",
-    "is_sing_along": false,
-    "youtube": "",
-    "content": [
+      "|A|                            D     G   A   D  G-A",
+      "I believe it's time for me to fly \u2013 y - y.",
       "D                              A",
       "You said we'd work it out, you said that you had no doubt,",
       "G                           D     G  D",
@@ -66622,6 +66508,7 @@ const songData = [
       "(Henley/Smith)",
       "https://www.youtube.com/watch?v=DpQtqulVYBs  (Thank you Rhino/Electra)  (Capo 1)(MC4)",
       ";",
+      "--- (DON) (DON/GLENN/JOE/TIM) (GLENN/JOE/TIM) (TIMOTHY)",
       "INTRO (Form Gadd):  3 \u2013 2 \u2013 3 \u2013 SS,   2 \u2013 3 \u2013 2 \u2013 3 \u2013 SS,   2 \u2013 3 \u2013 2 \u2013 3 \u2013 SS",
       "2 \u2013 3 \u2013 2 \u2013 3 \u2013 SS,   2 \u2013 3 \u2013 2 \u2013 3",
       "G                          Em",
@@ -67197,26 +67084,12 @@ const songData = [
       "Yeah I'm a wanderer, yeah the wanderer.  I roam around around around around.",
       "Humma      ahhhh . . . . . .  ahhhh . .          Humma humma humma humma . . .",
       "<sax solo>               D . . . . . . .           D . . . .",
-      "Oh my let go . . . . . .  yeah I'm"
-    ]
-  },
-  {
-    "title": "Ahhhhhhh . . . . . . . . . . . . .  whop",
-    "artist": "ah",
-    "is_sing_along": false,
-    "youtube": "",
-    "content": [
+      "Oh my let go . . . . . .  yeah I'm",
+      "Ahhhhhhh . . . . . . . . . . . . .  whop - ah",
       "G . . . .   D . . . .",
       "Ahhhhhh . . . . . . . whop -ah",
-      "A . . . . . .  G . . . .  .  D . . . ."
-    ]
-  },
-  {
-    "title": "Ahhhh-ahh-ahh  ahhhhh . . .  Ahhhh . . whop",
-    "artist": "ah",
-    "is_sing_along": false,
-    "youtube": "",
-    "content": [
+      "A . . . . . .  G . . . .  .  D . . . .",
+      "Ahhhh-ahh-ahh  ahhhhh . . .  Ahhhh . . whop - ah",
       "A       D",
       "Oh yeah I'm the type of guy that likes to roam around",
       "Humma humma humma humma humma humma humma humma . . .",
@@ -68448,7 +68321,6 @@ const songData = [
       "Wendy, Wendy left me alone hurts so bad.",
       "D      Em             D     D  |D|",
       "Wendy, Wendy left me alone.",
-      "WESTCOUNTRY LOVE SONG \u2013 Jinder",
       "(Dewhurst)",
       "https://www.youtube.com/watch?v=5iorMSO2znE  (Capo 4)(MC2)",
       "INTRO:  D  Dsus,   D  Dsus,   D  Dsus,   D  Dsus",
@@ -68461,13 +68333,11 @@ const songData = [
       "Bm                             G              A",
       "He hangs on for dear life, as the wind bends the trees.",
       "D                        G",
-      "Sing a Westcountry love song, a sweet lullaby.",
       "A                                  G",
       "The leaves of the autumn, are like the tears in your eyes.",
       "D                        G",
       "The birds of the springtime, home would they fly.",
       "A                       G        A        D    A7sus4  D  D4  D  A7sus4  D  D4",
-      "Sing a Westcountry love song.  This, is not, goodbye.",
       "A                      G",
       "No one's in a hurry, this far from the smoke.",
       "Bm                      G",
@@ -68477,25 +68347,21 @@ const songData = [
       "Bm                     G           A",
       "We'll almost miss you, when you go home.",
       "D                        G",
-      "Sing a Westcountry love song, a sweet lullaby.",
       "A                                  G",
       "The leaves of the autumn, are like the tears in your eyes.",
       "D                        G",
       "The birds of the springtime, home would they fly.",
       "A                       G        A        D    A7sus4  D  A7sus4",
-      "Sing a Westcountry love song.  This, is not, goodbye.",
       "D                             G",
       "I'll be gone, in the morning, but I'm still here today.",
       "A                      G         A",
       "So let's dance, and be merry, before I'm away.",
       "D                        G",
-      "We'll sing a Westcountry love song, a sweet lullaby.",
       "A                                  G",
       "The leaves of the autumn, are like the tears in your eyes.",
       "D                        G",
       "The birds of the springtime, home would they fly.",
       "A                       G        A        D    A7sus4  D  D4  D  A7sus4  D  D4",
-      "Sing a Westcountry love song.  This, is not, goodbye.",
       "A                                G",
       "All the little children, get the best of both worlds,",
       "Bm                       G",
@@ -68505,13 +68371,11 @@ const songData = [
       "Bm                              G           A",
       "And you know when you're leaving you'll always come back.",
       "D                        G",
-      "To sing a Westcountry love song, a sweet lullaby.",
       "A                                  G",
       "The leaves of the autumn, are like the tears in your eyes.",
       "D                        G",
       "The birds of the springtime, home would they fly.",
       "A",
-      "Sing a Westcountry love song.",
       "G        A        D    A7sus4  D  D4  D  A7sus4  D  D4  <rake> |D|",
       "This, is not, goodbye."
     ]
@@ -70283,7 +70147,6 @@ const songData = [
       "INTRO:   A  A  A  A,   A  A  A  A",
       "You've been lookin' for love all around the world.",
       "G     D          A    A  A",
-      "Baby don't you know this country girl's still free?    Why not me?",
       "Well you've finally come down to your old hometown.",
       "G   D          A    A  A",
       "Your Kentucky girl's been a-waitin' patiently.    Why not me?",
@@ -70305,7 +70168,6 @@ const songData = [
       "A  A,  A  A,   G  D  A  A",
       "You've been lookin' for love all around the world.",
       "G      D          A    A  A",
-      "Baby don't you know this country girl's still free?     Why not me?",
       "A  A                A",
       "Why not me?         Baby why not me?",
       "G     D                A    A  A",
@@ -72419,7 +72281,6 @@ const songData = [
       "D-         D       D-          D             D-       D",
       "Forty-second street got Big Jim Walker he a pool-shootin' son of a gun.",
       "G",
-      "Yeah he big and dumb as a man can come, but he stronger than a country hoss.",
       "A                   G",
       "And when the bad folks all get together at night",
       "A                 G             D      D",
@@ -72431,7 +72292,6 @@ const songData = [
       "A    A  A  A",
       "Ah dout douten doubt day dayden dee dee dee.",
       "D        D-          D                                      D-        D",
-      "Well outta south Alabama come a country boy, he said I'm lookin' for a man named Jim.",
       "D-            D                               D-      D",
       "I am a pool shootin' boy my name a Willie McCoy but down home they call me Slim.",
       "G",
@@ -73366,7 +73226,6 @@ const songData = [
       "C      G                           D       G",
       "All the cowboys down on the Sunset Strip, wish that they could be like you.",
       "C",
-      "The Santa Monica Freeway, sometimes makes a country girl blue-hoo-ooh.",
       "Hoo-ooh.",
       "G                     C        G                            C        G",
       "You're the reason God made Oklahoma.  You're the reason God made Oklahoma.",
@@ -73706,6 +73565,7 @@ const songData = [
       "Who was born, born, born in Bethlehem.",
       "|D|    |A|    |D|       |D|  |D| |A|   |A|  |D|      |G|  |Gadd|  |D|",
       "And he was born - born - borrrrrn; born in, Beth- le,  hem.  In Beth-  le-   hem.",
+      "---- <additional verses> ----",
       "|D|                     |D|",
       "Children go where I send thee.  How shall I send thee?",
       "D",
@@ -74003,6 +73863,7 @@ const songData = [
       "|D|",
       "[1-2-3-4]          . . . hem.",
       "<high-fives, towel off, grab some eggnog>",
+      "---- <additional verses> ----",
       "Children |D| go where I send thee.  |D| How shall I send thee?",
       "(D) I'm gonna send thee eleven by eleven.  Eleven for the eleven deriders.",
       "Ten for the ten commandments.  Nine for the nine all dressed so fine.",
@@ -74904,6 +74765,7 @@ const songData = [
       "F                 Em               G7               C",
       "Bells are ringin' children singin' all is merry and bright.",
       "F                       C        Am             G7                  C",
+      "So hang your stockin's and say your prayers 'cause Santa Claus comes tonight.",
       "CaddD  C                CaddD  C           G7",
       "Here comes Santa  Claus here comes Santa  Claus right down Santa Claus Lane.",
       "G7",
@@ -74942,6 +74804,7 @@ const songData = [
       "Bells are ringin' children singin' all is merry and bright.",
       "Oooh . . . . . .  oooh . . . . . . oooh . . . . . . oooooh.",
       "F                       C        Am             G7                  C",
+      "Hang your stockin's and say your prayers 'cause Santa Claus comes tonight.",
       "Oooh . . . . . . . . .  oooh . . oooh . . . . .",
       "HERE IT IS CHRISTMASTIME",
       "Kevin Bacon & Old 97's",
@@ -75378,6 +75241,7 @@ const songData = [
       "C                 G                A                     D7",
       "Down the chimney, broad and black, with your pack you'll creep.",
       "G                 D7            Em           Bm",
+      "All the stockings you will find hanging in a row.",
       "C                G             D7                G",
       "Mine will be the shortest one, you'll be sure to know.",
       "D7              Em           Bm",
@@ -75437,7 +75301,6 @@ const songData = [
       "G                      C        D",
       "Feel the love of the season wherever you are.",
       "Em                             C",
-      "On the small country roads lined with green mistletoe,",
       "Em                       D",
       "Big city streets where a thousand lights glow.",
       "G               C",
@@ -75532,7 +75395,6 @@ const songData = [
     "content": [
       "(Yarrow)",
       "https://www.youtube.com/watch?v=StB_ehpZyN4  (Capo 0)(MC0)",
-      "TIP:  Yes, I know this is actually a Hanukka song but it's so pretty I wanted to include it here in the Christmas section.",
       "-;-;",
       "(PETER) (PETER & PAUL) (MARY) (ALL SING)",
       "INTRO:   G-G4,  G-G4,  G-G4,  G-G4;   Em-EmF,  Em-EmF",
@@ -76917,6 +76779,7 @@ const songData = [
       "C                    G                           D7         G     G  G",
       "Up on the housetop click click, click.  Down thru' the chimney with good Saint Nick.",
       "C       G     D",
+      "First comes the stocking of little Nell.  Oh dear Santa fill it well.",
       "G                                        C             G        D7       G",
       "Give her a dolly that laughs and cries.  One that will open and shut her eyes.",
       "C          G                 D7         G",
@@ -76924,6 +76787,7 @@ const songData = [
       "C                    G                           D7         G     G  G",
       "Up on the housetop click click, click.  Down thru' the chimney with good Saint Nick.",
       "C       G          D",
+      "Next comes the stocking of little Will.  Oh just see what a glorious fill.",
       "G                                   C      G          D7        G",
       "Here is a hammer and lots of tacks, also a ball and a whip that cracks.",
       "C          G                 D7         G",
@@ -77258,6 +77122,7 @@ const songData = [
       "To fall . . .",
       "Ornaments and evergreens with packages as yet unseen",
       "All wrapped in paper colored bright reflecting candles in the night",
+      "With carolers and mistletoe and stockings all hung in a row",
       "Or fireplaces glowing red with children safely sent to bed . . .",
       "Ring the bells . . .",
       "Let the churches ring the bells . . .",
@@ -77305,9 +77170,7 @@ const songData = [
     "artist": "29:54 -- Christmas Eve (Sarajevo 12/24) (Instrumental)",
     "is_sing_along": false,
     "youtube": "",
-    "content": [
-      "As he flew over the countryside he was still listening when from a little church below he heard a voice begin to sing."
-    ]
+    "content": []
   },
   {
     "title": "29:54",
@@ -78236,6 +78099,7 @@ const songData = [
     "youtube": "",
     "content": [
       "What is Christmas?  Tinseled fairytales",
+      "Day old stockings lined up in a row",
       "What is Christmas, could someone tell me that?",
       "What is Christmas?  Surely I don't know",
       "And everywhere these lights, who needs to color night?",
@@ -78506,15 +78370,8 @@ const songData = [
       "We don't need no education.",
       "Am  Am  Am  Am",
       "We don't need no thought control.",
-      "You may have seen the same thing depicted as:"
-    ]
-  },
-  {
-    "title": "Am",
-    "artist": "- - - - - - - or  Am / / / / / / / /",
-    "is_sing_along": false,
-    "youtube": "",
-    "content": [
+      "You may have seen the same thing depicted as:",
+      "Am - - - - - - - - or  Am / / / / / / / /",
       "It's just how I chose to display them.",
       "ABOUT THOSE TIPS:",
       "Grammatically correct:",
