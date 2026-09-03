@@ -9,12 +9,10 @@ songs = []
 current_song = None
 parsing_started = False
 
-# Explicit blacklist phrases for table of contents and genre category headers
-BLOCKED_PHRASES = [
-    "(MAIN)", "MAIN INDEX", "BY SONG TITLE", "ARTIST INDEX", 
-    "SONG INDEX", "THIS SONG", "CONTENTS", "INDEX", 
-    "POP/ROCK", "TITLES IN RED ARE", "GENRE", "BALLADS", 
-    "COUNTRY", "CLASSIC", "UPBEAT", "SECTION"
+# Strict blocklist for anything that is metadata, a table of contents marker, or an alphabet divider
+EXCLUDED_TERMS = [
+    "MAIN", "INDEX", "CONTENTS", "POP/ROCK", "BALLADS", "COUNTRY", 
+    "CLASSIC", "UPBEAT", "SECTION", "TITLE", "GENRE", "ARTIST", "BY SONG"
 ]
 
 for para in doc.paragraphs:
@@ -24,26 +22,23 @@ for para in doc.paragraphs:
     
     upper_text = text.upper()
     
-    # Force skip everything until past the index section
+    # Skip everything until we hit the actual body of the songbook
     if not parsing_started:
         if "DIFFERENT DRUM" in upper_text or "A KISS AT THE END OF THE RAINBOW" in upper_text:
             parsing_started = True
         else:
             continue
 
-    # Absolute blocklist for TOC noise, dividers, and index markers
+    # Skip lines made entirely of punctuation, symbols, or single letters/alphabet markers (e.g., - C -, - T -)
     if set(text) <= {'*', '-', '=', '_', ' ', '—', '.'}:
         continue
-        
-    if any(phrase in upper_text for phrase in BLOCKED_PHRASES):
-        continue
-    
-    # Catch alphabet index markers like "- C -" or single letter headers
     if re.match(r'^\s*[-—]\s*[A-Z0-9]\s*[-—]\s*$', text):
         continue
+    if any(term in upper_text for term in EXCLUDED_TERMS):
+        continue
 
-    # Check if this paragraph is a valid song header (Title - Artist format)
-    if (" — " in text or " - " in text) and len(text) < 80:
+    # Check for a valid song header format (must contain a separator)
+    if " — " in text or " - " in text:
         sep = " — " if " — " in text else " - "
         parts = text.split(sep, 1)
         
@@ -51,12 +46,18 @@ for para in doc.paragraphs:
             title = parts[0].strip()
             artist = parts[1].strip()
             
-            # Strict validation to ensure it's a real song and not a TOC artifact
-            if (len(title) > 2 and len(artist) > 2 and 
-                not re.match(r'^[-—]\s*[A-Z]\s*[-—]$', title) and 
+            # Rigorous checks to ensure it's an actual song and not an index artifact
+            is_valid_song = (
+                len(title) > 2 and 
+                len(artist) > 2 and 
                 not title.isdigit() and
-                not any(p in title.upper() for p in BLOCKED_PHRASES)):
-                
+                not artist.isdigit() and
+                not re.match(r'^[A-Z]\s*$', title) and
+                not any(term in title.upper() for term in EXCLUDED_TERMS) and
+                not any(term in artist.upper() for term in EXCLUDED_TERMS)
+            )
+            
+            if is_valid_song:
                 if current_song:
                     songs.append(current_song)
                 
@@ -71,9 +72,9 @@ for para in doc.paragraphs:
                 }
                 continue
 
-    # Append content lines if inside a valid song block
+    # If we have an active song, append valid lyric lines
     if current_song:
-        if not text.isdigit() and len(text) < 150:
+        if len(text) < 150 and not text.isdigit():
             current_song["content"].append(text)
 
 if current_song:
