@@ -9,12 +9,12 @@
         body { background-color: #121212; color: #e0e0e0; font-family: system-ui, -apple-system, sans-serif; margin: 0; padding: 20px; }
         .container { max-width: 900px; margin: 0 auto; }
         .header-box { display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px; border-bottom: 1px solid #333; padding-bottom: 15px; }
-        #searchInput { width: 100%; padding: 14px 18px; font-size: 16px; background: #1e1e1e; border: 1px solid #444; color: #fff; border-radius: 8px; margin-bottom: 20px; outline: none; transition: border 0.2s; }
+        #searchInput { width: 100%; padding: 14px 18px; font-size: 16px; background: #1e1e1e; border: 1px solid #444; color: #fff; border-radius: 8px; margin-bottom: 20px; outline: none; transition: border 0.2s; box-sizing: border-box; }
         #searchInput:focus { border-color: #0d6efd; }
         .song-table { width: 100%; border-collapse: collapse; background: #1e1e1e; border-radius: 8px; overflow: hidden; box-shadow: 0 4px 6px rgba(0,0,0,0.3); }
         .song-table th, .song-table td { padding: 12px 16px; text-align: left; border-bottom: 1px solid #2d2d2d; }
         .song-table th { background: #252525; color: #aaa; font-weight: 600; text-transform: uppercase; font-size: 12px; letter-spacing: 0.5px; }
-        .song-table tr:hover { background: #262626; cursor: pointer; }
+        .song-table tr.song-row:hover { background: #262626; cursor: pointer; }
         .sing-along-badge { background: rgba(220, 53, 69, 0.2); color: #ff6b6b; padding: 3px 8px; border-radius: 4px; font-size: 11px; font-weight: bold; display: inline-block; }
         .lyrics-modal { display: none; background: #181818; border: 1px solid #444; padding: 20px; margin-top: 10px; border-radius: 8px; white-space: pre-line; font-family: monospace; font-size: 14px; color: #d1d1d1; max-height: 400px; overflow-y: auto; }
         .actions a { color: #4dabf7; text-decoration: none; font-size: 13px; }
@@ -54,9 +54,10 @@
         fetch('songs.json')
             .then(res => res.json())
             .then(data => {
-                songs = data;
+                // Attach original master index to each song object for reliable rendering/toggling
+                songs = data.map((song, idx) => ({ ...song, originalIndex: idx }));
                 document.getElementById('songCount').innerText = `${songs.length} Songs Indexed`;
-                renderTable(songs.slice(0, 100)); // Performance chunking
+                renderTable(songs.slice(0, 100));
             });
 
         function filterSongs() {
@@ -83,31 +84,38 @@
             }
 
             let html = '';
-            arr.forEach((s, index) => {
+            arr.forEach((s) => {
                 let title = s.title || 'Untitled';
                 let artist = s.artist || 'Unknown Artist';
                 let badge = s.is_sing_along ? '<span class="sing-along-badge">Sing-a-Long</span>' : '';
                 let yt = s.youtube ? `<a href="${s.youtube}" target="_blank">YouTube</a>` : '';
+                let lyricsText = s.content && s.content.length > 0 ? s.content.join('\n') : 'No lyrics stored for this song.';
 
                 html += `
-                    <tr onclick="toggleLyrics(${index})">
-                        <td><strong>${title}</strong></td>
-                        <td style="color: #aaa;">${artist}</td>
+                    <tr class="song-row" onclick="toggleLyrics(${s.originalIndex})">
+                        <td><strong>${escapeHtml(title)}</strong></td>
+                        <td style="color: #aaa;">${escapeHtml(artist)}</td>
                         <td>${badge}</td>
                         <td class="actions" onclick="event.stopPropagation()">${yt}</td>
                     </tr>
-                    <tr id="lyrics-${index}" style="display:none;">
+                    <tr id="lyrics-${s.originalIndex}" style="display:none;">
                         <td colspan="4">
-                            <div class="lyrics-modal">${s.content.join('\n')}</div>
+                            <div class="lyrics-modal">${escapeHtml(lyricsText)}</div>
                         </td>
                     </tr>`;
             });
             tbody.innerHTML = html;
         }
 
-        function toggleLyrics(index) {
-            let row = document.getElementById(`lyrics-${index}`);
-            row.style.display = row.style.display === 'none' ? 'table-row' : 'none';
+        function toggleLyrics(originalIndex) {
+            let row = document.getElementById(`lyrics-${originalIndex}`);
+            if (row) {
+                row.style.display = row.style.display === 'none' ? 'table-row' : 'none';
+            }
+        }
+
+        function escapeHtml(text) {
+            return text.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;").replace(/'/g, "&#039;");
         }
     </script>
 </body>
