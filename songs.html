@@ -52,11 +52,26 @@
     <script>
         let songs = [];
 
+        function isJunk(title) {
+            if (!title) return true;
+            let t = title.trim();
+            if (t.length < 2) return true;
+            if (/^[\*\-_=\.\—·#\/]+$/.test(t)) return true;
+            let upper = t.toUpperCase();
+            if (upper === "(MAIN)" || upper === "MAIN" || upper === "INDEX" || upper === "CONTENTS") return true;
+            if (/^[\-—\s]*[A-Z0-9][\-—\s]*$/.test(t) && t.length <= 5) return true;
+            if (/^\(.*\)$/.test(t) && upper.includes("MAIN")) return true;
+            return false;
+        }
+
         fetch('songs.json')
             .then(res => res.json())
             .then(data => {
-                // Attach original master index to each song object for reliable rendering/toggling
-                songs = data.map((song, idx) => ({ ...song, originalIndex: idx }));
+                // Filter out index artifacts immediately on load
+                songs = data
+                    .filter(song => !isJunk(song.title))
+                    .map((song, idx) => ({ ...song, originalIndex: idx }));
+                
                 document.getElementById('songCount').innerText = `${songs.length} Songs Indexed`;
                 renderTable(songs.slice(0, 100));
             });
