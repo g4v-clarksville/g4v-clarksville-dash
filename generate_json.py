@@ -5,63 +5,61 @@ import re
 TXT_PATH = "song_library.txt"
 JSON_PATH = "songs.json"
 
-def clean_library():
+def parse_txt_library():
     if not os.path.exists(TXT_PATH):
-        print(f"Error: {TXT_PATH} not found.")
-        return
+        print(f"Error: Could not find {TXT_PATH}")
+        return []
 
-    with open(TXT_PATH, 'r', encoding='utf-8') as f:
+    print("Parsing full song_library.txt...")
+    with open(TXT_PATH, 'r', encoding='utf-8', errors='ignore') as f:
         content = f.read()
 
-    # Split by song blocks (assuming standard format: Title, Artist, URL)
-    pattern = re.compile(
-        r'(?P<title>^[A-Z0-9\s\'’–()-]+)\n'
-        r'(?P<artist>[A-Z][A-Za-z\s&,./()’-]+)\n\n'
-        r'(?P<url>https://(?:www\.)?youtube\.com/watch\?v=[^\s]+.*)',
-        re.MULTILINE
-    )
-
-    songs = []
-    matches = list(pattern.finditer(content))
+    # Split the file into blocks using common songbook separators or double newlines
+    # Adjust splitting logic based on how entries are separated
+    blocks = re.split(r'\n\s*\n\s*\n', content)
     
-    for i, match in enumerate(matches):
-        start_pos = match.start()
-        end_pos = matches[i + 1].start() if i + 1 < len(matches) else len(content)
+    songs = []
+    
+    for block in blocks:
+        lines = [line.strip() for line in block.split('\n') if line.strip()]
+        if not lines:
+            continue
+            
+        # Assume first line is title
+        title = lines[0]
         
-        song_block = content[start_pos:end_pos].strip()
-        lines = song_block.split('\n')
-        
-        title = match.group('title').strip()
-        artist = match.group('artist').strip()
-        url = match.group('url').strip()
-        
-        # Filter out index artifacts, dividers, and table headers
-        is_junk = (
-            set(title) <= {'*', '-', '=', '_', ' ', '—', '.', '·'} or
-            title.startswith('(') or
-            "****" in title or
-            re.match(r'^\s*[-—]\s*[A-Z0-9#]\s*[-—]\s*$', title) or
-            any(term in title.upper() for term in ["MAIN INDEX", "BY ARTIST", "CONTENTS"])
-        )
-        
-        if is_junk:
+        # Filter out obvious index artifacts/dividers
+        if set(title) <= {'*', '-', '=', '_', ' ', '—', '.', '·'} or len(title) < 2:
+            continue
+        if any(term in title.upper() for term in ["MAIN INDEX", "BY ARTIST", "CONTENTS", "SONGBOOK"]):
             continue
 
-        lyrics = []
-        url_found = False
-        for line in lines:
-            if url in line:
-                url_found = True
-                continue
-            if url_found:
-                lyrics.append(line.strip())
+        artist = "Unknown Artist"
+        url = ""
+        lyrics_start_idx = 1
+
+        # Check if second line is an artist or a URL
+        if len(lines) > 1:
+            if "youtube.com" in lines[1] or "youtu.be" in lines[1]:
+                url = lines[1]
+                lyrics_start_idx = 2
+            elif len(lines) > 2 and ("youtube.com" in lines[2] or "youtu.be" in lines[2]):
+                artist = lines[1]
+                url = lines[2]
+                lyrics_start_idx = 3
+            else:
+                # If no URL, maybe second line is artist
+                artist = lines[1]
+                lyrics_start_idx = 2
+
+        lyrics = lines[lyrics_start_idx:]
 
         songs.append({
             'title': title,
             'artist': artist,
             'youtube': url,
-            'is_sing_along': "sing-along" in title.lower() or "sing along" in artist.lower(), # adjust logic if needed
-            'content': [l for l in lyrics if l]
+            'is_sing_along': "sing-along" in title.lower() or "sing along" in artist.lower(),
+            'content': lyrics
         })
 
     # Sort alphabetically by title
@@ -70,7 +68,8 @@ def clean_library():
     with open(JSON_PATH, "w", encoding="utf-8") as f:
         json.dump(songs, f, indent=2)
 
-    print(f"SUCCESS: Cleaned and saved {len(songs)} valid songs to {JSON_PATH}.")
+    print(f"SUCCESS: Extracted and sorted {len(songs)} songs into {JSON_PATH}.")
+    return songs
 
 if __name__ == "__main__":
-    clean_library()
+    parse_txt_library()
