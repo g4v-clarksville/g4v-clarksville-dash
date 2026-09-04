@@ -56,15 +56,12 @@
             if (t.length < 2 || t.length > 50) return true;
             
             let upper = t.toUpperCase();
-            // Block structural / tab / section markers
             if (upper.startsWith("INTRO") || upper.startsWith("VERSE") || upper.startsWith("CHORUS") || upper.startsWith("PART") || upper.startsWith("BRIDGE") || upper.startsWith("SOLO") || upper.startsWith("OUTRO")) return true;
             if (upper.includes("<FORM") || upper.includes("TAB") || upper.includes("FRET")) return true;
             
-            // Block punctuation, sentences, and lyric fragments
             if (t.includes('.') || t.includes('?') || t.includes('!') || t.includes(':')) return true;
             if (t.split(/\s+/).length > 7) return true;
             
-            // Block trailing vowel/consonant stretches or lowercase sentence fragments
             if (/[a-zA-Z]{3,}l{4,}/i.test(t) || /^[a-z]/.test(t)) return true;
             if (/^(Yes I'm|And |But |So |Because |Then |Remember )/i.test(t)) return true;
 
@@ -84,10 +81,31 @@
             return false;
         }
 
+        function cleanSongData(song) {
+            let title = song.title ? song.title.trim() : '';
+            let artist = song.artist && song.artist !== 'Unknown Artist' ? song.artist.trim() : '';
+
+            // Extract embedded artist from title if separator exists (e.g., "SONG – Artist")
+            let match = title.match(/^(.*?)\s+[\–\-—]\s+(.+)$/);
+            if (match) {
+                title = match[1].trim();
+                if (!artist) {
+                    artist = match[2].trim();
+                }
+            }
+
+            return {
+                ...song,
+                title: title,
+                artist: artist || 'Unknown Artist'
+            };
+        }
+
         fetch('songs.json')
             .then(res => res.json())
             .then(data => {
                 songs = data
+                    .map(cleanSongData)
                     .filter(song => !isJunk(song.title))
                     .map((song, idx) => ({ ...song, originalIndex: idx }));
                 
