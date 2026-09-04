@@ -9,12 +9,16 @@ def is_garbage_title(title):
     clean_t = title.strip()
     if not clean_t or len(clean_t) < 2:
         return True
-    # Check if title consists entirely of symbols/dividers
     if all(c in '*-_= .—·#/' for c in clean_t):
         return True
     upper_t = clean_t.upper()
-    # Explicitly catch index markers like (Main), - C -, - D -, etc.
+    
+    # Catch TOC markers, category headers, and instruction prefixes like TIP: or NOTE:
     if upper_t in {"(MAIN)", "MAIN", "INDEX", "CONTENTS", "POP/ROCK"}:
+        return True
+    if upper_t.startswith("TIP:") or upper_t.startswith("NOTE:") or upper_t.startswith("INSTRUCTIONS:"):
+        return True
+    if upper_t.includes("BY SONG TITLE") or upper_t.includes("POP/ROCK") or upper_t.includes("GENRE"):
         return True
     if re.match(r'^[-—\s]*[A-Z0-9][-—\s]*$', clean_t, re.IGNORECASE) and len(clean_t) <= 7:
         return True
@@ -70,7 +74,6 @@ def parse_txt_library():
             'content': lyrics
         })
 
-    # Sort alphabetically by song title
     songs = sorted(songs, key=lambda x: x['title'].lower())
 
     with open(JSON_PATH, "w", encoding="utf-8") as f:
