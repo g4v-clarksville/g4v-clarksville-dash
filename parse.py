@@ -7,13 +7,7 @@ doc = docx.Document(file_path)
 
 songs = []
 current_song = None
-parsing_started = False
-
-# Words that instantly disqualify a line from being a song title
-TOC_KEYWORDS = [
-    "MAIN", "INDEX", "CONTENTS", "POP/ROCK", "BALLADS", "COUNTRY", 
-    "CLASSIC", "UPBEAT", "SECTION", "TITLE", "GENRE", "ARTIST", "BY SONG", "TITLES IN RED"
-]
+parsing_active = False
 
 for para in doc.paragraphs:
     text = para.text.strip().replace('\u2019', "'").replace('\u201c', '"').replace('\u201d', '"')
@@ -22,22 +16,27 @@ for para in doc.paragraphs:
     
     upper_text = text.upper()
     
-    # Strict gate: Do not start parsing actual songs until we pass the index section.
-    if not parsing_started:
-        if "DIFFERENT DRUM" in upper_text and "LINDA" in upper_text:
-            parsing_started = True
-        else:
+    # Do not start parsing real songs until we are safely past the entire index section.
+    # We use the transition header for the very first actual song ("4 Non Blondes - What's Up?") as our gate.
+    if not parsing_active:
+        if "4 NON BLONDES" in upper_text or "WHAT’S UP" in upper_text or "DIFFERENT DRUM" in upper_text:
+            # Make sure we are past the TOC by verifying it's deeper in the file or matching an actual song block format
+            if " - " in text or " — " in text:
+                parsing_active = True
+        if not parsing_active:
             continue
 
-    # Skip any line that is purely decorative or an alphabet section divider
-    if set(text) <= {'*', '-', '=', '_', ' ', '—', '.'}:
+    # Absolute blocklist for index artifacts, dividers, and junk lines
+    if set(text) <= {'*', '-', '=', '_', ' ', '—', '.', '·'}:
         continue
-    if re.match(r'^\s*[-—]\s*[A-Z0-9]\s*[-—]\s*$', text):
+    if re.match(r'^\s*[-—]\s*[A-Z0-9#]\s*[-—]\s*$', text):
         continue
-    if any(keyword in upper_text for keyword in TOC_KEYWORDS):
+    if text.startswith('(') or text.endswith(')'):
+        continue
+    if any(term in upper_text for term in ["MAIN INDEX", "BY ARTIST", "BY SONG TITLE", "CONTENTS", "POP/ROCK", "TITLES IN RED"]):
         continue
 
-    # Check for valid song header format (must contain a separator)
+    # Check for valid song header format (Title - Artist)
     if " — " in text or " - " in text:
         sep = " — " if " — " in text else " - "
         parts = text.split(sep, 1)
@@ -46,15 +45,14 @@ for para in doc.paragraphs:
             title = parts[0].strip()
             artist = parts[1].strip()
             
-            # Rigorous validation: both title and artist must look legitimate
+            # Strict validation to ensure it's a real song
             is_valid = (
                 len(title) > 1 and 
                 len(artist) > 1 and 
-                not title.isdigit() and
+                not title.isdigit() and 
                 not artist.isdigit() and
                 not title.startswith('(') and
-                not any(kw in title.upper() for kw in TOC_KEYWORDS) and
-                not any(kw in artist.upper() for kw in TOC_KEYWORDS)
+                not all(c in '*-=_— ' for c in title)
             )
             
             if is_valid:
@@ -72,7 +70,7 @@ for para in doc.paragraphs:
                 }
                 continue
 
-    # If we are inside a valid song block, collect lyric lines
+    # Collect lyrics if inside a valid song block
     if current_song:
         if len(text) < 150 and not text.isdigit():
             current_song["content"].append(text)
@@ -83,9 +81,4 @@ if current_song:
 with open("songs.json", "w", encoding="utf-8") as f:
     json.dump(songs, f, indent=2)
 
-with open("data.js", "w", encoding="utf-8") as f:
-    f.write("const songData = ")
-    json.dump(songs, f, indent=2)
-    f.write(";")
-
-print(f"SUCCESS: Extracted exactly {len(songs)} valid songs and updated data.js.")
+print(f"SUCCESS: Extracted exactly {len(songs)} valid songs and updated songs.json.")
