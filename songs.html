@@ -48,6 +48,9 @@
             
             let upper = t.toUpperCase();
             
+            // Filter out timestamp formats (e.g., 0:00, 1:03:43)
+            if (/^\d{1,2}:\d{2}(:\d{2})?$/.test(t)) return true;
+            
             // Common section headers and directional cues
             if (upper.startsWith("INTRO") || upper.startsWith("VERSE") || upper.startsWith("CHORUS") || 
                 upper.startsWith("PART") || upper.startsWith("BRIDGE") || upper.startsWith("SOLO") || 
@@ -55,7 +58,7 @@
             
             if (upper.includes("<FORM") || upper.includes("TAB") || upper.includes("FRET")) return true;
             
-            // Flags strings that look like raw chord charts or tab blocks (e.g., |C| |D7|, |-|, etc.)
+            // Flags strings that look like raw chord charts, tab blocks, or instruction tags
             if (t.includes('|') || t.includes('[') || t.includes(']') || t.includes('<') || t.includes('>')) return true;
             if (t.split(/\s+/).length > 7) return true;
             
