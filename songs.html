@@ -53,10 +53,22 @@
         function isJunk(title) {
             if (!title) return true;
             let t = title.trim();
-            if (t.length < 2 || t.length > 55) return true;
-            if (t.includes('.') || t.includes('?') || t.includes('!') || t.split(/\s+/).length > 8) return true;
-            if (/^[\*\-_=\.\—·#\/]+$/.test(t)) return true;
+            if (t.length < 2 || t.length > 50) return true;
+            
             let upper = t.toUpperCase();
+            // Block structural / tab / section markers
+            if (upper.startsWith("INTRO") || upper.startsWith("VERSE") || upper.startsWith("CHORUS") || upper.startsWith("PART") || upper.startsWith("BRIDGE") || upper.startsWith("SOLO") || upper.startsWith("OUTRO")) return true;
+            if (upper.includes("<FORM") || upper.includes("TAB") || upper.includes("FRET")) return true;
+            
+            // Block punctuation, sentences, and lyric fragments
+            if (t.includes('.') || t.includes('?') || t.includes('!') || t.includes(':')) return true;
+            if (t.split(/\s+/).length > 7) return true;
+            
+            // Block trailing vowel/consonant stretches or lowercase sentence fragments
+            if (/[a-zA-Z]{3,}l{4,}/i.test(t) || /^[a-z]/.test(t)) return true;
+            if (/^(Yes I'm|And |But |So |Because |Then |Remember )/i.test(t)) return true;
+
+            if (/^[\*\-_=\.\—·#\/]+$/.test(t)) return true;
             if (upper === "(MAIN)" || upper === "MAIN" || upper === "INDEX" || upper === "CONTENTS") return true;
             if (upper.startsWith("TIP:") || upper.startsWith("NOTE:") || upper.startsWith("INTRO:") || upper.startsWith("INSTRUCTIONS:")) return true;
             if (upper.includes("BY SONG TITLE") || upper.includes("POP/ROCK") || upper.includes("TITLES IN RED") || upper.includes("GENRE")) return true;
