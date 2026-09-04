@@ -47,28 +47,34 @@
             if (t.length < 2 || t.length > 50) return true;
             
             let upper = t.toUpperCase();
-            if (upper.startsWith("INTRO") || upper.startsWith("VERSE") || upper.startsWith("CHORUS") || upper.startsWith("PART") || upper.startsWith("BRIDGE") || upper.startsWith("SOLO") || upper.startsWith("OUTRO")) return true;
+            
+            // Common section headers and directional cues
+            if (upper.startsWith("INTRO") || upper.startsWith("VERSE") || upper.startsWith("CHORUS") || 
+                upper.startsWith("PART") || upper.startsWith("BRIDGE") || upper.startsWith("SOLO") || 
+                upper.startsWith("OUTRO") || upper.startsWith("CHORDS") || upper.startsWith("TAB")) return true;
+            
             if (upper.includes("<FORM") || upper.includes("TAB") || upper.includes("FRET")) return true;
             
-            if (t.includes('.') || t.includes('?') || t.includes('!') || t.includes(':')) return true;
+            // Flags strings that look like raw chord charts or tab blocks (e.g., |C| |D7|, |-|, etc.)
+            if (t.includes('|') || t.includes('[') || t.includes(']') || t.includes('<') || t.includes('>')) return true;
             if (t.split(/\s+/).length > 7) return true;
             
             if (/[a-zA-Z]{3,}l{4,}/i.test(t) || /^[a-z]/.test(t)) return true;
-            if (/^(Yes I'm|And |But |So |Because |Then |Remember )/i.test(t)) return true;
+            if (/^(Yes I'm|And |But |So |Because |Then |Remember |Everyone )/i.test(t)) return true;
 
             if (/^[\*\-_=\.\—·#\/]+$/.test(t)) return true;
-            if (upper === "(MAIN)" || upper === "MAIN" || upper === "INDEX" || upper === "CONTENTS") return true;
+            if (["(MAIN)", "MAIN", "INDEX", "CONTENTS", "(KATHY)"].includes(upper)) return true;
             if (upper.startsWith("TIP:") || upper.startsWith("NOTE:") || upper.startsWith("INTRO:") || upper.startsWith("INSTRUCTIONS:")) return true;
             if (upper.includes("BY SONG TITLE") || upper.includes("POP/ROCK") || upper.includes("TITLES IN RED") || upper.includes("GENRE")) return true;
-            if (t.startsWith("[") || t.startsWith("<")) return true;
             
+            // Heavy chord density check
             let words = t.split(/\s+/);
             let chordToken = /^[A-G][b#]?(m|maj|min|dim|aug|sus|7|9|11|13|2|4|add)*$/i;
             let chordCount = words.filter(w => chordToken.test(w) || ['-', '—', '/', 'and', '&', ';', ','].includes(w)).length;
-            if (words.length >= 2 && chordCount / words.length >= 0.7) return true;
+            if (words.length >= 1 && chordCount / words.length >= 0.5) return true;
 
             if (/^[\-—\s]*[A-Z0-9][\-—\s]*$/.test(t) && t.length <= 5) return true;
-            if (/^\(.*\)$/.test(t)) return true;
+            if (/^\(.*\)$/.test(t)) return true; // Eliminates parenthetical notes masquerading as titles
             return false;
         }
 
