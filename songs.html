@@ -16,7 +16,6 @@
         .song-table th, .song-table td { padding: 12px 16px; text-align: left; border-bottom: 1px solid #2d2d2d; }
         .song-table th { background: #252525; color: #aaa; font-weight: 600; text-transform: uppercase; font-size: 12px; letter-spacing: 0.5px; }
         .song-table tr.song-row:hover { background: #262626; cursor: pointer; }
-        .sing-along-badge { background: rgba(220, 53, 69, 0.2); color: #ff6b6b; padding: 3px 8px; border-radius: 4px; font-size: 11px; font-weight: bold; display: inline-block; }
         .lyrics-modal { display: none; background: #181818; border: 1px solid #444; padding: 20px; margin-top: 10px; border-radius: 8px; white-space: pre-line; font-family: monospace; font-size: 14px; color: #d1d1d1; max-height: 400px; overflow-y: auto; }
         .actions a { color: #4dabf7; text-decoration: none; font-size: 13px; }
         .actions a:hover { text-decoration: underline; }
@@ -39,12 +38,11 @@
                 <tr>
                     <th>Title</th>
                     <th>Artist</th>
-                    <th>Type</th>
                     <th>Actions</th>
                 </tr>
             </thead>
             <tbody id="songTableBody">
-                <tr><td colspan="4" style="text-align:center; color:#777;">Loading library...</td></tr>
+                <tr><td colspan="3" style="text-align:center; color:#777;">Loading library...</td></tr>
             </tbody>
         </table>
     </div>
@@ -103,7 +101,7 @@
         function renderTable(arr) {
             let tbody = document.getElementById('songTableBody');
             if (arr.length === 0) {
-                tbody.innerHTML = `<tr><td colspan="4" style="text-align:center; color:#777;">No matching songs found.</td></tr>`;
+                tbody.innerHTML = `<tr><td colspan="3" style="text-align:center; color:#777;">No matching songs found.</td></tr>`;
                 return;
             }
 
@@ -111,7 +109,6 @@
             arr.forEach((s) => {
                 let title = s.title || 'Untitled';
                 let artist = s.artist || 'Unknown Artist';
-                let badge = s.is_sing_along ? '<span class="sing-along-badge">Sing-a-Long</span>' : '';
                 let yt = s.youtube ? `<a href="${s.youtube}" target="_blank">YouTube</a>` : '';
                 let lyricsText = s.content && s.content.length > 0 ? s.content.join('\n') : 'No lyrics stored for this song.';
 
@@ -119,11 +116,10 @@
                     <tr class="song-row" onclick="toggleLyrics(${s.originalIndex})">
                         <td><strong>${escapeHtml(title)}</strong></td>
                         <td style="color: #aaa;">${escapeHtml(artist)}</td>
-                        <td>${badge}</td>
                         <td class="actions" onclick="event.stopPropagation()">${yt}</td>
                     </tr>
                     <tr id="lyrics-${s.originalIndex}" style="display:none;">
-                        <td colspan="4">
+                        <td colspan="3">
                             <div class="lyrics-modal">${escapeHtml(lyricsText)}</div>
                         </td>
                     </tr>`;
