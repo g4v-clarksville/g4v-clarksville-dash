@@ -59,9 +59,17 @@
             if (/^[\*\-_=\.\—·#\/]+$/.test(t)) return true;
             let upper = t.toUpperCase();
             if (upper === "(MAIN)" || upper === "MAIN" || upper === "INDEX" || upper === "CONTENTS") return true;
+            if (upper.startsWith("TIP:") || upper.startsWith("NOTE:") || upper.startsWith("INTRO:") || upper.startsWith("INSTRUCTIONS:")) return true;
             if (upper.includes("BY SONG TITLE") || upper.includes("POP/ROCK") || upper.includes("TITLES IN RED") || upper.includes("GENRE")) return true;
+            if (t.startsWith("[") || t.startsWith("<")) return true;
+            
+            let words = t.split(/\s+/);
+            let chordToken = /^[A-G][b#]?(m|maj|min|dim|aug|sus|7|9|11|13|2|4|add)*$/i;
+            let chordCount = words.filter(w => chordToken.test(w) || ['-', '—', '/', 'and', '&', ';', ','].includes(w)).length;
+            if (words.length >= 2 && chordCount / words.length >= 0.7) return true;
+
             if (/^[\-—\s]*[A-Z0-9][\-—\s]*$/.test(t) && t.length <= 5) return true;
-            if (/^\(.*\)$/.test(t) && (upper.includes("MAIN") || upper.includes("INDEX"))) return true;
+            if (/^\(.*\)$/.test(t)) return true;
             return false;
         }
 
