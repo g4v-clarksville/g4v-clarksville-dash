@@ -52,15 +52,16 @@
     <script>
         let songs = [];
 
-        function isJunk(title) {
+       function isJunk(title) {
             if (!title) return true;
             let t = title.trim();
             if (t.length < 2) return true;
             if (/^[\*\-_=\.\—·#\/]+$/.test(t)) return true;
             let upper = t.toUpperCase();
             if (upper === "(MAIN)" || upper === "MAIN" || upper === "INDEX" || upper === "CONTENTS") return true;
+            if (upper.includes("BY SONG TITLE") || upper.includes("POP/ROCK") || upper.includes("TITLES IN RED") || upper.includes("GENRE")) return true;
             if (/^[\-—\s]*[A-Z0-9][\-—\s]*$/.test(t) && t.length <= 5) return true;
-            if (/^\(.*\)$/.test(t) && upper.includes("MAIN")) return true;
+            if (/^\(.*\)$/.test(t) && (upper.includes("MAIN") || upper.includes("INDEX"))) return true;
             return false;
         }
 
