@@ -41,43 +41,36 @@
         let songs = [];
         let currentLetter = 'ALL';
 
-        function isJunk(title) {
+        function isJunk(title, artist) {
             if (!title) return true;
             let t = title.trim();
-            if (t.length < 2 || t.length > 50) return true;
+            let a = artist ? artist.trim() : '';
+            let upperT = t.toUpperCase();
             
-            let upper = t.toUpperCase();
+            // 1. Basic length boundaries (Real song titles are rarely single characters or over 45 chars)
+            if (t.length < 2 || t.length > 45) return true;
             
-            // Filter out timestamp formats (e.g., 0:00, 1:03:43)
-            if (/^\d{1,2}:\d{2}(:\d{2})?$/.test(t)) return true;
-            
-            // Common section headers and directional cues
-            if (upper.startsWith("INTRO") || upper.startsWith("VERSE") || upper.startsWith("CHORUS") || 
-                upper.startsWith("PART") || upper.startsWith("BRIDGE") || upper.startsWith("SOLO") || 
-                upper.startsWith("OUTRO") || upper.startsWith("CHORDS") || upper.startsWith("TAB")) return true;
-            
-            if (upper.includes("<FORM") || upper.includes("TAB") || upper.includes("FRET")) return true;
-            
-            // Flags strings that look like raw chord charts, tab blocks, or instruction tags
-            if (t.includes('|') || t.includes('[') || t.includes(']') || t.includes('<') || t.includes('>')) return true;
-            if (t.split(/\s+/).length > 7) return true;
-            
-            if (/[a-zA-Z]{3,}l{4,}/i.test(t) || /^[a-z]/.test(t)) return true;
-            if (/^(Yes I'm|And |But |So |Because |Then |Remember |Everyone )/i.test(t)) return true;
+            // 2. Reject anything starting with or entirely consisting of parentheses/brackets/form markers
+            if (t.startsWith('(') || t.startsWith('[') || t.startsWith('|') || t.startsWith('<')) return true;
+            if (upperT.startsWith('INTRO') || upperT.startsWith('VERSE') || upperT.startsWith('CHORUS') || 
+                upperT.startsWith('BRIDGE') || upperT.startsWith('SOLO') || upperT.startsWith('OUTRO') || 
+                upperT.startsWith('FORM') || upperT.startsWith('TAB') || upperT.startsWith('PART')) return true;
 
-            if (/^[\*\-_=\.\—·#\/]+$/.test(t)) return true;
-            if (["(MAIN)", "MAIN", "INDEX", "CONTENTS", "(KATHY)"].includes(upper)) return true;
-            if (upper.startsWith("TIP:") || upper.startsWith("NOTE:") || upper.startsWith("INTRO:") || upper.startsWith("INSTRUCTIONS:")) return true;
-            if (upper.includes("BY SONG TITLE") || upper.includes("POP/ROCK") || upper.includes("TITLES IN RED") || upper.includes("GENRE")) return true;
-            
-            // Heavy chord density check
-            let words = t.split(/\s+/);
-            let chordToken = /^[A-G][b#]?(m|maj|min|dim|aug|sus|7|9|11|13|2|4|add)*$/i;
-            let chordCount = words.filter(w => chordToken.test(w) || ['-', '—', '/', 'and', '&', ';', ','].includes(w)).length;
-            if (words.length >= 1 && chordCount / words.length >= 0.5) return true;
+            // 3. Reject timestamps, numbers-only, or timecodes
+            if (/^\d{1,2}:\d{2}/.test(t)) return true;
+            if (/^[\d\s\-\–—\.,:;]+$/.test(t)) return true;
 
-            if (/^[\-—\s]*[A-Z0-9][\-—\s]*$/.test(t) && t.length <= 5) return true;
-            if (/^\(.*\)$/.test(t)) return true; // Eliminates parenthetical notes masquerading as titles
+            // 4. Reject vocalization filler lines or lyric fragments masquerading as titles ("Ahhh", "mmm - mmm")
+            if (/^(ah+|oh+|mm+|la+|hey+|yeah+)[,\.\s!-]*$/i.test(t)) return true;
+            if (/^(ah+|oh+|mm+|la+|hey+|yeah+)/i.test(t) && t.split(/\s+/).length <= 4) return true;
+
+            // 5. Check for bad/corrupted artist fields (e.g. numbers, instructions, bracketed text)
+            if (!a || a === 'Unknown Artist') {
+                // If there's no artist, be extra strict on title validity
+                if (t.includes('<') || t.includes('>') || t.includes('|')) return true;
+            }
+            if (/^\d+$/.test(a) || a.includes('>') || a.includes('<') || a.toLowerCase().includes('bridge')) return true;
+
             return false;
         }
 
@@ -104,7 +97,7 @@
             .then(data => {
                 songs = data
                     .map((s, idx) => cleanSongData(s, idx))
-                    .filter(song => !isJunk(song.title));
+                    .filter(song => !isJunk(song.title, song.artist));
 
                 songs.sort((a, b) => a.title.localeCompare(b.title, 'en', { sensitivity: 'base' }));
 
