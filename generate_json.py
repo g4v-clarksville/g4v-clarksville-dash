@@ -14,7 +14,6 @@ def is_garbage_title(title):
     
     upper_t = clean_t.upper()
     
-    # Catch TOC markers, category headers, instructions, and notes
     if upper_t in {"(MAIN)", "MAIN", "INDEX", "CONTENTS", "POP/ROCK"}:
         return True
     if upper_t.startswith("TIP:") or upper_t.startswith("NOTE:") or upper_t.startswith("INTRO:") or upper_t.startswith("INSTRUCTIONS:"):
@@ -24,11 +23,11 @@ def is_garbage_title(title):
     if clean_t.startswith("[") or clean_t.startswith("<"):
         return True
         
-    # Catch raw chord progressions used as titles (e.g. "C Am C Am", "D7 G g", "E D A")
-    # A line consisting mostly of common chord letters/modifiers separated by spaces
+    # Check if title is purely a chord progression or musical notation line (e.g., "Am E E7 F G C", "C G Em C", "E D A")
     words = clean_t.split()
-    chord_pattern = re.compile(r'^[A-G][b#]?(m|maj|min|dim|aug|sus|7|9|11|13|2|4|add)*$', re.IGNORECASE)
-    if len(words) >= 2 and all(chord_pattern.match(w) or w in {'-', '—', '/', 'and', '&'} for w in words):
+    chord_token = re.compile(r'^[A-G][b#]?(m|maj|min|dim|aug|sus|7|9|11|13|2|4|add)*$', re.IGNORECASE)
+    chord_like_count = sum(1 for w in words if chord_token.match(w) or w in {'-', '—', '/', 'and', '&', ';', ','})
+    if len(words) >= 2 and chord_like_count / len(words) >= 0.7:
         return True
 
     if re.match(r'^[-—\s]*[A-Z0-9][-—\s]*$', clean_t, re.IGNORECASE) and len(clean_t) <= 7:
@@ -43,7 +42,6 @@ def parse_txt_library():
         print(f"Error: Could not find {TXT_PATH}")
         return []
 
-    print("Parsing and strictly filtering song_library.txt...")
     with open(TXT_PATH, 'r', encoding='utf-8', errors='ignore') as f:
         content = f.read()
 
@@ -56,7 +54,6 @@ def parse_txt_library():
             continue
             
         title = lines[0]
-        
         if is_garbage_title(title):
             continue
 
