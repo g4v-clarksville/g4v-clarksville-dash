@@ -52,7 +52,7 @@
     <script>
         let songs = [];
 
-       function isJunk(title) {
+        function isJunk(title) {
             if (!title) return true;
             let t = title.trim();
             if (t.length < 2) return true;
@@ -68,19 +68,18 @@
         fetch('songs.json')
             .then(res => res.json())
             .then(data => {
-                // Filter out index artifacts immediately on load
                 songs = data
                     .filter(song => !isJunk(song.title))
                     .map((song, idx) => ({ ...song, originalIndex: idx }));
                 
                 document.getElementById('songCount').innerText = `${songs.length} Songs Indexed`;
-                renderTable(songs.slice(0, 100));
+                renderTable(songs);
             });
 
         function filterSongs() {
             let query = document.getElementById('searchInput').value.toLowerCase();
             if (!query) {
-                renderTable(songs.slice(0, 100));
+                renderTable(songs);
                 return;
             }
             
@@ -90,7 +89,7 @@
                 (s.content && s.content.some(line => line.toLowerCase().includes(query)))
             );
             
-            renderTable(filtered.slice(0, 150));
+            renderTable(filtered);
         }
 
         function renderTable(arr) {
