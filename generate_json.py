@@ -5,6 +5,23 @@ import re
 TXT_PATH = "song_library.txt"
 JSON_PATH = "songs.json"
 
+def is_garbage_title(title):
+    clean_t = title.strip()
+    if not clean_t or len(clean_t) < 2:
+        return True
+    # Check if title consists entirely of symbols/dividers
+    if all(c in '*-_= .—·#/' for c in clean_t):
+        return True
+    upper_t = clean_t.upper()
+    # Explicitly catch index markers like (Main), - C -, - D -, etc.
+    if upper_t in {"(MAIN)", "MAIN", "INDEX", "CONTENTS", "POP/ROCK"}:
+        return True
+    if re.match(r'^[-—\s]*[A-Z0-9][-—\s]*$', clean_t, re.IGNORECASE) and len(clean_t) <= 7:
+        return True
+    if re.match(r'^\(.*\)$', clean_t):
+        return True
+    return False
+
 def parse_txt_library():
     if not os.path.exists(TXT_PATH):
         print(f"Error: Could not find {TXT_PATH}")
@@ -24,19 +41,7 @@ def parse_txt_library():
             
         title = lines[0]
         
-        # Aggressive filter to drop all index artifacts, dividers, and alphabetical section headers
-        is_junk = (
-            set(title) <= {'*', '-', '=', '_', ' ', '—', '.', '·'} or
-            len(title) < 2 or
-            re.match(r'^\s*[-—]\s*[A-Z0-9#]\s*[-—]\s*$', title) or
-            re.match(r'^\(?(Main|Index|Contents|Part)\)?$', title, re.IGNORECASE) or
-            any(term in title.upper() for term in [
-                "MAIN INDEX", "BY ARTIST", "CONTENTS", "SONGBOOK", 
-                "POP/ROCK", "TITLES IN RED", "INDEX"
-            ])
-        )
-        
-        if is_junk:
+        if is_garbage_title(title):
             continue
 
         artist = "Unknown Artist"
