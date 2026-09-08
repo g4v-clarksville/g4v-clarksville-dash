@@ -5,72 +5,174 @@ import re
 TXT_PATH = "song_library.txt"
 JSON_PATH = "songs.json"
 
+def normalize_text(text):
+    return re.sub(r'\s+', ' ', text).strip().lower()
+
+def is_junk_title(title):
+    clean = title.strip()
+    if not clean or len(clean) > 60 or len(clean) < 2:
+        return True
+    if re.match(r'^[\s\-\–—_]*[A-Z0-9][\s\-\–—_]*$', clean, re.IGNORECASE):
+        return True
+    if set(clean) <= {'*', '-', '=', '_', ' ', '—', '.', '·', '(', ')', '[', ']'}:
+        return True
+    if clean.startswith('(') or clean.startswith('[') or clean.startswith('|') or clean.startswith('•'):
+        return True
+    if any(keyword in clean.upper() for keyword in ["MAIN INDEX", "BY ARTIST", "CONTENTS", "CHORD", "TAB", "TUNING", "CAPO"]):
+        return True
+    
+    # Absolute block for titles that are solely chord progressions or tuning sequences (e.g., "A D", "A A7 D 4", "A F#m", "A D D G D G")
+    if re.match(r'^[A-G](?:#|b)?(?:\s+[A-G0-9#b\-\–—]+)+$', clean, re.IGNORECASE):
+        return True
+    if re.match(r'^[A-G](?:#|b)?\s+[A-G](?:#|b)?m?', clean, re.IGNORECASE) and len(clean.split()) <= 3:
+        return True
+
+    if re.search(r'\b(ah+|oh+|la+|ha+|whop|humor)\b', clean, re.IGNORECASE) and len(re.findall(r'[a-zA-Z]+', clean)) < 4:
+        return True
+    if clean.lower().startswith("a little ") or clean.endswith("...") or clean.count('.') > 2:
+        return True
+        
+    return False
+
+def is_junk_artist(artist):
+    clean = artist.strip()
+    if not clean or clean.lower() == "unknown artist":
+        return True
+    # Aggressively block any artist field containing chord/tab patterns, dashes, fret numbers
+    if re.search(r'\b[0-9]+(?:\s*[\/\-\–—]\s*[0-9]+)+\b', clean):
+        return True
+    if re.search(r'[–—\-]{2,}', clean):
+        return True
+    if re.search(r'\b[A-G](?:#|b)?\b', clean) and any(c in clean for c in ['-', '—', '|', 'D', 'd']):
+        return True
+    if set(clean) <= {'|', '-', '—', ' ', 'D', 'd', 'b', 'O', 'o', '5', '4', '/'}:
+        return True
+    if len(clean) < 2 or len(clean) > 40:
+        return True
+    if clean.lower() in ["ah", "oh", "la", "ha", "unknown", "inst", "instrumental"]:
+        return True
+    if "faster" in clean.lower() or "slower" in clean.lower() or "tempo" in clean.lower():
+        return True
+    return False
+
 def parse_txt_library():
     if not os.path.exists(TXT_PATH):
         print(f"Error: Could not find {TXT_PATH}")
         return []
 
-    print("Parsing and cleaning song_library.txt...")
-    with open(TXT_PATH, 'r', encoding='utf-8') as f:
-        content = f.read()
+    print("Parsing and cleaning song_library.txt with hyper-aggressive filters...")
+    with open(TXT_PATH, 'r', encoding='utf-8', errors='ignore') as f:
+        lines = [line.strip() for line in f.readlines()]
 
-    pattern = re.compile(
-        r'(?P<title>^[A-Z0-9\s\'’–()-]+)\n'
-        r'(?P<artist>[A-Z][A-Za-z\s&,./()’-]+)\n\n'
-        r'(?P<url>https://(?:www\.)?youtube\.com/watch\?v=[^\s]+.*)',
-        re.MULTILINE
-    )
-
-    songs = []
-    matches = list(pattern.finditer(content))
-    
-    for i, match in enumerate(matches):
-        start_pos = match.start()
-        end_pos = matches[i + 1].start() if i + 1 < len(matches) else len(content)
-        
-        song_block = content[start_pos:end_pos].strip()
-        lines = song_block.split('\n')
-        
-        title = match.group('title').strip()
-        artist = match.group('artist').strip()
-        url = match.group('url').strip()
-        
-        # Strict filtering to ignore index separators, star lines, and section markers like "- C -"
-        is_junk = (
-            set(title) <= {'*', '-', '=', '_', ' ', '—', '.', '·'} or
-            title.startswith('(') or
-            "****" in title or
-            re.match(r'^\s*[-—]\s*[A-Z0-9#]\s*[-—]\s*$', title) or
-            any(term in title.upper() for term in ["MAIN INDEX", "BY ARTIST", "CONTENTS"])
-        )
-        
-        if is_junk:
+    songs_map = {}
+    i = 0
+    while i < len(lines):
+        line = lines[i]
+        if not line:
+            i += 1
             continue
 
-        lyrics = []
-        url_found = False
-        for line in lines:
-            if url in line:
-                url_found = True
+        if not is_junk_title(line):
+            title = line
+            artist = "Unknown Artist"
+            youtube = ""
+            lyrics = []
+            
+            i += 1
+            scan_limit = min(i + 5, len(lines))
+            while i < scan_limit:
+                next_line = lines[i]
+                if not next_line:
+                    i += 1
+                    continue
+                
+                if "youtube.com" in next_line or "youtu.be" in next_line:
+                    if not youtube:
+                        youtube = next_line.split()[0]
+                    i += 1
+                    continue
+                
+                artist_match = re.match(r'^(?:artist|by)\s*[:\-]?\s*(.+)$', next_line, re.IGNORECASE)
+                if artist_match:
+                    candidate = artist_match.group(1).strip()
+                    if not is_junk_artist(candidate):
+                        artist = candidate
+                    i += 1
+                    continue
+                
+                if len(next_line) < 40 and not next_line.endswith('.') and not any(c in next_line for c in ['|', '[', '<', '—', '(', ')']):
+                    if not is_junk_artist(next_line) and artist == "Unknown Artist":
+                        artist = next_line
+                        i += 1
+                        continue
+                
+                break
+
+            while i < len(lines):
+                l = lines[i]
+                if "youtube.com" in l or "youtu.be" in l:
+                    if not youtube:
+                        youtube = l.split()[0]
+                    i += 1
+                    continue
+                if not l:
+                    next_non_empty = None
+                    for peek in range(i + 1, min(i + 4, len(lines))):
+                        if lines[peek]:
+                            next_non_empty = lines[peek]
+                            break
+                    if next_non_empty and not is_junk_title(next_non_empty):
+                        break
+                lyrics.append(l)
+                i += 1
+
+            if artist == "Unknown Artist" and lyrics:
+                last_l = lyrics[-1].strip()
+                if not is_junk_artist(last_l) and len(last_l) < 30:
+                    artist = last_l
+                    lyrics.pop()
+
+            clean_lyrics = [l for l in lyrics if l]
+            
+            if not clean_lyrics:
                 continue
-            if url_found:
-                lyrics.append(line.strip())
 
-        songs.append({
-            'title': title,
-            'artist': artist,
-            'youtube': url,
-            'is_sing_along': "sing-along" in title.lower() or "sing along" in artist.lower(),
-            'content': [l for l in lyrics if l]
-        })
+            # Force exact normalization to completely eradicate case/whitespace duplicates
+            norm_title = normalize_text(title)
+            norm_artist = normalize_text(artist)
+            
+            # Use combined unique key to ensure identical titles with proper artists override "Unknown Artist" entries
+            dedup_key = (norm_title, norm_artist if norm_artist != "unknown artist" else "")
 
-    # Sort alphabetically by song title
+            if norm_title not in songs_map:
+                songs_map[norm_title] = {
+                    'title': title.strip(),
+                    'artist': artist.strip(),
+                    'youtube': youtube.strip(),
+                    'is_sing_along': "sing-along" in title.lower() or "sing along" in artist.lower(),
+                    'content': clean_lyrics
+                }
+            else:
+                # Prioritize entries that successfully captured a valid artist over "Unknown Artist"
+                existing = songs_map[norm_title]
+                if existing['artist'].lower() == "unknown artist" and artist.lower() != "unknown artist":
+                    songs_map[norm_title] = {
+                        'title': title.strip(),
+                        'artist': artist.strip(),
+                        'youtube': youtube.strip() or existing['youtube'],
+                        'is_sing_along': "sing-along" in title.lower() or "sing along" in artist.lower(),
+                        'content': clean_lyrics
+                    }
+        else:
+            i += 1
+
+    songs = list(songs_map.values())
     songs = sorted(songs, key=lambda x: x['title'].lower())
 
     with open(JSON_PATH, "w", encoding="utf-8") as f:
         json.dump(songs, f, indent=2)
 
-    print(f"SUCCESS: Extracted, cleaned, and sorted {len(songs)} songs into {JSON_PATH}.")
+    print(f"SUCCESS: Extracted, cleaned, and sorted {len(songs)} unique songs into {JSON_PATH}.")
 
 if __name__ == "__main__":
     parse_txt_library()

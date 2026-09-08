@@ -5,102 +5,94 @@ import re
 TXT_PATH = "song_library.txt"
 JSON_PATH = "songs.json"
 
-def is_valid_title(title):
-    clean_t = title.strip()
-    if not clean_t or len(clean_t) > 60:
-        return False
-    if all(c in '*-_= .—·#/' for c in clean_t):
-        return False
-    
-    upper_t = clean_t.upper()
-    
-    if upper_t in {"(MAIN)", "MAIN", "INDEX", "CONTENTS", "POP/ROCK"}:
-        return False
-    if upper_t.startswith("TIP:") or upper_t.startswith("NOTE:") or upper_t.startswith("INTRO:") or upper_t.startswith("INSTRUCTIONS:") or upper_t.startswith("B -"):
-        return False
-    if "BY SONG TITLE" in upper_t or "POP/ROCK" in upper_t or "GENRE" in upper_t:
-        return False
-    if clean_t.startswith("[") or clean_t.startswith("<"):
-        return False
-        
-    if clean_t[0].islower():
-        return False
-        
-    words = clean_t.split()
-    chord_token = re.compile(r'^[A-G][b#]?(m|maj|min|dim|aug|sus|7|9|11|13|2|4|add)*$', re.IGNORECASE)
-    chord_count = sum(1 for w in words if chord_token.match(w) or w in {'-', '—', '/', 'and', '&', ';', ','})
-    if len(words) >= 2 and chord_count / len(words) >= 0.6:
-        return False
-
-    if re.search(r'\b[a-z]+,\s+[a-z]+', clean_t) or clean_t.endswith('.'):
-        return False
-
-    return True
-
 def parse_txt_library():
     if not os.path.exists(TXT_PATH):
         print(f"Error: Could not find {TXT_PATH}")
         return []
 
     with open(TXT_PATH, 'r', encoding='utf-8', errors='ignore') as f:
-        content = f.read()
+        raw_content = f.read()
 
-    blocks = re.split(r'\n\s*\n\s*\n', content)
+    # Split the library into blocks based on common separator patterns or double-newlines
+    # This keeps entire song text chunks together cleanly
+    blocks = re.split(r'\n\s*\n', raw_content)
     songs = []
-    
+
     for block in blocks:
-        lines = [line.strip() for line in block.split('\n') if line.strip()]
+        lines = [line.strip() for line in block.splitlines() if line.strip()]
         if not lines:
             continue
+
+        # Filter out alphabetical section headers like "- C -", "- D -" entirely
+        if len(lines) == 1 and re.match(r'^[\-\–—\s]*[A-Z][\-\–—\s]*$', lines[0]):
+            continue
+
+        title = ""
+        artist = "Unknown Artist"
+        youtube = ""
+        content_lines = []
+
+        valid_lines = []
+        for line in lines:
+            # Check for YouTube links embedded anywhere in the block
+            if "youtube.com" in line or "youtu.be" in line:
+                youtube = line
+                continue
             
-        candidate_title = lines[0]
+            # Skip standalone section header markers
+            if re.match(r'^[\-\–—\s]*[A-Z][\-\–—\s]*$', line):
+                continue
+                
+            valid_lines.append(line)
+
+        if not valid_lines:
+            continue
+
+        # The first valid line is our title
+        potential_title = valid_lines[0]
         
-        if is_valid_title(candidate_title):
-            artist = "Unknown Artist"
-            url = ""
-            lyrics_start_idx = 1
+        # Guard against picking garbage lines as titles
+        if len(potential_title) > 60 or potential_title.startswith('(') or potential_title.startswith('[') or potential_title.startswith('|'):
+            continue
+            
+        title = potential_title
+        remaining_lines = valid_lines[1:]
 
-            if len(lines) > 1:
-                if "youtube.com" in lines[1] or "youtu.be" in lines[1]:
-                    url = lines[1]
-                    lyrics_start_idx = 2
-                elif len(lines) > 2 and ("youtube.com" in lines[2] or "youtu.be" in lines[2]):
-                    artist = lines[1]
-                    url = lines[2]
-                    lyrics_start_idx = 3
-                else:
-                    if len(lines[1]) < 40 and not lines[1].endswith('.'):
-                        artist = lines[1]
-                        lyrics_start_idx = 2
-
-            lyrics = lines[lyrics_start_idx:]
-
-            songs.append({
-                'title': candidate_title,
-                'artist': artist,
-                'youtube': url,
-                'is_sing_along': "sing-along" in candidate_title.lower() or "sing along" in artist.lower(),
-                'content': lyrics
-            })
-        else:
-            if songs:
-                songs[-1]['content'].append("")
-                songs[-1]['content'].extend(lines)
+        # Look for an artist name in the immediate next few lines or at the very end
+        if remaining_lines:
+            # Check if the second line is an artist (short, no punctuation ending, no chords)
+            if len(remaining_lines[0]) < 35 and not remaining_lines[0].endswith('.') and not any(c in remaining_lines[0] for c in ['|', '[', '<', '—', '(', ')']):
+                artist = remaining_lines[0]
+                content_lines = remaining_lines[1:]
             else:
-                songs.append({
-                    'title': "Untitled / Spoken Word",
-                    'artist': "Unknown Artist",
-                    'youtube': "",
-                    'is_sing_along': False,
-                    'content': lines
-                })
+                content_lines = remaining_lines
+
+        # If artist is still unknown, check the final line of the song body
+        if artist == "Unknown Artist" and content_lines:
+            last_line = content_lines[-1]
+            if len(last_line) < 35 and not any(c in last_line for c in ['|', '[', '<', '(', ')']):
+                artist = last_line
+                content_lines.pop() # Remove it so it doesn't show up in the lyrics view
+
+        # Final sanity check: skip if title is just a single letter artifact or pure punctuation
+        stripped_title_core = re.sub(r'[\s\-\–—_#*]+', '', title)
+        if len(stripped_title_core) <= 1:
+            continue
+
+        songs.append({
+            'title': title,
+            'artist': artist,
+            'youtube': youtube,
+            'is_sing_along': False,
+            'content': content_lines
+        })
 
     songs = sorted(songs, key=lambda x: x['title'].lower())
 
     with open(JSON_PATH, "w", encoding="utf-8") as f:
         json.dump(songs, f, indent=2)
 
-    print(f"SUCCESS: Cleaned, healed, and saved {len(songs)} valid songs into {JSON_PATH}.")
+    print(f"SUCCESS: Saved {len(songs)} cleanly parsed songs into {JSON_PATH}.")
     return songs
 
 if __name__ == "__main__":
