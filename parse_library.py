@@ -6,29 +6,26 @@ TXT_PATH = "song_library.txt"
 JSON_PATH = "songs.json"
 
 def normalize_strict(text):
-    # Strips all non-alphanumeric characters and lowercases for absolute deduplication
     return re.sub(r'[^a-z0-9]', '', text.lower())
 
 def is_junk_title(title):
     clean = title.strip()
     if not clean or len(clean) > 60 or len(clean) < 2:
         return True
+    
+    # Aggressively block any line that is a chord progression or tab sequence (e.g., A F#m, A A7 D 4, A D D G D G)
+    if re.match(r'^[A-G](?:#|b)?(?:m|maj|min|dim|aug|sus|[0-9])*(\s+[A-G](?:#|b)?(?:m|maj|min|dim|aug|sus|[0-9])*|\s+[0-9]+|\s*[\-\–—\|,\/])+$', clean, re.IGNORECASE):
+        return True
+        
     if re.match(r'^[\s\-\–—_]*[A-Z0-9][\s\-\–—_]*$', clean, re.IGNORECASE):
         return True
-    if set(clean) <= {'*', '-', '=', '_', ' ', '—', '.', '·', '(', ')', '[', ']'}:
+    if set(clean) <= {'*', '-', '=', '_', ' ', '—', '.', '·', '(', ')', '[', ']', '|', ','}:
         return True
     if clean.startswith('(') or clean.startswith('[') or clean.startswith('|') or clean.startswith('•'):
         return True
     if any(keyword in clean.upper() for keyword in ["MAIN INDEX", "BY ARTIST", "CONTENTS", "CHORD", "TAB", "TUNING", "CAPO"]):
         return True
     
-    if re.match(r'^[A-G](?:#|b)?(?:\s+[A-G](?:#|b)?|\s+[0-9]+|\s+[\-\–—])+[\sA-G0-9\-\–—#b]*$', clean):
-        return True
-    if re.match(r'^[A-G](?:#|b)?(?:\s+[A-G0-9#b\-\–—]+)+$', clean, re.IGNORECASE):
-        return True
-    if re.match(r'^[A-G](?:#|b)?\s+[A-G](?:#|b)?m?', clean, re.IGNORECASE) and len(clean.split()) <= 3:
-        return True
-
     if re.search(r'\b(ah+|oh+|la+|ha+|whop|humor)\b', clean, re.IGNORECASE) and len(re.findall(r'[a-zA-Z]+', clean)) < 4:
         return True
     if clean.lower().startswith("a little ") or clean.endswith("...") or clean.count('.') > 2:
@@ -61,7 +58,7 @@ def parse_txt_library():
         print(f"Error: Could not find {TXT_PATH}")
         return []
 
-    print("Parsing and cleaning song_library.txt with strict deduplication...")
+    print("Parsing and cleaning song_library.txt with strict deduplication and chord filtering...")
     with open(TXT_PATH, 'r', encoding='utf-8', errors='ignore') as f:
         lines = [line.strip() for line in f.readlines()]
 
@@ -144,7 +141,6 @@ def parse_txt_library():
             if not clean_lyrics:
                 continue
 
-            # Strict alphanumeric key to collapse casing, punctuation, and comma variants (e.g., "30,000 Pounds" vs "30000 POUNDS")
             strict_key = normalize_strict(title)
 
             if strict_key not in songs_map:
