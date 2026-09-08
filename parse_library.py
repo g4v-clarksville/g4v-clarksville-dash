@@ -5,8 +5,9 @@ import re
 TXT_PATH = "song_library.txt"
 JSON_PATH = "songs.json"
 
-def normalize_text(text):
-    return re.sub(r'\s+', ' ', text).strip().lower()
+def normalize_strict(text):
+    # Strips all non-alphanumeric characters and lowercases for absolute deduplication
+    return re.sub(r'[^a-z0-9]', '', text.lower())
 
 def is_junk_title(title):
     clean = title.strip()
@@ -60,7 +61,7 @@ def parse_txt_library():
         print(f"Error: Could not find {TXT_PATH}")
         return []
 
-    print("Parsing and cleaning song_library.txt with robust artist pattern matching...")
+    print("Parsing and cleaning song_library.txt with strict deduplication...")
     with open(TXT_PATH, 'r', encoding='utf-8', errors='ignore') as f:
         lines = [line.strip() for line in f.readlines()]
 
@@ -92,7 +93,6 @@ def parse_txt_library():
                     i += 1
                     continue
                 
-                # Bulletproof capture for "Artist: Name" or "By: Name" or direct lines
                 artist_match = re.match(r'^(?:artist|by)\s*[:\-]?\s*(.+)$', next_line, re.IGNORECASE)
                 if artist_match:
                     candidate = artist_match.group(1).strip()
@@ -101,7 +101,6 @@ def parse_txt_library():
                     i += 1
                     continue
                 
-                # If the line itself looks like a valid clean artist name immediately following the title
                 if len(next_line) < 40 and not next_line.endswith('.') and not any(c in next_line for c in ['|', '[', '<', '—', '(', ')']):
                     if not is_junk_artist(next_line) and artist == "Unknown Artist":
                         artist = next_line
@@ -145,11 +144,11 @@ def parse_txt_library():
             if not clean_lyrics:
                 continue
 
-            norm_title = normalize_text(title)
-            norm_artist = normalize_text(artist)
+            # Strict alphanumeric key to collapse casing, punctuation, and comma variants (e.g., "30,000 Pounds" vs "30000 POUNDS")
+            strict_key = normalize_strict(title)
 
-            if norm_title not in songs_map:
-                songs_map[norm_title] = {
+            if strict_key not in songs_map:
+                songs_map[strict_key] = {
                     'title': title.strip(),
                     'artist': artist.strip(),
                     'youtube': youtube.strip(),
@@ -157,9 +156,9 @@ def parse_txt_library():
                     'content': clean_lyrics
                 }
             else:
-                existing = songs_map[norm_title]
+                existing = songs_map[strict_key]
                 if existing['artist'].lower() == "unknown artist" and artist.lower() != "unknown artist":
-                    songs_map[norm_title] = {
+                    songs_map[strict_key] = {
                         'title': title.strip(),
                         'artist': artist.strip(),
                         'youtube': youtube.strip() or existing['youtube'],
