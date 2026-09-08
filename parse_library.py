@@ -21,7 +21,8 @@ def is_junk_title(title):
     if any(keyword in clean.upper() for keyword in ["MAIN INDEX", "BY ARTIST", "CONTENTS", "CHORD", "TAB", "TUNING", "CAPO"]):
         return True
     
-    # Absolute block for titles that are solely chord progressions or tuning sequences (e.g., "A D", "A A7 D 4", "A F#m", "A D D G D G")
+    if re.match(r'^[A-G](?:#|b)?(?:\s+[A-G](?:#|b)?|\s+[0-9]+|\s+[\-\–—])+[\sA-G0-9\-\–—#b]*$', clean):
+        return True
     if re.match(r'^[A-G](?:#|b)?(?:\s+[A-G0-9#b\-\–—]+)+$', clean, re.IGNORECASE):
         return True
     if re.match(r'^[A-G](?:#|b)?\s+[A-G](?:#|b)?m?', clean, re.IGNORECASE) and len(clean.split()) <= 3:
@@ -38,7 +39,6 @@ def is_junk_artist(artist):
     clean = artist.strip()
     if not clean or clean.lower() == "unknown artist":
         return True
-    # Aggressively block any artist field containing chord/tab patterns, dashes, fret numbers
     if re.search(r'\b[0-9]+(?:\s*[\/\-\–—]\s*[0-9]+)+\b', clean):
         return True
     if re.search(r'[–—\-]{2,}', clean):
@@ -60,7 +60,7 @@ def parse_txt_library():
         print(f"Error: Could not find {TXT_PATH}")
         return []
 
-    print("Parsing and cleaning song_library.txt with hyper-aggressive filters...")
+    print("Parsing and cleaning song_library.txt with robust artist pattern matching...")
     with open(TXT_PATH, 'r', encoding='utf-8', errors='ignore') as f:
         lines = [line.strip() for line in f.readlines()]
 
@@ -79,7 +79,7 @@ def parse_txt_library():
             lyrics = []
             
             i += 1
-            scan_limit = min(i + 5, len(lines))
+            scan_limit = min(i + 6, len(lines))
             while i < scan_limit:
                 next_line = lines[i]
                 if not next_line:
@@ -92,6 +92,7 @@ def parse_txt_library():
                     i += 1
                     continue
                 
+                # Bulletproof capture for "Artist: Name" or "By: Name" or direct lines
                 artist_match = re.match(r'^(?:artist|by)\s*[:\-]?\s*(.+)$', next_line, re.IGNORECASE)
                 if artist_match:
                     candidate = artist_match.group(1).strip()
@@ -100,6 +101,7 @@ def parse_txt_library():
                     i += 1
                     continue
                 
+                # If the line itself looks like a valid clean artist name immediately following the title
                 if len(next_line) < 40 and not next_line.endswith('.') and not any(c in next_line for c in ['|', '[', '<', '—', '(', ')']):
                     if not is_junk_artist(next_line) and artist == "Unknown Artist":
                         artist = next_line
@@ -128,7 +130,13 @@ def parse_txt_library():
 
             if artist == "Unknown Artist" and lyrics:
                 last_l = lyrics[-1].strip()
-                if not is_junk_artist(last_l) and len(last_l) < 30:
+                artist_match = re.match(r'^(?:artist|by)\s*[:\-]?\s*(.+)$', last_l, re.IGNORECASE)
+                if artist_match:
+                    candidate = artist_match.group(1).strip()
+                    if not is_junk_artist(candidate):
+                        artist = candidate
+                        lyrics.pop()
+                elif not is_junk_artist(last_l) and len(last_l) < 30:
                     artist = last_l
                     lyrics.pop()
 
@@ -137,12 +145,8 @@ def parse_txt_library():
             if not clean_lyrics:
                 continue
 
-            # Force exact normalization to completely eradicate case/whitespace duplicates
             norm_title = normalize_text(title)
             norm_artist = normalize_text(artist)
-            
-            # Use combined unique key to ensure identical titles with proper artists override "Unknown Artist" entries
-            dedup_key = (norm_title, norm_artist if norm_artist != "unknown artist" else "")
 
             if norm_title not in songs_map:
                 songs_map[norm_title] = {
@@ -153,7 +157,6 @@ def parse_txt_library():
                     'content': clean_lyrics
                 }
             else:
-                # Prioritize entries that successfully captured a valid artist over "Unknown Artist"
                 existing = songs_map[norm_title]
                 if existing['artist'].lower() == "unknown artist" and artist.lower() != "unknown artist":
                     songs_map[norm_title] = {
