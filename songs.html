@@ -8,187 +8,183 @@
     <link rel="icon" href="images/g4v-logo.png">
 </head>
 <body>
-    <div class="container">
+    <div class="library-container">
+        <!-- Modernized Header Box -->
         <div class="header-box">
-            <div>
+            <div class="header-title-area">
                 <h1>Chapter 287 Song Library</h1>
                 <p id="songCount">Loading database...</p>
             </div>
-            <a href="index.html" class="back-btn">← Back to Dashboard</a>
+            <a href="index.html" class="back-btn">&larr; Back to Dashboard</a>
         </div>
 
-        <input type="text" id="searchInput" placeholder="Search across all songs by title, artist, or lyrics..." onkeyup="handleSearch()">
-        
-        <div class="alphabet-nav" id="alphabetNav">
-            <!-- Dynamically populated A-Z buttons -->
+        <div class="search-bar-container">
+            <input type="text" id="searchInput" placeholder="Search across all songs by title, artist, or lyrics..." onkeyup="handleSearch()">
         </div>
 
-        <table class="song-table">
-            <thead>
-                <tr>
-                    <th class="col-title">Title</th>
-                    <th class="col-artist">Artist</th>
-                    <th class="col-action">View Page</th>
-                </tr>
-            </thead>
-            <tbody id="songTableBody">
-                <tr><td colspan="3" class="empty-state">Loading library...</td></tr>
-            </tbody>
-        </table>
+        <!-- Main Workspace Layout: Vertical Sidebar + Content Table -->
+        <div class="library-layout">
+            <aside class="alpha-sidebar">
+                <button class="alpha-btn active" onclick="filterByLetter('ALL', this)">
+                    <span>ALL</span> <span class="count" id="count-all">0</span>
+                </button>
+                <div id="alphabetNav">
+                    <!-- Dynamically populated vertical A-Z buttons -->
+                </div>
+            </aside>
+
+            <main class="song-content-area">
+                <table class="song-table">
+                    <thead>
+                        <tr>
+                            <th class="col-title">Title</th>
+                            <th class="col-artist">Artist</th>
+                            <th class="col-action">View Page</th>
+                        </tr>
+                    </thead>
+                    <tbody id="songTableBody">
+                        <tr><td colspan="3" class="empty-state">Loading library...</td></tr>
+                    </tbody>
+                </table>
+            </main>
+        </div>
+    </div>
+
+    <!-- Song View Modal with Action Bar -->
+    <div id="songModal" class="modal" style="display:none;">
+        <div class="modal-content">
+            <div class="modal-header">
+                <div>
+                    <h2 id="modalTitle"></h2>
+                    <p id="modalArtist"></p>
+                </div>
+                <div class="modal-actions">
+                    <button onclick="printSong()" class="action-btn" title="Print Song">&#128424; Print</button>
+                    <button onclick="copySongText()" class="action-btn" title="Copy Text">&#128203; Copy</button>
+                    <button onclick="downloadSong()" class="action-btn" title="Download File">&#128190; Download</button>
+                    <button onclick="closeModal()" class="close-btn" title="Close">&times;</button>
+                </div>
+            </div>
+            <div class="modal-body" id="modalBody"></div>
+        </div>
     </div>
 
     <script>
-        let songs = [];
-        let currentLetter = 'ALL';
+        let allSongs = [];
+        let currentActiveSong = null;
+        let activeLetter = 'ALL';
 
-        function isJunk(title, artist) {
-            if (!title) return true;
-            let t = title.trim();
-            let a = artist ? artist.trim() : '';
-            let upperT = t.toUpperCase();
-            
-            // 1. Basic length boundaries (Real song titles are rarely single characters or over 45 chars)
-            if (t.length < 2 || t.length > 45) return true;
-            
-            // 2. Reject anything starting with or entirely consisting of parentheses/brackets/form markers
-            if (t.startsWith('(') || t.startsWith('[') || t.startsWith('|') || t.startsWith('<')) return true;
-            if (upperT.startsWith('INTRO') || upperT.startsWith('VERSE') || upperT.startsWith('CHORUS') || 
-                upperT.startsWith('BRIDGE') || upperT.startsWith('SOLO') || upperT.startsWith('OUTRO') || 
-                upperT.startsWith('FORM') || upperT.startsWith('TAB') || upperT.startsWith('PART')) return true;
-
-            // 3. Reject timestamps, numbers-only, or timecodes
-            if (/^\d{1,2}:\d{2}/.test(t)) return true;
-            if (/^[\d\s\-\–—\.,:;]+$/.test(t)) return true;
-
-            // 4. Reject vocalization filler lines or lyric fragments masquerading as titles ("Ahhh", "mmm - mmm")
-            if (/^(ah+|oh+|mm+|la+|hey+|yeah+)[,\.\s!-]*$/i.test(t)) return true;
-            if (/^(ah+|oh+|mm+|la+|hey+|yeah+)/i.test(t) && t.split(/\s+/).length <= 4) return true;
-
-            // 5. Check for bad/corrupted artist fields (e.g. numbers, instructions, bracketed text)
-            if (!a || a === 'Unknown Artist') {
-                // If there's no artist, be extra strict on title validity
-                if (t.includes('<') || t.includes('>') || t.includes('|')) return true;
+        async function loadSongs() {
+            try {
+                let response = await fetch('songs.json');
+                allSongs = await response.json();
+                document.getElementById('songCount').innerText = `${allSongs.length} Songs Displayed`;
+                document.getElementById('count-all').innerText = allSongs.length;
+                buildVerticalAlphaSidebar();
+                displaySongs(allSongs);
+            } catch (error) {
+                document.getElementById('songCount').innerText = 'Error loading database';
+                document.getElementById('songTableBody').innerHTML = `<tr><td colspan="3" class="empty-state">Failed to load songs.json</td></tr>`;
             }
-            if (/^\d+$/.test(a) || a.includes('>') || a.includes('<') || a.toLowerCase().includes('bridge')) return true;
-
-            return false;
         }
 
-        function cleanSongData(song, idx) {
-            let title = song.title ? song.title.trim() : '';
-            let artist = song.artist && song.artist !== 'Unknown Artist' ? song.artist.trim() : '';
-
-            let match = title.match(/^(.*?)\s+[\–\-—]\s+(.+)$/);
-            if (match) {
-                title = match[1].trim();
-                if (!artist) artist = match[2].trim();
-            }
-
-            return {
-                ...song,
-                title: title,
-                artist: artist || 'Unknown Artist',
-                originalIndex: idx
-            };
-        }
-
-        fetch('songs.json')
-            .then(res => res.json())
-            .then(data => {
-                songs = data
-                    .map((s, idx) => cleanSongData(s, idx))
-                    .filter(song => !isJunk(song.title, song.artist));
-
-                songs.sort((a, b) => a.title.localeCompare(b.title, 'en', { sensitivity: 'base' }));
-
-                buildAlphabetNav();
-                filterAndRender();
+        function buildVerticalAlphaSidebar() {
+            const container = document.getElementById('alphabetNav');
+            const alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ".split("");
+            let html = '';
+            
+            alphabet.forEach(letter => {
+                const count = allSongs.filter(s => s.title.toUpperCase().startsWith(letter)).length;
+                html += `
+                    <button class="alpha-btn ${count === 0 ? 'disabled' : ''}" onclick="filterByLetter('${letter}', this)">
+                        <span>${letter}</span> <span class="count">${count}</span>
+                    </button>`;
             });
-
-        function buildAlphabetNav() {
-            let nav = document.getElementById('alphabetNav');
-            let availableLetters = new Set(songs.map(s => s.title.charAt(0).toUpperCase()));
-
-            let html = `<button class="letter-btn active" onclick="selectLetter('ALL')">ALL</button>`;
-            for (let i = 65; i <= 90; i++) {
-                let char = String.fromCharCode(i);
-                let hasSongs = availableLetters.has(char);
-                let btnClass = hasSongs ? 'letter-btn' : 'letter-btn disabled';
-                let clickAction = hasSongs ? `onclick="selectLetter('${char}')"` : '';
-                html += `<button class="${btnClass}" ${clickAction}>${char}</button>`;
-            }
-            nav.innerHTML = html;
+            container.innerHTML = html;
         }
 
-        function selectLetter(letter) {
-            currentLetter = letter;
-            document.getElementById('searchInput').value = '';
+        function displaySongs(songsToDisplay) {
+            const tbody = document.getElementById('songTableBody');
+            if (songsToDisplay.length === 0) {
+                tbody.innerHTML = `<tr><td colspan="3" class="empty-state">No songs found.</td></tr>`;
+                return;
+            }
             
-            document.querySelectorAll('.letter-btn').forEach(btn => {
-                if (btn.innerText === letter) btn.classList.add('active');
-                else btn.classList.remove('active');
-            });
+            tbody.innerHTML = songsToDisplay.map(song => `
+                <tr>
+                    <td class="col-title"><strong>${song.title}</strong></td>
+                    <td class="col-artist">${song.artist}</td>
+                    <td class="col-action">
+                        <button onclick='openSongModal(${JSON.stringify(song).replace(/'/g, "&#39;")})' class="view-btn">View Song &nearr;</button>
+                    </td>
+                </tr>
+            `).join('');
+        }
 
-            filterAndRender();
+        function filterByLetter(letter, element) {
+            activeLetter = letter;
+            document.querySelectorAll('.alpha-sidebar button').forEach(b => b.classList.remove('active'));
+            if (element) element.classList.add('active');
+            
+            let filtered = letter === 'ALL' ? allSongs : allSongs.filter(s => s.title.toUpperCase().startsWith(letter));
+            
+            const searchTerm = document.getElementById('searchInput').value.toLowerCase();
+            if (searchTerm) {
+                filtered = filtered.filter(s => 
+                    s.title.toLowerCase().includes(searchTerm) || 
+                    s.artist.toLowerCase().includes(searchTerm) || 
+                    s.content.some(line => line.toLowerCase().includes(searchTerm))
+                );
+            }
+            displaySongs(filtered);
         }
 
         function handleSearch() {
-            if (document.getElementById('searchInput').value.trim() !== '') {
-                currentLetter = 'ALL';
-                document.querySelectorAll('.letter-btn').forEach(btn => {
-                    if (btn.innerText === 'ALL') btn.classList.add('active');
-                    else btn.classList.remove('active');
-                });
-            }
-            filterAndRender();
-        }
-
-        function filterAndRender() {
-            let query = document.getElementById('searchInput').value.toLowerCase();
+            const searchTerm = document.getElementById('searchInput').value.toLowerCase();
+            let baseList = activeLetter === 'ALL' ? allSongs : allSongs.filter(s => s.title.toUpperCase().startsWith(activeLetter));
             
-            let filtered = songs.filter(s => {
-                let matchesLetter = (currentLetter === 'ALL') || s.title.toUpperCase().startsWith(currentLetter);
-                if (!matchesLetter) return false;
-
-                if (!query) return true;
-                return (s.title && s.title.toLowerCase().includes(query)) || 
-                       (s.artist && s.artist.toLowerCase().includes(query)) ||
-                       (s.content && s.content.some(line => line.toLowerCase().includes(query)));
-            });
-
-            renderTable(filtered);
+            const filtered = baseList.filter(s => 
+                s.title.toLowerCase().includes(searchTerm) || 
+                s.artist.toLowerCase().includes(searchTerm) || 
+                s.content.some(line => line.toLowerCase().includes(searchTerm))
+            );
+            displaySongs(filtered);
         }
 
-        function renderTable(arr) {
-            let tbody = document.getElementById('songTableBody');
-            document.getElementById('songCount').innerText = `${arr.length} Songs Displayed`;
-
-            if (arr.length === 0) {
-                tbody.innerHTML = `<tr><td colspan="3" class="empty-state">No matching songs found.</td></tr>`;
-                return;
-            }
-
-            let html = '';
-            arr.forEach((s) => {
-                let title = s.title || 'Untitled';
-                let artist = s.artist || 'Unknown Artist';
-                let viewerUrl = `song.html?id=${s.originalIndex}`;
-
-                html += `
-                    <tr class="song-row" onclick="window.open('${viewerUrl}', '_blank')">
-                        <td><strong class="song-title-text">${escapeHtml(title)}</strong></td>
-                        <td class="song-artist-text">${escapeHtml(artist)}</td>
-                        <td class="col-action">
-                            <a href="${viewerUrl}" target="_blank" class="action-link" onclick="event.stopPropagation()">View Song ↗</a>
-                        </td>
-                    </tr>`;
-            });
-            tbody.innerHTML = html;
+        function openSongModal(song) {
+            currentActiveSong = song;
+            document.getElementById('modalTitle').innerText = song.title;
+            document.getElementById('modalArtist').innerText = song.artist;
+            document.getElementById('modalBody').innerHTML = song.content.map(line => `<div class="lyric-line">${line}</div>`).join('');
+            document.getElementById('songModal').style.display = 'block';
         }
 
-        function escapeHtml(text) {
-            return text.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;").replace(/'/g, "&#039;");
+        function closeModal() {
+            document.getElementById('songModal').style.display = 'none';
         }
+
+        function copySongText() {
+            if (!currentActiveSong) return;
+            const text = `${currentActiveSong.title}\nArtist: ${currentActiveSong.artist}\n\n` + currentActiveSong.content.join('\n');
+            navigator.clipboard.writeText(text);
+            alert('Song copied to clipboard!');
+        }
+
+        function downloadSong() {
+            if (!currentActiveSong) return;
+            const text = `${currentActiveSong.title}\nArtist: ${currentActiveSong.artist}\n\n` + currentActiveSong.content.join('\n');
+            const blob = new Blob([text], { type: 'text/plain' });
+            const link = document.createElement('a');
+            link.href = URL.createObjectURL(blob);
+            link.download = `${currentActiveSong.title.replace(/[^a-zA-Z0-9]/g, '_')}.txt`;
+            link.click();
+        }
+
+        function printSong() {
+            window.print();
+        }
+
+        loadSongs();
     </script>
 </body>
 </html>
