@@ -160,7 +160,8 @@
                 document.querySelectorAll('.alpha-sidebar button').forEach(b => b.classList.remove('active'));
                 if (element) element.classList.add('active');
                 
-                let filtered = allSongs.filter(s => s.is_christmas === true);
+                // Dynamically filter based on the passed category flag (e.g., s['is_' + category] matches 'is_christmas')
+                let filtered = allSongs.filter(s => s['is_' + category] === true);
                 
                 const searchTerm = document.getElementById('searchInput').value.toLowerCase();
                 if (searchTerm) {
@@ -172,7 +173,6 @@
                 }
                 displaySongs(filtered);
             }
-
         function openSongModal(song) {
             currentActiveSong = song;
             document.getElementById('modalTitle').innerText = song.title;
