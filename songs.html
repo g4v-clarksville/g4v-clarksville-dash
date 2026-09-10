@@ -28,6 +28,10 @@
                 <button class="alpha-btn active" onclick="filterByLetter('ALL', this)">
                     <span>ALL</span> <span class="count" id="count-all">0</span>
                 </button>
+                <!-- Dedicated Christmas Filter Button -->
+                <button class="alpha-btn christmas-btn" onclick="filterByCategory('christmas', this)">
+                    <span>🎄 XMAS</span> <span class="count" id="count-christmas">0</span>
+                </button>
                 <div id="alphabetNav">
                     <!-- Dynamically populated vertical A-Z buttons -->
                 </div>
@@ -150,6 +154,24 @@
             );
             displaySongs(filtered);
         }
+
+        function filterByCategory(category, element) {
+                activeLetter = null; // Clear alphabetical filter
+                document.querySelectorAll('.alpha-sidebar button').forEach(b => b.classList.remove('active'));
+                if (element) element.classList.add('active');
+                
+                let filtered = allSongs.filter(s => s.is_christmas === true);
+                
+                const searchTerm = document.getElementById('searchInput').value.toLowerCase();
+                if (searchTerm) {
+                    filtered = filtered.filter(s => 
+                        s.title.toLowerCase().includes(searchTerm) || 
+                        s.artist.toLowerCase().includes(searchTerm) || 
+                        s.content.some(line => line.toLowerCase().includes(searchTerm))
+                    );
+                }
+                displaySongs(filtered);
+            }
 
         function openSongModal(song) {
             currentActiveSong = song;
