@@ -84,6 +84,8 @@
                 allSongs = await response.json();
                 document.getElementById('songCount').innerText = `${allSongs.length} Songs Displayed`;
                 document.getElementById('count-all').innerText = allSongs.length;
+                // Add this to your initialization / data-loading block:
+                document.getElementById('count-christmas').innerText = allSongs.filter(s => s.is_christmas === true).length;
                 buildVerticalAlphaSidebar();
                 displaySongs(allSongs);
             } catch (error) {
