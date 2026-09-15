@@ -43,15 +43,54 @@ body {
     padding: 0;
 }
 
-.page-wrapper {
+.page-wrapper,
+.library-container {
     max-width: 1600px;
     margin: 0 auto;
     padding: 20px;
 }
 
 /* -----------------------------
-   GRADUATION BANNER
------------------------------- */
+   MODERNIZED HEADER BOX & BANNER
+------------------------------*/
+.header-box {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: var(--card-surface);
+    border: 1px solid var(--border-color);
+    padding: 20px;
+    border-radius: 8px;
+    margin-bottom: 20px;
+}
+
+.header-title-area h1 {
+    font-size: 1.8rem;
+    color: var(--text-bright);
+    margin: 0 0 4px 0;
+}
+
+.header-title-area p {
+    color: var(--text-muted);
+    font-size: 0.9rem;
+    margin: 0;
+}
+
+.back-btn {
+    text-decoration: none;
+    color: var(--accent-gold);
+    font-weight: 600;
+    padding: 8px 16px;
+    border-radius: 6px;
+    background-color: var(--bg-void);
+    border: 1px solid var(--border-color);
+    transition: background-color 0.2s ease;
+}
+
+.back-btn:hover {
+    background-color: var(--card-bg);
+}
+
 .banner-container { 
     margin-bottom: 20px; 
     width: 100%; 
@@ -282,6 +321,123 @@ header {
 }
 
 /* ==========================================================================
+   SEARCH BAR
+   ========================================================================== */
+.search-bar-container {
+    margin-bottom: 20px;
+    width: 100%;
+}
+
+.search-bar-container input,
+#searchInput {
+    width: 100%;
+    padding: 14px 18px;
+    background: var(--card-surface);
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    color: var(--text-bright);
+    font-size: 1rem;
+    outline: none;
+    transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.search-bar-container input:focus,
+#searchInput:focus {
+    border-color: var(--neon-cyan);
+    box-shadow: 0 0 0 3px rgba(9, 195, 242, 0.2);
+}
+
+/* ==========================================================================
+   VERTICAL SIDEBAR & WORKSPACE LAYOUT (.library-layout)
+   ========================================================================== */
+.library-layout {
+    display: flex;
+    gap: 20px;
+    align-items: flex-start;
+    width: 100%;
+}
+
+.alpha-sidebar {
+    width: 170px;
+    flex-shrink: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    max-height: calc(100vh - 180px);
+    overflow-y: auto;
+    position: sticky;
+    top: 20px;
+    padding-right: 4px;
+}
+
+#alphabetNav {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.alpha-btn {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 8px 12px;
+    background: var(--card-surface);
+    border: 1px solid var(--border-color);
+    border-radius: 6px;
+    color: var(--text-bright);
+    font-weight: bold;
+    cursor: pointer;
+    font-size: 0.85rem;
+    transition: all 0.2s ease;
+    width: 100%;
+}
+
+.alpha-btn:hover:not(.disabled) {
+    background-color: var(--card-bg);
+    border-color: var(--neon-cyan);
+}
+
+.alpha-btn.active {
+    background-color: var(--neon-cyan);
+    color: #000;
+    border-color: var(--neon-cyan);
+}
+
+.alpha-btn.disabled {
+    opacity: 0.3;
+    cursor: not-allowed;
+    border-color: rgba(44, 103, 190, 0.2);
+}
+
+.alpha-btn .count {
+    font-size: 0.75rem;
+    background: rgba(0, 0, 0, 0.3);
+    padding: 2px 6px;
+    border-radius: 10px;
+    color: var(--text-dim);
+}
+
+.alpha-btn.active .count {
+    background: rgba(0, 0, 0, 0.2);
+    color: #000;
+}
+
+.christmas-btn {
+    background-color: #163828;
+    color: #5cdb95;
+    border-color: #276749;
+}
+
+.christmas-btn:hover {
+    background-color: #1f4d37;
+}
+
+.song-content-area {
+    flex-grow: 1;
+    min-width: 0;
+}
+
+/* ==========================================================================
    YEAR TIMELINE TRACK SELECTOR
    ========================================================================== */
 .year-projection-timeline {
@@ -363,7 +519,7 @@ header {
     display: flex;
     flex-direction: column;
     justify-content: space-between; 
-    align-items: flex-start;                
+    align-items: flex-start;               
     text-align: left;                     
     position: relative;
     overflow: hidden;
@@ -558,6 +714,160 @@ td {
     word-wrap: break-word;
 }
 
+.song-table { 
+    width: 100%; 
+    border-collapse: collapse; 
+    background: var(--card-surface); 
+    border-radius: 8px; 
+    overflow: hidden; 
+    box-shadow: 0 4px 10px rgba(0,0,0,0.3); 
+    border: 1px solid var(--border-color);
+    margin-top: 0;
+}
+
+.song-table th, .song-table td { 
+    padding: 14px 18px; 
+    text-align: left; 
+    border-bottom: 1px solid rgba(44, 103, 190, 0.3); 
+}
+
+.song-table th { 
+    background: var(--bg-dark); 
+    color: #FFD700; 
+    font-weight: 700; 
+    text-transform: uppercase; 
+    font-size: 0.85rem; 
+    letter-spacing: 0.5px; 
+}
+
+.song-table tr.song-row:hover { 
+    background: rgba(44, 103, 190, 0.2); 
+    cursor: pointer; 
+}
+
+.col-title { width: 45%; }
+.col-artist { width: 35%; }
+.col-action { width: 20%; text-align: right; }
+
+.song-title-text { color: #FFD700; }
+.song-artist-text { color: var(--text-dim); }
+
+.view-btn,
+.action-link { 
+    background-color: #FFD700; 
+    color: #000; 
+    padding: 6px 12px; 
+    border-radius: 6px; 
+    text-decoration: none; 
+    font-weight: bold; 
+    font-size: 0.8rem; 
+    border: none;
+    cursor: pointer;
+    transition: opacity 0.2s ease;
+}
+
+.view-btn:hover,
+.action-link:hover { 
+    opacity: 0.9; 
+}
+
+.empty-state {
+    text-align: center;
+    color: var(--text-muted);
+    padding: 40px !important;
+}
+
+/* ==========================================================================
+   MODAL POPUP STYLES
+   ========================================================================== */
+.modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(10, 14, 20, 0.8);
+    backdrop-filter: blur(4px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+.modal-content {
+    background: var(--card-surface);
+    border: 1px solid var(--border-glow);
+    width: 90%;
+    max-width: 650px;
+    max-height: 85vh;
+    border-radius: 8px;
+    display: flex;
+    flex-direction: column;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+    color: var(--text-bright);
+}
+
+.modal-header {
+    padding: 20px;
+    border-bottom: 1px solid var(--border-color);
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+}
+
+.modal-header h2 {
+    color: var(--accent-gold);
+    margin: 0 0 4px 0;
+}
+
+.modal-header p {
+    color: var(--text-dim);
+    margin: 0;
+}
+
+.modal-actions {
+    display: flex;
+    gap: 8px;
+    align-items: center;
+}
+
+.action-btn {
+    padding: 6px 10px;
+    border: 1px solid var(--border-color);
+    background: var(--bg-void);
+    color: var(--text-bright);
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 0.85rem;
+}
+
+.action-btn:hover {
+    background: var(--card-bg);
+}
+
+.close-btn {
+    background: none;
+    border: none;
+    color: var(--text-muted);
+    font-size: 1.5rem;
+    cursor: pointer;
+    line-height: 1;
+    margin-left: 10px;
+}
+
+.close-btn:hover {
+    color: var(--text-bright);
+}
+
+.modal-body {
+    padding: 20px;
+    overflow-y: auto;
+    font-family: monospace;
+    white-space: pre-wrap;
+    line-height: 1.6;
+    color: var(--text-bright);
+}
+
 /* ==========================================================================
    SCROLLING ANNOUNCEMENT TICKER
    ========================================================================== */
@@ -647,7 +957,7 @@ td {
 }
 
 /* -----------------------------
-   JAM SESSIONS PAGE STYLES
+   JAM SESSIONS & SONG CARDS
 ------------------------------*/
 .month-heading {
     color: #FFD700;
@@ -747,60 +1057,6 @@ td {
     text-decoration: underline;
 }
 
-.library-header {
-    background: #0f172a;
-    border-bottom: 1px solid #1e293b;
-    padding: 1.5rem 2rem;
-    margin-bottom: 1.5rem;
-}
-
-.header-top {
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-start;
-    margin-bottom: 1rem;
-}
-
-.title-group h1 {
-    font-size: 1.75rem;
-    font-weight: 700;
-    color: #f8fafc;
-    margin: 0 0 0.25rem 0;
-}
-
-.song-count {
-    font-size: 0.875rem;
-    color: #94a3b8;
-}
-
-.nav-link {
-    color: #38bdf8;
-    text-decoration: none;
-    font-size: 0.95rem;
-    font-weight: 500;
-}
-
-.nav-link:hover {
-    text-decoration: underline;
-}
-
-.search-bar-container input {
-    width: 100%;
-    max-width: 500px;
-    padding: 0.75rem 1rem;
-    background: #1e293b;
-    border: 1px solid #334155;
-    border-radius: 0.5rem;
-    color: #f8fafc;
-    font-size: 0.95rem;
-}
-
-.search-bar-container input:focus {
-    outline: none;
-    border-color: #38bdf8;
-    box-shadow: 0 0 0 2px rgba(56, 189, 248, 0.2);
-}
-
 .song-library-container {
     max-width: 860px;
     margin: 20px auto;
@@ -822,107 +1078,6 @@ td {
     margin: 0 0 5px 0;
 }
 
-.song-search-input {
-    width: 100%;
-    max-width: 860px;
-    margin: 0 auto 20px auto;
-    display: block;
-    padding: 12px 15px;
-    background: #11161d;
-    border: 1px solid var(--border-color);
-    color: var(--text-bright);
-    border-radius: 6px;
-    font-size: 0.95rem;
-}
-
-.alphabet-nav {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 6px;
-    justify-content: center;
-    background: var(--card-surface);
-    padding: 15px;
-    border-radius: 8px;
-    border: 1px solid var(--border-color);
-    margin-bottom: 25px;
-}
-
-.letter-btn {
-    background-color: var(--bg-void);
-    color: #FFD700;
-    border: 1px solid var(--border-color);
-    padding: 8px 12px;
-    font-weight: bold;
-    border-radius: 6px;
-    cursor: pointer;
-    transition: all 0.2s;
-    font-size: 0.9rem;
-}
-
-.letter-btn:hover, .letter-btn.active {
-    background-color: #FFD700;
-    color: #000;
-    border-color: #FFD700;
-}
-
-.letter-btn.disabled {
-    opacity: 0.3;
-    border-color: #2c3a50;
-    color: var(--text-muted);
-    cursor: not-allowed;
-}
-
-.song-table { 
-    width: 100%; 
-    border-collapse: collapse; 
-    background: var(--card-surface); 
-    border-radius: 8px; 
-    overflow: hidden; 
-    box-shadow: 0 4px 10px rgba(0,0,0,0.3); 
-    border: 1px solid var(--border-color);
-}
-
-.song-table th, .song-table td { 
-    padding: 14px 18px; 
-    text-align: left; 
-    border-bottom: 1px solid rgba(44, 103, 190, 0.3); 
-}
-
-.song-table th { 
-    background: var(--bg-dark); 
-    color: #FFD700; 
-    font-weight: 700; 
-    text-transform: uppercase; 
-    font-size: 0.85rem; 
-    letter-spacing: 0.5px; 
-}
-
-.song-table tr.song-row:hover { 
-    background: rgba(44, 103, 190, 0.2); 
-    cursor: pointer; 
-}
-
-.col-title { width: 45%; }
-.col-artist { width: 35%; }
-.col-action { width: 20%; text-align: right; }
-
-.song-title-text { color: #FFD700; }
-.song-artist-text { color: var(--text-dim); }
-
-.action-link { 
-    background-color: #FFD700; 
-    color: #000; 
-    padding: 6px 12px; 
-    border-radius: 6px; 
-    text-decoration: none; 
-    font-weight: bold; 
-    font-size: 0.8rem; 
-}
-
-.action-link:hover { 
-    opacity: 0.9; 
-}
-
 @keyframes ticker-loop {
     0% {
         transform: translate3d(0, 0, 0);
@@ -932,14 +1087,60 @@ td {
     }
 }
 
-/* -----------------------------
+/* ==========================================================================
+   PRINT STYLES
+   ========================================================================== */
+@media print {
+    body * {
+        visibility: hidden;
+    }
+    #songModal, #songModal * {
+        visibility: visible;
+    }
+    #songModal {
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 100%;
+        background: none;
+    }
+    .modal-actions {
+        display: none;
+    }
+}
+
+/* ==========================================================================
    RESPONSIVE MEDIA QUERIES
-------------------------------*/
+   ========================================================================== */
 @media (max-width: 768px) {
-    .header-inner {
+    .library-layout {
+        flex-direction: column;
+    }
+
+    .alpha-sidebar {
+        width: 100%;
+        max-height: none;
+        position: relative;
+        top: 0;
+    }
+
+    #alphabetNav {
+        flex-direction: row;
+        flex-wrap: wrap;
+    }
+
+    .alpha-btn {
+        width: auto;
+        flex: 1 1 calc(20% - 6px);
+        justify-content: center;
+        gap: 4px;
+    }
+
+    .header-inner, .header-box {
         flex-direction: column;
         gap: 12px;
         padding: 15px 20px;
+        align-items: flex-start;
     }
 
     #impact-summary, #dashboard-root, .year-projection-timeline {
@@ -959,5 +1160,9 @@ td {
 @media (max-width: 480px) {
     .header-titles h1 {
         font-size: 1.2rem;
+    }
+
+    .alpha-btn {
+        flex: 1 1 calc(33.33% - 6px);
     }
 }
