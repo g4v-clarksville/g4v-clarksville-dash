@@ -1,96 +1,167 @@
+<!-- songs.html -->
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="dark">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Chapter 287 Song Library</title>
+    <title>Chapter 287 Song Library | Guitars For Vets</title>
+    <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="style.css">
-    <link rel="icon" href="images/g4v-logo.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
+    
+    <!-- Favicon & Asset Links -->
+    <link rel="icon" href="images/Picture1.png">
+    <link rel="icon" href="images/Picture2.png">
+    <link rel="icon" href="images/Picture3.png">
+    <link rel="icon" href="images/OSD logo.png">
+    <link rel="icon" href="images/sponsor1.jpg">
+    <link rel="icon" href="images/clarksvilleQR.png">
+    <link rel="icon" href="images/Designer.png">
 </head>
-<body>
-    <div class="library-container">
-        <!-- Modernized Header Box -->
-        <div class="header-box">
-            <div class="header-title-area">
-                <h1>Chapter 287 Song Library</h1>
-                <p id="songCount">Loading database...</p>
+<body class="bg-[#030712] text-slate-100 font-['Plus_Jakarta_Sans',sans-serif] selection:bg-amber-500 selection:text-black min-h-screen flex flex-col overflow-x-hidden">
+
+    <!-- Ambient Neon Backdrops -->
+    <div class="fixed inset-0 pointer-events-none z-0">
+        <div class="absolute top-[-10%] left-[-10%] w-[50vw] h-[50vw] rounded-full bg-amber-600/10 blur-[140px]"></div>
+        <div class="absolute bottom-[-10%] right-[-10%] w-[50vw] h-[50vw] rounded-full bg-blue-600/10 blur-[140px]"></div>
+    </div>
+
+    <!-- Main Navigation Bar -->
+    <nav class="sticky top-0 z-50 backdrop-blur-xl bg-[#030712]/80 border-b border-slate-800/60">
+        <div class="max-w-7xl mx-auto px-6 h-24 flex items-center justify-between">
+            <div class="flex items-center gap-4">
+                <a href="index.html" class="flex items-center gap-4">
+                    <img src="images/Picture2.png" alt="Chapter Patch" class="w-16 h-16 rounded-2xl object-cover shadow-xl shadow-amber-500/20 border-2 border-amber-500/40">
+                    <div>
+                        <span class="block font-['Space_Grotesk'] font-bold tracking-tight text-white text-lg">G4V CLARKSVILLE</span>
+                        <span class="block text-xs text-amber-400 font-semibold tracking-widest uppercase">Chapter #287</span>
+                    </div>
+                </a>
             </div>
-            <a href="index.html" class="back-btn">&larr; Back to Dashboard</a>
+            <div class="hidden md:flex items-center gap-8 text-sm font-medium text-slate-300">
+                <a href="mission.html" class="hover:text-amber-400 transition-colors">Mission</a>
+                <a href="operations.html" class="hover:text-amber-400 transition-colors">Operations</a>
+                <a href="songs.html" class="text-amber-400 font-bold transition-colors">Songbook Index</a>
+                <a href="archives.html" class="hover:text-amber-400 transition-colors">Archives</a>
+                <a href="sessions.html" class="hover:text-amber-400 transition-colors">Sessions</a>
+                <a href="jams.html" class="hover:text-amber-400 font-bold transition-colors">Jams</a>
+            </div>
+            <div class="flex items-center gap-4">
+                <img src="images/OSD logo.jpg" alt="OSD Logo" class="w-16 h-16 rounded-2xl object-cover shadow-xl shadow-amber-500/20 border-2 border-amber-500/40">
+                <a href="https://guitars4vets.org" target="_blank" class="px-5 py-2.5 rounded-xl bg-amber-500 hover:bg-amber-400 text-black font-semibold text-sm transition-all shadow-lg shadow-amber-500/20 transform hover:-translate-y-0.5">
+                    National Portal
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Library Section -->
+    <main class="relative z-10 max-w-7xl mx-auto px-6 py-12 flex-grow space-y-8 w-full">
+        
+        <!-- Header Banner Box -->
+        <div class="p-8 rounded-3xl bg-slate-900/80 border border-slate-800/80 backdrop-blur-2xl shadow-2xl flex flex-col md:flex-row md:items-center md:justify-between gap-6">
+            <div>
+                <span class="text-xs uppercase tracking-widest text-amber-400 font-bold">Master Database</span>
+                <h1 class="text-3xl lg:text-4xl font-extrabold font-['Space_Grotesk'] tracking-tight text-white mt-1">Chapter 287 Song Library</h1>
+                <p id="songCount" class="text-slate-400 text-sm mt-1">Loading database...</p>
+            </div>
+            <a href="index.html" class="inline-flex items-center justify-center gap-2 px-6 py-3 rounded-xl bg-slate-800 hover:bg-slate-700 text-white font-semibold text-sm transition-all border border-slate-700/80">
+                &larr; Back to Dashboard
+            </a>
         </div>
 
-        <div class="search-bar-container">
-            <input type="text" id="searchInput" placeholder="Search across all songs by title, artist, or lyrics..." onkeyup="handleSearch()">
+        <!-- Search Bar -->
+        <div class="relative">
+            <svg class="absolute left-5 top-1/2 -translate-y-1/2 w-5 h-5 text-slate-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/></svg>
+            <input type="text" id="searchInput" placeholder="Search across all songs by title, artist, or lyrics..." onkeyup="handleSearch()" class="w-full bg-slate-900/80 border border-slate-800 rounded-2xl pl-14 pr-6 py-4 text-white placeholder-slate-500 focus:outline-none focus:border-amber-500 transition-colors font-medium shadow-xl backdrop-blur-xl">
         </div>
 
-        <!-- Main Workspace Layout: Vertical Sidebar + Content Table -->
-        <div class="library-layout">
-            <aside class="alpha-sidebar">
-                <button class="alpha-btn active" onclick="filterByLetter('ALL', this)">
-                    <span>ALL</span> <span class="count" id="count-all">0</span>
+        <!-- Workspace Layout: Vertical Sidebar + Content Table -->
+        <div class="grid lg:grid-cols-12 gap-8 items-start">
+            
+            <!-- Alpha Sidebar -->
+            <aside class="lg:col-span-3 space-y-2 bg-slate-900/60 border border-slate-800/80 p-4 rounded-3xl backdrop-blur-xl">
+                <button class="w-full flex items-center justify-between px-4 py-3 rounded-xl bg-amber-500 text-black font-bold text-sm transition-all shadow-md active-sidebar-btn" onclick="filterByLetter('ALL', this)">
+                    <span>ALL SONGS</span> <span class="px-2 py-0.5 rounded-md bg-black/10 text-black font-mono text-xs" id="count-all">0</span>
                 </button>
-                <!-- Dedicated Christmas Filter Button -->
-                <button class="alpha-btn christmas-btn" onclick="filterByCategory('christmas', this)">
-                    <span>🎄 XMAS</span> <span class="count" id="count-christmas">0</span>
+                <!-- Christmas Filter Button -->
+                <button class="w-full flex items-center justify-between px-4 py-3 rounded-xl bg-slate-950/60 border border-slate-800/60 text-slate-300 hover:text-white hover:border-amber-500/40 font-semibold text-sm transition-all" onclick="filterByCategory('christmas', this)">
+                    <span>🎄 XMAS</span> <span class="px-2 py-0.5 rounded-md bg-slate-800 text-slate-400 font-mono text-xs" id="count-christmas">0</span>
                 </button>
-                <div id="alphabetNav">
+                <hr class="border-slate-800 my-3">
+                <div id="alphabetNav" class="space-y-1 max-h-[500px] overflow-y-auto pr-1">
                     <!-- Dynamically populated vertical A-Z buttons -->
                 </div>
             </aside>
 
-            <main class="song-content-area">
-                <table class="song-table">
-                    <thead>
-                        <tr>
-                            <th class="col-title">Title</th>
-                            <th class="col-artist">Artist</th>
-                            <th class="col-action">View Page</th>
-                        </tr>
-                    </thead>
-                    <tbody id="songTableBody">
-                        <tr><td colspan="3" class="empty-state">Loading library...</td></tr>
-                    </tbody>
-                </table>
+            <!-- Song Content Table Area -->
+            <main class="lg:col-span-9 bg-slate-900/80 border border-slate-800/80 rounded-3xl backdrop-blur-2xl overflow-hidden shadow-2xl">
+                <div class="overflow-x-auto">
+                    <table class="w-full text-left border-collapse">
+                        <thead>
+                            <tr class="border-b border-slate-800 bg-slate-950/60 text-xs font-semibold uppercase tracking-wider text-slate-400">
+                                <th class="p-5">Title</th>
+                                <th class="p-5">Artist</th>
+                                <th class="p-5 text-right">View Page</th>
+                            </tr>
+                        </thead>
+                        <tbody id="songTableBody" class="divide-y divide-slate-800/60 text-sm">
+                            <tr><td colspan="3" class="p-8 text-center text-slate-500">Loading library...</td></tr>
+                        </tbody>
+                    </table>
+                </div>
             </main>
         </div>
-    </div>
+    </main>
 
-    <!-- Song View Modal with Action Bar -->
-    <div id="songModal" class="modal" style="display:none;">
-        <div class="modal-content">
-            <div class="modal-header">
+    <!-- Song View Modal -->
+    <div id="songModal" class="fixed inset-0 z-50 bg-black/80 backdrop-blur-md flex items-center justify-center p-4" style="display:none;">
+        <div class="bg-slate-900 border border-slate-800 rounded-3xl max-w-2xl w-full max-h-[90vh] flex flex-col shadow-2xl overflow-hidden">
+            <div class="p-6 border-b border-slate-800 flex items-center justify-between bg-slate-950/60">
                 <div>
-                    <h2 id="modalTitle"></h2>
-                    <p id="modalArtist"></p>
+                    <h2 id="modalTitle" class="text-xl font-bold font-['Space_Grotesk'] text-white"></h2>
+                    <p id="modalArtist" class="text-sm text-amber-400 font-medium mt-0.5"></p>
                 </div>
-                <div class="modal-actions">
-                    <button onclick="printSong()" class="action-btn" title="Print Song">&#128424; Print</button>
-                    <button onclick="copySongText()" class="action-btn" title="Copy Text">&#128203; Copy</button>
-                    <button onclick="downloadSong()" class="action-btn" title="Download File">&#128190; Download</button>
-                    <button onclick="closeModal()" class="close-btn" title="Close">&times;</button>
+                <div class="flex items-center gap-2">
+                    <button onclick="printSong()" class="px-3 py-1.5 rounded-lg bg-slate-800 hover:bg-slate-700 text-slate-300 text-xs font-semibold transition-colors">Print</button>
+                    <button onclick="copySongText()" class="px-3 py-1.5 rounded-lg bg-slate-800 hover:bg-slate-700 text-slate-300 text-xs font-semibold transition-colors">Copy</button>
+                    <button onclick="downloadSong()" class="px-3 py-1.5 rounded-lg bg-slate-800 hover:bg-slate-700 text-slate-300 text-xs font-semibold transition-colors">Download</button>
+                    <button onclick="closeModal()" class="w-8 h-8 rounded-lg bg-slate-800 hover:bg-red-500/20 hover:text-red-400 text-slate-400 flex items-center justify-center font-bold text-lg transition-colors">&times;</button>
                 </div>
             </div>
-            <div class="modal-body" id="modalBody"></div>
+            <div id="modalBody" class="p-6 overflow-y-auto space-y-2 font-mono text-xs text-slate-300 leading-relaxed max-h-[60vh]"></div>
         </div>
     </div>
 
+    <!-- Footer -->
+    <footer class="border-t border-slate-800/80 bg-slate-950 py-12 text-center text-sm text-slate-500 mt-auto">
+        <div class="max-w-7xl mx-auto px-6 space-y-4">
+            <p class="font-['Space_Grotesk'] font-bold text-white tracking-wider">GUITARS FOR VETS • CLARKSVILLE CHAPTER #287</p>
+            <p>Established February 18, 2026[cite: 3]. Empowering combat veterans through the healing power of music.</p>
+        </div>
+    </footer>
+
+    <!-- Script Logic -->
     <script>
         let allSongs = [];
         let currentActiveSong = null;
         let activeLetter = 'ALL';
+        let activeCategory = null;
 
         async function loadSongs() {
             try {
                 let response = await fetch('songs.json');
                 allSongs = await response.json();
-                document.getElementById('songCount').innerText = `${allSongs.length} Songs Displayed`;
+                document.getElementById('songCount').innerText = `${allSongs.length} Songs Indexed & Displayed`;
                 document.getElementById('count-all').innerText = allSongs.length;
-                // Add this to your initialization / data-loading block:
                 document.getElementById('count-christmas').innerText = allSongs.filter(s => s.is_christmas === true).length;
                 buildVerticalAlphaSidebar();
                 displaySongs(allSongs);
             } catch (error) {
                 document.getElementById('songCount').innerText = 'Error loading database';
-                document.getElementById('songTableBody').innerHTML = `<tr><td colspan="3" class="empty-state">Failed to load songs.json</td></tr>`;
+                document.getElementById('songTableBody').innerHTML = `<tr><td colspan="3" class="p-8 text-center text-amber-400">Failed to load songs.json. Please verify server/CORS settings.</td></tr>`;
             }
         }
 
@@ -102,8 +173,8 @@
             alphabet.forEach(letter => {
                 const count = allSongs.filter(s => s.title.toUpperCase().startsWith(letter)).length;
                 html += `
-                    <button class="alpha-btn ${count === 0 ? 'disabled' : ''}" onclick="filterByLetter('${letter}', this)">
-                        <span>${letter}</span> <span class="count">${count}</span>
+                    <button class="w-full flex items-center justify-between px-4 py-2.5 rounded-xl ${count === 0 ? 'opacity-40 cursor-not-allowed bg-slate-950/20 text-slate-600' : 'bg-slate-950/60 border border-slate-800/60 text-slate-300 hover:text-white hover:border-amber-500/40'} font-semibold text-sm transition-all" onclick="filterByLetter('${letter}', this)">
+                        <span>${letter}</span> <span class="px-2 py-0.5 rounded-md bg-slate-800 text-slate-400 font-mono text-xs">${count}</span>
                     </button>`;
             });
             container.innerHTML = html;
@@ -112,75 +183,87 @@
         function displaySongs(songsToDisplay) {
             const tbody = document.getElementById('songTableBody');
             if (songsToDisplay.length === 0) {
-                tbody.innerHTML = `<tr><td colspan="3" class="empty-state">No songs found.</td></tr>`;
+                tbody.innerHTML = `<tr><td colspan="3" class="p-8 text-center text-slate-500">No matching songs found.</td></tr>`;
                 return;
             }
             
             tbody.innerHTML = songsToDisplay.map(song => `
-                <tr>
-                    <td class="col-title"><strong>${song.title}</strong></td>
-                    <td class="col-artist">${song.artist}</td>
-                    <td class="col-action">
-                        <button onclick='openSongModal(${JSON.stringify(song).replace(/'/g, "&#39;")})' class="view-btn">View Song &nearr;</button>
+                <tr class="hover:bg-slate-800/40 transition-colors">
+                    <td class="p-5 font-bold text-white">${song.title}</td>
+                    <td class="p-5 text-slate-400">${song.artist}</td>
+                    <td class="p-5 text-right">
+                        <button onclick='openSongModal(${JSON.stringify(song).replace(/'/g, "&#39;")})' class="px-4 py-2 rounded-xl bg-amber-500/10 hover:bg-amber-500 hover:text-black text-amber-400 font-bold text-xs transition-all border border-amber-500/30">View Song &nearr;</button>
                     </td>
                 </tr>
             `).join('');
         }
 
-        function filterByLetter(letter, element) {
-            activeLetter = letter;
-            document.querySelectorAll('.alpha-sidebar button').forEach(b => b.classList.remove('active'));
-            if (element) element.classList.add('active');
-            
-            let filtered = letter === 'ALL' ? allSongs : allSongs.filter(s => s.title.toUpperCase().startsWith(letter));
-            
+        function getFilteredSongs() {
+            let filtered = allSongs;
+
+            if (activeCategory) {
+                filtered = allSongs.filter(s => s['is_' + activeCategory] === true);
+            } else if (activeLetter && activeLetter !== 'ALL') {
+                filtered = allSongs.filter(s => s.title.toUpperCase().startsWith(activeLetter));
+            }
+
             const searchTerm = document.getElementById('searchInput').value.toLowerCase();
             if (searchTerm) {
                 filtered = filtered.filter(s => 
                     s.title.toLowerCase().includes(searchTerm) || 
-                    s.artist.toLowerCase().includes(searchTerm) || 
-                    s.content.some(line => line.toLowerCase().includes(searchTerm))
+                    s.artist.toLowerCase().includes(searchTerm)
                 );
             }
-            displaySongs(filtered);
+
+            return filtered;
         }
 
-        function handleSearch() {
-            const searchTerm = document.getElementById('searchInput').value.toLowerCase();
-            let baseList = activeLetter === 'ALL' ? allSongs : allSongs.filter(s => s.title.toUpperCase().startsWith(activeLetter));
-            
-            const filtered = baseList.filter(s => 
-                s.title.toLowerCase().includes(searchTerm) || 
-                s.artist.toLowerCase().includes(searchTerm) || 
-                s.content.some(line => line.toLowerCase().includes(searchTerm))
-            );
-            displaySongs(filtered);
+        function filterByLetter(letter, element) {
+            activeLetter = letter;
+            activeCategory = null;
+            document.querySelectorAll('aside button').forEach(b => {
+                b.classList.remove('bg-amber-500', 'text-black');
+                b.classList.add('bg-slate-950/60', 'text-slate-300');
+            });
+            if (element) {
+                element.classList.remove('bg-slate-950/60', 'text-slate-300');
+                element.classList.add('bg-amber-500', 'text-black', 'font-bold');
+            }
+            displaySongs(getFilteredSongs());
         }
 
         function filterByCategory(category, element) {
-                activeLetter = null; // Clear alphabetical filter
-                document.querySelectorAll('.alpha-sidebar button').forEach(b => b.classList.remove('active'));
-                if (element) element.classList.add('active');
-                
-                // Dynamically filter based on the passed category flag (e.g., s['is_' + category] matches 'is_christmas')
-                let filtered = allSongs.filter(s => s['is_' + category] === true);
-                
-                const searchTerm = document.getElementById('searchInput').value.toLowerCase();
-                if (searchTerm) {
-                    filtered = filtered.filter(s => 
-                        s.title.toLowerCase().includes(searchTerm) || 
-                        s.artist.toLowerCase().includes(searchTerm) || 
-                        s.content.some(line => line.toLowerCase().includes(searchTerm))
-                    );
-                }
-                displaySongs(filtered);
+            activeLetter = null;
+            activeCategory = category;
+            document.querySelectorAll('aside button').forEach(b => {
+                b.classList.remove('bg-amber-500', 'text-black');
+                b.classList.add('bg-slate-950/60', 'text-slate-300');
+            });
+            if (element) {
+                element.classList.remove('bg-slate-950/60', 'text-slate-300');
+                element.classList.add('bg-amber-500', 'text-black', 'font-bold');
             }
+            displaySongs(getFilteredSongs());
+        }
+
+        function handleSearch() {
+            // Optional: clear active sidebar letter/category when typing a search query
+            activeLetter = null;
+            activeCategory = null;
+            document.querySelectorAll('aside button').forEach(b => {
+                b.classList.remove('bg-amber-500', 'text-black');
+                b.classList.add('bg-slate-950/60', 'text-slate-300');
+            });
+            
+            displaySongs(getFilteredSongs());
+        }
+
         function openSongModal(song) {
             currentActiveSong = song;
             document.getElementById('modalTitle').innerText = song.title;
             document.getElementById('modalArtist').innerText = song.artist;
-            document.getElementById('modalBody').innerHTML = song.content.map(line => `<div class="lyric-line">${line}</div>`).join('');
-            document.getElementById('songModal').style.display = 'block';
+            document.getElementById('modalBody').innerHTML = song.content ? song.content.map(line => `<div>${line}</div>`).join('') : 'No content available.';
+            document.getElementById('songModal').style.display = 'flex';
         }
 
         function closeModal() {
@@ -189,14 +272,14 @@
 
         function copySongText() {
             if (!currentActiveSong) return;
-            const text = `${currentActiveSong.title}\nArtist: ${currentActiveSong.artist}\n\n` + currentActiveSong.content.join('\n');
+            const text = `${currentActiveSong.title}\nArtist: ${currentActiveSong.artist}\n\n` + (currentActiveSong.content ? currentActiveSong.content.join('\n') : '');
             navigator.clipboard.writeText(text);
             alert('Song copied to clipboard!');
         }
 
         function downloadSong() {
             if (!currentActiveSong) return;
-            const text = `${currentActiveSong.title}\nArtist: ${currentActiveSong.artist}\n\n` + currentActiveSong.content.join('\n');
+            const text = `${currentActiveSong.title}\nArtist: ${currentActiveSong.artist}\n\n` + (currentActiveSong.content ? currentActiveSong.content.join('\n') : '');
             const blob = new Blob([text], { type: 'text/plain' });
             const link = document.createElement('a');
             link.href = URL.createObjectURL(blob);
