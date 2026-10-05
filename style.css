@@ -376,7 +376,8 @@ body {
     overflow-x: auto;
     width: 100%;
     margin: 0 auto;
-    padding: 1rem 0.5rem; /* Vertical padding gives room for scaling */
+    /* Increased top/bottom padding to prevent shadow/scale clipping */
+    padding: 2rem 0.5rem; 
     scroll-behavior: smooth;
     -webkit-overflow-scrolling: touch;
     scrollbar-width: none; /* Firefox */
@@ -390,13 +391,21 @@ body {
 /* Ensure individual business cards don't shrink and stay in a single line */
 .sponsor-carousel > * {
     flex: 0 0 auto;
+    height: auto; /* Ensure cards adjust to content height */
     transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.3s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.3s ease;
+}
+
+/* Make sure images inside the cards scale nicely and don't crop */
+.sponsor-carousel img {
+    height: auto;
+    max-width: 100%;
+    object-fit: contain;
 }
 
 /* Expand effect on hover */
 .sponsor-carousel > *:hover {
     transform: scale(1.05); /* Expands the card nicely */
-    z-index: 10;           /* Pops the expanded card above neighbors */
+    z-index: 10;            /* Pops the expanded card above neighbors */
     border-color: var(--gold);
     box-shadow: 0 16px 35px rgba(0, 0, 0, 0.7), 0 0 15px rgba(255, 215, 0, 0.2);
 }
