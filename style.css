@@ -177,7 +177,7 @@ body {
     flex-direction: column;
     justify-content: space-between;
     position: relative;
-    overflow: hidden;
+    overflow: visible !important;
     transition: var(--transition);
 }
 .bento-box:hover {
@@ -283,6 +283,7 @@ body {
     border-radius: 10px;
     padding: 20px;
     margin-top: 6px;
+    overflow: visible !important;
 }
 
 /* Photo Grid Collages */
@@ -374,10 +375,10 @@ body {
     display: flex;
     gap: 1.25rem;
     overflow-x: auto;
+    overflow-y: visible !important; /* Crucial: allows vertical scaling/shadows outside the box */
     width: 100%;
     margin: 0 auto;
-    /* Increased top/bottom padding to prevent shadow/scale clipping */
-    padding: 2rem 0.5rem; 
+    padding: 2rem 1rem; /* Generous padding top and bottom for hover scaling and shadows */
     scroll-behavior: smooth;
     -webkit-overflow-scrolling: touch;
     scrollbar-width: none; /* Firefox */
@@ -391,21 +392,24 @@ body {
 /* Ensure individual business cards don't shrink and stay in a single line */
 .sponsor-carousel > * {
     flex: 0 0 auto;
-    height: auto; /* Ensure cards adjust to content height */
+    height: auto; 
+    overflow: visible;
     transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.3s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.3s ease;
 }
 
-/* Make sure images inside the cards scale nicely and don't crop */
+/* Make sure images inside the cards scale nicely, block layout prevents trailing whitespace */
 .sponsor-carousel img {
+    display: block;
     height: auto;
+    width: 100%;
     max-width: 100%;
     object-fit: contain;
 }
 
 /* Expand effect on hover */
 .sponsor-carousel > *:hover {
-    transform: scale(1.05); /* Expands the card nicely */
-    z-index: 10;            /* Pops the expanded card above neighbors */
+    transform: scale(1.05); 
+    z-index: 10;            
     border-color: var(--gold);
     box-shadow: 0 16px 35px rgba(0, 0, 0, 0.7), 0 0 15px rgba(255, 215, 0, 0.2);
 }
@@ -440,6 +444,7 @@ body {
     display: flex;
     gap: 1.5rem;
     overflow-x: auto;
+    overflow-y: visible !important; /* Crucial here as well */
     scroll-behavior: smooth;
     -webkit-overflow-scrolling: touch;
     scrollbar-width: none;
