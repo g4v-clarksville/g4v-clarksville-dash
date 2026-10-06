@@ -518,29 +518,8 @@ button.btn-year.active {
 }
 
 @media (max-width: 768px) {
-    .hero-header {
-        flex-direction: column;
-        align-items: center;
-        text-align: center;
-        gap: 16px;
-        padding: 20px 15px;
-    }
-
     .hero-logo {
         max-height: 50px;
-    }
-
-    .hero-titles {
-        padding: 0;
-        width: 100%;
-    }
-
-    .hero-titles h1 {
-        font-size: 1.4em;
-    }
-
-    .hero-meta {
-        font-size: 0.9em;
     }
 }
 
@@ -573,49 +552,44 @@ button.btn-year.active {
     color: var(--gold);
 }
 
+/* Mobile & Tablet Dropdown Drawer Behavior */
 @media (max-width: 1024px) {
-    .hero-header {
-        flex-direction: column;
-        align-items: center;
-        text-align: center;
-        gap: 16px;
-    }
-
+    /* Hide links by default on mobile until toggled */
     .hero-nav-links {
-        display: flex;
-        flex-direction: row;
-        flex-wrap: nowrap; /* Forces them into a single line */
-        overflow-x: auto;  /* Enables smooth side-scrolling */
-        -webkit-overflow-scrolling: touch;
-        scrollbar-width: none; /* Hides scrollbar on Firefox */
+        display: none; 
+        position: absolute;
+        top: 100%;
+        left: 0;
         width: 100%;
-        max-width: 100%;
-        padding: 4px 10px 8px 10px;
+        flex-direction: column;
         gap: 8px;
-        justify-content: flex-start; /* Allows scrolling from the start */
-        border-top: 1px solid var(--border);
-        margin-top: 5px;
+        background: rgba(3, 7, 18, 0.98);
+        backdrop-filter: blur(20px);
+        border-bottom: 1px solid rgba(44, 103, 190, 0.3);
+        padding: 20px;
+        box-shadow: 0 20px 30px rgba(0,0,0,0.8);
+        z-index: 100;
     }
 
-    /* Hide scrollbar for Chrome, Safari, Opera */
-    .hero-nav-links::-webkit-scrollbar {
-        display: none;
+    /* Active toggle class added via JavaScript */
+    .hero-nav-links.mobile-open {
+        display: flex;
     }
 
-    /* Style the links like neat touch-friendly app pills */
     .hero-nav-links a {
-        flex: 0 0 auto;
-        background: rgba(18, 24, 38, 0.8);
-        border: 1px solid var(--border);
-        padding: 6px 14px;
-        border-radius: 20px;
-        font-size: 0.8rem;
-        color: var(--text-main);
+        padding: 12px 16px;
+        background: rgba(13, 17, 26, 0.7);
+        border: 1px solid rgba(44, 103, 190, 0.2);
+        border-radius: 10px;
+        color: #f3f6fb;
+        font-size: 0.95rem;
+        text-align: left;
     }
 
     .hero-nav-links a:hover {
-        border-color: var(--gold);
-        color: var(--gold);
+        border-color: #FFD700;
+        color: #FFD700;
+        background: rgba(255, 215, 0, 0.05);
     }
 }
 
