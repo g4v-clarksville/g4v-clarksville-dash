@@ -573,23 +573,40 @@ button.btn-year.active {
     color: var(--gold);
 }
 
-/* Mobile & Tablet Reflow: Wrap or stack nicely below header title */
 @media (max-width: 1024px) {
     .hero-header {
         flex-direction: column;
         align-items: center;
         text-align: center;
-        gap: 20px;
+        gap: 16px;
     }
 
     .hero-nav-links {
-        justify-content: center;
-        flex-wrap: wrap;
-        gap: 12px 20px;
+        display: grid;
+        grid-template-columns: repeat(3, 1fr); /* Exactly 3 columns */
+        gap: 8px;
         width: 100%;
-        margin-top: 5px;
-        padding-top: 15px;
         border-top: 1px solid var(--border);
+        padding-top: 15px;
+        margin-top: 5px;
+    }
+
+    .hero-nav-links a {
+        background: rgba(18, 24, 38, 0.8);
+        border: 1px solid var(--border);
+        padding: 8px 4px;
+        border-radius: 8px;
+        font-size: 0.75rem;
+        text-align: center;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis; /* Safely cuts off if a screen is ultra-narrow */
+        color: var(--text-main);
+    }
+
+    .hero-nav-links a:hover {
+        border-color: var(--gold);
+        color: var(--gold);
     }
 }
 
