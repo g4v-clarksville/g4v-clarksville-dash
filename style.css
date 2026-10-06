@@ -34,6 +34,11 @@ body {
     min-height: 100vh;
 }
 
+body, html {
+    overflow-x: hidden;
+    max-width: 100%;
+}
+
 .command-wrapper {
     max-width: 1320px;
     margin: 0 auto;
@@ -368,6 +373,18 @@ body {
     color: var(--text-muted);
     text-transform: uppercase;
     letter-spacing: 0.08em;
+}
+
+@media (max-width: 1024px) {
+    .metrics-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+@media (max-width: 600px) {
+    .metrics-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
 }
 
 
