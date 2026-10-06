@@ -582,25 +582,34 @@ button.btn-year.active {
     }
 
     .hero-nav-links {
-        display: grid;
-        grid-template-columns: repeat(3, 1fr); /* Exactly 3 columns */
-        gap: 8px;
+        display: flex;
+        flex-direction: row;
+        flex-wrap: nowrap; /* Forces them into a single line */
+        overflow-x: auto;  /* Enables smooth side-scrolling */
+        -webkit-overflow-scrolling: touch;
+        scrollbar-width: none; /* Hides scrollbar on Firefox */
         width: 100%;
+        max-width: 100%;
+        padding: 4px 10px 8px 10px;
+        gap: 8px;
+        justify-content: flex-start; /* Allows scrolling from the start */
         border-top: 1px solid var(--border);
-        padding-top: 15px;
         margin-top: 5px;
     }
 
+    /* Hide scrollbar for Chrome, Safari, Opera */
+    .hero-nav-links::-webkit-scrollbar {
+        display: none;
+    }
+
+    /* Style the links like neat touch-friendly app pills */
     .hero-nav-links a {
+        flex: 0 0 auto;
         background: rgba(18, 24, 38, 0.8);
         border: 1px solid var(--border);
-        padding: 8px 4px;
-        border-radius: 8px;
-        font-size: 0.75rem;
-        text-align: center;
-        white-space: nowrap;
-        overflow: hidden;
-        text-overflow: ellipsis; /* Safely cuts off if a screen is ultra-narrow */
+        padding: 6px 14px;
+        border-radius: 20px;
+        font-size: 0.8rem;
         color: var(--text-main);
     }
 
