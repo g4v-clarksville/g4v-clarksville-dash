@@ -331,6 +331,27 @@
         </div>
     </footer>
 
+    <script>
+    document.addEventListener('DOMContentLoaded', () => {
+        const menuBtn = document.getElementById('mobileMenuBtn');
+        const navLinks = document.getElementById('heroNavLinks');
+
+        if (menuBtn && navLinks) {
+            menuBtn.addEventListener('click', (e) => {
+                e.stopPropagation();
+                navLinks.classList.toggle('mobile-open');
+            });
+
+            // Close the menu automatically if the user clicks anywhere outside of it
+            document.addEventListener('click', (e) => {
+                if (!menuBtn.contains(e.target) && !navLinks.contains(e.target)) {
+                    navLinks.classList.remove('mobile-open');
+                }
+            });
+        }
+    });
+</script>
+
     <!-- Script -->
     <script src="script.js"></script>
 </body>
