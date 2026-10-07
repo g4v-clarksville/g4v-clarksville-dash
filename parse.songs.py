@@ -50,7 +50,7 @@ def append_to_library(input_folder, output_json_path):
     # 2. Parse the new text files
     new_songs = []
     for filename in os.listdir(input_folder):
-        if filename.endswith(".txt"):
+        if filename.lower()endswith(".txt"):
             filepath = os.path.join(input_folder, filename)
             song_data = parse_song_file(filepath)
             new_songs.append(song_data)
