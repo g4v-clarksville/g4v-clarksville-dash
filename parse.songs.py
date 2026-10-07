@@ -47,13 +47,13 @@ def append_to_library(input_folder, output_json_path):
             except json.JSONDecodeError:
                 print("Existing JSON was empty or malformed, starting fresh.")
                 
-    # Create a set of existing identifiers (title + artist) to catch duplicates
-    existing_keys = {
-        (s.get("title", "").strip().lower(), s.get("artist", "").strip().lower())
+    # Create a set of existing titles only (ignoring artist variations) to catch duplicates
+    existing_titles = {
+        s.get("title", "").strip().lower()
         for s in song_library
     }
     
-    # 2. Parse the text files and check for duplicates
+    # 2. Parse the text files and check for duplicates by title
     new_songs = []
     skipped_count = 0
     for filename in os.listdir(input_folder):
@@ -61,19 +61,26 @@ def append_to_library(input_folder, output_json_path):
             filepath = os.path.join(input_folder, filename)
             song_data = parse_song_file(filepath)
             
-            # Create a unique key for this song
-            song_key = (
-                song_data.get("title", "").strip().lower(),
-                song_data.get("artist", "").strip().lower()
-            )
+            # Normalize the title for comparison
+            song_title = song_data.get("title", "").strip().lower()
             
-            # Only add if it's not already in the library (and prevent duplicates within the batch)
-            if song_key not in existing_keys:
+            # Only add if the title isn't already in the library
+            if song_title and song_title not in existing_titles:
                 new_songs.append(song_data)
-                existing_keys.add(song_key)
+                existing_titles.add(song_title)
             else:
                 skipped_count += 1
-                print(f"Skipping duplicate: {song_data.get('title')} by {song_data.get('artist')}")
+                print(f"Skipping duplicate title: {song_data.get('title')}")
+                
+    # 3. Append new songs to the existing library list (if any new ones found)
+    if new_songs:
+        song_library.extend(new_songs)
+        
+        # 4. Save the combined list back to songs.json
+        with open(output_json_path, 'w', encoding='utf-8') as f:
+            json.dump(song_library, f, indent=4)
+            
+    print(f"Successfully added {len(new_songs)} new songs. Skipped {skipped_count} duplicates. Total library size is now {len(song_library)} songs!")
                 
     # 3. Append new songs to the existing library list (if any new ones found)
     if new_songs:
