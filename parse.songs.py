@@ -1,6 +1,27 @@
 import os
 import json
 
+# 1. Load existing library if the file already exists
+    song_library = []
+    if os.path.exists(output_json_path):
+        with open(output_json_path, 'r', encoding='utf-8') as f:
+            try:
+                song_library = json.load(f)
+                print(f"Loaded existing library with {len(song_library)} songs.")
+            except json.JSONDecodeError:
+                print("Existing JSON was empty or malformed, starting fresh.")
+
+    # <-- ADD THIS CLEANUP BLOCK RIGHT HERE -->
+    seen_titles = set()
+    deduped_library = []
+    for song in song_library:
+        title = song.get("title", "").strip().lower()
+        if title and title not in seen_titles:
+            seen_titles.add(title)
+            deduped_library.append(song)
+    song_library = deduped_library
+    # ----------------------------------------
+
 def parse_song_file(filepath):
     with open(filepath, 'r', encoding='utf-8') as f:
         lines = [line.rstrip('\n') for line in f]
