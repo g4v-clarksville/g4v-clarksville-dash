@@ -4,6 +4,7 @@ on:
   push:
     paths:
       - 'songs_txt/**'
+  workflow_dispatch: # This adds the manual "Run workflow" button!
 
 jobs:
   build:
