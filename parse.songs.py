@@ -76,13 +76,13 @@ def append_to_library(input_folder, output_json_path):
                 skipped_count += 1
                 print(f"Skipping duplicate title: {song_data.get('title')}")
                 
-    # 3. Append new songs to the existing library list (if any new ones found)
+   # 3. Append new songs to the existing library list (if any new ones found)
     if new_songs:
         song_library.extend(new_songs)
         
-        # 4. Save the combined list back to songs.json
-        with open(output_json_path, 'w', encoding='utf-8') as f:
-            json.dump(song_library, f, indent=4)
+    # 4. Save the combined/cleaned list back to songs.json (MOVED OUTSIDE the 'if new_songs' block)
+    with open(output_json_path, 'w', encoding='utf-8') as f:
+        json.dump(song_library, f, indent=4)
             
     print(f"Successfully added {len(new_songs)} new songs. Skipped {skipped_count} duplicates. Total library size is now {len(song_library)} songs!")
                 
