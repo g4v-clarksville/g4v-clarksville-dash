@@ -47,22 +47,42 @@ def append_to_library(input_folder, output_json_path):
             except json.JSONDecodeError:
                 print("Existing JSON was empty or malformed, starting fresh.")
                 
-    # 2. Parse the new text files
+    # Create a set of existing identifiers (title + artist) to catch duplicates
+    existing_keys = {
+        (s.get("title", "").strip().lower(), s.get("artist", "").strip().lower())
+        for s in song_library
+    }
+    
+    # 2. Parse the text files and check for duplicates
     new_songs = []
+    skipped_count = 0
     for filename in os.listdir(input_folder):
         if filename.lower().endswith(".txt"):
             filepath = os.path.join(input_folder, filename)
             song_data = parse_song_file(filepath)
-            new_songs.append(song_data)
             
-    # 3. Append new songs to the existing library list
-    song_library.extend(new_songs)
-    
-    # 4. Save the combined list back to songs.json
-    with open(output_json_path, 'w', encoding='utf-8') as f:
-        json.dump(song_library, f, indent=4)
+            # Create a unique key for this song
+            song_key = (
+                song_data.get("title", "").strip().lower(),
+                song_data.get("artist", "").strip().lower()
+            )
+            
+            # Only add if it's not already in the library (and prevent duplicates within the batch)
+            if song_key not in existing_keys:
+                new_songs.append(song_data)
+                existing_keys.add(song_key)
+            else:
+                skipped_count += 1
+                print(f"Skipping duplicate: {song_data.get('title')} by {song_data.get('artist')}")
+                
+    # 3. Append new songs to the existing library list (if any new ones found)
+    if new_songs:
+        song_library.extend(new_songs)
         
-    print(f"Successfully added {len(new_songs)} new songs. Total library size is now {len(song_library)} songs!")
-
+        # 4. Save the combined list back to songs.json
+        with open(output_json_path, 'w', encoding='utf-8') as f:
+            json.dump(song_library, f, indent=4)
+            
+    print(f"Successfully added {len(new_songs)} new songs. Skipped {skipped_count} duplicates. Total library size is now {len(song_library)} songs!")
 if __name__ == "__main__":
     append_to_library("songs_txt", "songs.json")
