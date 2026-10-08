@@ -12,13 +12,14 @@
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
     <link rel="icon" href="images/Picture2.png">
 </head>
-<body class="bg-[#030712] text-slate-100 font-['Plus_Jakarta_Sans',sans-serif] selection:bg-amber-500 selection:text-black">
-         
-    <!-- Atmospheric Top-Third Watermark Backdrop with Gradient Fade -->
-    <div class="absolute top-0 left-0 right-0 h-[600px] pointer-events-none z-0 overflow-hidden select-none">
-        <!-- The background image cropped/positioned to the top -->
-        <div class="absolute inset-0 bg-[url('assets/National Brochure (PDF).png')] bg-top bg-no-repeat bg-cover opacity-30 [mask-image:linear-gradient(to_bottom,rgba(0,0,0,1)_20%,rgba(0,0,0,0)_100%)]"></div>
+<body class="bg-[#030712] text-slate-100 font-['Plus_Jakarta_Sans',sans-serif] selection:bg-amber-500 selection:text-black relative min-h-screen overflow-x-hidden">
+
+    <!-- Atmospheric Top-Third Watermark Backdrop (Exact Top Crop with Fade-out) -->
+    <div class="absolute top-0 left-0 right-0 h-[500px] pointer-events-none z-0 overflow-hidden select-none opacity-35 [mask-image:linear-gradient(to_bottom,rgba(0,0,0,1)_15%,rgba(0,0,0,0)_100%)]">
+        <img src="assets/National Brochure (PDF).png" alt="" class="w-full h-[900px] object-cover object-top">
     </div>
+
+    <!-- Navigation Bar -->
     <nav class="sticky top-0 z-50 backdrop-blur-xl bg-[#030712]/80 border-b border-slate-800/60">
         <div class="max-w-7xl mx-auto px-6 h-24 flex items-center justify-between">
             <div class="flex items-center gap-4">
@@ -39,22 +40,18 @@
                 <a href="jams.html" class="hover:text-amber-400 transition-colors">Jams</a>
             </div>
             <!-- Right Side: OSD Logo & Portal Button -->
-        <div class="flex items-center gap-4">
-            <img src="images/OSD logo.png" alt="OSD Logo" class="w-16 h-16 rounded-2xl object-cover shadow-xl shadow-amber-500/20 border-2 border-amber-500/40 hidden sm:block">
-            <a href="https://guitars4vets.org" target="_blank" rel="noopener noreferrer" class="px-5 py-2.5 rounded-xl bg-amber-500 hover:bg-amber-400 text-black font-semibold text-sm transition-all shadow-lg shadow-amber-500/20 transform hover:-translate-y-0.5">
-                National Portal
-            </a>
+            <div class="flex items-center gap-4">
+                <img src="images/OSD logo.png" alt="OSD Logo" class="w-16 h-16 rounded-2xl object-cover shadow-xl shadow-amber-500/20 border-2 border-amber-500/40 hidden sm:block">
+                <a href="https://guitars4vets.org" target="_blank" rel="noopener noreferrer" class="px-5 py-2.5 rounded-xl bg-amber-500 hover:bg-amber-400 text-black font-semibold text-sm transition-all shadow-lg shadow-amber-500/20 transform hover:-translate-y-0.5">
+                    National Portal
+                </a>
+            </div>
         </div>
     </nav>
 
-    <main class="max-w-5xl mx-auto px-6 py-20 space-y-16 relative">
-        <!-- Subtle Background Flyer Watermark Overlay -->
-        <div class="absolute inset-0 pointer-events-none overflow-hidden flex items-center justify-center z-0 opacity-5">
-            <img src="assets/Basic Flyer.jpg" alt="" class="w-[800px] object-contain">
-        </div>
-
-        <!-- Content wrapper to keep it above the background image -->
-        <div class="relative z-10 space-y-16">
+    <main class="max-w-5xl mx-auto px-6 py-20 space-y-16 relative z-10">
+        <!-- Content wrapper -->
+        <div class="space-y-16">
             <!-- Core Values Banner -->
             <div class="text-center space-y-3">
                 <span class="text-xs uppercase tracking-[0.25em] text-amber-400 font-bold">Patience &bull; Acceptance &bull; Gratitude &bull; Empathy</span>
@@ -136,9 +133,9 @@
         </div>
     </main>
 
-    <footer class="border-t border-slate-800/80 bg-slate-950 py-12 text-center text-sm text-slate-500">
+    <footer class="border-t border-slate-800/80 bg-slate-950 py-12 text-center text-sm text-slate-500 relative z-10">
         <div class="max-w-7xl mx-auto px-6 space-y-2">
-            <p class="font-['Space_Grotesk'] font-bold text-white">GUITARS FOR VETS &bull; CLARKESVILLE CHAPTER #287</p>
+            <p class="font-['Space_Grotesk'] font-bold text-white">GUITARS FOR VETS &bull; CLARKSVILLE CHAPTER #287</p>
             <p>Established February 18, 2026.</p>
         </div>
     </footer>
