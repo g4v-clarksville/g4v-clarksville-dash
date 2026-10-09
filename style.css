@@ -139,7 +139,7 @@ body, html {
 
 .ticker-track {
     display: inline-block;
-    animation: marquee 38s linear infinite;
+    animation: marquee 58s linear infinite;
 }
 
 .ticker-item {
