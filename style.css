@@ -410,7 +410,7 @@ body, html {
 
 .sponsor-carousel > *:hover {
     transform: scale(1.05); 
-    z-index: 10;           
+    z-index: 10;            
     border-color: var(--gold);
     box-shadow: 0 16px 35px rgba(0, 0, 0, 0.7), 0 0 15px rgba(255, 215, 0, 0.2);
 }
@@ -554,7 +554,6 @@ button.btn-year.active {
 
 /* Mobile & Tablet Dropdown Drawer Behavior */
 @media (max-width: 1024px) {
-    /* Hide links by default on mobile until toggled */
     .hero-nav-links {
         display: none; 
         position: absolute;
@@ -571,7 +570,6 @@ button.btn-year.active {
         z-index: 100;
     }
 
-    /* Active toggle class added via JavaScript */
     .hero-nav-links.mobile-open {
         display: flex;
     }
@@ -623,8 +621,10 @@ button.btn-year.active {
     #songModal .print-hide {
         display: none !important;
     }
+}
 
-    @property --angle {
+/* Global Scope: Modern CSS Property & Spinning Glow Border Animation */
+@property --angle {
   syntax: '<angle>';
   initial-value: 0deg;
   inherits: false;
@@ -652,7 +652,7 @@ button.btn-year.active {
 /* Applied when the .animate-border-glow class is present */
 .animate-border-glow {
   position: relative;
-  border-radius: 1.5rem; /* matches your rounded-3xl */
+  border-radius: 1.5rem;
   z-index: 0;
 }
 
@@ -661,7 +661,7 @@ button.btn-year.active {
 .animate-border-glow::after {
   content: '';
   position: absolute;
-  inset: -2px; /* Controls border thickness */
+  inset: -2px;
   border-radius: inherit;
   background: conic-gradient(from var(--angle), #f59e0b, #3b82f6, #1e293b, #f59e0b);
   animation: spin 4s linear infinite;
