@@ -636,4 +636,39 @@ button.btn-year.active {
     background: conic-gradient(from 0deg at 50% 50%, #f59e0b 0deg, transparent 60deg, transparent 300deg, #f59e0b 360deg);
     animation: border-spin 4s linear infinite;
 }
+
+/* Base Event Card Style */
+.event-card {
+    background: #0f172a;
+    border: 1px solid #1e293b;
+    border-radius: 16px;
+    padding: 24px;
+    color: #f8fafc;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+}
+
+/* Glow Effect - Applied ONLY on the main dashboard */
+.event-card.glow-effect {
+    border: 2px solid rgba(245, 158, 11, 0.6);
+    animation: card-pulse 3s infinite ease-in-out;
+}
+
+@keyframes card-pulse {
+    0% {
+        border-color: rgba(245, 158, 11, 0.4);
+        box-shadow: 0 0 10px rgba(245, 158, 11, 0.15), 
+                    inset 0 0 5px rgba(245, 158, 11, 0.05);
+    }
+    50% {
+        border-color: rgba(245, 158, 11, 1);
+        box-shadow: 0 0 25px rgba(245, 158, 11, 0.5), 
+                    0 0 50px rgba(245, 158, 11, 0.2), 
+                    inset 0 0 10px rgba(245, 158, 11, 0.2);
+    }
+    100% {
+        border-color: rgba(245, 158, 11, 0.4);
+        box-shadow: 0 0 10px rgba(245, 158, 11, 0.15), 
+                    inset 0 0 5px rgba(245, 158, 11, 0.05);
+    }
+}
 }
