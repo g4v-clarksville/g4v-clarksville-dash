@@ -24,7 +24,8 @@
 
     <nav class="sticky top-0 z-50 backdrop-blur-xl bg-[#030712]/80 border-b border-slate-800/60">
         <div class="max-w-7xl mx-auto px-6 h-24 flex items-center justify-between">
-            <div class="flex items-center gap-4">
+            <!-- Left Group: Chapter Brand & G4V National Portal -->
+            <div class="flex items-center gap-6">
                 <a href="index.html" class="flex items-center gap-4">
                     <img src="images/Picture2.png" alt="Chapter Patch" class="w-16 h-16 rounded-2xl object-cover shadow-xl shadow-amber-500/20 border-2 border-amber-500/40">
                     <div>
@@ -32,7 +33,13 @@
                         <span class="block text-xs text-amber-400 font-semibold tracking-widest uppercase">Chapter #287</span>
                     </div>
                 </a>
+
+                <a href="https://guitars4vets.org" target="_blank" class="hidden sm:inline-block px-4 py-2 rounded-xl bg-amber-500 hover:bg-amber-400 text-black font-semibold text-xs tracking-wide transition-all shadow-lg shadow-amber-500/20">
+                    National Portal
+                </a>
             </div>
+
+            <!-- Center Navigation Links -->
             <div class="hidden md:flex items-center gap-8 text-sm font-medium text-slate-300">
                 <a href="mission.html" class="hover:text-amber-400 transition-colors">Mission</a>
                 <a href="operations.html" class="text-amber-400 font-bold transition-colors">Operations</a>
@@ -42,6 +49,7 @@
                 <a href="jams.html" class="hover:text-amber-400 transition-colors">Jams</a>
             </div>
 
+            <!-- Right Group: Local Office Info & OSD Partner Logo -->
             <div class="flex items-center gap-4">
                 <div class="text-right hidden xl:block">
                     <a href="https://maps.google.com/?q=115+N+3rd+St+Clarksville+TN+37040" target="_blank" rel="noopener noreferrer" class="block text-xs font-bold text-amber-400 hover:text-amber-300 transition-colors">
@@ -52,10 +60,6 @@
 
                 <a href="https://www.osdtn.org" target="_blank" rel="noopener noreferrer" title="Visit OSD Tennessee National Portal" class="group relative">
                     <img src="images/OSD logo.jpg" alt="Operation Stand Down Logo" class="w-16 h-16 rounded-2xl object-cover shadow-xl shadow-amber-500/20 border-2 border-amber-500/40 group-hover:scale-105 transition-transform duration-300">
-                </a>
-
-                <a href="https://guitars4vets.org" target="_blank" class="hidden sm:inline-block px-5 py-2.5 rounded-xl bg-amber-500 hover:bg-amber-400 text-black font-semibold text-sm transition-all shadow-lg shadow-amber-500/20">
-                    National Portal
                 </a>
             </div>
         </div>
@@ -68,50 +72,7 @@
             <p class="text-slate-400 mt-2">Active community engagements, jam sessions, and special veteran milestones across Clarksville and the surrounding area.</p>
         </div>
 
-        <!-- Upcoming Event Card Section -->
-        <div class="space-y-6">
-            <div class="relative bg-slate-900/95 backdrop-blur-xl p-6 rounded-3xl space-y-5 border border-slate-800/80 shadow-xl max-w-xl">
-                
-                <!-- Header & Badge -->
-                <div class="space-y-2">
-                    <div class="flex items-center justify-between">
-                        <span class="px-2.5 py-0.5 rounded-full bg-amber-500/20 text-amber-400 text-xs font-extrabold tracking-wider uppercase border border-amber-500/30">
-                            ⚡ Upcoming
-                        </span>
-                        <span class="text-xs text-slate-400 font-medium">Nov 7, 2026 4pm to 6pm</span>
-                    </div>
-                    <h3 class="text-xl font-bold font-['Space_Grotesk'] text-white">
-                        Love Blood Ink Tattoo Event
-                    </h3>
-                    <p class="text-slate-300 text-sm leading-relaxed">
-                        Join us for live music, free pizza.
-                    </p>
-                </div>
-
-                <!-- Showcase Image Preview -->
-                <div class="rounded-xl overflow-hidden border border-slate-700/50 bg-slate-950/40 relative group flex items-center justify-center p-2">
-                    <img src="images/blood6.jpg" alt="Love Blood Ink Showcase Preview" class="w-full h-auto object-contain rounded-lg group-hover:scale-[1.02] transition-transform duration-500">
-                </div>
-
-                <!-- Location Box -->
-                <div class="p-4 rounded-2xl bg-slate-950/60 border border-slate-800/60 space-y-1">
-                    <span class="block text-xs uppercase tracking-wider text-amber-400 font-bold">Location Details</span>
-                    <p class="text-white text-sm font-semibold">265 Stonecrossing Dr</p>
-                    <p class="text-slate-400 text-xs">Clarksville, TN 37042 • 4–6 PM</p>
-                </div>
-
-                <!-- Map Directions Link -->
-                <div>
-                    <a href="https://maps.google.com/?q=265+Stonecrossing+Drive+Clarksville+TN+37042" target="_blank" class="inline-flex items-center gap-2 text-sm font-bold text-amber-400 hover:text-amber-300">
-                        <span>Get Map Directions</span>
-                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
-                    </a>
-                </div>
-
-            </div>
-        </div>
-
-       <!-- Upcoming Events Grid (Side-by-Side) -->
+        <!-- Upcoming Events Grid (Side-by-Side) -->
         <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 items-start">
             
             <!-- Upcoming Event 1: Love Blood Ink Tattoo Event -->
@@ -187,6 +148,7 @@
             </div>
 
         </div>
+
         <!-- Section Wrapper for Photo Galleries (Constrained Grid matching event/sponsor cards) -->
         <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 items-start">
             
@@ -322,6 +284,7 @@
             </div>
 
         </div>
+
         <!-- Monthly Jam Sessions Grid -->
         <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
             <div class="p-8 rounded-3xl bg-slate-900/60 border border-slate-800/80 backdrop-blur-xl flex flex-col justify-between space-y-6">
