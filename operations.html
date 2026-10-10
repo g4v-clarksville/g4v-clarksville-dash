@@ -1,4 +1,4 @@
-<!-- operations.html -->
+<!-- Operations.html -->
 <!DOCTYPE html>
 <html lang="en" class="dark">
 <head>
@@ -55,38 +55,100 @@
             <p class="text-slate-400 mt-2">Active community engagements, jam sessions, and special veteran milestones across Clarksville and the surrounding area.</p>
         </div>
 
-        <!-- Bento Cards Column -->
-<div class="lg:col-span-5 space-y-6">
-    <!-- Standard Event Card (No Glow) -->
-    <div class="relative bg-slate-900/95 backdrop-blur-xl p-6 rounded-3xl space-y-5 border border-slate-800/80 shadow-xl">
-        
-        <!-- Header & Badge -->
-        <div class="space-y-2">
-            <div class="flex items-center justify-between">
-                <span class="px-2.5 py-0.5 rounded-full bg-amber-500/20 text-amber-400 text-xs font-extrabold tracking-wider uppercase border border-amber-500/30">
-                    ⚡ Upcoming
-                </span>
-                <span class="text-xs text-slate-400 font-medium">Nov 7, 2026 4pm to 6pm</span>
+        <!-- Upcoming Event Card Section -->
+        <div class="space-y-6">
+            <div class="relative bg-slate-900/95 backdrop-blur-xl p-6 rounded-3xl space-y-5 border border-slate-800/80 shadow-xl max-w-xl">
+                
+                <!-- Header & Badge -->
+                <div class="space-y-2">
+                    <div class="flex items-center justify-between">
+                        <span class="px-2.5 py-0.5 rounded-full bg-amber-500/20 text-amber-400 text-xs font-extrabold tracking-wider uppercase border border-amber-500/30">
+                            ⚡ Upcoming
+                        </span>
+                        <span class="text-xs text-slate-400 font-medium">Nov 7, 2026 4pm to 6pm</span>
+                    </div>
+                    <h3 class="text-xl font-bold font-['Space_Grotesk'] text-white">
+                        Love Blood Ink Tattoo Event
+                    </h3>
+                    <p class="text-slate-300 text-sm leading-relaxed">
+                        Join us for live music, free pizza.
+                    </p>
+                </div>
+
+                <!-- Location Box -->
+                <div class="p-4 rounded-2xl bg-slate-950/60 border border-slate-800/60 space-y-1">
+                    <span class="block text-xs uppercase tracking-wider text-amber-400 font-bold">Location Details</span>
+                    <p class="text-white text-sm font-semibold">265 Stonecrossing Dr</p>
+                    <p class="text-slate-400 text-xs">Clarksville, TN 37042 • 4–6 PM</p>
+                </div>
+
+                <!-- Map Directions Link -->
+                <div>
+                    <a href="https://maps.google.com/?q=265+Stonecrossing+Drive+Clarksville+TN+37042" target="_blank" class="inline-flex items-center gap-2 text-sm font-bold text-amber-400 hover:text-amber-300">
+                        <span>Get Map Directions</span>
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
+                    </a>
+                </div>
+
             </div>
-            <h3 class="text-xl font-bold font-['Space_Grotesk'] text-white">
-                Love Blood Ink Tattoo Event
-            </h3>
-            <p class="text-slate-300 text-sm leading-relaxed">
-                Join us for live music, free pizza.
-            </p>
         </div>
 
-        <!-- Location Box -->
-        <div class="p-4 rounded-2xl bg-slate-950/60 border border-slate-800/60 space-y-1">
-            <span class="block text-xs uppercase tracking-wider text-amber-400 font-bold">Location Details</span>
-            <p class="text-white text-sm font-semibold">265 Stonecrossing Dr</p>
-            <p class="text-slate-400 text-xs">Clarksville, TN 37042 • 4–6 PM</p>
-        </div>
+        <!-- Section Wrapper for Photo Galleries -->
+        <div class="space-y-8">
+            
+            <!-- Graduation Photo Collection Section (New - Oct 10, 2026) -->
+            <details class="group p-6 md:p-8 rounded-3xl bg-slate-900/60 border border-slate-800/80 backdrop-blur-xl w-full shadow-2xl transition-all" open>
+                <summary class="flex items-center justify-between cursor-pointer list-none select-none">
+                    <div>
+                        <div class="text-xs font-bold tracking-widest text-amber-400 uppercase">Milestone Celebration</div>
+                        <h3 class="text-xl font-bold font-['Space_Grotesk'] text-white mt-1">Graduation Ceremony Photo Collection (Oct 10, 2026)</h3>
+                        <p class="text-slate-400 text-sm mt-1">Celebrating 3 new graduates! Click here to expand or collapse the gallery.</p>
+                    </div>
+                    
+                    <!-- Animated Dropdown Arrow -->
+                    <div class="ml-4 flex-shrink-0 w-10 h-10 rounded-xl bg-slate-800/80 border border-slate-700/80 flex items-center justify-center text-amber-400 group-open:rotate-180 transition-transform duration-300 shadow-md">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <polyline points="6 9 12 15 18 9"></polyline>
+                        </svg>
+                    </div>
+                </summary>
 
-    </div>
-</div>
+                <!-- Expanded Grid Container for the 10 Graduation Images -->
+                <div class="mt-8 pt-6 border-t border-slate-800/80 grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4">
+                    <div class="rounded-2xl overflow-hidden border border-slate-800 bg-slate-900/50 aspect-square group/item">
+                        <img src="images/grad-oct-1.jpg" alt="Graduation Photo 1" class="w-full h-full object-cover group-hover/item:scale-105 transition-transform duration-300">
+                    </div>
+                    <div class="rounded-2xl overflow-hidden border border-slate-800 bg-slate-900/50 aspect-square group/item">
+                        <img src="images/grad-oct-2.jpg" alt="Graduation Photo 2" class="w-full h-full object-cover group-hover/item:scale-105 transition-transform duration-300">
+                    </div>
+                    <div class="rounded-2xl overflow-hidden border border-slate-800 bg-slate-900/50 aspect-square group/item">
+                        <img src="images/grad-oct-3.jpg" alt="Graduation Photo 3" class="w-full h-full object-cover group-hover/item:scale-105 transition-transform duration-300">
+                    </div>
+                    <div class="rounded-2xl overflow-hidden border border-slate-800 bg-slate-900/50 aspect-square group/item">
+                        <img src="images/grad-oct-4.jpg" alt="Graduation Photo 4" class="w-full h-full object-cover group-hover/item:scale-105 transition-transform duration-300">
+                    </div>
+                    <div class="rounded-2xl overflow-hidden border border-slate-800 bg-slate-900/50 aspect-square group/item">
+                        <img src="images/grad-oct-5.jpg" alt="Graduation Photo 5" class="w-full h-full object-cover group-hover/item:scale-105 transition-transform duration-300">
+                    </div>
+                    <div class="rounded-2xl overflow-hidden border border-slate-800 bg-slate-900/50 aspect-square group/item">
+                        <img src="images/grad-oct-6.jpg" alt="Graduation Photo 6" class="w-full h-full object-cover group-hover/item:scale-105 transition-transform duration-300">
+                    </div>
+                    <div class="rounded-2xl overflow-hidden border border-slate-800 bg-slate-900/50 aspect-square group/item">
+                        <img src="images/grad-oct-7.jpg" alt="Graduation Photo 7" class="w-full h-full object-cover group-hover/item:scale-105 transition-transform duration-300">
+                    </div>
+                    <div class="rounded-2xl overflow-hidden border border-slate-800 bg-slate-900/50 aspect-square group/item">
+                        <img src="images/grad-oct-8.jpg" alt="Graduation Photo 8" class="w-full h-full object-cover group-hover/item:scale-105 transition-transform duration-300">
+                    </div>
+                    <div class="rounded-2xl overflow-hidden border border-slate-800 bg-slate-900/50 aspect-square group/item">
+                        <img src="images/grad-oct-9.jpg" alt="Graduation Photo 9" class="w-full h-full object-cover group-hover/item:scale-105 transition-transform duration-300">
+                    </div>
+                    <div class="rounded-2xl overflow-hidden border border-slate-800 bg-slate-900/50 aspect-square group/item">
+                        <img src="images/grad-oct-10.jpg" alt="Graduation Photo 10" class="w-full h-full object-cover group-hover/item:scale-105 transition-transform duration-300">
+                    </div>
+                </div>
+            </details>
 
-            <!-- Collapsible Container for the 27-Image Photo Grid -->
+            <!-- Love Blood Ink Photo Collection Section -->
             <details class="group p-6 md:p-8 rounded-3xl bg-slate-900/60 border border-slate-800/80 backdrop-blur-xl w-full shadow-2xl transition-all">
                 <summary class="flex items-center justify-between cursor-pointer list-none select-none">
                     <div>
@@ -103,128 +165,40 @@
                     </div>
                 </summary>
 
-                <!-- Expanded Grid Container for Images 1 through 27 -->
+                <!-- Expanded Grid Container for Images -->
                 <div class="mt-8 pt-6 border-t border-slate-800/80 grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-4">
-                    <!-- Image 1 -->
-                    <div class="rounded-2xl overflow-hidden border border-slate-800 bg-slate-900/50 aspect-square group/item">
-                        <img src="images/blood1.jpg" alt="Love Blood Ink Tattoo Photo 1" class="w-full h-full object-cover group-hover/item:scale-105 transition-transform duration-300">
-                    </div>
-                    <!-- Image 2 -->
-                    <div class="rounded-2xl overflow-hidden border border-slate-800 bg-slate-900/50 aspect-square group/item">
-                        <img src="images/blood2.jpg" alt="Love Blood Ink Tattoo Photo 2" class="w-full h-full object-cover group-hover/item:scale-105 transition-transform duration-300">
-                    </div>
-                    <!-- Image 3 -->
-                    <div class="rounded-2xl overflow-hidden border border-slate-800 bg-slate-900/50 aspect-square group/item">
-                        <img src="images/blood3.jpg" alt="Love Blood Ink Tattoo Photo 3" class="w-full h-full object-cover group-hover/item:scale-105 transition-transform duration-300">
-                    </div>
-                    <!-- Image 4 -->
-                    <div class="rounded-2xl overflow-hidden border border-slate-800 bg-slate-900/50 aspect-square group/item">
-                        <img src="images/blood4.jpg" alt="Love Blood Ink Tattoo Photo 4" class="w-full h-full object-cover group-hover/item:scale-105 transition-transform duration-300">
-                    </div>
-                    <!-- Image 5 -->
-                    <div class="rounded-2xl overflow-hidden border border-slate-800 bg-slate-900/50 aspect-square group/item">
-                        <img src="images/blood5.jpg" alt="Love Blood Ink Tattoo Photo 5" class="w-full h-full object-cover group-hover/item:scale-105 transition-transform duration-300">
-                    </div>
-                    <!-- Image 6 -->
-                    <div class="rounded-2xl overflow-hidden border border-slate-800 bg-slate-900/50 aspect-square group/item">
-                        <img src="images/blood6.jpg" alt="Love Blood Ink Tattoo Photo 6" class="w-full h-full object-cover group-hover/item:scale-105 transition-transform duration-300">
-                    </div>
-                    <!-- Image 7 -->
-                    <div class="rounded-2xl overflow-hidden border border-slate-800 bg-slate-900/50 aspect-square group/item">
-                        <img src="images/blood7.jpg" alt="Love Blood Ink Tattoo Photo 7" class="w-full h-full object-cover group-hover/item:scale-105 transition-transform duration-300">
-                    </div>
-                    <!-- Image 8 -->
-                    <div class="rounded-2xl overflow-hidden border border-slate-800 bg-slate-900/50 aspect-square group/item">
-                        <img src="images/blood8.jpg" alt="Love Blood Ink Tattoo Photo 8" class="w-full h-full object-cover group-hover/item:scale-105 transition-transform duration-300">
-                    </div>
-                    <!-- Image 9 -->
-                    <div class="rounded-2xl overflow-hidden border border-slate-800 bg-slate-900/50 aspect-square group/item">
-                        <img src="images/blood9.jpg" alt="Love Blood Ink Tattoo Photo 9" class="w-full h-full object-cover group-hover/item:scale-105 transition-transform duration-300">
-                    </div>
-                    <!-- Image 10 -->
-                    <div class="rounded-2xl overflow-hidden border border-slate-800 bg-slate-900/50 aspect-square group/item">
-                        <img src="images/blood10.jpg" alt="Love Blood Ink Tattoo Photo 10" class="w-full h-full object-cover group-hover/item:scale-105 transition-transform duration-300">
-                    </div>
-                    <!-- Image 11 -->
-                    <div class="rounded-2xl overflow-hidden border border-slate-800 bg-slate-900/50 aspect-square group/item">
-                        <img src="images/blood11.jpg" alt="Love Blood Ink Tattoo Photo 11" class="w-full h-full object-cover group-hover/item:scale-105 transition-transform duration-300">
-                    </div>
-                    <!-- Image 12 -->
-                    <div class="rounded-2xl overflow-hidden border border-slate-800 bg-slate-900/50 aspect-square group/item">
-                        <img src="images/blood12.jpg" alt="Love Blood Ink Tattoo Photo 12" class="w-full h-full object-cover group-hover/item:scale-105 transition-transform duration-300">
-                    </div>
-                    <!-- Image 13 -->
-                    <div class="rounded-2xl overflow-hidden border border-slate-800 bg-slate-900/50 aspect-square group/item">
-                        <img src="images/blood13.jpg" alt="Love Blood Ink Tattoo Photo 13" class="w-full h-full object-cover group-hover/item:scale-105 transition-transform duration-300">
-                    </div>
-                    <!-- Image 14 -->
-                    <div class="rounded-2xl overflow-hidden border border-slate-800 bg-slate-900/50 aspect-square group/item">
-                        <img src="images/blood14.jpg" alt="Love Blood Ink Tattoo Photo 14" class="w-full h-full object-cover group-hover/item:scale-105 transition-transform duration-300">
-                    </div>
-                    <!-- Image 15 -->
-                    <div class="rounded-2xl overflow-hidden border border-slate-800 bg-slate-900/50 aspect-square group/item">
-                        <img src="images/blood15.jpg" alt="Love Blood Ink Tattoo Photo 15" class="w-full h-full object-cover group-hover/item:scale-105 transition-transform duration-300">
-                    </div>
-                    <!-- Image 16 -->
-                    <div class="rounded-2xl overflow-hidden border border-slate-800 bg-slate-900/50 aspect-square group/item">
-                        <img src="images/blood16.jpg" alt="Love Blood Ink Tattoo Photo 16" class="w-full h-full object-cover group-hover/item:scale-105 transition-transform duration-300">
-                    </div>
-                    <!-- Image 17 -->
-                    <div class="rounded-2xl overflow-hidden border border-slate-800 bg-slate-900/50 aspect-square group/item">
-                        <img src="images/blood17.jpg" alt="Love Blood Ink Tattoo Photo 17" class="w-full h-full object-cover group-hover/item:scale-105 transition-transform duration-300">
-                    </div>
-                    <!-- Image 18 -->
-                    <div class="rounded-2xl overflow-hidden border border-slate-800 bg-slate-900/50 aspect-square group/item">
-                        <img src="images/blood18.jpg" alt="Love Blood Ink Tattoo Photo 18" class="w-full h-full object-cover group-hover/item:scale-105 transition-transform duration-300">
-                    </div>
-                    <!-- Image 19 -->
-                    <div class="rounded-2xl overflow-hidden border border-slate-800 bg-slate-900/50 aspect-square group/item">
-                        <img src="images/blood19.jpg" alt="Love Blood Ink Tattoo Photo 19" class="w-full h-full object-cover group-hover/item:scale-105 transition-transform duration-300">
-                    </div>
-                    <!-- Image 20 -->
-                    <div class="rounded-2xl overflow-hidden border border-slate-800 bg-slate-900/50 aspect-square group/item">
-                        <img src="images/blood20.jpg" alt="Love Blood Ink Tattoo Photo 20" class="w-full h-full object-cover group-hover/item:scale-105 transition-transform duration-300">
-                    </div>
-                    <!-- Image 21 -->
-                    <div class="rounded-2xl overflow-hidden border border-slate-800 bg-slate-900/50 aspect-square group/item">
-                        <img src="images/blood21.jpg" alt="Love Blood Ink Tattoo Photo 21" class="w-full h-full object-cover group-hover/item:scale-105 transition-transform duration-300">
-                    </div>
-                    <!-- Image 22 -->
-                    <div class="rounded-2xl overflow-hidden border border-slate-800 bg-slate-900/50 aspect-square group/item">
-                        <img src="images/blood22.jpg" alt="Love Blood Ink Tattoo Photo 22" class="w-full h-full object-cover group-hover/item:scale-105 transition-transform duration-300">
-                    </div>
-                    <!-- Image 23 
-                    <div class="rounded-2xl overflow-hidden border border-slate-800 bg-slate-900/50 aspect-square group/item">
-                        <img src="images/blood23.jpg" alt="Love Blood Ink Tattoo Photo 23" class="w-full h-full object-cover group-hover/item:scale-105 transition-transform duration-300">
-                    </div> -->
-                    <!-- Image 24 -->
-                    <div class="rounded-2xl overflow-hidden border border-slate-800 bg-slate-900/50 aspect-square group/item">
-                        <img src="images/blood24.jpg" alt="Love Blood Ink Tattoo Photo 24" class="w-full h-full object-cover group-hover/item:scale-105 transition-transform duration-300">
-                    </div>
-                    <!-- Image 25 -->
-                    <div class="rounded-2xl overflow-hidden border border-slate-800 bg-slate-900/50 aspect-square group/item">
-                        <img src="images/blood25.jpg" alt="Love Blood Ink Tattoo Photo 25" class="w-full h-full object-cover group-hover/item:scale-105 transition-transform duration-300">
-                    </div>
-                    <!-- Image 26 -->
-                    <div class="rounded-2xl overflow-hidden border border-slate-800 bg-slate-900/50 aspect-square group/item">
-                        <img src="images/blood26.jpg" alt="Love Blood Ink Tattoo Photo 26" class="w-full h-full object-cover group-hover/item:scale-105 transition-transform duration-300">
-                    </div>
-                    <!-- Image 27 -->
-                    <div class="rounded-2xl overflow-hidden border border-slate-800 bg-slate-900/50 aspect-square group/item">
-                        <img src="images/blood27.jpg" alt="Love Blood Ink Tattoo Photo 27" class="w-full h-full object-cover group-hover/item:scale-105 transition-transform duration-300">
-                    </div>
+                    <div class="rounded-2xl overflow-hidden border border-slate-800 bg-slate-900/50 aspect-square group/item"><img src="images/blood1.jpg" alt="Photo 1" class="w-full h-full object-cover group-hover/item:scale-105 transition-transform duration-300"></div>
+                    <div class="rounded-2xl overflow-hidden border border-slate-800 bg-slate-900/50 aspect-square group/item"><img src="images/blood2.jpg" alt="Photo 2" class="w-full h-full object-cover group-hover/item:scale-105 transition-transform duration-300"></div>
+                    <div class="rounded-2xl overflow-hidden border border-slate-800 bg-slate-900/50 aspect-square group/item"><img src="images/blood3.jpg" alt="Photo 3" class="w-full h-full object-cover group-hover/item:scale-105 transition-transform duration-300"></div>
+                    <div class="rounded-2xl overflow-hidden border border-slate-800 bg-slate-900/50 aspect-square group/item"><img src="images/blood4.jpg" alt="Photo 4" class="w-full h-full object-cover group-hover/item:scale-105 transition-transform duration-300"></div>
+                    <div class="rounded-2xl overflow-hidden border border-slate-800 bg-slate-900/50 aspect-square group/item"><img src="images/blood5.jpg" alt="Photo 5" class="w-full h-full object-cover group-hover/item:scale-105 transition-transform duration-300"></div>
+                    <div class="rounded-2xl overflow-hidden border border-slate-800 bg-slate-900/50 aspect-square group/item"><img src="images/blood6.jpg" alt="Photo 6" class="w-full h-full object-cover group-hover/item:scale-105 transition-transform duration-300"></div>
+                    <div class="rounded-2xl overflow-hidden border border-slate-800 bg-slate-900/50 aspect-square group/item"><img src="images/blood7.jpg" alt="Photo 7" class="w-full h-full object-cover group-hover/item:scale-105 transition-transform duration-300"></div>
+                    <div class="rounded-2xl overflow-hidden border border-slate-800 bg-slate-900/50 aspect-square group/item"><img src="images/blood8.jpg" alt="Photo 8" class="w-full h-full object-cover group-hover/item:scale-105 transition-transform duration-300"></div>
+                    <div class="rounded-2xl overflow-hidden border border-slate-800 bg-slate-900/50 aspect-square group/item"><img src="images/blood9.jpg" alt="Photo 9" class="w-full h-full object-cover group-hover/item:scale-105 transition-transform duration-300"></div>
+                    <div class="rounded-2xl overflow-hidden border border-slate-800 bg-slate-900/50 aspect-square group/item"><img src="images/blood10.jpg" alt="Photo 10" class="w-full h-full object-cover group-hover/item:scale-105 transition-transform duration-300"></div>
+                    <div class="rounded-2xl overflow-hidden border border-slate-800 bg-slate-900/50 aspect-square group/item"><img src="images/blood11.jpg" alt="Photo 11" class="w-full h-full object-cover group-hover/item:scale-105 transition-transform duration-300"></div>
+                    <div class="rounded-2xl overflow-hidden border border-slate-800 bg-slate-900/50 aspect-square group/item"><img src="images/blood12.jpg" alt="Photo 12" class="w-full h-full object-cover group-hover/item:scale-105 transition-transform duration-300"></div>
+                    <div class="rounded-2xl overflow-hidden border border-slate-800 bg-slate-900/50 aspect-square group/item"><img src="images/blood13.jpg" alt="Photo 13" class="w-full h-full object-cover group-hover/item:scale-105 transition-transform duration-300"></div>
+                    <div class="rounded-2xl overflow-hidden border border-slate-800 bg-slate-900/50 aspect-square group/item"><img src="images/blood14.jpg" alt="Photo 14" class="w-full h-full object-cover group-hover/item:scale-105 transition-transform duration-300"></div>
+                    <div class="rounded-2xl overflow-hidden border border-slate-800 bg-slate-900/50 aspect-square group/item"><img src="images/blood15.jpg" alt="Photo 15" class="w-full h-full object-cover group-hover/item:scale-105 transition-transform duration-300"></div>
+                    <div class="rounded-2xl overflow-hidden border border-slate-800 bg-slate-900/50 aspect-square group/item"><img src="images/blood16.jpg" alt="Photo 16" class="w-full h-full object-cover group-hover/item:scale-105 transition-transform duration-300"></div>
+                    <div class="rounded-2xl overflow-hidden border border-slate-800 bg-slate-900/50 aspect-square group/item"><img src="images/blood17.jpg" alt="Photo 17" class="w-full h-full object-cover group-hover/item:scale-105 transition-transform duration-300"></div>
+                    <div class="rounded-2xl overflow-hidden border border-slate-800 bg-slate-900/50 aspect-square group/item"><img src="images/blood18.jpg" alt="Photo 18" class="w-full h-full object-cover group-hover/item:scale-105 transition-transform duration-300"></div>
+                    <div class="rounded-2xl overflow-hidden border border-slate-800 bg-slate-900/50 aspect-square group/item"><img src="images/blood19.jpg" alt="Photo 19" class="w-full h-full object-cover group-hover/item:scale-105 transition-transform duration-300"></div>
+                    <div class="rounded-2xl overflow-hidden border border-slate-800 bg-slate-900/50 aspect-square group/item"><img src="images/blood20.jpg" alt="Photo 20" class="w-full h-full object-cover group-hover/item:scale-105 transition-transform duration-300"></div>
+                    <div class="rounded-2xl overflow-hidden border border-slate-800 bg-slate-900/50 aspect-square group/item"><img src="images/blood21.jpg" alt="Photo 21" class="w-full h-full object-cover group-hover/item:scale-105 transition-transform duration-300"></div>
+                    <div class="rounded-2xl overflow-hidden border border-slate-800 bg-slate-900/50 aspect-square group/item"><img src="images/blood22.jpg" alt="Photo 22" class="w-full h-full object-cover group-hover/item:scale-105 transition-transform duration-300"></div>
+                    <div class="rounded-2xl overflow-hidden border border-slate-800 bg-slate-900/50 aspect-square group/item"><img src="images/blood24.jpg" alt="Photo 24" class="w-full h-full object-cover group-hover/item:scale-105 transition-transform duration-300"></div>
+                    <div class="rounded-2xl overflow-hidden border border-slate-800 bg-slate-900/50 aspect-square group/item"><img src="images/blood25.jpg" alt="Photo 25" class="w-full h-full object-cover group-hover/item:scale-105 transition-transform duration-300"></div>
+                    <div class="rounded-2xl overflow-hidden border border-slate-800 bg-slate-900/50 aspect-square group/item"><img src="images/blood26.jpg" alt="Photo 26" class="w-full h-full object-cover group-hover/item:scale-105 transition-transform duration-300"></div>
+                    <div class="rounded-2xl overflow-hidden border border-slate-800 bg-slate-900/50 aspect-square group/item"><img src="images/blood27.jpg" alt="Photo 27" class="w-full h-full object-cover group-hover/item:scale-105 transition-transform duration-300"></div>
                 </div>
             </details>
 
-            <!-- Map Directions Link -->
-            <div>
-                <a href="https://maps.google.com/?q=265+Stonecrossing+Drive+Clarksville+TN+37042" target="_blank" class="inline-flex items-center gap-2 text-sm font-bold text-amber-400 hover:text-amber-300">
-                    <span>Get Map Directions</span>
-                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
-                </a>
-            </div>
         </div>
 
+        <!-- Monthly Jam Sessions Grid -->
         <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
             <div class="p-8 rounded-3xl bg-slate-900/60 border border-slate-800/80 backdrop-blur-xl flex flex-col justify-between">
                 <div>
