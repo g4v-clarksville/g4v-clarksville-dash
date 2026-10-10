@@ -101,13 +101,13 @@
         <!-- Section Wrapper for Photo Galleries -->
         <div class="space-y-8">
             
-            <!-- Graduation Photo Collection Section (New - Oct 10, 2026) -->
+            <!-- Graduation Photo Collection Section (Converted to Match Showcase Card Style) -->
             <details class="group p-6 md:p-8 rounded-3xl bg-slate-900/60 border border-slate-800/80 backdrop-blur-xl w-full shadow-2xl transition-all" open>
                 <summary class="flex items-center justify-between cursor-pointer list-none select-none">
-                    <div>
+                    <div class="space-y-1">
                         <div class="text-xs font-bold tracking-widest text-amber-400 uppercase">Milestone Celebration</div>
-                        <h3 class="text-xl font-bold font-['Space_Grotesk'] text-white mt-1">Graduation Ceremony Photo Collection, 9 Oct 2026</h3>
-                        <p class="text-slate-400 text-sm mt-1">Celebrating 3 new graduates! Click here to expand or collapse the gallery.</p>
+                        <h3 class="text-xl font-bold font-['Space_Grotesk'] text-white">Graduation Ceremony Photo Collection, 9 Oct 2026</h3>
+                        <p class="text-slate-400 text-sm">Celebrating 3 new graduates! Click here to expand or collapse the gallery.</p>
                     </div>
                     
                     <!-- Animated Dropdown Arrow -->
@@ -118,48 +118,56 @@
                     </div>
                 </summary>
 
-                <!-- Expanded Grid Container for the 10 Graduation Images -->
-                <div class="mt-8 pt-6 border-t border-slate-800/80 grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4">
-                    <div class="rounded-2xl overflow-hidden border border-slate-800 bg-slate-900/50 aspect-square group/item">
-                        <img src="images/grad-oct-1.jpg" alt="Graduation Photo 1" class="w-full h-full object-cover group-hover/item:scale-105 transition-transform duration-300">
+                <!-- Showcase Image Preview & Expanded Grid Container -->
+                <div class="mt-6 pt-6 border-t border-slate-800/80 space-y-6">
+                    <!-- Featured Showcase Preview Image -->
+                    <div class="rounded-xl overflow-hidden border border-slate-700/50 bg-slate-950/40 p-2 max-w-xl">
+                        <img src="images/grad-oct-10.jpg" alt="Graduation Showcase Preview" class="w-full h-auto object-contain rounded-lg">
                     </div>
-                    <div class="rounded-2xl overflow-hidden border border-slate-800 bg-slate-900/50 aspect-square group/item">
-                        <img src="images/grad-oct-2.jpg" alt="Graduation Photo 2" class="w-full h-full object-cover group-hover/item:scale-105 transition-transform duration-300">
-                    </div>
-                    <div class="rounded-2xl overflow-hidden border border-slate-800 bg-slate-900/50 aspect-square group/item">
-                        <img src="images/grad-oct-3.jpg" alt="Graduation Photo 3" class="w-full h-full object-cover group-hover/item:scale-105 transition-transform duration-300">
-                    </div>
-                    <div class="rounded-2xl overflow-hidden border border-slate-800 bg-slate-900/50 aspect-square group/item">
-                        <img src="images/grad-oct-4.jpg" alt="Graduation Photo 4" class="w-full h-full object-cover group-hover/item:scale-105 transition-transform duration-300">
-                    </div>
-                    <div class="rounded-2xl overflow-hidden border border-slate-800 bg-slate-900/50 aspect-square group/item">
-                        <img src="images/grad-oct-5.jpg" alt="Graduation Photo 5" class="w-full h-full object-cover group-hover/item:scale-105 transition-transform duration-300">
-                    </div>
-                    <div class="rounded-2xl overflow-hidden border border-slate-800 bg-slate-900/50 aspect-square group/item">
-                        <img src="images/grad-oct-6.jpg" alt="Graduation Photo 6" class="w-full h-full object-cover group-hover/item:scale-105 transition-transform duration-300">
-                    </div>
-                    <div class="rounded-2xl overflow-hidden border border-slate-800 bg-slate-900/50 aspect-square group/item">
-                        <img src="images/grad-oct-7.jpg" alt="Graduation Photo 7" class="w-full h-full object-cover group-hover/item:scale-105 transition-transform duration-300">
-                    </div>
-                    <div class="rounded-2xl overflow-hidden border border-slate-800 bg-slate-900/50 aspect-square group/item">
-                        <img src="images/grad-oct-8.jpg" alt="Graduation Photo 8" class="w-full h-full object-cover group-hover/item:scale-105 transition-transform duration-300">
-                    </div>
-                    <div class="rounded-2xl overflow-hidden border border-slate-800 bg-slate-900/50 aspect-square group/item">
-                        <img src="images/grad-oct-9.jpg" alt="Graduation Photo 9" class="w-full h-full object-cover group-hover/item:scale-105 transition-transform duration-300">
-                    </div>
-                    <div class="rounded-2xl overflow-hidden border border-slate-800 bg-slate-900/50 aspect-square group/item">
-                        <img src="images/grad-oct-10.jpg" alt="Graduation Photo 10" class="w-full h-full object-cover group-hover/item:scale-105 transition-transform duration-300">
+
+                    <!-- Expanded Grid Container for the Graduation Images -->
+                    <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4">
+                        <div class="rounded-2xl overflow-hidden border border-slate-800 bg-slate-900/50 aspect-square group/item">
+                            <img src="images/grad-oct-1.jpg" alt="Graduation Photo 1" class="w-full h-full object-cover group-hover/item:scale-105 transition-transform duration-300">
+                        </div>
+                        <div class="rounded-2xl overflow-hidden border border-slate-800 bg-slate-900/50 aspect-square group/item">
+                            <img src="images/grad-oct-2.jpg" alt="Graduation Photo 2" class="w-full h-full object-cover group-hover/item:scale-105 transition-transform duration-300">
+                        </div>
+                        <div class="rounded-2xl overflow-hidden border border-slate-800 bg-slate-900/50 aspect-square group/item">
+                            <img src="images/grad-oct-3.jpg" alt="Graduation Photo 3" class="w-full h-full object-cover group-hover/item:scale-105 transition-transform duration-300">
+                        </div>
+                        <div class="rounded-2xl overflow-hidden border border-slate-800 bg-slate-900/50 aspect-square group/item">
+                            <img src="images/grad-oct-4.jpg" alt="Graduation Photo 4" class="w-full h-full object-cover group-hover/item:scale-105 transition-transform duration-300">
+                        </div>
+                        <div class="rounded-2xl overflow-hidden border border-slate-800 bg-slate-900/50 aspect-square group/item">
+                            <img src="images/grad-oct-5.jpg" alt="Graduation Photo 5" class="w-full h-full object-cover group-hover/item:scale-105 transition-transform duration-300">
+                        </div>
+                        <div class="rounded-2xl overflow-hidden border border-slate-800 bg-slate-900/50 aspect-square group/item">
+                            <img src="images/grad-oct-6.jpg" alt="Graduation Photo 6" class="w-full h-full object-cover group-hover/item:scale-105 transition-transform duration-300">
+                        </div>
+                        <div class="rounded-2xl overflow-hidden border border-slate-800 bg-slate-900/50 aspect-square group/item">
+                            <img src="images/grad-oct-7.jpg" alt="Graduation Photo 7" class="w-full h-full object-cover group-hover/item:scale-105 transition-transform duration-300">
+                        </div>
+                        <div class="rounded-2xl overflow-hidden border border-slate-800 bg-slate-900/50 aspect-square group/item">
+                            <img src="images/grad-oct-8.jpg" alt="Graduation Photo 8" class="w-full h-full object-cover group-hover/item:scale-105 transition-transform duration-300">
+                        </div>
+                        <div class="rounded-2xl overflow-hidden border border-slate-800 bg-slate-900/50 aspect-square group/item">
+                            <img src="images/grad-oct-9.jpg" alt="Graduation Photo 9" class="w-full h-full object-cover group-hover/item:scale-105 transition-transform duration-300">
+                        </div>
+                        <div class="rounded-2xl overflow-hidden border border-slate-800 bg-slate-900/50 aspect-square group/item">
+                            <img src="images/grad-oct-10.jpg" alt="Graduation Photo 10" class="w-full h-full object-cover group-hover/item:scale-105 transition-transform duration-300">
+                        </div>
                     </div>
                 </div>
             </details>
 
-            <!-- Love Blood Ink Photo Collection Section -->
+            <!-- Love Blood Ink Photo Collection Section (Converted to Match Showcase Card Style) -->
             <details class="group p-6 md:p-8 rounded-3xl bg-slate-900/60 border border-slate-800/80 backdrop-blur-xl w-full shadow-2xl transition-all">
                 <summary class="flex items-center justify-between cursor-pointer list-none select-none">
-                    <div>
+                    <div class="space-y-1">
                         <div class="text-xs font-bold tracking-widest text-amber-400 uppercase">Event Visual Archives</div>
-                        <h3 class="text-xl font-bold font-['Space_Grotesk'] text-white mt-1">Love Blood Ink Photo Collection 3 Oct 2026</h3>
-                        <p class="text-slate-400 text-sm mt-1">Click here to expand or collapse the complete event gallery.</p>
+                        <h3 class="text-xl font-bold font-['Space_Grotesk'] text-white">Love Blood Ink Photo Collection 3 Oct 2026</h3>
+                        <p class="text-slate-400 text-sm">Click here to expand or collapse the complete event gallery.</p>
                     </div>
                     
                     <!-- Animated Dropdown Arrow -->
@@ -170,59 +178,79 @@
                     </div>
                 </summary>
 
-                <!-- Expanded Grid Container for Images -->
-                <div class="mt-8 pt-6 border-t border-slate-800/80 grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-4">
-                    <div class="rounded-2xl overflow-hidden border border-slate-800 bg-slate-900/50 aspect-square group/item"><img src="images/blood1.jpg" alt="Photo 1" class="w-full h-full object-cover group-hover/item:scale-105 transition-transform duration-300"></div>
-                    <div class="rounded-2xl overflow-hidden border border-slate-800 bg-slate-900/50 aspect-square group/item"><img src="images/blood2.jpg" alt="Photo 2" class="w-full h-full object-cover group-hover/item:scale-105 transition-transform duration-300"></div>
-                    <div class="rounded-2xl overflow-hidden border border-slate-800 bg-slate-900/50 aspect-square group/item"><img src="images/blood3.jpg" alt="Photo 3" class="w-full h-full object-cover group-hover/item:scale-105 transition-transform duration-300"></div>
-                    <div class="rounded-2xl overflow-hidden border border-slate-800 bg-slate-900/50 aspect-square group/item"><img src="images/blood4.jpg" alt="Photo 4" class="w-full h-full object-cover group-hover/item:scale-105 transition-transform duration-300"></div>
-                    <div class="rounded-2xl overflow-hidden border border-slate-800 bg-slate-900/50 aspect-square group/item"><img src="images/blood5.jpg" alt="Photo 5" class="w-full h-full object-cover group-hover/item:scale-105 transition-transform duration-300"></div>
-                    <div class="rounded-2xl overflow-hidden border border-slate-800 bg-slate-900/50 aspect-square group/item"><img src="images/blood6.jpg" alt="Photo 6" class="w-full h-full object-cover group-hover/item:scale-105 transition-transform duration-300"></div>
-                    <div class="rounded-2xl overflow-hidden border border-slate-800 bg-slate-900/50 aspect-square group/item"><img src="images/blood7.jpg" alt="Photo 7" class="w-full h-full object-cover group-hover/item:scale-105 transition-transform duration-300"></div>
-                    <div class="rounded-2xl overflow-hidden border border-slate-800 bg-slate-900/50 aspect-square group/item"><img src="images/blood8.jpg" alt="Photo 8" class="w-full h-full object-cover group-hover/item:scale-105 transition-transform duration-300"></div>
-                    <div class="rounded-2xl overflow-hidden border border-slate-800 bg-slate-900/50 aspect-square group/item"><img src="images/blood9.jpg" alt="Photo 9" class="w-full h-full object-cover group-hover/item:scale-105 transition-transform duration-300"></div>
-                    <div class="rounded-2xl overflow-hidden border border-slate-800 bg-slate-900/50 aspect-square group/item"><img src="images/blood10.jpg" alt="Photo 10" class="w-full h-full object-cover group-hover/item:scale-105 transition-transform duration-300"></div>
-                    <div class="rounded-2xl overflow-hidden border border-slate-800 bg-slate-900/50 aspect-square group/item"><img src="images/blood11.jpg" alt="Photo 11" class="w-full h-full object-cover group-hover/item:scale-105 transition-transform duration-300"></div>
-                    <div class="rounded-2xl overflow-hidden border border-slate-800 bg-slate-900/50 aspect-square group/item"><img src="images/blood12.jpg" alt="Photo 12" class="w-full h-full object-cover group-hover/item:scale-105 transition-transform duration-300"></div>
-                    <div class="rounded-2xl overflow-hidden border border-slate-800 bg-slate-900/50 aspect-square group/item"><img src="images/blood13.jpg" alt="Photo 13" class="w-full h-full object-cover group-hover/item:scale-105 transition-transform duration-300"></div>
-                    <div class="rounded-2xl overflow-hidden border border-slate-800 bg-slate-900/50 aspect-square group/item"><img src="images/blood14.jpg" alt="Photo 14" class="w-full h-full object-cover group-hover/item:scale-105 transition-transform duration-300"></div>
-                    <div class="rounded-2xl overflow-hidden border border-slate-800 bg-slate-900/50 aspect-square group/item"><img src="images/blood15.jpg" alt="Photo 15" class="w-full h-full object-cover group-hover/item:scale-105 transition-transform duration-300"></div>
-                    <div class="rounded-2xl overflow-hidden border border-slate-800 bg-slate-900/50 aspect-square group/item"><img src="images/blood16.jpg" alt="Photo 16" class="w-full h-full object-cover group-hover/item:scale-105 transition-transform duration-300"></div>
-                    <div class="rounded-2xl overflow-hidden border border-slate-800 bg-slate-900/50 aspect-square group/item"><img src="images/blood17.jpg" alt="Photo 17" class="w-full h-full object-cover group-hover/item:scale-105 transition-transform duration-300"></div>
-                    <div class="rounded-2xl overflow-hidden border border-slate-800 bg-slate-900/50 aspect-square group/item"><img src="images/blood18.jpg" alt="Photo 18" class="w-full h-full object-cover group-hover/item:scale-105 transition-transform duration-300"></div>
-                    <div class="rounded-2xl overflow-hidden border border-slate-800 bg-slate-900/50 aspect-square group/item"><img src="images/blood19.jpg" alt="Photo 19" class="w-full h-full object-cover group-hover/item:scale-105 transition-transform duration-300"></div>
-                    <div class="rounded-2xl overflow-hidden border border-slate-800 bg-slate-900/50 aspect-square group/item"><img src="images/blood20.jpg" alt="Photo 20" class="w-full h-full object-cover group-hover/item:scale-105 transition-transform duration-300"></div>
-                    <div class="rounded-2xl overflow-hidden border border-slate-800 bg-slate-900/50 aspect-square group/item"><img src="images/blood21.jpg" alt="Photo 21" class="w-full h-full object-cover group-hover/item:scale-105 transition-transform duration-300"></div>
-                    <div class="rounded-2xl overflow-hidden border border-slate-800 bg-slate-900/50 aspect-square group/item"><img src="images/blood22.jpg" alt="Photo 22" class="w-full h-full object-cover group-hover/item:scale-105 transition-transform duration-300"></div>
-                    <div class="rounded-2xl overflow-hidden border border-slate-800 bg-slate-900/50 aspect-square group/item"><img src="images/blood24.jpg" alt="Photo 24" class="w-full h-full object-cover group-hover/item:scale-105 transition-transform duration-300"></div>
-                    <div class="rounded-2xl overflow-hidden border border-slate-800 bg-slate-900/50 aspect-square group/item"><img src="images/blood25.jpg" alt="Photo 25" class="w-full h-full object-cover group-hover/item:scale-105 transition-transform duration-300"></div>
-                    <div class="rounded-2xl overflow-hidden border border-slate-800 bg-slate-900/50 aspect-square group/item"><img src="images/blood26.jpg" alt="Photo 26" class="w-full h-full object-cover group-hover/item:scale-105 transition-transform duration-300"></div>
-                    <div class="rounded-2xl overflow-hidden border border-slate-800 bg-slate-900/50 aspect-square group/item"><img src="images/blood27.jpg" alt="Photo 27" class="w-full h-full object-cover group-hover/item:scale-105 transition-transform duration-300"></div>
+                <!-- Showcase Image Preview & Expanded Grid Container -->
+                <div class="mt-6 pt-6 border-t border-slate-800/80 space-y-6">
+                    <!-- Featured Showcase Preview Image (blood9.jpg) -->
+                    <div class="rounded-xl overflow-hidden border border-slate-700/50 bg-slate-950/40 p-2 max-w-xl">
+                        <img src="images/blood9.jpg" alt="Love Blood Ink Oct 3 Showcase Preview" class="w-full h-auto object-contain rounded-lg">
+                    </div>
+
+                    <!-- Expanded Grid Container for Images -->
+                    <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-4">
+                        <div class="rounded-2xl overflow-hidden border border-slate-800 bg-slate-900/50 aspect-square group/item"><img src="images/blood1.jpg" alt="Photo 1" class="w-full h-full object-cover group-hover/item:scale-105 transition-transform duration-300"></div>
+                        <div class="rounded-2xl overflow-hidden border border-slate-800 bg-slate-900/50 aspect-square group/item"><img src="images/blood2.jpg" alt="Photo 2" class="w-full h-full object-cover group-hover/item:scale-105 transition-transform duration-300"></div>
+                        <div class="rounded-2xl overflow-hidden border border-slate-800 bg-slate-900/50 aspect-square group/item"><img src="images/blood3.jpg" alt="Photo 3" class="w-full h-full object-cover group-hover/item:scale-105 transition-transform duration-300"></div>
+                        <div class="rounded-2xl overflow-hidden border border-slate-800 bg-slate-900/50 aspect-square group/item"><img src="images/blood4.jpg" alt="Photo 4" class="w-full h-full object-cover group-hover/item:scale-105 transition-transform duration-300"></div>
+                        <div class="rounded-2xl overflow-hidden border border-slate-800 bg-slate-900/50 aspect-square group/item"><img src="images/blood5.jpg" alt="Photo 5" class="w-full h-full object-cover group-hover/item:scale-105 transition-transform duration-300"></div>
+                        <div class="rounded-2xl overflow-hidden border border-slate-800 bg-slate-900/50 aspect-square group/item"><img src="images/blood6.jpg" alt="Photo 6" class="w-full h-full object-cover group-hover/item:scale-105 transition-transform duration-300"></div>
+                        <div class="rounded-2xl overflow-hidden border border-slate-800 bg-slate-900/50 aspect-square group/item"><img src="images/blood7.jpg" alt="Photo 7" class="w-full h-full object-cover group-hover/item:scale-105 transition-transform duration-300"></div>
+                        <div class="rounded-2xl overflow-hidden border border-slate-800 bg-slate-900/50 aspect-square group/item"><img src="images/blood8.jpg" alt="Photo 8" class="w-full h-full object-cover group-hover/item:scale-105 transition-transform duration-300"></div>
+                        <div class="rounded-2xl overflow-hidden border border-slate-800 bg-slate-900/50 aspect-square group/item"><img src="images/blood9.jpg" alt="Photo 9" class="w-full h-full object-cover group-hover/item:scale-105 transition-transform duration-300"></div>
+                        <div class="rounded-2xl overflow-hidden border border-slate-800 bg-slate-900/50 aspect-square group/item"><img src="images/blood10.jpg" alt="Photo 10" class="w-full h-full object-cover group-hover/item:scale-105 transition-transform duration-300"></div>
+                        <div class="rounded-2xl overflow-hidden border border-slate-800 bg-slate-900/50 aspect-square group/item"><img src="images/blood11.jpg" alt="Photo 11" class="w-full h-full object-cover group-hover/item:scale-105 transition-transform duration-300"></div>
+                        <div class="rounded-2xl overflow-hidden border border-slate-800 bg-slate-900/50 aspect-square group/item"><img src="images/blood12.jpg" alt="Photo 12" class="w-full h-full object-cover group-hover/item:scale-105 transition-transform duration-300"></div>
+                        <div class="rounded-2xl overflow-hidden border border-slate-800 bg-slate-900/50 aspect-square group/item"><img src="images/blood13.jpg" alt="Photo 13" class="w-full h-full object-cover group-hover/item:scale-105 transition-transform duration-300"></div>
+                        <div class="rounded-2xl overflow-hidden border border-slate-800 bg-slate-900/50 aspect-square group/item"><img src="images/blood14.jpg" alt="Photo 14" class="w-full h-full object-cover group-hover/item:scale-105 transition-transform duration-300"></div>
+                        <div class="rounded-2xl overflow-hidden border border-slate-800 bg-slate-900/50 aspect-square group/item"><img src="images/blood15.jpg" alt="Photo 15" class="w-full h-full object-cover group-hover/item:scale-105 transition-transform duration-300"></div>
+                        <div class="rounded-2xl overflow-hidden border border-slate-800 bg-slate-900/50 aspect-square group/item"><img src="images/blood16.jpg" alt="Photo 16" class="w-full h-full object-cover group-hover/item:scale-105 transition-transform duration-300"></div>
+                        <div class="rounded-2xl overflow-hidden border border-slate-800 bg-slate-900/50 aspect-square group/item"><img src="images/blood17.jpg" alt="Photo 17" class="w-full h-full object-cover group-hover/item:scale-105 transition-transform duration-300"></div>
+                        <div class="rounded-2xl overflow-hidden border border-slate-800 bg-slate-900/50 aspect-square group/item"><img src="images/blood18.jpg" alt="Photo 18" class="w-full h-full object-cover group-hover/item:scale-105 transition-transform duration-300"></div>
+                        <div class="rounded-2xl overflow-hidden border border-slate-800 bg-slate-900/50 aspect-square group/item"><img src="images/blood19.jpg" alt="Photo 19" class="w-full h-full object-cover group-hover/item:scale-105 transition-transform duration-300"></div>
+                        <div class="rounded-2xl overflow-hidden border border-slate-800 bg-slate-900/50 aspect-square group/item"><img src="images/blood20.jpg" alt="Photo 20" class="w-full h-full object-cover group-hover/item:scale-105 transition-transform duration-300"></div>
+                        <div class="rounded-2xl overflow-hidden border border-slate-800 bg-slate-900/50 aspect-square group/item"><img src="images/blood21.jpg" alt="Photo 21" class="w-full h-full object-cover group-hover/item:scale-105 transition-transform duration-300"></div>
+                        <div class="rounded-2xl overflow-hidden border border-slate-800 bg-slate-900/50 aspect-square group/item"><img src="images/blood22.jpg" alt="Photo 22" class="w-full h-full object-cover group-hover/item:scale-105 transition-transform duration-300"></div>
+                        <div class="rounded-2xl overflow-hidden border border-slate-800 bg-slate-900/50 aspect-square group/item"><img src="images/blood24.jpg" alt="Photo 24" class="w-full h-full object-cover group-hover/item:scale-105 transition-transform duration-300"></div>
+                        <div class="rounded-2xl overflow-hidden border border-slate-800 bg-slate-900/50 aspect-square group/item"><img src="images/blood25.jpg" alt="Photo 25" class="w-full h-full object-cover group-hover/item:scale-105 transition-transform duration-300"></div>
+                        <div class="rounded-2xl overflow-hidden border border-slate-800 bg-slate-900/50 aspect-square group/item"><img src="images/blood26.jpg" alt="Photo 26" class="w-full h-full object-cover group-hover/item:scale-105 transition-transform duration-300"></div>
+                        <div class="rounded-2xl overflow-hidden border border-slate-800 bg-slate-900/50 aspect-square group/item"><img src="images/blood27.jpg" alt="Photo 27" class="w-full h-full object-cover group-hover/item:scale-105 transition-transform duration-300"></div>
+                    </div>
                 </div>
             </details>
 
         </div>
 
-        <!-- Monthly Jam Sessions Grid -->
+        <!-- Monthly Jam Sessions Grid (Updated with Respective Flyer Thumbnails) -->
         <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-            <div class="p-8 rounded-3xl bg-slate-900/60 border border-slate-800/80 backdrop-blur-xl flex flex-col justify-between">
+            <div class="p-8 rounded-3xl bg-slate-900/60 border border-slate-800/80 backdrop-blur-xl flex flex-col justify-between space-y-6">
                 <div>
                     <div class="text-xs font-bold tracking-widest text-blue-400 uppercase">Monthly Jam</div>
                     <h3 class="text-2xl font-bold font-['Space_Grotesk'] text-white mt-2">VFW Post #4895 Sessions</h3>
                     <p class="text-slate-400 text-sm mt-3 leading-relaxed">Madison St, Clarksville, TN. 1st Thursday of each month, 4:00 PM – 6:00 PM. Open pickin' and chord practice.</p>
                 </div>
-                <span class="mt-8 inline-flex items-center gap-2 text-sm font-semibold text-slate-500">
+
+                <!-- VFW Flyer Thumbnail -->
+                <div class="rounded-2xl overflow-hidden border border-slate-700/50 bg-slate-950/40 p-2">
+                    <img src="images/vfw-jam-1.jpg" alt="VFW Jam Session Flyer" class="w-full h-auto object-contain rounded-xl hover:scale-[1.02] transition-transform duration-500">
+                </div>
+
+                <span class="inline-flex items-center gap-2 text-sm font-semibold text-slate-500">
                     <span>Open to Active Cohort</span>
                 </span>
             </div>
 
-            <div class="p-8 rounded-3xl bg-slate-900/60 border border-slate-800/80 backdrop-blur-xl flex flex-col justify-between">
+            <div class="p-8 rounded-3xl bg-slate-900/60 border border-slate-800/80 backdrop-blur-xl flex flex-col justify-between space-y-6">
                 <div>
                     <div class="text-xs font-bold tracking-widest text-blue-400 uppercase">Monthly Jam</div>
                     <h3 class="text-2xl font-bold font-['Space_Grotesk'] text-white mt-2">American Legion Post 233</h3>
                     <p class="text-slate-400 text-sm mt-3 leading-relaxed">Oak Grove, KY. 3rd Tuesday of each month, 4:00 PM – 6:00 PM. Open pickin' and chord practice.</p>
                 </div>
-                <span class="mt-8 inline-flex items-center gap-2 text-sm font-semibold text-slate-500">
+
+                <!-- American Legion Flyer Thumbnail -->
+                <div class="rounded-2xl overflow-hidden border border-slate-700/50 bg-slate-950/40 p-2">
+                    <img src="images/legion-jam-1.jpg" alt="American Legion Jam Session Flyer" class="w-full h-auto object-contain rounded-xl hover:scale-[1.02] transition-transform duration-500">
+                </div>
+
+                <span class="inline-flex items-center gap-2 text-sm font-semibold text-slate-500">
                     <span>Open to Active Cohort</span>
                 </span>
             </div>
