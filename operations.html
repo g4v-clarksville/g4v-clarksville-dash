@@ -111,23 +111,23 @@
             </div>
         </div>
 
-        <!-- Section Wrapper for Photo Galleries (Sponsor Card / Dropdown Pattern) -->
-        <div class="space-y-8">
+        <!-- Section Wrapper for Photo Galleries (Constrained Grid matching event/sponsor cards) -->
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 items-start">
             
-            <!-- Graduation Photo Collection Section (Oct 9, 2026) -->
-            <div class="p-6 md:p-8 rounded-3xl bg-slate-900/60 border border-slate-800/80 backdrop-blur-xl w-full shadow-2xl space-y-4">
+            <!-- Graduation Photo Collection Section (9 Oct 2026) -->
+            <div class="relative bg-slate-900/95 backdrop-blur-xl p-6 rounded-3xl space-y-5 border border-slate-800/80 shadow-xl max-w-xl w-full">
                 <div>
                     <div class="flex items-center justify-between">
-                        <div class="flex items-center gap-2">
-                            <span class="text-xs font-bold tracking-widest text-amber-500 uppercase">Milestone Celebration</span>
-                            <span class="px-2 py-0.5 rounded-full bg-amber-500/20 text-amber-400 text-[10px] font-bold">Oct 9, 2026</span>
-                        </div>
-                        <span class="w-8 h-8 rounded-xl bg-amber-500/10 border border-amber-500/30 text-amber-400 font-bold text-xs flex items-center justify-center">G</span>
+                        <span class="px-2.5 py-0.5 rounded-full bg-amber-500/20 text-amber-400 text-xs font-extrabold tracking-wider uppercase border border-amber-500/30">
+                            Milestone Celebration
+                        </span>
+                        <span class="text-xs text-slate-400 font-medium">Oct 9, 2026</span>
                     </div>
                     <h3 class="text-xl font-bold font-['Space_Grotesk'] text-white mt-3">Graduation Ceremony Photo Collection</h3>
-                    <p class="text-slate-400 text-xs mt-1">Celebrating 3 new graduates! Click below to view the event gallery and details.</p>
+                    <p class="text-slate-300 text-sm mt-1">Celebrating 3 new graduates! Click below to view the event gallery.</p>
                 </div>
 
+                <!-- Clickable Dropdown Accordion Bar -->
                 <div class="space-y-3 pt-2">
                     <details class="group/partner bg-slate-950/60 border border-slate-800/60 rounded-2xl p-4 cursor-pointer transition-all">
                         <summary class="flex items-center justify-between list-none select-none">
@@ -137,8 +137,11 @@
                             </div>
                         </summary>
 
+                        <!-- Expanded Content Inside Dropdown -->
                         <div class="mt-4 pt-4 border-t border-slate-800/80 space-y-6">
-                            <div class="grid md:grid-cols-2 gap-4 items-center max-w-2xl">
+                            
+                            <!-- Preview & Location Info Box -->
+                            <div class="space-y-4">
                                 <div class="rounded-xl overflow-hidden border border-slate-700/50 bg-slate-950/40 p-2">
                                     <img src="images/grad-oct-10.jpg" alt="Graduation Showcase Preview" class="w-full h-auto object-contain rounded-lg">
                                 </div>
@@ -149,7 +152,8 @@
                                 </div>
                             </div>
 
-                            <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4 pt-2">
+                            <!-- Full Photo Grid -->
+                            <div class="grid grid-cols-2 sm:grid-cols-3 gap-3 pt-2">
                                 <div class="rounded-2xl overflow-hidden border border-slate-800 bg-slate-900/50 aspect-square group/item"><img src="images/grad-oct-1.jpg" alt="Graduation Photo 1" class="w-full h-full object-cover group-hover/item:scale-105 transition-transform duration-300"></div>
                                 <div class="rounded-2xl overflow-hidden border border-slate-800 bg-slate-900/50 aspect-square group/item"><img src="images/grad-oct-2.jpg" alt="Graduation Photo 2" class="w-full h-full object-cover group-hover/item:scale-105 transition-transform duration-300"></div>
                                 <div class="rounded-2xl overflow-hidden border border-slate-800 bg-slate-900/50 aspect-square group/item"><img src="images/grad-oct-3.jpg" alt="Graduation Photo 3" class="w-full h-full object-cover group-hover/item:scale-105 transition-transform duration-300"></div>
@@ -166,20 +170,20 @@
                 </div>
             </div>
 
-            <!-- Love Blood Ink Photo Collection Section (Oct 3, 2026) -->
-            <div class="p-6 md:p-8 rounded-3xl bg-slate-900/60 border border-slate-800/80 backdrop-blur-xl w-full shadow-2xl space-y-4">
+            <!-- Love Blood Ink Photo Collection Section (3 Oct 2026) -->
+            <div class="relative bg-slate-900/95 backdrop-blur-xl p-6 rounded-3xl space-y-5 border border-slate-800/80 shadow-xl max-w-xl w-full">
                 <div>
                     <div class="flex items-center justify-between">
-                        <div class="flex items-center gap-2">
-                            <span class="text-xs font-bold tracking-widest text-blue-400 uppercase">Event Visual Archives</span>
-                            <span class="px-2 py-0.5 rounded-full bg-blue-500/20 text-blue-300 text-[10px] font-bold">Oct 3, 2026</span>
-                        </div>
-                        <span class="w-8 h-8 rounded-xl bg-blue-500/10 border border-blue-500/30 text-blue-400 font-bold text-xs flex items-center justify-center">A</span>
+                        <span class="px-2.5 py-0.5 rounded-full bg-blue-500/20 text-blue-300 text-xs font-extrabold tracking-wider uppercase border border-blue-500/30">
+                            Event Visual Archives
+                        </span>
+                        <span class="text-xs text-slate-400 font-medium">Oct 3, 2026</span>
                     </div>
                     <h3 class="text-xl font-bold font-['Space_Grotesk'] text-white mt-3">Love Blood Ink Photo Collection</h3>
-                    <p class="text-slate-400 text-xs mt-1">Click below to expand the complete event gallery and details.</p>
+                    <p class="text-slate-300 text-sm mt-1">Highlights and community connection. Click below to view gallery.</p>
                 </div>
 
+                <!-- Clickable Dropdown Accordion Bar -->
                 <div class="space-y-3 pt-2">
                     <details class="group/partner bg-slate-950/60 border border-slate-800/60 rounded-2xl p-4 cursor-pointer transition-all">
                         <summary class="flex items-center justify-between list-none select-none">
@@ -189,8 +193,11 @@
                             </div>
                         </summary>
 
+                        <!-- Expanded Content Inside Dropdown -->
                         <div class="mt-4 pt-4 border-t border-slate-800/80 space-y-6">
-                            <div class="grid md:grid-cols-2 gap-4 items-center max-w-2xl">
+                            
+                            <!-- Preview & Location Info Box -->
+                            <div class="space-y-4">
                                 <div class="rounded-xl overflow-hidden border border-slate-700/50 bg-slate-950/40 p-2">
                                     <img src="images/blood9.jpg" alt="Love Blood Ink Showcase Preview" class="w-full h-auto object-contain rounded-lg">
                                 </div>
@@ -204,7 +211,8 @@
                                 </div>
                             </div>
 
-                            <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-4 pt-2">
+                            <!-- Full Photo Grid -->
+                            <div class="grid grid-cols-2 sm:grid-cols-3 gap-3 pt-2">
                                 <div class="rounded-2xl overflow-hidden border border-slate-800 bg-slate-900/50 aspect-square group/item"><img src="images/blood1.jpg" alt="Photo 1" class="w-full h-full object-cover group-hover/item:scale-105 transition-transform duration-300"></div>
                                 <div class="rounded-2xl overflow-hidden border border-slate-800 bg-slate-900/50 aspect-square group/item"><img src="images/blood2.jpg" alt="Photo 2" class="w-full h-full object-cover group-hover/item:scale-105 transition-transform duration-300"></div>
                                 <div class="rounded-2xl overflow-hidden border border-slate-800 bg-slate-900/50 aspect-square group/item"><img src="images/blood3.jpg" alt="Photo 3" class="w-full h-full object-cover group-hover/item:scale-105 transition-transform duration-300"></div>
@@ -238,7 +246,6 @@
             </div>
 
         </div>
-
         <!-- Monthly Jam Sessions Grid -->
         <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
             <div class="p-8 rounded-3xl bg-slate-900/60 border border-slate-800/80 backdrop-blur-xl flex flex-col justify-between space-y-6">
