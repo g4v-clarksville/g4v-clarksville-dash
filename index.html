@@ -278,17 +278,7 @@
             </div>
         </section>
 
-        <!-- Sponsor Tiers & Business Cards Section -->
-        <section id="gallery" class="space-y-6">
-            <div>
-                <h2 class="text-3xl font-extrabold font-['Space_Grotesk'] text-white tracking-tight">Valued Chapter Sponsors</h2>
-                <p class="text-slate-400 mt-1">Partners powering our mission in Clarksville and Oak Grove.</p>
-            </div>
-
-            <!-- Tiers Grid Container -->
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-                
-                <!-- Gold Tier (Single Sponsor) -->
+        <!-- Gold Tier (Single Sponsor) -->
                 <div class="p-6 rounded-3xl bg-slate-900/60 border border-slate-800/80 backdrop-blur-xl flex flex-col justify-between">
                     <div>
                         <div class="flex items-center justify-between">
@@ -312,42 +302,42 @@
                     </div>
                 </div>
 
-                <!-- Bronze Tier (Collapsible Accordion for Multiple Sponsors) -->
-                <details class="group p-6 rounded-3xl bg-slate-900/60 border border-slate-800/80 backdrop-blur-xl flex flex-col justify-between cursor-pointer transition-all">
-                    <summary class="flex items-center justify-between list-none select-none">
-                        <div>
-                            <div class="flex items-center gap-2">
-                                <span class="text-xs font-bold tracking-widest text-amber-600 uppercase">Bronze Tier</span>
-                                <span class="px-2 py-0.5 rounded-full bg-amber-600/20 text-amber-500 text-[10px] font-bold">2 Partners</span>
-                            </div>
-                            <h3 class="text-xl font-bold font-['Space_Grotesk'] text-white mt-3">Bronze Sponsors</h3>
-                            <p class="text-slate-400 text-xs mt-1">Click to view all tier members</p>
+                <!-- Bronze Tier (Container with Independent Expandable Partners) -->
+                <div class="p-6 rounded-3xl bg-slate-900/60 border border-slate-800/80 backdrop-blur-xl flex flex-col justify-between space-y-4">
+                    <div>
+                        <div class="flex items-center justify-between">
+                            <span class="text-xs font-bold tracking-widest text-amber-600 uppercase">Bronze Tier</span>
+                            <span class="w-8 h-8 rounded-xl bg-amber-600/10 border border-amber-600/30 text-amber-500 font-bold text-xs flex items-center justify-center">B</span>
                         </div>
-                        <div class="w-8 h-8 rounded-xl bg-amber-600/10 border border-amber-600/30 text-amber-500 font-bold text-xs flex items-center justify-center group-open:rotate-180 transition-transform">
-                            ▼
-                        </div>
-                    </summary>
-
-                    <!-- Expanded Tier List Content -->
-                    <div class="mt-6 pt-6 border-t border-slate-800 space-y-4">
-                        <!-- Sponsor 1 -->
-                        <div class="p-4 rounded-2xl bg-slate-950/40 border border-slate-800/60 space-y-1">
-                            <h4 class="font-bold text-white text-sm">Love Blood Ink Tattoo</h4>
-                            <p class="text-slate-400 text-xs">265 Stonecrossing Dr, Clarksville, TN</p>
-                        </div>
-
-                        <!-- Sponsor 2 -->
-                        <div class="p-4 rounded-2xl bg-slate-950/40 border border-slate-800/60 space-y-3">
-                            <div>
-                                <h4 class="font-bold text-white text-sm">McReynolds-Nave & Larson</h4>
-                                <p class="text-slate-400 text-xs">1209 Madison Street, Clarksville, TN 37040</p>
-                            </div>
-                            <div class="rounded-lg overflow-hidden border border-slate-800 bg-slate-900/50 p-1">
-                                <img src="images/sponsor1.jpg" alt="McReynolds-Nave & Larson Business Card" class="w-full h-auto object-contain rounded">
-                            </div>
-                        </div>
+                        <h3 class="text-xl font-bold font-['Space_Grotesk'] text-white mt-3">Bronze Sponsors</h3>
+                        <p class="text-slate-400 text-xs mt-1">Select a partner below to view details</p>
                     </div>
-                </details>
+
+                    <!-- Independent Expandable Partners -->
+                    <div class="space-y-3 pt-2">
+                        <!-- Partner 1: Love Blood Ink Tattoo -->
+                        <details class="group/partner bg-slate-950/60 border border-slate-800/60 rounded-2xl p-4 cursor-pointer transition-all">
+                            <summary class="flex items-center justify-between list-none select-none">
+                                <span class="font-bold text-white text-sm">Love Blood Ink Tattoo</span>
+                                <span class="text-xs text-amber-400 group-open/partner:rotate-180 transition-transform font-bold">▼</span>
+                            </summary>
+                            <div class="mt-3 pt-3 border-t border-slate-800/80 text-xs text-slate-400">
+                                <p>265 Stonecrossing Dr, Clarksville, TN</p>
+                            </div>
+                        </details>
+
+                        <!-- Partner 2: McReynolds-Nave & Larson -->
+                        <details class="group/partner bg-slate-950/60 border border-slate-800/60 rounded-2xl p-4 cursor-pointer transition-all">
+                            <summary class="flex items-center justify-between list-none select-none">
+                                <span class="font-bold text-white text-sm">McReynolds-Nave & Larson</span>
+                                <span class="text-xs text-amber-400 group-open/partner:rotate-180 transition-transform font-bold">▼</span>
+                            </summary>
+                            <div class="mt-3 pt-3 border-t border-slate-800/80 text-xs text-slate-400 space-y-1">
+                                <p>1209 Madison Street, Clarksville, TN 37040</p>
+                            </div>
+                        </details>
+                    </div>
+                </div>
 
             </div>
         </section>
