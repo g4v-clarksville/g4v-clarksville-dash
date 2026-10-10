@@ -278,74 +278,122 @@
             </div>
         </section>
 
-         <!-- Sponsor Tiers & Business Cards Section -->
-        <section id="gallery" class="space-y-6">
-            <div>
-                <h2 class="text-3xl font-extrabold font-['Space_Grotesk'] text-white tracking-tight">Valued Chapter Sponsors</h2>
-                <p class="text-slate-400 mt-1">Partners powering our mission in Clarksville and Oak Grove.</p>
-            </div>
-        
-            <!-- Tiers Grid Container (Strictly 3 Columns) -->
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-                
-                <!-- Gold Tier (Single Sponsor) -->
-                <div class="p-6 rounded-3xl bg-slate-900/60 border border-slate-800/80 backdrop-blur-xl flex flex-col justify-between">
-                    <div>
-                        <div class="flex items-center justify-between">
-                            <span class="text-xs font-bold tracking-widest text-amber-500 uppercase">Gold Tier</span>
-                            <span class="w-8 h-8 rounded-xl bg-amber-500/10 border border-amber-500/30 text-amber-400 font-bold text-xs flex items-center justify-center">G</span>
-                        </div>
-                        <h3 class="text-xl font-bold font-['Space_Grotesk'] text-white mt-3">Veterans of Foreign Wars #4895</h3>
-                        <p class="text-slate-400 text-xs mt-1">Clarksville, TN 37043</p>
-                    </div>
-                </div>
-        
-                <!-- Silver Tier (Single Sponsor) -->
-                <div class="p-6 rounded-3xl bg-slate-900/60 border border-slate-800/80 backdrop-blur-xl flex flex-col justify-between">
-                    <div>
-                        <div class="flex items-center justify-between">
-                            <span class="text-xs font-bold tracking-widest text-slate-400 uppercase">Silver Tier</span>
-                            <span class="w-8 h-8 rounded-xl bg-slate-400/10 border border-slate-400/30 text-slate-300 font-bold text-xs flex items-center justify-center">S</span>
-                        </div>
-                        <h3 class="text-xl font-bold font-['Space_Grotesk'] text-white mt-3">American Legion Post 233</h3>
-                        <p class="text-slate-400 text-xs mt-1">Oak Grove, KY 42262</p>
-                    </div>
-                </div>
+        <!-- Sponsor Tiers & Business Cards Section -->
+<section id="gallery" class="space-y-6">
+    <div>
+        <h2 class="text-3xl font-extrabold font-['Space_Grotesk'] text-white tracking-tight">Valued Chapter Sponsors</h2>
+        <p class="text-slate-400 mt-1">Partners powering our mission in Clarksville and Oak Grove.</p>
+    </div>
 
-                <!-- Bronze Tier (Collapsible Accordion Holding Both Partners) -->
-                <details class="group p-6 rounded-3xl bg-slate-900/60 border border-slate-800/80 backdrop-blur-xl flex flex-col justify-between cursor-pointer transition-all">
+    <!-- Tiers Grid Container (Strictly 3 Columns) -->
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        
+        <!-- Gold Tier -->
+        <div class="p-6 rounded-3xl bg-slate-900/60 border border-slate-800/80 backdrop-blur-xl flex flex-col justify-between space-y-4">
+            <div>
+                <div class="flex items-center justify-between">
+                    <div class="flex items-center gap-2">
+                        <span class="text-xs font-bold tracking-widest text-amber-500 uppercase">Gold Tier</span>
+                        <span class="px-2 py-0.5 rounded-full bg-amber-500/20 text-amber-400 text-[10px] font-bold">1 Partner</span>
+                    </div>
+                    <span class="w-8 h-8 rounded-xl bg-amber-500/10 border border-amber-500/30 text-amber-400 font-bold text-xs flex items-center justify-center">G</span>
+                </div>
+                <h3 class="text-xl font-bold font-['Space_Grotesk'] text-white mt-3">Gold Sponsors</h3>
+                <p class="text-slate-400 text-xs mt-1">Click to view all tier members</p>
+            </div>
+
+            <!-- Partner Card Inside Tier Container -->
+            <div class="space-y-3 pt-2">
+                <details class="group/partner bg-slate-950/60 border border-slate-800/60 rounded-2xl p-4 cursor-pointer transition-all">
                     <summary class="flex items-center justify-between list-none select-none">
-                        <div>
-                            <div class="flex items-center gap-2">
-                                <span class="text-xs font-bold tracking-widest text-amber-600 uppercase">Bronze Tier</span>
-                                <span class="px-2 py-0.5 rounded-full bg-amber-600/20 text-amber-500 text-[10px] font-bold">2 Partners</span>
-                            </div>
-                            <h3 class="text-xl font-bold font-['Space_Grotesk'] text-white mt-3">Bronze Sponsors</h3>
-                            <p class="text-slate-400 text-xs mt-1">Click to view all tier members</p>
-                        </div>
-                        <div class="w-8 h-8 rounded-xl bg-amber-600/10 border border-amber-600/30 text-amber-500 font-bold text-xs flex items-center justify-center group-open:rotate-180 transition-transform">
+                        <span class="font-bold text-white text-sm">Veterans of Foreign Wars #4895</span>
+                        <div class="w-6 h-6 rounded-lg bg-amber-500/10 border border-amber-500/30 text-amber-400 font-bold text-xs flex items-center justify-center group-open/partner:rotate-180 transition-transform">
                             ▼
                         </div>
                     </summary>
-        
-                    <!-- Expanded Tier List Content (Name & Address Only) -->
-                    <div class="mt-6 pt-6 border-t border-slate-800 space-y-4">
-                        <!-- Sponsor 1 -->
-                        <div class="p-4 rounded-2xl bg-slate-950/40 border border-slate-800/60 space-y-1">
-                            <h4 class="font-bold text-white text-sm">Love Blood Ink Tattoo</h4>
-                            <p class="text-slate-400 text-xs">265 Stonecrossing Dr, Clarksville, TN</p>
-                        </div>
+                    <div class="mt-3 pt-3 border-t border-slate-800/80 text-xs text-slate-400">
+                        <p>Clarksville, TN 37043</p>
+                    </div>
+                </details>
+            </div>
+        </div>
 
-                        <!-- Sponsor 2 -->
-                        <div class="p-4 rounded-2xl bg-slate-950/60 border border-slate-800/60 space-y-1">
-                            <h4 class="font-bold text-white text-sm">McReynolds-Nave & Larson</h4>
-                            <p class="text-slate-400 text-xs">1209 Madison Street, Clarksville, TN 37040</p>
+        <!-- Silver Tier -->
+        <div class="p-6 rounded-3xl bg-slate-900/60 border border-slate-800/80 backdrop-blur-xl flex flex-col justify-between space-y-4">
+            <div>
+                <div class="flex items-center justify-between">
+                    <div class="flex items-center gap-2">
+                        <span class="text-xs font-bold tracking-widest text-slate-400 uppercase">Silver Tier</span>
+                        <span class="px-2 py-0.5 rounded-full bg-slate-400/20 text-slate-300 text-[10px] font-bold">1 Partner</span>
+                    </div>
+                    <span class="w-8 h-8 rounded-xl bg-slate-400/10 border border-slate-400/30 text-slate-300 font-bold text-xs flex items-center justify-center">S</span>
+                </div>
+                <h3 class="text-xl font-bold font-['Space_Grotesk'] text-white mt-3">Silver Sponsors</h3>
+                <p class="text-slate-400 text-xs mt-1">Click to view all tier members</p>
+            </div>
+
+            <!-- Partner Card Inside Tier Container -->
+            <div class="space-y-3 pt-2">
+                <details class="group/partner bg-slate-950/60 border border-slate-800/60 rounded-2xl p-4 cursor-pointer transition-all">
+                    <summary class="flex items-center justify-between list-none select-none">
+                        <span class="font-bold text-white text-sm">American Legion Post 233</span>
+                        <div class="w-6 h-6 rounded-lg bg-slate-400/10 border border-slate-400/30 text-slate-300 font-bold text-xs flex items-center justify-center group-open/partner:rotate-180 transition-transform">
+                            ▼
                         </div>
+                    </summary>
+                    <div class="mt-3 pt-3 border-t border-slate-800/80 text-xs text-slate-400">
+                        <p>Oak Grove, KY 42262</p>
+                    </div>
+                </details>
+            </div>
+        </div>
+
+        <!-- Bronze Tier -->
+        <div class="p-6 rounded-3xl bg-slate-900/60 border border-slate-800/80 backdrop-blur-xl flex flex-col justify-between space-y-4">
+            <div>
+                <div class="flex items-center justify-between">
+                    <div class="flex items-center gap-2">
+                        <span class="text-xs font-bold tracking-widest text-amber-600 uppercase">Bronze Tier</span>
+                        <span class="px-2 py-0.5 rounded-full bg-amber-600/20 text-amber-500 text-[10px] font-bold">2 Partners</span>
+                    </div>
+                    <span class="w-8 h-8 rounded-xl bg-amber-600/10 border border-amber-600/30 text-amber-500 font-bold text-xs flex items-center justify-center">B</span>
+                </div>
+                <h3 class="text-xl font-bold font-['Space_Grotesk'] text-white mt-3">Bronze Sponsors</h3>
+                <p class="text-slate-400 text-xs mt-1">Click to view all tier members</p>
+            </div>
+
+            <!-- Partner Cards Inside Tier Container -->
+            <div class="space-y-3 pt-2">
+                <!-- Partner 1: Love Blood Ink Tattoo -->
+                <details class="group/partner bg-slate-950/60 border border-slate-800/60 rounded-2xl p-4 cursor-pointer transition-all">
+                    <summary class="flex items-center justify-between list-none select-none">
+                        <span class="font-bold text-white text-sm">Love Blood Ink Tattoo</span>
+                        <div class="w-6 h-6 rounded-lg bg-amber-600/10 border border-amber-600/30 text-amber-500 font-bold text-xs flex items-center justify-center group-open/partner:rotate-180 transition-transform">
+                            ▼
+                        </div>
+                    </summary>
+                    <div class="mt-3 pt-3 border-t border-slate-800/80 text-xs text-slate-400">
+                        <p>265 Stonecrossing Dr, Clarksville, TN</p>
                     </div>
                 </details>
 
+                <!-- Partner 2: McReynolds-Nave & Larson -->
+                <details class="group/partner bg-slate-950/60 border border-slate-800/60 rounded-2xl p-4 cursor-pointer transition-all">
+                    <summary class="flex items-center justify-between list-none select-none">
+                        <span class="font-bold text-white text-sm">McReynolds-Nave & Larson</span>
+                        <div class="w-6 h-6 rounded-lg bg-amber-600/10 border border-amber-600/30 text-amber-500 font-bold text-xs flex items-center justify-center group-open/partner:rotate-180 transition-transform">
+                            ▼
+                        </div>
+                    </summary>
+                    <div class="mt-3 pt-3 border-t border-slate-800/80 text-xs text-slate-400">
+                        <p>1209 Madison Street, Clarksville, TN 37040</p>
+                    </div>
+                </details>
             </div>
-        </section>
+        </div>
+
+    </div>
+</section>
 
     </main>
 
